@@ -34,49 +34,32 @@
   </div>
 </div>
 
-<div class="container">
+<!-- Berita -->
+<div class="container mt-3 mb-3">
   <div class="row">
-    <div class="col">
 
-      <br>
-      <br>
+    <h3 class="text-center">Berita</h3>
 
-      <!-- Berita -->
-      <h3 class="text-center">Berita</h3>
-      <div class="card-group">
+    <div class="card-group">
+
+      <?php foreach ($berita as $b) : ?>
         <div class="card">
-          <img src="/img/KIA.jpg" class="card-img-top" alt="...">
+          <img src="/img/berita/<?= $b['fotoberita']; ?>" class="card-img-top" alt="Foto Berita" style="width: 100%; height:fit-content;">
           <div class="card-body">
-            <h5 class="card-title"> Survey Kepuasan Masyarakat </h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+            <h5 class="card-title"> <?= $b['judulberita']; ?> </h5>
+            <p class="card-text"><?= $b['keteranganberita']; ?></p>
+            <p class="card-text"><small class="text-body-secondary">Last updated <?= $b['created_at']; ?> mins ago</small></p>
           </div>
         </div>
-        <div class="card">
-          <img src="/img/KIA.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title"> Disdukcapil Melaksanakan Program Layanan Admininduk Keliling di SMK Negeri 1 Panyingkiran </h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="/img/KIA.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title"> Kegiatan Pelayanan Keliling di Desa Lapang Sari </h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-      </div>
-
-      <br>
-      <br>
+      <?php endforeach; ?>
 
     </div>
+
   </div>
 </div>
 
+
+<!-- Inovasi -->
 <div class="container">
   <div class="row">
     <div class="col">
@@ -84,58 +67,27 @@
       <h3 class="text-center">Inovasi</h3>
 
       <div class="card" style="padding: 10px;">
-
         <div class="row row-cols-1 row-cols-md-2 g-4">
+          <?php foreach ($inovasi as $inov) : ?>
+            <div class="col">
 
-          <div class="col">
-            <div class="card" style="border: none;">
-              <img src="/img/inovasi/GemaPadi.JPG" class="card-img-top" alt="..." style="width: 100%; height: 100%;">
-              <div class="card-body">
-                <h5 class="card-title">Gema Padi</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <div class="card" style="border: none;">
+                <img src="/img/inovasi/<?= $inov['fotoinovasi']; ?>" class="foto_inovasi" alt="..." style="width: 100%; height:fit-content;">
+                <div class="card-body">
+                  <h5 class="card-title"><?= $inov['judulinovasi']; ?></h5>
+                  <p class="card-text"><?= $inov['keteranganinovasi']; ?></p>
+                </div>
               </div>
-            </div>
-          </div>
 
-          <div class="col">
-            <div class="card" style="border: none;">
-              <img src="/img/inovasi/LaMadu.PNG" class="card-img-top" alt="..." style="width: 100%; height: 100%;">
-              <div class="card-body">
-                <h5 class="card-title">La Madu</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
             </div>
-          </div>
+          <?php endforeach; ?>
 
         </div>
 
         <hr>
 
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-
-          <div class="col">
-            <div class="card" style="border: none;">
-              <img src="/img/inovasi/GemaPadi.JPG" class="card-img-top" alt="..." style="width: 100%; height: 100%;">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card" style="border: none;">
-              <img src="/img/inovasi/LaMadu.PNG" class="card-img-top" alt="..." style="width: 100%; height: 100%;">
-              <div class="card-body">
-                <h5 class="card-title">La Madu</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
       </div>
+
     </div>
   </div>
 </div>

@@ -8,24 +8,25 @@
       <h4 class="text-center mt-2 mb-2"> Pendaftaran KIA </h4>
 
       <form action="post" method="post">
+
         <div class="row">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label fw-semibold">Nama Pemohon</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" required="Harap di isi bidang ini">
+            <label for="namapemohon" class="form-label fw-semibold">Nama Pemohon</label>
+            <input type="text" class="form-control" name="namapemohon" id="namapemohon">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label fw-semibold">Email Pemohon</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" required="Harap di isi bidang ini">
+            <label for="emailpemohon" class="form-label fw-semibold">Email Pemohon</label>
+            <input type="text" class="form-control" name="emailpemohon" id="emailpemohon">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label fw-semibold">Nomor Whatsapp</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" required="Harap di isi bidang ini">
+            <label for="nomorpemohon" class="form-label fw-semibold">Nomor Whatsapp</label>
+            <input type="text" class="form-control" name="nomorpemohon" id="nomorpemohon">
           </div>
         </div>
 
@@ -33,22 +34,22 @@
 
         <div class="row">
           <div class="mb-3">
-            <label for="formFile" class="form-label fw-semibold">Akta Kelahiran</label>
-            <input class="form-control" type="file" id="formFile" required="Harap di isi bidang ini">
+            <label for="Formaktalahir" class="form-label fw-semibold">Akta Kelahiran</label>
+            <input class="form-control" type="file" name="Formaktalahir" id="Formaktalahir">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="formFile" class="form-label fw-semibold">Kartu Keluarga</label>
-            <input class="form-control" type="file" id="formFile" required="Harap di isi bidang ini">
+            <label for="FormKK" class="form-label fw-semibold">Kartu Keluarga</label>
+            <input class="form-control" type="file" name="FormKK" id="FormKK">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="formFile" class="form-label fw-semibold">Pas Foto 3x4</label>
-            <input class="form-control" type="file" id="formFile" required="Harap di isi bidang ini">
+            <label for="Formpasfoto" class="form-label fw-semibold">Pas Foto 3x4</label>
+            <input class="form-control" type="file" name="Formpasfoto" id="Formpasfoto">
           </div>
         </div>
 

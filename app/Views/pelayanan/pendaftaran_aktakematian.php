@@ -11,22 +11,22 @@
 
         <div class="row">
           <div class="mb-3">
-            <label for="FormControlInputPemohon" class="form-label fw-semibold">Nama Pemohon</label>
-            <input type="text" class="form-control" name="pemohon" id="nama" required="">
+            <label for="namapemohon" class="form-label fw-semibold">Nama Pemohon</label>
+            <input type="text" class="form-control" name="namapemohon" id="namapemohon">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="FormControlInputEmail" class="form-label fw-semibold">Email Pemohon</label>
-            <input type="email" class="form-control" name="email" id="email" required="">
+            <label for="emailpemohon" class="form-label fw-semibold">Email Pemohon</label>
+            <input type="email" class="form-control" name="emailpemohon" id="emailpemohon">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="FormControlInputNomor" class="form-label fw-semibold">Nomor Whatsapp</label>
-            <input type="text" class="form-control" name="nomor" id="nomor" required>
+            <label for="nomorpemohon" class="form-label fw-semibold">Nomor Whatsapp</label>
+            <input type="text" class="form-control" name="nomorpemohon" id="nomorpemohon">
           </div>
         </div>
 
@@ -34,22 +34,22 @@
 
         <div class="row">
           <div class="mb-3">
-            <label for="FormKKPelapor" class="form-label fw-semibold">Fc Kartu Keluarga Pelapor</label>
-            <input type="file" class="form-control" id="FcKKPelapor">
+            <label for="FormKKPelapor" class="form-label fw-semibold"> Kartu Keluarga Pelapor</label>
+            <input type="file" class="form-control" name="FormKKPelapor" id="FormKKPelapor">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
             <label for="FormKTPMeninggal" class="form-label fw-semibold">KTP Orang Meninggal</label>
-            <input type="file" class="form-control" id="KTPMeninggal">
+            <input type="file" class="form-control" name="FormKTPMeninggal" id="FormKTPMeninggal">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
             <label for="FormSuratKematian" class="form-label fw-semibold">Surat Kematian dari RS</label>
-            <input type="file" class="form-control" id="SuratKematian">
+            <input type="file" class="form-control" name="FormSuratKematian" id="FormSuratKematian">
           </div>
         </div>
 

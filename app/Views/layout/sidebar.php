@@ -36,6 +36,14 @@
     </li>
 
     <li>
+      <a class="text-white" href="/admin/inovasi_admin">
+        <i class="bi bi-slack mr-2"></i>
+        Inovasi
+      </a>
+      <!-- CodeIgniter akan mengakses Controller admin dengan method inovasi_admin -->
+    </li>
+
+    <li>
       <a class="text-white" href="/admin/login">
         <i class="bi bi-box-arrow-right mr-2"></i>
         Logout

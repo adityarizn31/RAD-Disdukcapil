@@ -33,9 +33,18 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Pages::index');
 
-// Membuat routes baru dengan method get lalu user mengakses apapun dan ambil serta diarahkan ke controller admin
-$routes->get('admin/berita_admin/(:segment)', 'Admin::detail/$1');
+// Bagian Halaman Admin
+// Membuat routes baru dengan method get ketika user mengakses (admin/berita_admin) apapun dan ambil serta diarahkan ke controller admin dengan method detail
+$routes->get('admin/data_admin/(:segment)', 'Admin::detail_akun_admin/$1');
 
+$routes->get('admin/berita_admin/(:any)', 'Admin::detail_berita_admin/$1');
+$routes->delete('admin/berita_admin/(:num)', 'Admin::deleteBerita/$1');
+
+$routes->get('admin/inovasi_admin/(:segment)', 'Admin::detail_inovasi_admin/$1');
+
+// Bagian Halaman User
+$routes->get('pages/index/(:segment)', 'Pages::detail_berita/$1');
+$routes->get('pages/index/(:segment)', 'Pages::detail_inovasi/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

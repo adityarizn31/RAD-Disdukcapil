@@ -11,22 +11,22 @@
 
         <div class="row">
           <div class="mb-3">
-            <label for="Nama Pemohon" class="form-label fw-semibold">Nama Pemohon</label>
-            <input type="text" class="form-control" name="Nama" id="Nama" required>
+            <label for="namapemohon" class="form-label fw-semibold">Nama Pemohon</label>
+            <input type="text" class="form-control" name="namapemohon" id="namapemohon">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="Email Pemohon" class="form-label fw-semibold">Email Pemohon</label>
-            <input type="text" class="form-control" name="Email Pemohon" id="Email Pemohon" required>
+            <label for="emailpemohon" class="form-label fw-semibold">Email Pemohon</label>
+            <input type="text" class="form-control" name="emailpemohon" id="emailpemohon">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="Whatsapp Pemohon" class="form-label fw-semibold">Whatsapp Pemohon</label>
-            <input type="text" class="form-control" name="Whatsapp Pemohon" id="Whatsapp Pemohon" required>
+            <label for="nomorpemohon" class="form-label fw-semibold">Whatsapp Pemohon</label>
+            <input type="text" class="form-control" name="nomorpemohon" id="nomorpemohon">
           </div>
         </div>
 
@@ -34,22 +34,21 @@
 
         <div class="row">
           <div class="mb-3">
-            <label for="Kartu Tanda Penduduk" class="form-label fw-semibold">Kartu Tanda Penduduk</label>
-            <input type="file" class="form-control" name="Kartu Tanda Penduduk" id="Kartu Tanda Penduduk" required>
+            <label for="FormKTP" class="form-label fw-semibold">Kartu Tanda Penduduk</label>
+            <input type="file" class="form-control" name="FormKTP" id="FormKTP">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="Kartu Keluarga" class="form-label fw-semibold">Kartu Keluarga</label>
-            <input type="file" class="form-control" name="Kartu Keluarga" id="Kartu Keluarga" required>
+            <label for="FormKK" class="form-label fw-semibold">Kartu Keluarga</label>
+            <input type="file" class="form-control" name="FormKK" id="FormKK">
           </div>
         </div>
 
         <div class="d-grid gap-2 col-6 mx-auto">
           <input type="submit" value="Submit" id="Submit" class="btn-primary rounded-md">
         </div>
-
 
       </form>
 

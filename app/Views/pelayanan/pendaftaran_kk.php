@@ -12,22 +12,22 @@
 
         <div class="row">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label fw-semibold">Nama Pemohon</label>
-            <input type="text" class="form-control" id="nama" required="Harap di isi bidang ini!!">
+            <label for="namapemohon" class="form-label fw-semibold">Nama Pemohon</label>
+            <input type="text" class="form-control" name="namapemohon" id="namapemohon">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label fw-semibold">Email Pemohon</label>
-            <input type="text" class="form-control" id="email" required>
+            <label for="emailpemohon" class="form-label fw-semibold">Email Pemohon</label>
+            <input type="text" class="form-control" name="emailpemohon" id="emailpemohon">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label fw-semibold">Nomor Whatsapp</label>
-            <input type="text" class="form-control" id="nomor" required>
+            <label for="nomorpemohon" class="form-label fw-semibold">Nomor Whatsapp</label>
+            <input type="text" class="form-control" name="nomorpemohon" id="nomorpemohon">
           </div>
         </div>
 
@@ -35,36 +35,36 @@
 
         <div class="row">
           <div class="mb-3">
-            <label for="formFile" class="form-label fw-semibold">Formulir Desa</label>
-            <input class="form-control" type="file" id="formFile" required>
+            <label for="Formdesa" class="form-label fw-semibold">Formulir Desa</label>
+            <input class="form-control" type="file" name="Formdesa" id="Formdesa">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="formFile" class="form-label fw-semibold">Kartu Keluarga Suami(masing-masing)</label>
-            <input class="form-control" type="file" id="formFile" required>
+            <label for="FormKKsuami" class="form-label fw-semibold">Kartu Keluarga Suami(masing-masing)</label>
+            <input class="form-control" type="file" name="FormKKsuami" id="FormKKsuami">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="formFile" class="form-label fw-semibold">Kartu Keluarga Istri(masing-masing)</label>
-            <input class="form-control" type="file" id="formFile" required>
+            <label for="FormKKistri" class="form-label fw-semibold">Kartu Keluarga Istri(masing-masing)</label>
+            <input class="form-control" type="file" name="FormKKistri" id="FormKKistri">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="formFile" class="form-label fw-semibold">Surat Nikah</label>
-            <input class="form-control" type="file" id="formFile" required>
+            <label for="Formsuratnikah" class="form-label fw-semibold">Surat Nikah</label>
+            <input class="form-control" type="file" name="Formsuratnikah" id="Formsuratnikah">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="formFile" class="form-label fw-semibold">Surat Pindah (Jika alamat berbeda)</label>
-            <input class="form-control" type="file" id="formFile">
+            <label for="Formsuratpindah" class="form-label fw-semibold">Surat Pindah (Jika alamat berbeda)</label>
+            <input class="form-control" type="file" name="Formsuratpindah" id="Formsuratpindah">
           </div>
         </div>
 

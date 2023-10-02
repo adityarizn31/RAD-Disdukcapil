@@ -1,19 +1,33 @@
-<?php // Controller yang digunakan untuk mengakses halaman statis
+<?php
 
 namespace App\Controllers;
 
-use CodeIgniter\CodeIgniter;
+use App\Models\BeritaModel;
+use App\Models\InovasiModel;
 
 class Pages extends BaseController
 {
+
+  protected $beritaModel;
+  protected $inovasiModel;
+
+  public function __construct()
+  {
+    $this->beritaModel = new BeritaModel();
+    $this->inovasiModel = new InovasiModel();
+  }
+
   public function index()
   {
+    // Menghubungkan Controller Pages dengan  BeritaModel dan InovasiModel
+    $berita = $this->beritaModel->findAll();
+    $inovasi = $this->inovasiModel->findAll();
     $data = [
-      'title' => 'Home || Disdukcapil Majalengka'
+      'title' => 'Home || Disdukcapil Majalengka',
+      'berita' => $berita,
+      'inovasi' => $inovasi
     ];
-
     return view('pages/index', $data);
-
     //read : CodeIgniter tolong akses Controller Pages dengan method Index
   }
 
@@ -22,17 +36,7 @@ class Pages extends BaseController
     $data = [
       'title' => 'Tentang Kami || Disdukcapil Majalengka'
     ];
-
     return view('pages/tentangkami', $data);
-  }
-
-  public function contact()
-  {
-    $data = [
-      'title' => 'Contact || Disdukcapil Majalengka'
-    ];
-
-    return view('pages/contact', $data);
   }
 
   public function pelayanan()
@@ -40,7 +44,6 @@ class Pages extends BaseController
     $data = [
       'title' => 'Pelayanan || Disdukcapil Majalengka'
     ];
-
     return view('pages/pelayanan', $data);
   }
 }

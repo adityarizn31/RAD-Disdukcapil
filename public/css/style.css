@@ -123,8 +123,18 @@ a {
   transform: translate(-50%, -50%);
 }
 
-
 .foto_berita {
   width: 100%;
 }
 
+.foto_inovasi {
+  width: 100%;
+}
+
+.detail-berita {
+  
+}
+
+.textarea {
+  max-width: 100%;
+}

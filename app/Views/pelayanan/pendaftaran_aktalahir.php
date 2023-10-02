@@ -11,22 +11,22 @@
 
         <div class="row">
           <div class="mb-3">
-            <label for="Nama Pemohon" class="form-label fw-semibold">Nama Pemohon</label>
-            <input type="text" class="form-control" name="nama" id="nama" required>
+            <label for="namapemohon" class="form-label fw-semibold">Nama Pemohon</label>
+            <input type="text" class="form-control" name="namapemohon" id="namapemohon">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="Email Pemohon" class="form-label fw-semibold">Email</label>
-            <input type="email" class="form-control" name="email" id="email" required>
+            <label for="emailpemohon" class="form-label fw-semibold">Email</label>
+            <input type="email" class="form-control" name="emailpemohon" id="emailpemohon">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="Whatsapp pemohon" class="form-label fw-semibold">WhatsApp Pemohon</label>
-            <input type="text" class="form-control" name="whatsapp pemohon" id="whatsapp pemohon">
+            <label for="nomorpemohon" class="form-label fw-semibold">WhatsApp Pemohon</label>
+            <input type="text" class="form-control" name="nomorpemohon" id="nomorpemohon">
           </div>
         </div>
 
@@ -34,36 +34,36 @@
 
         <div class="row">
           <div class="mb-3">
-            <label for="Formulir AktaLahir" class="form-label fw-semibold">Formulir F2 01</label>
-            <input type="file" class="form-control" name="Fomulir AktaLahir" id="Fomulir AktaLahir">
+            <label for="Formaktalahir" class="form-label fw-semibold">Formulir F2.01</label>
+            <input type="file" class="form-control" name="Formaktalahir" id="Formaktalahir">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="Surat Keterangan" class="form-label fw-semibold">Surat Keterangan Lahir</label>
-            <input type="file" class="form-control" name="Surat Keterangan" id="Surat Keterangan">
+            <label for="Formsuratketerangan" class="form-label fw-semibold">Surat Keterangan Lahir</label>
+            <input type="file" class="form-control" name="Formsuratketerangan" id="Formsuratketerangan">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="Kartu Keluarga" class="form-label fw-semibold">Kartu Keluarga</label>
-            <input type="file" class="form-control" name="Kartu Keluarga" id="Kartu Keluarga">
+            <label for="FormKK" class="form-label fw-semibold">Kartu Keluarga</label>
+            <input type="file" class="form-control" name="FormKK" id="FormKK">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="KTP Ayah" class="form-label fw-semibold">Kartu Tanda Penduduk Ayah</label>
-            <input class="form-control" type="file" id="formFile" name="KTP Ayah" id="KTP Ayah" required>
+            <label for="FormKTPAyah" class="form-label fw-semibold">Kartu Tanda Penduduk Ayah</label>
+            <input class="form-control" type="file" name="FormKTPAyah" id="FormKTPAyah">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="KTP Ibu" class="form-label fw-semibold">Kartu Tanda Penduduk Ibu</label>
-            <input class="form-control" type="file" id="formFile" name="KTP Ibu" id="KTP Ibu" required>
+            <label for="FormKTPIbu" class="form-label fw-semibold">Kartu Tanda Penduduk Ibu</label>
+            <input class="form-control" type="file" name="FormKTPIbu" id="FormKTPIbu">
           </div>
         </div>
 

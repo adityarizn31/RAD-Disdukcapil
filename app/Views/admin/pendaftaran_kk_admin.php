@@ -46,15 +46,15 @@
               <a href="" class="btn btn-success">Detail</a>
             </td>
           </tr>
+
           <!-- Baris 2 -->
           <tr>
             <th scope="row">2</th>
-
           </tr>
+
           <!-- Baris 3 -->
           <tr>
             <th scope="row">3</th>
-
           </tr>
 
         </tbody>

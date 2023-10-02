@@ -11,22 +11,22 @@
 
         <div class="row">
           <div class="mb-3">
-            <label for="Nama Pemohon" class="form-label fw-semibold">Nama Pemohon</label>
-            <input type="text" class="form-control" name="nama" id="nama" required>
+            <label for="namapemohon" class="form-label fw-semibold">Nama Pemohon</label>
+            <input type="text" class="form-control" name="namapemohon" id="namapemohon">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="Email Pemohon" class="form-label fw-semibold">Email Pemohon</label>
-            <input type="text" class="form-control" name="email" id="email" required>
+            <label for="emailpemohon" class="form-label fw-semibold">Email Pemohon</label>
+            <input type="text" class="form-control" name="emailpemohon" id="emailpemohon">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="Whatsapp pemohon" class="form-label fw-semibold">WhatsApp Pemohon</label>
-            <input type="text" class="form-control" name="whatsapp" id="whatsapp" required>
+            <label for="nomorpemohon" class="form-label fw-semibold">WhatsApp Pemohon</label>
+            <input type="text" class="form-control" name="nomorpemohon" id="nomorpemohon">
           </div>
         </div>
 
@@ -34,29 +34,30 @@
 
         <div class="row">
           <div class="mb-3">
-            <label for="Nama Pelapor" class="form-label fw-semibold">Nama Pelapor</label>
-            <input type="text" class="form-control" name="pelapor" id="pelapor" required>
+            <label for="Formpelapor" class="form-label fw-semibold">Nama Pelapor</label>
+            <input type="text" class="form-control" name="Formpelapor" id="Formpelapor">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="" class="form-label fw-semibold">Kartu Tanda Penduduk Pelapor</label>
-            <input class="form-control" type="file" id="formFile" name="ktp" id="ktp" required>
+            <label for="FormKTPpelapor" class="form-label fw-semibold">Kartu Tanda Penduduk Pelapor</label>
+            <input class="form-control" type="file" name="FormKTPpelapor" id="FormKTPpelapor">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="" class="form-label fw-semibold">Kartu Keluarga Pelapor</label>
-            <input class="form-control" type="file" id="formFile" name="kartukeluarga" id="kartukeluarga" required>
+            <label for="FormKKpelapor" class="form-label fw-semibold">Kartu Keluarga Pelapor</label>
+            <input class="form-control" type="file" name="FormKKpelapor" id="FormKKpelapor">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="" class="form-label fw-semibold">Pengaduan</label>
-            <input type="textarea" class="form-control" name="pengaduan" id="pengaduan" required>
+            <label for="Formpengaduan" class="form-label fw-semibold">Pengaduan</label>
+            <br>
+            <textarea name="Formpengaduan" id="Formpengaduan" class=" form-control text-area"></textarea>
           </div>
         </div>
 

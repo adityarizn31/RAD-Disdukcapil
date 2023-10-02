@@ -11,22 +11,22 @@
 
         <div class="row">
           <div class="mb-3">
-            <label for="FormControlInput1" class="form-label fw-semibold">Nama Pemohon</label>
-            <input type="text" class="form-control" id="nama" required="">
+            <label for="namapemohon" class="form-label fw-semibold">Nama Pemohon</label>
+            <input type="text" class="form-control" name="namapemohon" id="namapemohon">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label fw-semibold">Email Pemohon</label>
-            <input type="text" class="form-control" id="email" required>
+            <label for="emailpemohon" class="form-label fw-semibold">Email Pemohon</label>
+            <input type="text" class="form-control" name="emailpemohon" id="emailpemohon">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label fw-semibold">Nomor Whatsapp</label>
-            <input type="text" class="form-control" id="nomor" required>
+            <label for="nomorpemohon" class="form-label fw-semibold">Nomor Whatsapp</label>
+            <input type="text" class="form-control" name="nomorpemohon" id="nomorpemohon">
           </div>
         </div>
 
@@ -42,15 +42,15 @@
 
         <div class="row">
           <div class="mb-3">
-            <label for="FormControlInput1" class="form-label fw-semibold">Formulir F1.02 KTP</label>
-            <input type="file" class="form-control" id="FormulirKTP">
+            <label for="FormF102" class="form-label fw-semibold">Formulir F1.02 KTP</label>
+            <input type="file" class="form-control" name="FormF102" id="FormF102">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
-            <label for="FormControlInput1" class="form-label fw-semibold">Kartu Keluarga</label>
-            <input type="file" class="form-control" id="KartuKeluarga">
+            <label for="FormKK" class="form-label fw-semibold">Kartu Keluarga</label>
+            <input type="file" class="form-control" name="FormKK" id="FormKK">
           </div>
         </div>
 

@@ -3,14 +3,11 @@
 <?= $this->section('content'); ?>
 
 <center>
-  <div class="justify-content-center">
+  <div class="justify-content-center mt-4 mb-4">
     <div class="sampulsilancar">
       <div class="card text-bg-dark">
         <img src="/img/silancar/SiLancar.png" class="card-img" alt="...">
         <div class="card-img-overlay">
-          <!-- <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small>Last updated 3 mins ago</small></p> -->
         </div>
       </div>
     </div>
@@ -18,10 +15,10 @@
 </center>
 
 
-<div class="container" style="padding: 20px; padding-left: 100px;">
+<div class="container card" style="padding: 20px; padding-left: 100px;">
   <div class="row">
     <!-- Pendaftaran Kartu Keluarga -->
-    <div class="card" style="width: 18rem; padding: 30px; margin: 20px;">
+    <div class="card shadow border-2" style="width: 18rem; padding: 30px; margin: 20px;">
       <a href="/pelayanan/pendaftaran_kk">
         <img src="/img/KK.jpg" class="card-img-top" alt="...">
         <div class="card-body">
@@ -32,7 +29,7 @@
 
 
     <!-- Pendaftaran KTP -->
-    <div class="card" style="width: 18rem; padding: 10px; margin: 20px;">
+    <div class="card shadow border-2" style="width: 18rem; padding: 10px; margin: 20px;">
       <a href="/pelayanan/pendaftaran_ktp">
         <img src="/img/KTP.jpg" class="card-img-top" alt="...">
         <div class="card-body">
@@ -42,7 +39,7 @@
     </div>
 
     <!-- Pendaftaran Kartu Identitas Anak -->
-    <div class="card" style="width: 18rem; padding: 10px; margin: 20px;">
+    <div class="card shadow border-2" style="width: 18rem; padding: 10px; margin: 20px;">
       <a href="/pelayanan/pendaftaran_kia">
         <img src="/img/KIA.jpg" class="card-img-top" alt="...">
         <div class="card-body">
@@ -53,7 +50,7 @@
     </div>
 
     <!-- Pendaftaran Akta Kelahiran -->
-    <div class="card" style="width: 18rem; padding: 10px; margin: 20px;">
+    <div class="card shadow border-2" style="width: 18rem; padding: 10px; margin: 20px;">
       <a href="/pelayanan/pendaftaran_aktakelahiran">
         <img src="/img/AKTAKEL.png" class="card-img-top" alt="...">
         <div class="card-body">
@@ -64,7 +61,7 @@
     </div>
 
     <!-- Pendaftaran Akta Kematian -->
-    <div class="card" style="width: 18rem; padding: 10px; margin: 20px;">
+    <div class="card shadow border-2" style="width: 18rem; padding: 10px; margin: 20px;">
       <a href="/pelayanan/pendaftaran_aktakematian">
         <img src="/img/AKTAKET.png" class="card-img-top" alt="...">
         <div class="card-body">
@@ -74,19 +71,8 @@
       </a>
     </div>
 
-    <!-- Pelayanan Pemanfaatan Data Pengaduan -->
-    <div class="card" style="width: 18rem; padding: 10px; margin: 20px;">
-      <a href="/pelayanan/pelayanan_pemanfaatan_data_pengaduan">
-        <img src="/img/adit.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title text-black">Pelayanan Pemanfaatan Data, Inovasi dan Pengaduan antar Lembaga</h5>
-          <p class="card-text text-black">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </a>
-    </div>
-
     <!-- Perbaikan Data -->
-    <div class="card" style="width: 18rem; padding: 10px; margin: 20px;">
+    <div class="card shadow border-2" style="width: 18rem; padding: 10px; margin: 20px;">
       <a href="/pelayanan/perbaikan_data">
         <img src="/img/DATA.png" class="card-img-top" alt="...">
         <div class="card-body">
@@ -97,7 +83,7 @@
     </div>
 
     <!-- Pengaduan Update -->
-    <div class="card" style="width: 18rem; padding: 10px; margin: 20px;">
+    <div class="card shadow border-2" style="width: 18rem; padding: 10px; margin: 20px;">
       <a href="/pelayanan/pengaduan_update">
         <img src="/img/PENGADUAN.png" class="card-img-top" alt="...">
         <div class="card-body">
@@ -108,7 +94,7 @@
     </div>
 
     <!-- Perbaikan NIK -->
-    <div class="card" style="width: 18rem; padding: 10px; margin: 20px;">
+    <div class="card shadow border-2" style="width: 18rem; padding: 10px; margin: 20px;">
       <a href="/pelayanan/perbaikan_nik">
         <img src="/img/PERBAIKANNIK.png" class="card-img-top" alt="...">
         <div class="card-body">

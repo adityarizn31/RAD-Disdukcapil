@@ -4,8 +4,8 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Pengaduan_update_Model extends Model
+class Perbaikan_data_Model extends Model
 {
-  protected $table = 'pengaduan_update';
+  protected $table = 'perbaikan_data';
   protected $useTimeStamps = true;
 }
