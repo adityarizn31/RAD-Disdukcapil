@@ -13,7 +13,6 @@
 
     <div class="card-header py-3 border-0">
       <h6 class="m-0 font-weight-bold text-primary">Detail Berita</h6>
-      <!-- <a href="/admin/berita_admin/" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Kembali </a> -->
     </div>
 
     <div class="container">
@@ -22,24 +21,25 @@
 
           <div class="card mb-3">
             <center>
-              <img src="/img/berita/<?= $berita['fotoberita']; ?>" style="width: 50%;" class="detail_berita mt-3" alt="...">
+              <img src="/img/berita/<?= $berita['fotoberita']; ?>" style="width: 50%;" class="detail_berita mt-3" alt="Foto Berita">
             </center>
             <div class="card-body mt-2">
               <h5 class="card-title"><?= $berita['judulberita']; ?></h5>
               <p class="card-text"><?= $berita['keteranganberita']; ?></p>
-              <p class="card-text"><small class="text-body-secondary"><?= $berita['created_at'] ?></small></p>
+              <p class="card-text"><small class="text-body-secondary"><?= $berita['created_at']; ?></small></p>
 
-              <a href="" class="btn btn-warning">Edit</a>
+              <a href="/admin/editBerita/<?= $berita['judulberita']; ?>" class="btn btn-warning">Edit</a>
 
-              <form action="/admin/<?= $berita['id']; ?>" method="post" class="d-inline">
+              <form action="/admin/deleteBerita/<?= $berita['id']; ?>" method="post" class="d-inline">
                 <?= csrf_field(); ?>
                 <input type="hidden" name="_method" value="DELETE">
-                <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin ? ');">Delete</button>
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin ingin dihapus ?? ');">Delete</button>
               </form>
 
-              <a href="" class="btn btn-danger">Delete</a>
+              <!-- Kodingan Sukses Dihapus -->
+              <!-- <a href="/admin/deleteBerita/<?= $berita['id']; ?>" class="btn btn-danger">Delete</a> -->
 
-              <br><br><a class="" href="/admin/berita_admin/">kembali ke Daftar Berita</a>
+              <br><br><a class="" href="/admin/berita_admin">kembali ke Daftar Berita</a>
             </div>
           </div>
 

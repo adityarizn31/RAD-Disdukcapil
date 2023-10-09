@@ -24,7 +24,7 @@
         <div class="row">
           <div class="mb-3">
             <label for="judulberita" class="form-label fw-semibold">Judul Berita</label>
-            <input type="text" class="form-control <?= ($validation->hasError('judulberita')) ? 'is-invalid' : ''; ?>" name="judulberita" id="judulberita" autofocus value="<?= old('judulberita'); ?>">
+            <input type="text" class="form-control <?= ($validation->hasError('judulberita')) ? 'is-invalid' : ''; ?>" name="judulberita" id="judulberita" autofocus>
             <div class="invalid-feedback">
               <?= $validation->getError('judulberita'); ?>
             </div>
@@ -34,10 +34,8 @@
         <div class="row">
           <div class="mb-3">
             <label for="fotoberita" class="form-label fw-semibold">Foto Berita</label>
-            <input type="text" class="form-control <?= ($validation->hasError('fotoberita')) ? 'is-invalid' : ''; ?>" name="fotoberita" id="fotoberita" value="<?= old('fotoberita'); ?>">
-            <div class="invalid-feedback">
-              <?= $validation->getError('fotoberita'); ?>
-            </div>
+            <!-- <input type="text" class="form-control" src="Foto Berita" alt="Foto Berita"> -->
+            <input type="text" class="form-control" name="fotoberita" id="fotoberita" alt="Foto Berita">
           </div>
         </div>
 
@@ -45,18 +43,14 @@
           <div class="mb-3">
             <label for="keteranganberita" class="form-label fw-semibold">Keterangan</label>
             <br>
-            <textarea name="keteranganberita" id="keteranganberita" class="form-control text-area <?= ($validation->hasError('keteranganberita')) ? 'is-invalid' : ''; ?>" value="<?= old('keteranganberita'); ?>"></textarea>
-            <div class="invalid-feedback">
-              <?= $validation->getError('keteranganberita'); ?>
-            </div>
+            <textarea name="keteranganberita" id="keteranganberita" class="form-control text-area"></textarea>
           </div>
         </div>
 
-        <div class="form-group row">
-          <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary">Tambah Berita</button>
-          </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <input type="submit" value="Submit" id="submit" class="btn-primary rounded-md">
         </div>
+
       </form>
 
     </div>

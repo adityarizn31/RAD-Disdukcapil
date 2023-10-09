@@ -18,26 +18,19 @@
 
       <form action="/admin/saveInovasi" method="post">
 
-        <!-- Keamanan -->
         <?= csrf_field(); ?>
 
         <div class="row">
           <div class="mb-3">
             <label for="judulinovasi" class="form-label fw-semibold">Judul Inovasi</label>
-            <input type="text" class="form-control <?= ($validation->hasError('judulinovasi')) ? 'is-invalid' : ''; ?>" name="judulinovasi" id="judulinovasi" autofocus value="<?= old('judulinovasi'); ?>">
-            <div class="invalid-feedback">
-              <?= $validation->getError('judulinovasi'); ?>
-            </div>
+            <input type="text" class="form-control" name="judulinovasi" id="judulinovasi">
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3">
             <label for="fotoinovasi" class="form-label fw-semibold">Foto Inovasi</label>
-            <input type="file" class="form-control <?= ($validation->hasError('fotoinovasi')) ? 'is-invalid' : ''; ?>" name="fotoinovasi" id="fotoinovasi" value="<?= old('fotoinovasi'); ?>">
-            <div class="invalid-feedback">
-              <?= $validation->getError('fotoinovasi'); ?>
-            </div>
+            <input type="file" class="form-control" name="fotoinovasi" id="fotoinovasi">
           </div>
         </div>
 
@@ -45,15 +38,12 @@
           <div class="mb-3">
             <label for="keteranganinovasi" class="form-label fw-semibold">Keterangan Inovasi</label>
             <br>
-            <textarea class=" form-control text-area <?= ($validation->hasError('keteranganinovasi')) ? 'is-invalid' : '' ?>" name="keteranganinovasi" id="keteranganinovasi" value="<?= old('keteranganinovasi'); ?>"></textarea>
-            <div class="invalid-feedback">
-              <?= $validation->getError('keteranganinovasi'); ?>
-            </div>
+            <textarea class=" form-control text-area" name="keteranganinovasi" id="keteranganinovasi"></textarea>
           </div>
         </div>
 
         <div class="d-grid gap-2 col-6 mx-auto">
-          <button type="submit" class="btn btn-primary">Tambah Inovasi</button>
+          <input type="submit" value="Submit" id="submit" class="btn-primary rounded-md">
         </div>
 
       </form>

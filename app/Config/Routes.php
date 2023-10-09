@@ -35,12 +35,24 @@ $routes->get('/', 'Pages::index');
 
 // Bagian Halaman Admin
 // Membuat routes baru dengan method get ketika user mengakses (admin/berita_admin) apapun dan ambil serta diarahkan ke controller admin dengan method detail
-$routes->get('admin/data_admin/(:segment)', 'Admin::detail_akun_admin/$1');
+$routes->get('admin/data_admin/(:segment)', 'Admin::create_akun_admin/$1');
+$routes->get('admin/edit_akun_admin/(:segment)', 'Admin::create_akun_admin/$1');
+$routes->get('admin/detail_akun_admin/(:num)', 'Admin::deleteAkunAdmin/$1');
+$routes->get('admin/data_admin/(:any)', 'Admin::detail_akun_admin/$1');
 
+
+$routes->get('admin/berita_admin/(:segment)', 'Admin::create_berita_admin/$1');
+$routes->get('admin/edit_berita_admin/(:segment)', 'Admin::editBerita/$1');
+$routes->get('admin/detail_berita_admin/(:num)', 'Admin::deleteBerita/$1');
 $routes->get('admin/berita_admin/(:any)', 'Admin::detail_berita_admin/$1');
-$routes->delete('admin/berita_admin/(:num)', 'Admin::deleteBerita/$1');
 
-$routes->get('admin/inovasi_admin/(:segment)', 'Admin::detail_inovasi_admin/$1');
+
+$routes->get('admin/inovasi_admin/(:segment)', 'Admin::create_inovasi_admin/$1');
+$routes->get('admin/edit_inovasi_admin/(:segment)', 'Admin::editInovasi/$1');
+$routes->get('admin/detail_inovasi_admin/(:num)', 'Admin::deleteInovasi/$1');
+$routes->get('admin/inovasi_admin/(:any)', 'Admin::detail_inovasi_admin/$1');
+
+
 
 // Bagian Halaman User
 $routes->get('pages/index/(:segment)', 'Pages::detail_berita/$1');

@@ -62,7 +62,7 @@
         </div>
 
         <div class="d-grid gap-2 col-6 mx-auto">
-          <input type="submit" value="Submit" id="Submit" class="btn-primary rounded-md">
+          <button type="submit" class="btn btn-primary">Submit</button>
         </div>
 
       </form>

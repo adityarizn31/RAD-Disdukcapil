@@ -44,6 +44,13 @@
     </li>
 
     <li>
+      <a class="text-white" href="/admin/visimisi_admin">
+        <i class="bi bi-peace-fill mr-2"></i>
+        Visi Misi
+      </a>
+    </li>
+
+    <li>
       <a class="text-white" href="/admin/login">
         <i class="bi bi-box-arrow-right mr-2"></i>
         Logout

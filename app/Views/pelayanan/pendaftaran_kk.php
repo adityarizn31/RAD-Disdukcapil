@@ -8,7 +8,7 @@
     <div class="container">
       <h4 class="text-center"> Pendaftaran Kartu Keluarga Baru </h4>
 
-      <form action="post" method="post">
+      <form action="admin/create_kk_admin" method="post" enctype="multipart/form-data">
 
         <div class="row">
           <div class="mb-3">
@@ -71,7 +71,7 @@
         <hr>
 
         <div class="d-grid gap-2 col-6 mx-auto">
-          <input type="submit" value="Submit" id="Submit" class="btn-primary rounded-md">
+          <button type="submit" class="btn btn-primary">Submit</button>
         </div>
 
       </form>

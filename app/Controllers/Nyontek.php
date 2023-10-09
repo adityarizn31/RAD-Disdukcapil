@@ -395,7 +395,7 @@ class Admin extends BaseController
       ]
     ])) {
       $validation = \Config\Services::validation();
-      return redirect()->to(base_url() . '/admin/edit_inovasi_admin' . $this->request->getVar('judulinovasi'))->withInput();
+      return redirect()->to(base_url() . '/admin/edit_inovasi_admin');
     }
     $this->inovasiModel->save(
       [

@@ -23,6 +23,22 @@
 
     </div>
 
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col">
+
+          <?php if (session()->getFlashdata('pesan')) : ?>
+
+            <div class="alert alert-success" role="alert">
+              <?= session()->getFlashdata('pesan'); ?>
+            </div>
+
+          <?php endif; ?>
+
+        </div>
+      </div>
+    </div>
+
     <div class="card-body">
       <table class="table table-fixed table-hover">
 

@@ -17,19 +17,27 @@
       <div class="d-sm-flex align-items-center justify-content-between" style="padding-top: 10px;">
         <h6 class="m-0 font-weight-bold text-primary">Berita Disdukcapil Majalengka</h6>
 
-        <!-- Method Create untuk Menampilkan Form Insert Data -->
+        <!-- Method create_berita_admin digunakan untuk Menampilkan Form Insert Data -->
         <a href="/admin/create_berita_admin/" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Tambah Berita</a>
       </div>
 
     </div>
 
-    <?php if (session()->getFlashdata('pesan')) : ?>
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col">
 
-      <div class="alert alert-success" role="alert">
-        <?= session()->getFlashdata(); ?>
+          <?php if (session()->getFlashdata('pesan')) : ?>
+
+            <div class="alert alert-success" role="alert">
+              <?= session()->getFlashdata('pesan'); ?>
+            </div>
+
+          <?php endif; ?>
+
+        </div>
       </div>
-
-    <?php endif; ?>
+    </div>
 
     <div class="card-body">
       <table class="table table-fixed table-hover">
