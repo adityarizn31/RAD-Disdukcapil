@@ -16,7 +16,7 @@
         <h6 class="m-0 font-weight-bold text-primary">Tambah Inovasi Admin</h6>
       </div>
 
-      <form action="/admin/saveInovasi" method="post">
+      <form action="/admin/saveInovasi" method="post" enctype="multipart/form-data">
 
         <!-- Keamanan -->
         <?= csrf_field(); ?>

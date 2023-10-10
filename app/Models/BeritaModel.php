@@ -23,10 +23,4 @@ class BeritaModel extends Model
     // Namun jika judul == true maka ditampilkan hanya satu
     return $this->where(['judulberita' => $judulBerita])->first();
   }
-
-  public function hapusBerita($judulBerita)
-  {
-    $builder = $this->db->table($this->table);
-    return $builder->delete(['judulberita' => $judulBerita]);
-  }
 }

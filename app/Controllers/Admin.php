@@ -38,7 +38,7 @@ class Admin extends BaseController
     $this->adminModel = new AdminModel();
     $this->beritaModel = new BeritaModel();
     $this->inovasiModel = new InovasiModel();
-    // $this->vismisiModel = new VisiMisiModel();
+    $this->visimisiModel = new VisiMisiModel();
     $this->aktakematianModel = new Pendaftaran_aktakematian_Model();
     $this->aktalahirModel = new Pendaftaran_aktalahir_Model();
     $this->kiaModel = new Pendaftaran_kia_Model();
@@ -157,31 +157,45 @@ class Admin extends BaseController
   {
     // Validasi Input
     if (!$this->validate([
+
+      // Foto berita
       'fotoberita' => [
-        'rules' => 'required|is_unique[berita.fotoberita]',
+        'rules' => 'uploaded[fotoberita]|max_size[fotoberita,1024]|is_image[fotoberita]|mime_in[fotoberita,image/jpg,image/jpeg,image/png]',
         'errors' => [
-          'required' => '{field} Harus diisi !! ',
-          'is_unique' => '{field} Sudah terdaftar !!'
+          'uploaded' => 'Pilih Foto Berita !! ',
+          'max_size' => 'Ukuran Gambar terlalu besar !!',
+          'is_image' => 'Yang anda pilih bukan gambar !!',
+          'mime_in' => 'Yang anda pilih bukan gambar'
         ]
       ],
+      // Judul berita
       'judulberita' => [
         'rules' => 'required[berita.judulberita]',
         'errors' => [
           'required' => '{field} Harus Diisi !!'
         ]
       ],
+      // Keterangan berita
       'keteranganberita' => [
         'rules' => 'required[berita.keteranganberita]',
         'errors' => [
           'required' => '{field} Harus Diisi !!'
         ]
+
       ]
     ])) {
-      $validation = \Config\Services::validation();
+      // $validation = \Config\Services::validation();
       return redirect()->to(base_url() . '/admin/create_berita_admin/')->withInput();
     }
+    // Cara Memanggil Gambar
+    $fileFotoBerita = $this->request->getFile('fotoberita');
+    // Memindahkan File Gambar ke Folder img/Berita
+    $fileFotoBerita->move('img/berita');
+    // Mengambil nama File 
+    $namaFotoBerita = $fileFotoBerita->getName();
+
     $this->beritaModel->save([
-      'fotoberita' => $this->request->getVar('fotoberita'),
+      'fotoberita' => $namaFotoBerita,
       'judulberita' => $this->request->getVar('judulberita'),
       'keteranganberita' => $this->request->getVar('keteranganberita')
     ]);
@@ -312,34 +326,49 @@ class Admin extends BaseController
   public function saveInovasi()
   {
     if (!$this->validate([
+
+      // Foto Inovasi
       'fotoinovasi' => [
-        'rules' => 'required|is_unique[inovasi.fotoinovasi]',
+        'rules' => 'uploaded[fotoinovasi]|max_size[fotoinovasi,1024]|is_image[fotoinovasi]|mime_in[fotoinovasi,image/jpg,image/jpeg,image/png]',
         'errors' => [
-          'required' => '{field} Harus diisi !!',
-          'is_unique' => '{field} Sudah terdaftar !!'
+          'uploaded' => 'Pilih Foto Berita !! ',
+          'max_size' => 'Ukuran Gambar terlalu besar !!',
+          'is_image' => 'Yang anda pilih bukan gambar !!',
+          'mime_in' => 'Yang anda pilih bukan gambar'
         ]
       ],
+      // Judul Inovasi
       'judulinovasi' => [
         'rules' => 'required[inovasi.judulinovasi]',
         'erros' => [
           'required' => '{field} Harus diisi !!'
         ]
       ],
+      // Keterangan Inovasi
       'keteranganinovasi' => [
         'rules' => 'required[inovasi.keteranganinovasi]',
-        'errors' => '{field} Harus diisi !!'
+        'errors' => [
+          '{field} Harus diisi !!'
+        ]
       ]
     ])) {
-      $validation = \Config\Services::validation();
+      // $validation = \Config\Services::validation();
       return redirect()->to(base_url() . '/admin/create_inovasi_admin/')->withInput();
     }
+    // Cara Memanggil Gambar
+    $fileFotoInovasi = $this->request->getFile('fotoinovasi');
+    // Memindahkan FIle Gambar ke Folder img/Inovasi
+    $fileFotoInovasi->move('img/inovasi');
+    // Mengambil nama File
+    $namaFotoInovasi = $fileFotoInovasi->getName();
+
     $this->inovasiModel->save([
-      'fotoinovasi' => $this->request->getVar('fotoinovasi'),
+      'fotoinovasi' => $namaFotoInovasi,
       'judulinovasi' => $this->request->getVar('judulinovasi'),
       'keteranganinovasi' => $this->request->getVar('keteranganinovasi')
     ]);
     session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
-    return redirect()->to('/inovasi_admin');
+    return redirect()->to('admin/inovasi_admin');
   }
 
   // Digunakan untuk menghapus data inovasi
@@ -416,6 +445,65 @@ class Admin extends BaseController
       'title' => 'Home || Disdukcapil Majalengka'
     ];
     return view('pages/index', $data);
+  }
+
+
+
+
+
+
+
+
+
+  // Menampilkan keseluruhan data inovasi pada halaman admin
+  public function detail_visimisi_admin()
+  {
+    // Menghubungkan Controller Admin dengan VisiMisiModel
+    $data = [
+      'title' => 'Visi Misi Admin || Disdukcapil Majalengka',
+      'visimisi' => $this->visimisiModel->getVisiMisi()
+    ];
+    return view('admin/detail_visimisi_admin', $data);
+  }
+
+  public function editVisiMisi($visimisi)
+  {
+    $data = [
+      'title' => 'Form Edit Visi Misi || Disdukcapil Majalengka',
+      'validation' => \Config\Services::validation(),
+      'visimisi' => $this->visimisiModel->getVisiMisi($visimisi)
+    ];
+    return view('editAdmin/edit_visimisi_admin', $data);
+  }
+
+  public function updateVisiMisi($visimisi)
+  {
+    if (!$this->validate([
+      'visi' => [
+        'rules' => 'required[visimisi.visi]',
+        'errors' => [
+          'required' => '{field} Harus Diisi !!'
+        ]
+      ],
+      'misi' => [
+        'rules' => 'required[visimisi.misi]',
+        'errors' => [
+          'required' => '{field} Harus Diisi !!'
+        ]
+      ]
+    ])) {
+      $validation = \Config\Services::validation();
+      return redirect()->to(base_url() . '/editAdmin/edit_visimisi_admin' . $this->request->getVar('visi'))->withInput();
+    }
+    $this->visimisiModel->save(
+      [
+        'id' => $visimisi,
+        'visi' => $this->request->getVar('visi'),
+        'misi' => $this->request->getVar('misi')
+      ]
+    );
+    session()->setFlashdata('pesan', 'Visi Misi Berhasil Diubah !!');
+    return redirect()->to('admin/visimisi_admin');
   }
 
 

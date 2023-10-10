@@ -24,7 +24,7 @@
         <div class="row">
           <div class="mb-3">
             <label for="judulberita" class="form-label fw-semibold">Judul Berita</label>
-            <input type="text" class="form-control <?= ($validation->hasError('judulberita')) ? 'is-invalid' : ''; ?>" name="judulberita" id="judulberita" autofocus value="<?= old('judulberita', $berita['judulberita']); ?>">
+            <input type="text" class="form-control <?= ($validation->hasError('judulberita')) ? 'is-invalid' : ''; ?>" name="judulberita" id="judulberita" autofocus value="<?= (old('judulberita')) ? old('judul') : $berita['judulberita'] ?>" ?>
             <div class="invalid-feedback">
               <?= $validation->getError('judulberita'); ?>
             </div>

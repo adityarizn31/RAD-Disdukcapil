@@ -44,10 +44,11 @@
     </li>
 
     <li>
-      <a class="text-white" href="/admin/visimisi_admin">
+      <a class="text-white" href="/admin/detail_visimisi_admin">
         <i class="bi bi-peace-fill mr-2"></i>
         Visi Misi
       </a>
+      <!-- CodeIgniter akan mengakses controller admin dengan method visimisi_admin -->
     </li>
 
     <li>
