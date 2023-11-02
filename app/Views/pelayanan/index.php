@@ -16,6 +16,7 @@
 
 
 <div class="container card" style="padding: 20px; padding-left: 100px;">
+
   <div class="row">
     <!-- Pendaftaran Kartu Keluarga -->
     <div class="card shadow border-2" style="width: 18rem; padding: 30px; margin: 20px;">

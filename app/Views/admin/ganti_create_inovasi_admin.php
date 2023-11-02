@@ -21,6 +21,7 @@
         <!-- Keamanan -->
         <?= csrf_field(); ?>
 
+        <!-- Form Judul Inovasi -->
         <div class="row">
           <div class="mb-3">
             <label for="judulinovasi" class="form-label fw-semibold">Judul Inovasi</label>
@@ -31,16 +32,21 @@
           </div>
         </div>
 
+        <!-- Form Foto Inovasi -->
         <div class="row">
           <div class="mb-3">
             <label for="fotoinovasi" class="form-label fw-semibold">Foto Inovasi</label>
-            <input type="file" class="form-control <?= ($validation->hasError('fotoinovasi')) ? 'is-invalid' : ''; ?>" name="fotoinovasi" id="fotoinovasi" value="<?= old('fotoinovasi'); ?>">
+            <input type="file" class="form-control <?= ($validation->hasError('fotoinovasi')) ? 'is-invalid' : ''; ?>" name="fotoinovasi" id="fotoinovasi" value="<?= old('fotoinovasi'); ?>" onchange="previewImgInovasi()">
             <div class="invalid-feedback">
               <?= $validation->getError('fotoinovasi'); ?>
+            </div>
+            <div class="col-sm-2 my-4">
+              <img src="/img/inovasi/inovasidef.PNG" class="img-thumbnail img-preview" srcset="">
             </div>
           </div>
         </div>
 
+        <!-- Form Keterangan Inovasi -->
         <div class="row">
           <div class="mb-3">
             <label for="keteranganinovasi" class="form-label fw-semibold">Keterangan Inovasi</label>

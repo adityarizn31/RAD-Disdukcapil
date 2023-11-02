@@ -33,24 +33,27 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Pages::index');
 
+
 // Bagian Halaman Admin
-// Membuat routes baru dengan method get ketika user mengakses (admin/berita_admin) apapun dan ambil serta diarahkan ke controller admin dengan method detail
-$routes->get('admin/data_admin/(:segment)', 'Admin::create_akun_admin/$1');
+
+$routes->get('admin/data_admin/(:segment)', 'CreateAdmin::create_akun_admin/$1');
 $routes->get('admin/edit_akun_admin/(:segment)', 'Admin::create_akun_admin/$1');
 $routes->get('admin/detail_akun_admin/(:num)', 'Admin::deleteAkunAdmin/$1');
-$routes->get('admin/data_admin/(:any)', 'Admin::detail_akun_admin/$1');
+$routes->get('detailadmin/data_admin/(:any)', 'DetailAdmin::detail_akun_admin/$1');
 
 
-$routes->get('admin/berita_admin/(:segment)', 'Admin::create_berita_admin/$1');
-$routes->get('admin/edit_berita_admin/(:segment)', 'Admin::editBerita/$1');
-$routes->get('admin/detail_berita_admin/(:num)', 'Admin::deleteBerita/$1');
-$routes->get('admin/berita_admin/(:any)', 'Admin::detail_berita_admin/$1');
+// Membuat routes baru dengan method get ketika user mengakses (admin/berita_admin) apapun dan ambil serta diarahkan ke controller admin dengan method detail
+$routes->get('admin/berita_admin/(:segment)', 'CreateAdmin::create_berita_admin/$1');
+$routes->get('detailadmin/edit_berita_admin/(:segment)', 'EditUpdateAdmin::editBerita/$1');
+$routes->get('detailadmin/detail_berita_admin/(:num)', 'DeleteAdmin::deleteBerita/$1');
+$routes->get('detailadmin/berita_admin/(:any)', 'DetailAdmin::detail_berita_admin/$1');
 
 
-$routes->get('admin/inovasi_admin/(:segment)', 'Admin::create_inovasi_admin/$1');
+$routes->get('admin/inovasi_admin/(:segment)', 'CreateAdmin::create_inovasi_admin/$1');
 $routes->get('admin/edit_inovasi_admin/(:segment)', 'Admin::editInovasi/$1');
 $routes->get('admin/detail_inovasi_admin/(:num)', 'Admin::deleteInovasi/$1');
-$routes->get('admin/inovasi_admin/(:any)', 'Admin::detail_inovasi_admin/$1');
+$routes->get('admin/inovasi_admin/(:any)', 'DetailAdmin::detail_inovasi_admin/$1');
+
 
 
 

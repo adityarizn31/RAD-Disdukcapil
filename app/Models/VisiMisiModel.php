@@ -8,17 +8,18 @@ class VisiMisiModel extends Model
 {
   //Cara menghubungkan Model dengan Tabel
   protected $table = 'visimisi';
-  protected $useTimestamps =  true;
-  protected $allowedFields = ['visi', 'misi'];
+  protected $useTimeStamps =  true;
+  protected $allowedFields = ['visi1', 'misi1', 'visi2', 'misi2', 'visi3', 'misi3', 'visi4', 'misi4', 'visi5', 'misi5'];
 
-  public function getVisiMisi($visimisi = false)
+  // Digunakan untuk menampilkan detail suatu berita
+  public function getVisiMisi($visiMisi = false)
   {
     // Jika visimisi == false maka yang ditampilkan akan semua
-    if ($visimisi == false) {
+    if ($visiMisi == false) {
       return $this->findAll();
     }
 
     // Namun jika visimisi == true maka ditampilkan hanya satu
-    return $this->where(['visi' => $visimisi])->first();
+    return $this->where(['visi1' => $visiMisi])->first();
   }
 }

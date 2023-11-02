@@ -8,6 +8,7 @@ class Pendaftaran_kk_Model extends Model
 {
   protected $table = 'pendaftaran_kk';
   protected $useTimeStamps = true; // Mengaktifkan Created at dan Updated at
+  protected $allowedFields = ['namapemohon', 'emailpemohon', 'nomorpemohon', 'formulirdesa', 'kartukeluargasuami', 'kartukeluargaistri', 'suratnikah', 'suratpindah'];
 
   public function getDataKK($nama = false)
   {

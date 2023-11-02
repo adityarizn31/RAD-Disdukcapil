@@ -28,7 +28,7 @@
               <p class="card-text"><?= $berita['keteranganberita']; ?></p>
               <p class="card-text"><small class="text-body-secondary"><?= $berita['created_at']; ?></small></p>
 
-              <a href="/admin/editBerita/<?= $berita['judulberita']; ?>" class="btn btn-warning">Edit</a>
+              <a href="/editupdateadmin/editBerita/<?= $berita['judulberita']; ?>" class="btn btn-warning">Edit</a>
 
               <form action="/admin/deleteBerita/<?= $berita['id']; ?>" method="post" class="d-inline">
                 <?= csrf_field(); ?>

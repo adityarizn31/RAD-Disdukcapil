@@ -14,6 +14,7 @@
     </div>
 
     <div class="card-body">
+
       <table class="table table-fixed table-hover">
         <thead class="table-dark">
           <tr>
@@ -21,15 +22,30 @@
             <th scope="col">Nama Pemohon</th>
             <th scope="col">Email Pemohon</th>
             <th scope="col">No Whatsapp</th>
-            <th scope="col">Akta Kelahiran</th>
-            <th scope="col">Kartu Keluarga</th>
-            <th scope="col">Pas Foto 3x4</th>
+            <th scope="col">Permohonan</th>
             <th scope="col">Aksi</th>
           </tr>
         </thead>
-      </table>
-    </div>
 
+        <tbody>
+          <tr>
+            <?php $i = 1; ?>
+            <?php foreach ($pendaftaran_kia as $kia) : ?>
+              <th scope="row"><?= $i++; ?></th>
+              <td><?= $kia['namapemohon']; ?></td>
+              <td><?= $kia['emailpemohon']; ?></td>
+              <td><?= $kia['nomorpemohon']; ?></td>
+              <td>Pendaftaran KIA</td>
+              <td>
+                <a href="/DetailAdmin/detail_pendaftarankia_admin/<?= $kia['namapemohon']; ?>" class="btn btn-success">Detail</a>
+              </td>
+            <?php endforeach; ?>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
   </div>
 
 </section>

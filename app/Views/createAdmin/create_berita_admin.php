@@ -16,41 +16,53 @@
         <h6 class="m-0 font-weight-bold text-primary">Tambah Berita admin</h6>
       </div>
 
-      <form action="/admin/saveBerita" method="post">
+      <form action="/createadmin/saveBerita" method="post" enctype="multipart/form-data">
 
         <!-- Keamanan -->
         <?= csrf_field(); ?>
 
+        <!-- Form Judul Berita -->
         <div class="row">
           <div class="mb-3">
             <label for="judulberita" class="form-label fw-semibold">Judul Berita</label>
-            <input type="text" class="form-control <?= ($validation->hasError('judulberita')) ? 'is-invalid' : ''; ?>" name="judulberita" id="judulberita" autofocus>
+            <input type="text" class="form-control <?= ($validation->hasError('judulberita')) ? 'is-invalid' : ''; ?>" name="judulberita" id="judulberita" autofocus value="<?= old('judulberita'); ?>">
             <div class="invalid-feedback">
               <?= $validation->getError('judulberita'); ?>
             </div>
           </div>
         </div>
 
+        <!-- Form Upload File -->
         <div class="row">
           <div class="mb-3">
             <label for="fotoberita" class="form-label fw-semibold">Foto Berita</label>
-            <!-- <input type="text" class="form-control" src="Foto Berita" alt="Foto Berita"> -->
-            <input type="text" class="form-control" name="fotoberita" id="fotoberita" alt="Foto Berita">
+            <input type="file" class="form-control <?= ($validation->hasError('fotoberita')) ? 'is-invalid' : ''; ?>" name="fotoberita" id="fotoberita" value="<?= old('fotoberita'); ?>" onchange="previewImgBerita()">
+            <div class="invalid-feedback">
+              <?= $validation->getError('fotoberita'); ?>
+            </div>
+            <div class="col-sm-2 my-4">
+              <img src="/img/berita/beritadef.PNG" class="img-thumbnail img-preview" srcset="">
+            </div>
           </div>
         </div>
 
+        <!-- Form Keterangan Berita -->
         <div class="row">
           <div class="mb-3">
-            <label for="keteranganberita" class="form-label fw-semibold">Keterangan</label>
+            <label for="keteranganberita" class="form-label fw-semibold">Keterangan Berita</label>
             <br>
-            <textarea name="keteranganberita" id="keteranganberita" class="form-control text-area"></textarea>
+            <textarea name="keteranganberita" id="keteranganberita" class="form-control text-area <?= ($validation->hasError('keteranganberita')) ? 'is-invalid' : ''; ?>" value="<?= old('keteranganberita'); ?>"></textarea>
+            <div class="invalid-feedback">
+              <?= $validation->getError('keteranganberita'); ?>
+            </div>
           </div>
         </div>
 
-        <div class="d-grid gap-2 col-6 mx-auto">
-          <input type="submit" value="Submit" id="submit" class="btn-primary rounded-md">
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Tambah Berita</button>
+          </div>
         </div>
-
       </form>
 
     </div>

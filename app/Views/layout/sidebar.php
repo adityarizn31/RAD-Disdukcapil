@@ -9,6 +9,7 @@
         <i class="bi bi-house mr-2"></i>
         Dashboard
       </a>
+      <!-- CodeIgniter akan mengakses Controller dengan method index -->
     </li>
 
     <li>
@@ -16,7 +17,7 @@
         <i class="bi bi-universal-access-circle mr-2"></i>
         Register Admin
       </a>
-      <!-- CodeIginiter akan mengkases Cotnroller dengan method register -->
+      <!-- CodeIginiter akan mengkases Controller dengan method register -->
     </li>
 
     <li>
@@ -44,11 +45,19 @@
     </li>
 
     <li>
-      <a class="text-white" href="/admin/detail_visimisi_admin">
+      <a class="text-white" href="/admin/visimisi_admin">
         <i class="bi bi-peace-fill mr-2"></i>
         Visi Misi
       </a>
       <!-- CodeIgniter akan mengakses controller admin dengan method visimisi_admin -->
+    </li>
+
+    <li>
+      <a class="text-white" href="/admin/pelayanan">
+        <i class="bi bi-menu-button-wide mr-2"></i>
+        Pelayanan
+      </a>
+      <!-- CodeIgniter akan mengakses Controller admin dengan method Pelayanan -->
     </li>
 
     <li>
@@ -71,7 +80,6 @@
         <li><a class="dropdown-item" href="/admin/pendaftaran_kia_admin">Pendaftaran KIA</a></li>
         <li><a class="dropdown-item" href="/admin/pendaftaran_aktalahir_admin">Pendaftaran Akta Kelahiran</a></li>
         <li><a class="dropdown-item" href="/admin/pendaftaran_aktakematian_admin">Pendaftaran Akta Kematian</a></li>
-        <!-- <li><a class="dropdown-item" href="/admin/pendaftaran_ppip_admin">Pendaftaran Pelayanan PPIP</a></li> -->
         <li><a class="dropdown-item" href="/admin/perbaikan_data_admin">Perbaikan Data</a></li>
         <li><a class="dropdown-item" href="/admin/pengaduan_update_admin">Pengaduan Update</a></li>
         <li><a class="dropdown-item" href="/admin/perbaikan_nik_admin">Perbaikan NIK</a></li>

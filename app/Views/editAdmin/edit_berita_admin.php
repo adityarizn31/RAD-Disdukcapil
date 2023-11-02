@@ -16,11 +16,12 @@
         <h6 class="m-0 font-weight-bold text-primary">Ubah Berita admin</h6>
       </div>
 
-      <form action="/admin/updateBerita/<?= $berita['id']; ?>" method="post">
+      <form action="/EditUpdateAdmin/updateBerita/<?= $berita['id']; ?>" method="post" enctype="multipart/form-data">
 
         <!-- Keamanan -->
         <?= csrf_field(); ?>
 
+        <!-- Form Judul Berita -->
         <div class="row">
           <div class="mb-3">
             <label for="judulberita" class="form-label fw-semibold">Judul Berita</label>
@@ -31,16 +32,21 @@
           </div>
         </div>
 
+        <!-- Form Upload File -->
         <div class="row">
           <div class="mb-3">
             <label for="fotoberita" class="form-label fw-semibold">Foto Berita</label>
-            <input type="text" class="form-control <?= ($validation->hasError('judulberita')) ? 'is-invalid' : ''; ?>" name="fotoberita" id="fotoberita" value="<?= $berita['fotoberita']; ?>">
+            <input type="file" class="form-control <?= ($validation->hasError('fotoberita')) ? 'is-invalid' : ''; ?>" name="fotoberita" id="fotoberita" value="<?= old('fotoberita'); ?>" onchange="previewImgBerita()">
             <div class="invalid-feedback">
               <?= $validation->getError('fotoberita'); ?>
+            </div>
+            <div class="col-sm-2 my-4">
+              <img src="/img/berita/<?= $berita['fotoberita']; ?>" class="img-thumbnail img-preview" srcset="">
             </div>
           </div>
         </div>
 
+        <!-- Form Keterangan Berita -->
         <div class="row">
           <div class="mb-3">
             <label for="keteranganberita" class="form-label fw-semibold">Keterangan</label>

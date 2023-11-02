@@ -14,24 +14,38 @@
     </div>
 
     <div class="card-body">
+
       <table class="table table-fixed table-hover">
         <thead class="table-dark">
           <tr>
             <th scope="col">No</th>
             <th scope="col">Nama Pemohon</th>
             <th scope="col">Email Pemohon</th>
-            <th scope="col">Whatsapp Pemohon</th>
-            <th scope="col">Formulir F2.01</th>
-            <th scope="col">Surat Keterangan Lahir</th>
-            <th scope="col">Kartu Keluarga</th>
-            <th scope="col">KTP Ayah</th>
-            <th scope="col">KTP Ibu</th>
+            <th scope="col">No Whatsapp</th>
+            <th scope="col">Permohonan</th>
             <th scope="col">Aksi</th>
           </tr>
         </thead>
-      </table>
-    </div>
 
+        <tbody>
+          <tr>
+            <?php $i = 1; ?>
+            <?php foreach ($pendaftaran_aktakelahiran as $kela) : ?>
+              <th scope="row"><?= $i++; ?></th>
+              <td><?= $kela['namapemohon']; ?></td>
+              <td><?= $kela['emailpemohon']; ?></td>
+              <td><?= $kela['nomorpemohon']; ?></td>
+              <td>Pendaftaran Akta Kelahiran</td>
+              <td>
+                <a href="/DetailAdmin/detail_pendaftaranaktakelahiran_admin/<?= $kela['namapemohon']; ?>" class="btn btn-success">Detail</a>
+              </td>
+            <?php endforeach; ?>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
   </div>
 
 </section>

@@ -14,6 +14,7 @@
     </div>
 
     <div class="card-body">
+
       <table class="table table-fixed table-hover">
         <thead class="table-dark">
           <tr>
@@ -21,10 +22,28 @@
             <th scope="col">Nama Pemohon</th>
             <th scope="col">Email Pemohon</th>
             <th scope="col">No Whatsapp</th>
+            <th scope="col">Permohonan</th>
             <th scope="col">Aksi</th>
           </tr>
         </thead>
       </table>
+
+      <tbody>
+        <tr>
+          <?php $i = 1; ?>
+          <?php foreach ($perbaikan_data as $perda) :  ?>
+            <th scope="row"><?= $i++; ?></th>
+            <td><?= $perda['namapemohon']; ?></td>
+            <td><?= $perda['emailpemohon']; ?></td>
+            <td><?= $perda['nomorpemohon']; ?></td>
+            <td>Perbaikan Data</td>
+            <td>
+              <a href="/DetailAdmin/detail_perbaikandata_admin/<?= $perda['namapemohon']; ?>" class="btn btn-success">Detail</a>
+            </td>
+          <?php endforeach; ?>
+        </tr>
+      </tbody>
+
     </div>
   </div>
 

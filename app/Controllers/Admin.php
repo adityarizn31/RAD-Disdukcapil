@@ -7,9 +7,10 @@ namespace App\Controllers;
 use App\Models\AdminModel;
 use App\Models\BeritaModel;
 use App\Models\InovasiModel;
+use App\Models\PelayananModel;
 use App\Models\VisiMisiModel;
 use App\Models\Pendaftaran_aktakematian_Model;
-use App\Models\Pendaftaran_aktalahir_Model;
+use App\Models\Pendaftaran_aktakelahiran_Model;
 use App\Models\Pendaftaran_kia_Model;
 use App\Models\Pendaftaran_kk_Model;
 use App\Models\Pendaftaran_ktp_Model;
@@ -24,8 +25,9 @@ class Admin extends BaseController
   protected $beritaModel;
   protected $inovasiModel;
   protected $visimisiModel;
+  protected $pelayananModel;
   protected $aktakematianModel;
-  protected $aktalahirModel;
+  protected $aktakelahiranModel;
   protected $kiaModel;
   protected $kkModel;
   protected $ktpModel;
@@ -39,8 +41,9 @@ class Admin extends BaseController
     $this->beritaModel = new BeritaModel();
     $this->inovasiModel = new InovasiModel();
     $this->visimisiModel = new VisiMisiModel();
+    $this->pelayananModel = new PelayananModel();
     $this->aktakematianModel = new Pendaftaran_aktakematian_Model();
-    $this->aktalahirModel = new Pendaftaran_aktalahir_Model();
+    $this->aktakelahiranModel = new Pendaftaran_aktakelahiran_Model();
     $this->kiaModel = new Pendaftaran_kia_Model();
     $this->kkModel = new Pendaftaran_kk_Model();
     $this->ktpModel = new Pendaftaran_ktp_Model();
@@ -48,6 +51,13 @@ class Admin extends BaseController
     $this->pengaduanupdateModel = new Pengaduan_update_Model();
     $this->perbaikannikModel = new Perbaikan_nik_Model();
   }
+
+
+
+
+
+
+
 
   // Halaman Utama / Dashboard
   public function index()
@@ -76,41 +86,6 @@ class Admin extends BaseController
     return view('admin/data_admin', $data);
   }
 
-  // Menampilkan Detail Akun Admin
-  public function detail_akun_admin($nama)
-  {
-    $data = [
-      'title' => 'Detail Akun Admin || Disdukcapil Majalengka',
-      'admin' => $this->adminModel->getAkunAdmin($nama)
-    ];
-    return view('admin/detail_akunadmin_admin', $data);
-  }
-
-  // Menampilkan form untuk tambah akun admin
-  public function register()
-  {
-    $data = [
-      'title' => 'Register || Admin Disdukcapil'
-    ];
-    return view('admin/register', $data);
-  }
-
-  // Menampilkan 
-  public function saveAkunAdmin()
-  {
-    if (!$this->validate([])) {
-      # code...
-    }
-    $this->adminModel->save([
-      'nama' => $this->request->getVar('nama'),
-      'email' => $this->request->getVar('email'),
-      'password' => $this->request->getVar('password'),
-      'level' => $this->request->getVar('level')
-    ]);
-    session()->setFlashdata('pesan', 'Akun Admin Berhasil Ditambahkan');
-    return redirect()->to('/data_admin');
-  }
-
 
 
 
@@ -128,158 +103,6 @@ class Admin extends BaseController
     ];
     return view('admin/berita_admin', $data);
   }
-
-  // Menampilkan data detail Berita pada halaman Admin
-  public function detail_berita_admin($judulBerita)
-  {
-    $data = [
-      'title' => 'Detail Berita || Disdukcapil Majalengka',
-      'berita' => $this->beritaModel->getBerita($judulBerita)
-    ];
-    // if (empty($data['judulberita'])) {
-    //   throw new \CodeIgniter\Exceptions\PageNotFoundException('Berita yang dicari dengan judul ' . $judulBerita . ' Tidak ditemukan');
-    // }
-    return view('admin/detail_berita_admin', $data);
-  }
-
-  // Menampilkan form untuk tambah berita 
-  public function create_berita_admin()
-  {
-    $data = [
-      'title' => 'Form Tambah Berita || Disdukcapil Majalengka',
-      'validation' => \Config\Services::validation()
-    ];
-    return view('admin/create_berita_admin', $data);
-  }
-
-  // Digunakan untuk validasi form berita
-  public function saveBerita()
-  {
-    // Validasi Input
-    if (!$this->validate([
-
-      // Foto berita
-      'fotoberita' => [
-        'rules' => 'uploaded[fotoberita]|max_size[fotoberita,1024]|is_image[fotoberita]|mime_in[fotoberita,image/jpg,image/jpeg,image/png]',
-        'errors' => [
-          'uploaded' => 'Pilih Foto Berita !! ',
-          'max_size' => 'Ukuran Gambar terlalu besar !!',
-          'is_image' => 'Yang anda pilih bukan gambar !!',
-          'mime_in' => 'Yang anda pilih bukan gambar'
-        ]
-      ],
-      // Judul berita
-      'judulberita' => [
-        'rules' => 'required[berita.judulberita]',
-        'errors' => [
-          'required' => '{field} Harus Diisi !!'
-        ]
-      ],
-      // Keterangan berita
-      'keteranganberita' => [
-        'rules' => 'required[berita.keteranganberita]',
-        'errors' => [
-          'required' => '{field} Harus Diisi !!'
-        ]
-
-      ]
-    ])) {
-      // $validation = \Config\Services::validation();
-      return redirect()->to(base_url() . '/admin/create_berita_admin/')->withInput();
-    }
-    // Cara Memanggil Gambar
-    $fileFotoBerita = $this->request->getFile('fotoberita');
-    // Memindahkan File Gambar ke Folder img/Berita
-    $fileFotoBerita->move('img/berita');
-    // Mengambil nama File 
-    $namaFotoBerita = $fileFotoBerita->getName();
-
-    $this->beritaModel->save([
-      'fotoberita' => $namaFotoBerita,
-      'judulberita' => $this->request->getVar('judulberita'),
-      'keteranganberita' => $this->request->getVar('keteranganberita')
-    ]);
-
-    session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
-
-    return redirect()->to('/admin/berita_admin');
-  }
-
-  // Digunakan untuk menghapus data berita
-  public function deleteBerita($id)
-  {
-    $beritaModel = new BeritaModel();
-    $beritaModel->delete($id);
-    session()->setFlashdata('pesan', 'Data berhasil dihapus !!');
-    return redirect()->to('admin/berita_admin');
-    // return view('admin/berita_admin');
-  }
-
-  // Menampilkan Form untuk mengedit data berita
-  public function editBerita($judulBerita)
-  {
-    $data = [
-      'title' => 'Form Edit Data Berita || Disdukcapil Majalengka',
-      'validation' => \Config\Services::validation(),
-      'berita' => $this->beritaModel->getBerita($judulBerita)
-    ];
-    return view('admin/edit_berita_admin', $data);
-  }
-
-  public function updateBerita($judulBerita)
-  {
-    // Digunakan untuk operasi judul berita 
-    $beritaLama = $this->beritaModel->getBerita($this->request->getVar('judulberita'));
-    if ($beritaLama['judulberita'] == $this->request->getVar('judulberita')) {
-      $rule_judul = 'required';
-    } else {
-      $rule_judul = 'required|is_unique[berita.judulberita]';
-    }
-
-    // Validasi Input
-    if (!$this->validate([
-      'fotoberita' => [
-        'rules' => $rule_judul,
-        'errors' => [
-          'required' => '{field} Harus diisi !! ',
-          'is_unique' => '{field} Sudah terdaftar !!'
-        ]
-      ],
-      'judulberita' => [
-        'rules' => 'required[berita.judulberita]',
-        'errors' => [
-          'required' => '{field} Harus Diisi !!'
-        ]
-      ],
-      'keteranganberita' => [
-        'rules' => 'required[berita.keteranganberita]',
-        'errors' => [
-          'required' => '{field} Harus Diisi !!'
-        ]
-      ]
-    ])) {
-      $validation = \Config\Services::validation();
-      return redirect()->to(base_url() . '/admin/edit_berita_admin/' . $this->request->getVar('judulberita'))->withInput();
-    }
-    $this->beritaModel->save(
-      [
-        'id' => $judulBerita,
-        'fotoberita' => $this->request->getVar('fotoberita'),
-        'judulberita' => $this->request->getVar('judulberita'),
-        'keteranganberita' => $this->request->getVar('keteranganberita')
-      ]
-    );
-    session()->setFlashdata('pesan', 'Data berhasil diubah !!');
-    return redirect()->to('admin/berita_admin');
-  }
-
-
-
-
-
-
-
-
 
 
 
@@ -299,217 +122,38 @@ class Admin extends BaseController
     return view('admin/inovasi_admin', $data);
   }
 
-  // Menampilkan detail inovasi admin
-  public function detail_inovasi_admin($judulInovasi)
+
+
+
+
+
+
+  // Menampilkan keseluruhan data Berita pada halaman admin
+  public function visimisi_admin()
   {
+    // Menghubungkan Controller Admin dengan Visi Mmisi Admin
+    // $berita = $this->beritaModel->findAll();
     $data = [
-      'title' => 'Detail Inovasi || Disdukcapil Majalengka',
-      'inovasi' => $this->inovasiModel->getInovasi($judulInovasi)
-    ];
-    // if (empty($data['judulinovasi'])) {
-    //   throw new \CodeIgniter\Exceptions\PageNotFoundException('Berita yang dicari dengan judul ' . $judulinovasi . ' Tidak ditemukan');
-    // }
-    return view('admin/detail_inovasi_admin', $data);
-  }
-
-  // Menampilkan Form untuk menambah Inovasi Admin
-  public function create_inovasi_admin()
-  {
-    $data = [
-      'title' => 'Form Tambah Inovasi || Disdukcapil Majalengka',
-      'validation' => \Config\Services::validation()
-    ];
-    return view('admin/create_inovasi_admin', $data);
-  }
-
-  // Digunakan untuk validasi form inovasi
-  public function saveInovasi()
-  {
-    if (!$this->validate([
-
-      // Foto Inovasi
-      'fotoinovasi' => [
-        'rules' => 'uploaded[fotoinovasi]|max_size[fotoinovasi,1024]|is_image[fotoinovasi]|mime_in[fotoinovasi,image/jpg,image/jpeg,image/png]',
-        'errors' => [
-          'uploaded' => 'Pilih Foto Berita !! ',
-          'max_size' => 'Ukuran Gambar terlalu besar !!',
-          'is_image' => 'Yang anda pilih bukan gambar !!',
-          'mime_in' => 'Yang anda pilih bukan gambar'
-        ]
-      ],
-      // Judul Inovasi
-      'judulinovasi' => [
-        'rules' => 'required[inovasi.judulinovasi]',
-        'erros' => [
-          'required' => '{field} Harus diisi !!'
-        ]
-      ],
-      // Keterangan Inovasi
-      'keteranganinovasi' => [
-        'rules' => 'required[inovasi.keteranganinovasi]',
-        'errors' => [
-          '{field} Harus diisi !!'
-        ]
-      ]
-    ])) {
-      // $validation = \Config\Services::validation();
-      return redirect()->to(base_url() . '/admin/create_inovasi_admin/')->withInput();
-    }
-    // Cara Memanggil Gambar
-    $fileFotoInovasi = $this->request->getFile('fotoinovasi');
-    // Memindahkan FIle Gambar ke Folder img/Inovasi
-    $fileFotoInovasi->move('img/inovasi');
-    // Mengambil nama File
-    $namaFotoInovasi = $fileFotoInovasi->getName();
-
-    $this->inovasiModel->save([
-      'fotoinovasi' => $namaFotoInovasi,
-      'judulinovasi' => $this->request->getVar('judulinovasi'),
-      'keteranganinovasi' => $this->request->getVar('keteranganinovasi')
-    ]);
-    session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
-    return redirect()->to('admin/inovasi_admin');
-  }
-
-  // Digunakan untuk menghapus data inovasi
-  public function deleteInovasi($id)
-  {
-    $inovasiModel = new InovasiModel();
-    $inovasiModel->delete($id);
-    session()->setFlashdata('pesan', 'Data Inovasi berhasil dihapus !!');
-    return redirect()->to('admin/inovasi_admin');
-  }
-
-  // Digunakan untuk menampilkan Form Edit Data
-  public function editInovasi($judulInovasi)
-  {
-    $data = [
-      'title' => 'Form Edit Data Inovasi || Disdukcapil Majalengka',
-      'validation' => \Config\Services::validation(),
-      'inovasi' => $this->inovasiModel->getInovasi($judulInovasi)
-    ];
-    return view('admin/edit_inovasi_admin', $data);
-  }
-
-  public function updateInovasi($judulInovasi)
-  {
-    // Digunakan untuk operasi Judul Inovasi
-    $inovasiLama = $this->inovasiModel->getInovasi($this->request->getVar('judulinovasi'));
-    if ($inovasiLama['judulinovasi'] == $this->request->getVar('judulinovasi')) {
-      $rule_judul = 'required';
-    } else {
-      $rule_judul = 'required|is_unique[inovasi.judulinovasi]';
-    }
-
-    // Validasi Input
-    if (!$this->validate([
-      'fotoinovasi' => [
-        'rules' => $rule_judul,
-        'errors' => [
-          'required' => '{field} Harus diisi !!',
-          'is_unique' => '{field} Sudah terdaftar !!'
-        ]
-      ],
-      'judulinovasi' => [
-        'rules' => 'required[inovasi.judulinovasi]',
-        'errors' => [
-          'required' => '{field} Harus Diisi !!'
-        ]
-      ],
-      'keteranganinovasi' => [
-        'rules' => 'required[inovasi.keteranganinovasi]',
-        'errors' => [
-          'required' => '{field} Harus Diisi !!'
-        ]
-      ]
-    ])) {
-      $validation = \Config\Services::validation();
-      return redirect()->to(base_url() . '/admin/edit_inovasi_admin' . $this->request->getVar('judulinovasi'))->withInput();
-    }
-    $this->inovasiModel->save(
-      [
-        'id' => $judulInovasi,
-        'fotoinovasi' => $this->request->getVar('fotoinovasi'),
-        'judulinovasi' => $this->request->getVar('judulinovasi'),
-        'keteranganinovasi' => $this->request->getVar('keteranganinovasi')
-      ]
-    );
-    session()->setFlashdata('pesan', 'Data Inovasi berhasil dihapus !!');
-    return redirect()->to('admin/inovasi_admin');
-  }
-
-  // Pemrosesan logout dan diarahkan ke Home Disdukcapil
-  public function logout()
-  {
-    $data = [
-      'title' => 'Home || Disdukcapil Majalengka'
-    ];
-    return view('pages/index', $data);
-  }
-
-
-
-
-
-
-
-
-
-  // Menampilkan keseluruhan data inovasi pada halaman admin
-  public function detail_visimisi_admin()
-  {
-    // Menghubungkan Controller Admin dengan VisiMisiModel
-    $data = [
-      'title' => 'Visi Misi Admin || Disdukcapil Majalengka',
+      'title' => 'Visi Misi || Disdukcapil Majalengka',
       'visimisi' => $this->visimisiModel->getVisiMisi()
     ];
-    return view('admin/detail_visimisi_admin', $data);
+    return view('admin/visimisi_admin', $data);
   }
 
-  public function editVisiMisi($visimisi)
+
+
+
+
+
+  public function pelayanan()
   {
+    // Menghubungkan Controller Admin dengan Pelayanan
     $data = [
-      'title' => 'Form Edit Visi Misi || Disdukcapil Majalengka',
-      'validation' => \Config\Services::validation(),
-      'visimisi' => $this->visimisiModel->getVisiMisi($visimisi)
+      'title' => 'Pelayanan Si Lancar || Disdukcapil Majalengka',
+      'pelayanan' => $this->pelayananModel->getDataPelayanan()
     ];
-    return view('editAdmin/edit_visimisi_admin', $data);
+    return view('admin/pelayanan', $data);
   }
-
-  public function updateVisiMisi($visimisi)
-  {
-    if (!$this->validate([
-      'visi' => [
-        'rules' => 'required[visimisi.visi]',
-        'errors' => [
-          'required' => '{field} Harus Diisi !!'
-        ]
-      ],
-      'misi' => [
-        'rules' => 'required[visimisi.misi]',
-        'errors' => [
-          'required' => '{field} Harus Diisi !!'
-        ]
-      ]
-    ])) {
-      $validation = \Config\Services::validation();
-      return redirect()->to(base_url() . '/editAdmin/edit_visimisi_admin' . $this->request->getVar('visi'))->withInput();
-    }
-    $this->visimisiModel->save(
-      [
-        'id' => $visimisi,
-        'visi' => $this->request->getVar('visi'),
-        'misi' => $this->request->getVar('misi')
-      ]
-    );
-    session()->setFlashdata('pesan', 'Visi Misi Berhasil Diubah !!');
-    return redirect()->to('admin/visimisi_admin');
-  }
-
-
-
-
-
 
 
 
@@ -546,6 +190,12 @@ class Admin extends BaseController
     return view('detailAdmin/detail_pendaftarankk_admin', $data);
   }
 
+
+
+
+
+
+
   // Menampilkan data KTP
   public function pendaftaran_ktp_admin()
   {
@@ -567,6 +217,13 @@ class Admin extends BaseController
     ];
     return view('detailAdmin/detail_pendaftaranktp_admin', $data);
   }
+
+
+
+
+
+
+
 
   // Menampilkan data pendaftaran KIA pada halaman admin
   public function pendaftaran_kia_admin()
@@ -590,27 +247,41 @@ class Admin extends BaseController
     return view('detailAdmin/detail_pendaftarankia_admin', $data);
   }
 
-  // Menampilkan data aktalahir pada halaman Admin
-  public function pendaftaran_aktalahir_admin()
+
+
+
+
+
+
+
+  // Menampilkan data aktakelahiran pada halaman Admin
+  public function pendaftaran_aktakelahiran_admin()
   {
     // Menghubungkan Controller Admin dengan Pendaftaran aktalahir Model
     // $aktalahir = $this->aktalahirModel->findAll();
     $data = [
       'title' => 'Data Pendaftaran Akta Kelahiran || Admin Disdukcapil ',
-      'kia' => $this->aktalahirModel->getDataAktalahir()
+      'pendaftaran_aktakelahiran' => $this->aktakelahiranModel->getDataAktaKelahiran()
     ];
-    return view('admin/pendaftaran_aktalahir_admin', $data);
+    return view('admin/pendaftaran_aktakelahiran_admin', $data);
   }
 
   // Menampilkan detail Pendaftaran Akta lahir pada halaman Admin
-  public function detail_pendaftaranaktalahir_admin($namaPemohonAktalahir)
+  public function detail_pendaftaranaktakelahiran_admin($namaPemohonAktalahir)
   {
     $data = [
       'title' => 'Detail Data Pendaftaran Akta lahir || Admin Disdukcapil',
-      'pendaftaran_aktalahir' => $this->aktalahirModel->getDataAktalahir($namaPemohonAktalahir)
+      'pendaftaran_aktakelahiran' => $this->aktakelahiranModel->getDataAktaKelahiran($namaPemohonAktalahir)
     ];
-    return view('detailAdmin/detail_pendaftaranaktalahir_admin', $data);
+    return view('detailAdmin/detail_pendaftaranaktakelahiran_admin', $data);
   }
+
+
+
+
+
+
+
 
   // Menampilkan data Pendaftara Akta Kematian pada halaman admin
   public function pendaftaran_aktakematian_admin()
@@ -619,7 +290,7 @@ class Admin extends BaseController
     // $aktakematian = $this->aktalahirModel->findAll();
     $data = [
       'title' => 'Data Pendaftaran Akta Kematian || Admin Disdukcapil',
-      'pendaftaran_aktakematian' => $this->aktakematianModel->getDataKematian()
+      'pendaftaran_aktakematian' => $this->aktakematianModel->getDataAktaKematian()
     ];
     return view('admin/pendaftaran_aktakematian_admin', $data);
   }
@@ -629,10 +300,17 @@ class Admin extends BaseController
   {
     $data = [
       'title' => 'Detail Data Pendaftaran Akta Kematian || Admin Disdukcapil',
-      'pendaftaran_aktakematian' => $this->aktakematianModel->getDataKematian($namaPemohonAktakematian)
+      'pendaftaran_aktakematian' => $this->aktakematianModel->getDataAktaKematian($namaPemohonAktakematian)
     ];
     return view('detailAdmin/detail_pendaftaranaktakematian_admin', $data);
   }
+
+
+
+
+
+
+
 
   // Menampilkan data Perbaikan data pada halaman Admin
   public function perbaikan_data_admin()
@@ -641,7 +319,7 @@ class Admin extends BaseController
     // $perbaikandata = $this->perbaikandataModel->findAll();
     $data = [
       'title' => 'Data Pendaftaran Perbaikan Data || Admin Disdukcapil',
-      'perbaikan_data' => $this->perbaikandataModel->getDataPerbaikan()
+      'perbaikan_data' => $this->perbaikandataModel->getPerbaikanData()
     ];
     return view('admin/perbaikan_data_admin', $data);
   }
@@ -650,11 +328,18 @@ class Admin extends BaseController
   public function detail_perbaikandata_admin($namaPemohonPerbaikan)
   {
     $data = [
-      'title' => 'Detail Data Pendaftaran Perbaikan Data || Admin Disdukcapil',
-      'perbaikan_data' => $this->perbaikandataModel->getDataPerbaikan($namaPemohonPerbaikan)
+      'title' => 'Detail Pendaftaran Perbaikan Data || Admin Disdukcapil',
+      'perbaikan_data' => $this->perbaikandataModel->getPerbaikanData($namaPemohonPerbaikan)
     ];
     return view('detailAdmin/detail_perbaikandata_admin', $data);
   }
+
+
+
+
+
+
+
 
   // Menampilkan data Pengaduan Update pada halaman Admin
   public function pengaduan_update_admin()
@@ -663,7 +348,7 @@ class Admin extends BaseController
     // $pengaduanupdate = $this->pengaduanupdateModel->findAll();
     $data = [
       'title' => 'Data Pengaduan Update || Admin Disdukcapil',
-      'pengaduan_update' => $this->pengaduanupdateModel->getDataPengaduan()
+      'pengaduan_update' => $this->pengaduanupdateModel->getDataPengaduanUpdate()
     ];
     return view('admin/pengaduan_update_admin', $data);
   }
@@ -673,10 +358,17 @@ class Admin extends BaseController
   {
     $data = [
       'title' => 'Detail Data Pengaduan Update || Admin Disdukcapil',
-      'pengaduan_update' => $this->pengaduanupdateModel->getDataPengaduan($namaPemohonPengaduan)
+      'pengaduan_update' => $this->pengaduanupdateModel->getDataPengaduanUpdate($namaPemohonPengaduan)
     ];
     return view('detailAdmin/detail_datapengaduan_admin', $data);
   }
+
+
+
+
+
+
+
 
   // Menampilkan data Perbaikan NIK pada halaman Admin
   public function perbaikan_nik_admin()
@@ -685,7 +377,7 @@ class Admin extends BaseController
     // $perbaikannik = $this->perbaikannikModel->findAll();
     $data = [
       'title' => 'Data Perbaikan NIK || Admin Disdukcapil',
-      'perbaikan_nik' => $this->perbaikannikModel->getDataPerbaikan()
+      'perbaikan_nik' => $this->perbaikannikModel->getDataPerbaikanNIK()
     ];
     return view('admin/perbaikan_nik_admin', $data);
   }
@@ -695,7 +387,7 @@ class Admin extends BaseController
   {
     $data = [
       'title' => 'Detail Data Perbaikan NIK || Admin Disdukcapil',
-      'perbaikan_nik' => $this->perbaikannikModel->getDataPerbaikan($namaPemohonPerbaikan)
+      'perbaikan_nik' => $this->perbaikannikModel->getDataPerbaikanNIK($namaPemohonPerbaikan)
     ];
     return view('detailAdmin/detail_perbaikannik_admin', $data);
   }

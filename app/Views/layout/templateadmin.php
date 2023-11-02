@@ -72,6 +72,33 @@
       // when the button-toggle is clicked, it will add/remove the active-main-content class
       document.getElementById("main-content").classList.toggle("active-main-content");
     });
+
+    // Halaman Berita
+    function previewImgBerita() {
+      const fotoberita = document.querySelector('#fotoberita');
+      const imgPreviewBerita = document.querySelector('.img-preview');
+
+      const fileFotoBerita = new FileReader();
+      fileFotoBerita.readAsDataURL(fotoberita.files[0]);
+
+      fileFotoBerita.onload = function(e) {
+        imgPreviewBerita.src = e.target.result;
+      }
+    }
+
+
+    // Halaman Inovasi
+    function previewImgInovasi() {
+      const fotoinovasi = document.querySelector('#fotoinovasi');
+      const imgPreviewInovasi = document.querySelector('.img-preview');
+
+      const fileFotoInovasi = new FileReader();
+      fileFotoInovasi.readAsDataURL(fotoinovasi.files[0]);
+
+      fileFotoInovasi.onload = function(e) {
+        imgPreviewInovasi.src = e.target.result;
+      }
+    }
   </script>
 
   <!-- Login Page -->

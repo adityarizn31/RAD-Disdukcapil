@@ -44,7 +44,7 @@
 
       <?php foreach ($berita as $b) : ?>
         <div class="card">
-          <img src="/img/berita/<?= $b['fotoberita']; ?>" class="card-img-top" alt="Foto Berita" style="width: 100%; height:fit-content;">
+          <img src="/img/berita/<?= $b['fotoberita']; ?>" class="card-img-top" alt="Foto Berita">
           <div class="card-body">
             <h5 class="card-title"> <?= $b['judulberita']; ?> </h5>
             <p class="card-text"><?= $b['keteranganberita']; ?></p>
@@ -72,7 +72,7 @@
             <div class="col">
 
               <div class="card" style="border: none;">
-                <img src="/img/inovasi/<?= $inov['fotoinovasi']; ?>" class="foto_inovasi" alt="..." style="width: 100%; height:fit-content;">
+                <img src="/img/inovasi/<?= $inov['fotoinovasi']; ?>" class="foto_inovasi" alt="Foto Inovasi">
                 <div class="card-body">
                   <h5 class="card-title"><?= $inov['judulinovasi']; ?></h5>
                   <p class="card-text"><?= $inov['keteranganinovasi']; ?></p>

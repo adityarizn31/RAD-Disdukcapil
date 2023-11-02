@@ -36,11 +36,12 @@
         <div class="row">
           <div class="mb-3">
             <label for="fotoberita" class="form-label fw-semibold">Foto Berita</label>
-            <div class="mb-3">
-              <input class="form-control <?= ($validation->hasError('fotoberita')) ? 'is-invalid' : ''; ?>" type="file" name="fotoberita" id="fotoberita">
-              <div class="invalid-feedback">
-                <?= $validation->getError('fotoberita'); ?>
-              </div>
+            <input type="file" class="form-control <?= ($validation->hasError('fotoberita')) ? 'is-invalid' : ''; ?>" name="fotoberita" id="fotoberita" value="<?= old('fotoberita'); ?>" onchange="previewImgBerita()">
+            <div class="invalid-feedback">
+              <?= $validation->getError('fotoberita'); ?>
+            </div>
+            <div class="col-sm-2 my-4">
+              <img src="/img/berita/beritadef.PNG" class="img-thumbnail img-preview" srcset="">
             </div>
           </div>
         </div>
@@ -48,7 +49,7 @@
         <!-- Form Keterangan Berita -->
         <div class="row">
           <div class="mb-3">
-            <label for="keteranganberita" class="form-label fw-semibold">Keterangan</label>
+            <label for="keteranganberita" class="form-label fw-semibold">Keterangan Berita</label>
             <br>
             <textarea name="keteranganberita" id="keteranganberita" class="form-control text-area <?= ($validation->hasError('keteranganberita')) ? 'is-invalid' : ''; ?>" value="<?= old('keteranganberita'); ?>"></textarea>
             <div class="invalid-feedback">

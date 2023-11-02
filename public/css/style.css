@@ -124,17 +124,24 @@ a {
 }
 
 .foto_berita {
-  width: 100%;
+  width: 70%;
+  height: 50%;
 }
 
 .foto_inovasi {
-  width: 100%;
+  width: 55%;
+  height: 50%;
 }
 
 .detail-berita {
-  
+  width: 70%;
 }
 
 .textarea {
   max-width: 100%;
+}
+
+.foto_admin {
+  width: 50%;
+  height: 50%;
 }

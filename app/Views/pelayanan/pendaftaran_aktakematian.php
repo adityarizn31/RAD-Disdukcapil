@@ -7,54 +7,100 @@
     <div class="container">
       <h4 class="text-center mt-2 mb-2">Pendaftaran Akta Kematian</h4>
 
-      <form action="post" method="post" enctype="multipart/form-data">
+      <?php if (session()->getFlashdata('pesan')) : ?>
 
+        <div class="alert alert-success" role="alert">
+          <?= session()->getFlashdata('pesan'); ?>
+        </div>
+
+      <?php endif; ?>
+
+      <form action="/pelayanan/saveAktaKematian" method="post" enctype="multipart/form-data">
+
+        <!-- Keamanan   -->
         <?= csrf_field(); ?>
 
+        <!-- Form Nama Pemohon -->
         <div class="row">
           <div class="mb-3">
             <label for="namapemohon" class="form-label fw-semibold">Nama Pemohon</label>
-            <input type="text" class="form-control" name="namapemohon" id="namapemohon">
+            <input type="text" class="form-control <?= ($validation->hasError('namapemohon')) ? 'is-invalid' : ''; ?>" name="namapemohon" id="namapemohon" autofocus value="<?= old('namapemohon'); ?>">
+            <div class="invalid-feedback">
+              <?= $validation->getError('namapemohon') ?>
+            </div>
           </div>
         </div>
 
+        <!-- Form Email Pemohon -->
         <div class="row">
           <div class="mb-3">
             <label for="emailpemohon" class="form-label fw-semibold">Email Pemohon</label>
-            <input type="email" class="form-control" name="emailpemohon" id="emailpemohon">
+            <input type="email" class="form-control <?= ($validation->hasError('emailpemohon')) ? 'is-invalid' : ''; ?>" name="emailpemohon" id="emailpemohon" value="<?= old('emailpemohon'); ?>">
+            <div class="invalid-feedback">
+              <?= $validation->getError('emailpemohon'); ?>
+            </div>
           </div>
         </div>
 
+        <!-- Form Nomor Pemohon -->
         <div class="row">
           <div class="mb-3">
             <label for="nomorpemohon" class="form-label fw-semibold">Nomor Whatsapp</label>
-            <input type="text" class="form-control" name="nomorpemohon" id="nomorpemohon">
+            <input type="text" class="form-control <?= ($validation->hasError('nomorpemohon')) ? 'is-invalid' : ''; ?>" name="nomorpemohon" id="nomorpemohon" value="<?= old('nomorpemohon'); ?>">
+            <div class="invalid-feedback">
+              <?= $validation->getError('nomorpemohon'); ?>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Alamat Pemohon -->
+        <div class="row">
+          <div class="mb-3">
+            <label for="alamatpemohon" class="form-label fw-semibold">Alamat Pemohon</label>
+            <br>
+            <textarea class=" form-control text-area <?= ($validation->hasError('alamatpemohon')) ? 'is-invalid' : ''; ?>" name="alamatpemohon" id="alamatpemohon" value="<?= old('alamatpemohon'); ?>"></textarea>
+            <div class="invalid-feedback">
+              <?= $validation->getError('alamatpemohon'); ?>
+            </div>
           </div>
         </div>
 
         <hr>
 
+        <!-- Form KK Pelapor -->
         <div class="row">
           <div class="mb-3">
-            <label for="FormKKPelapor" class="form-label fw-semibold"> Kartu Keluarga Pelapor</label>
-            <input type="file" class="form-control" name="FormKKPelapor" id="FormKKPelapor">
+            <label for="kartukeluarga" class="form-label fw-semibold"> Kartu Keluarga Pelapor</label>
+            <input type="file" class="form-control <?= ($validation->hasError('kartukeluarga')) ? 'is-invalid' : ''; ?>" name="kartukeluarga" id="kartukeluarga" value="<?= old('kartukeluarga'); ?>">
+            <div class="invalid-feedback">
+              <?= $validation->getError('kartukeluarga'); ?>
+            </div>
           </div>
         </div>
 
+        <!-- Form KTP Meninggal -->
         <div class="row">
           <div class="mb-3">
-            <label for="FormKTPMeninggal" class="form-label fw-semibold">KTP Orang Meninggal</label>
-            <input type="file" class="form-control" name="FormKTPMeninggal" id="FormKTPMeninggal">
+            <label for="ktporangmeninggal" class="form-label fw-semibold">KTP Orang Meninggal</label>
+            <input type="file" class="form-control <?= ($validation->hasError('ktporangmeninggal')) ? 'is-invalid' : ''; ?>" name="ktporangmeninggal" id="ktporangmeninggal" value="<?= old('ktporangmeninggal'); ?>">
+            <div class="invalid-feedback">
+              <?= $validation->getError('ktporangmeninggal'); ?>
+            </div>
           </div>
         </div>
 
+        <!-- FormSuratKematian -->
         <div class="row">
           <div class="mb-3">
-            <label for="FormSuratKematian" class="form-label fw-semibold">Surat Kematian dari RS</label>
-            <input type="file" class="form-control" name="FormSuratKematian" id="FormSuratKematian">
+            <label for="suratkematian" class="form-label fw-semibold">Surat Kematian dari RS</label>
+            <input type="file" class="form-control <?= ($validation->hasError('suratkematian')) ? 'is-invalid' : ''; ?>" name="suratkematian" id="suratkematian" value="<?= old('suratkematian'); ?>">
+            <div class="invalid-feedback">
+              <?= $validation->getError('suratkematian'); ?>
+            </div>
           </div>
         </div>
 
+        <!-- FormButton -->
         <div class="d-grid gap-2 col-6 mx-auto">
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>

@@ -18,7 +18,7 @@
         <h6 class="m-0 font-weight-bold text-primary">Berita Disdukcapil Majalengka</h6>
 
         <!-- Method create_berita_admin digunakan untuk Menampilkan Form Insert Data -->
-        <a href="/admin/create_berita_admin/" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Tambah Berita</a>
+        <a href="/CreateAdmin/create_berita_admin/" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Tambah Berita</a>
       </div>
 
     </div>
@@ -61,13 +61,14 @@
               <td><?= $b['judulberita']; ?></td>
               <td><?= $b['keteranganberita']; ?></td>
               <td>
-                <a href="/admin/detail_berita_admin/<?= $b['judulberita']; ?>" class="btn btn-success">Detail</a>
+                <a href="/DetailAdmin/detail_berita_admin/<?= $b['judulberita']; ?>" class="btn btn-success">Detail</a>
               </td>
             </tr>
           <?php endforeach; ?>
         </tbody>
 
       </table>
+
     </div>
   </div>
 

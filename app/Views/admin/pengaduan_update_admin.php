@@ -14,6 +14,7 @@
     </div>
 
     <div class="card-body">
+
       <table class="table table-fixed table-hover">
         <thead class="table-dark">
           <tr>
@@ -21,14 +22,28 @@
             <th scope="col">Nama Pemohon</th>
             <th scope="col">Email Pemohon</th>
             <th scope="col">No Whatsapp</th>
-            <th scope="col">Nama Pelapor</th>
-            <th scope="col">KTP Pelapor</th>
-            <th scope="col">KK Pelapor</th>
-            <th scope="col">Pengaduan</th>
+            <th scope="col">Permohonan</th>
             <th scope="col">Aksi</th>
           </tr>
         </thead>
+
+        <tbody>
+          <tr>
+            <?php $i = 1; ?>
+            <?php foreach ($pengaduan_update as $ngadu) : ?>
+              <th scope="row"><?= $i++; ?></th>
+              <td><?= $ngadu['namapemohon']; ?></td>
+              <td><?= $ngadu['emailpemohon']; ?></td>
+              <td><?= $ngadu['nomorpemohon']; ?></td>
+              <td>Pengaduan Update</td>
+              <td>
+                <a href="/DetailAdmin/detail_pengaduanupdate_admin/<?= $ngadu['namapemohon']; ?>" class="btn btn-success">Detail</a>
+              </td>
+            <?php endforeach; ?>
+          </tr>
+        </tbody>
       </table>
+
     </div>
   </div>
 

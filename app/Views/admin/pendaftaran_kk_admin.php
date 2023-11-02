@@ -22,42 +22,27 @@
             <th scope="col">Nama Pemohon</th>
             <th scope="col">Email Pemohon</th>
             <th scope="col">No Whatsapp</th>
-            <th scope="col">Formulir Desa</th>
-            <th scope="col">Kartu Keluarga Suami</th>
-            <th scope="col">Kartu Keluarga Istri</th>
-            <th scope="col">Surat Nikah</th>
-            <th scope="col">Surat Pindah</th>
+            <th scope="col">Permohonan</th>
             <th scope="col">Aksi</th>
           </tr>
         </thead>
+
         <tbody>
-          <!-- Baris 1 -->
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>
-              <a href="" class="btn btn-success">Detail</a>
-            </td>
-          </tr>
-
-          <!-- Baris 2 -->
-          <tr>
-            <th scope="row">2</th>
-          </tr>
-
-          <!-- Baris 3 -->
-          <tr>
-            <th scope="row">3</th>
-          </tr>
-
+          <?php $i = 1; ?>
+          <?php foreach ($pendaftaran_kk as $kk) : ?>
+            <tr>
+              <th scope="row"><?= $i++; ?></th>
+              <td><?= $kk['namapemohon']; ?></td>
+              <td><?= $kk['emailpemohon']; ?></td>
+              <td><?= $kk['nomorpemohon']; ?></td>
+              <td>Pendaftaran KK</td>
+              <td>
+                <a href="/DetailAdmin/detail_pendaftarankk_admin/<?= $kk['namapemohon']; ?>" class="btn btn-success">Detail</a>
+              </td>
+            </tr>
+          <?php endforeach; ?>
         </tbody>
+
       </table>
 
     </div>
