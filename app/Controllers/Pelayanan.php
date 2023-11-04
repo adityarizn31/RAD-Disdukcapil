@@ -253,7 +253,7 @@ class Pelayanan extends BaseController
       'formulirf102ktp' => [
         'rules' => 'uploaded[formulirf102ktp]|max_size[formulirf102ktp,1024]|mime_in[formulirf102ktp,application/pdf]|ext_in[formulirf102ktp,pdf]',
         'errors' => [
-          'uploaded' => 'Formulir Desa Harus Diisi !!',
+          'uploaded' => 'Formulir F102 KTP Harus Diisi !!',
           'max_size' => 'File anda terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format File Harus PDF !!',
           'ext_in' => ''
@@ -263,7 +263,7 @@ class Pelayanan extends BaseController
       'kartukeluarga' => [
         'rules' => 'uploaded[kartukeluarga]|max_size[kartukeluarga,1024]|mime_in[kartukeluarga,application/pdf]|ext_in[kartukeluarga,pdf]',
         'errors' => [
-          'uploaded' => 'Kartu Keluarga Suami Harus Diisi !!',
+          'uploaded' => 'Kartu Keluarga Harus Diisi !!',
           'max_size' => 'File anda terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format File Harus PDF !!',
           'ext_in' => ''
@@ -352,21 +352,11 @@ class Pelayanan extends BaseController
           'required' => 'Alamat Pemohon Harus Diisi !!'
         ]
       ],
-      // Form Formulir Desa
-      'formulirdesa' => [
-        'rules' => 'uploaded[formulirdesa]|max_size[formulirdesa,1024]|mime_in[formulirdesa,application/pdf]|ext_in[formulirdesa,pdf]',
-        'errors' => [
-          'uploaded' => 'Formulir Desa Harus Diisi !!',
-          'max_size' => 'File anda terlalu besar, Kompress terlebih dahulu !!',
-          'mime_in' => 'Format File Harus PDF !!',
-          'ext_in' => ''
-        ]
-      ],
       // Berkas Akta Kelahiran
       'aktakelahiran' => [
         'rules' => 'uploaded[aktakelahiran]|max_size[aktakelahiran,1024]|mime_in[aktakelahiran,application/pdf]|ext_in[aktakelahiran,pdf]',
         'errors' => [
-          'uploaded' => 'Formulir Desa Harus Diisi !!',
+          'uploaded' => 'Akta Kelahiran Harus Diisi !!',
           'max_size' => 'File anda terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format File Harus PDF !!',
           'ext_in' => ''
@@ -376,7 +366,7 @@ class Pelayanan extends BaseController
       'kartukeluarga' => [
         'rules' => 'uploaded[kartukeluarga]|max_size[kartukeluarga,1024]|mime_in[kartukeluarga,application/pdf]|ext_in[kartukeluarga,pdf]',
         'errors' => [
-          'uploaded' => 'Formulir Desa Harus Diisi !!',
+          'uploaded' => 'Kartu Keluarga Harus Diisi !!',
           'max_size' => 'File anda terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format File Harus PDF !!',
           'ext_in' => ''
@@ -386,7 +376,7 @@ class Pelayanan extends BaseController
       'pasfoto' => [
         'rules' => 'uploaded[pasfoto]|max_size[pasfoto,1024]|mime_in[pasfoto,application/pdf]|ext_in[pasfoto,pdf]',
         'errors' => [
-          'uploaded' => 'Formulir Desa Harus Diisi !!',
+          'uploaded' => 'Pas Foto Harus Diisi !!',
           'max_size' => 'File anda terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format File Harus PDF !!',
           'ext_in' => ''
@@ -446,7 +436,7 @@ class Pelayanan extends BaseController
       'title' => 'Pendaftaran Akta Kelahiran || Disdukcapil Majalengka',
       'validation' => \Config\Services::validation()
     ];
-    return view('pelayanan/pendaftaran_aktalahir', $data);
+    return view('pelayanan/pendaftaran_aktakelahiran', $data);
   }
 
   // Validasi Akta Kelahiran
@@ -483,10 +473,10 @@ class Pelayanan extends BaseController
         ]
       ],
       // Berkas F2.01 Akta
-      'formulirf201' => [
-        'rules' => 'uploaded[formulirf201]|max_size[formulirf201,1024]|mime_in[formulirf201,application/pdf]|ext_in[formulirf201,pdf]',
+      'formulirf201akta' => [
+        'rules' => 'uploaded[formulirf201akta]|max_size[formulirf201akta,1024]|mime_in[formulirf201akta,application/pdf]|ext_in[formulirf201akta,pdf]',
         'errors' => [
-          'uploaded' => 'Formulir Desa Harus Diisi !!',
+          'uploaded' => 'Formulir F201 Akta Kelahiran Harus Diisi !!',
           'max_size' => 'File anda terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format File Harus PDF !!',
           'ext_in' => ''
@@ -496,17 +486,17 @@ class Pelayanan extends BaseController
       'suratketeranganlahir' => [
         'rules' => 'uploaded[suratketeranganlahir]|max_size[suratketeranganlahir,1024]|mime_in[suratketeranganlahir,application/pdf]|ext_in[suratketeranganlahir,pdf]',
         'errors' => [
-          'uploaded' => 'Formulir Desa Harus Diisi !!',
+          'uploaded' => 'Surat Keterangan Lahir Harus Diisi !!',
           'max_size' => 'File anda terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format File Harus PDF !!',
           'ext_in' => ''
         ]
       ],
-      // Berkas Surat Keterangan Lahir
+      // Berkas Kartu Keluarga
       'kartukeluarga' => [
         'rules' => 'uploaded[kartukeluarga]|max_size[kartukeluarga,1024]|mime_in[kartukeluarga,application/pdf]|ext_in[kartukeluarga,pdf]',
         'errors' => [
-          'uploaded' => 'Formulir Desa Harus Diisi !!',
+          'uploaded' => 'Kartu Keluarga Harus Diisi !!',
           'max_size' => 'File anda terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format File Harus PDF !!',
           'ext_in' => ''
@@ -516,7 +506,7 @@ class Pelayanan extends BaseController
       'ktpayah' => [
         'rules' => 'uploaded[ktpayah]|max_size[ktpayah,1024]|mime_in[ktpayah,application/pdf]|ext_in[ktpayah,pdf]',
         'errors' => [
-          'uploaded' => 'Formulir Desa Harus Diisi !!',
+          'uploaded' => 'KTP Ayah Harus Diisi !!',
           'max_size' => 'File anda terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format File Harus PDF !!',
           'ext_in' => ''
@@ -526,7 +516,7 @@ class Pelayanan extends BaseController
       'ktpibu' => [
         'rules' => 'uploaded[ktpibu]|max_size[ktpibu,1024]|mime_in[ktpibu,application/pdf]|ext_in[ktpibu,pdf]',
         'errors' => [
-          'uploaded' => 'Formulir Desa Harus Diisi !!',
+          'uploaded' => 'KTP Ibu Harus Diisi !!',
           'max_size' => 'File anda terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format File Harus PDF !!',
           'ext_in' => ''
@@ -534,18 +524,23 @@ class Pelayanan extends BaseController
       ]
 
     ])) {
-      return redirect()->to(base_url() . '/pelayanan/pendaftaran_aktalahir/')->withInput();
+      return redirect()->to(base_url() . '/pelayanan/pendaftaran_aktakelahiran/')->withInput();
     }
 
     // Berkas Formulir F201
-    $berkasFormulirF201_Akla = $this->request->getFile('formulirf201');
+    $berkasFormulirF201_Akla = $this->request->getFile('formulirf201akta');
     $namaFormulirF201_Akla = $berkasFormulirF201_Akla->getName();
-    $berkasFormulirF201_Akla->move('pelayananan/aktakelahiran', $namaFormulirF201_Akla);
+    $berkasFormulirF201_Akla->move('pelayanan/aktakelahiran', $namaFormulirF201_Akla);
 
     // Berkas Surat Keterangan Lahir
     $berkasSuratKeteranganLahir_Akla = $this->request->getFile('suratketeranganlahir');
     $namaSuratKeteranganLahir_Akla = $berkasSuratKeteranganLahir_Akla->getName();
     $berkasSuratKeteranganLahir_Akla->move('pelayanan/aktakelahiran', $namaSuratKeteranganLahir_Akla);
+
+    // Berkas Kartu Keluarga
+    $berkasKartuKeluarga_Akla = $this->request->getFile('kartukeluarga');
+    $namaKartuKeluarga_Akla = $berkasKartuKeluarga_Akla->getName('kartukeluarga');
+    $berkasKartuKeluarga_Akla->move('pelayanan/aktakelahiran', $namaKartuKeluarga_Akla);
 
     // Berkas KTP Ayah
     $berkasKTPAyah_Akla = $this->request->getFile('ktpayah');
@@ -553,7 +548,7 @@ class Pelayanan extends BaseController
     $berkasKTPAyah_Akla->move('pelayanan/aktakelahiran', $namaKTPAyah_Akla);
 
     // Berkas KTP Ibu
-    $berkasKTPIbu_Akla = $this->request->getFile('');
+    $berkasKTPIbu_Akla = $this->request->getFile('ktpibu');
     $namaKTPIbu_Akla = $berkasKTPIbu_Akla->getName();
     $berkasKTPIbu_Akla->move('pelayanan/aktakelahiran', $namaKTPIbu_Akla);
 
@@ -562,7 +557,8 @@ class Pelayanan extends BaseController
       'emailpemohon' => $this->request->getVar('emailpemohon'),
       'nomorpemohon' => $this->request->getVar('nomorpemohon'),
       'alamatpemohon' => $this->request->getVar('alamatpemohon'),
-      'formulirf201' => $namaFormulirF201_Akla,
+      'formulirf201akta' => $namaFormulirF201_Akla,
+      'kartukeluarga' => $namaKartuKeluarga_Akla,
       'suratketeranganlahir' => $namaSuratKeteranganLahir_Akla,
       'ktpayah' => $namaKTPAyah_Akla,
       'ktpibu' => $namaKTPIbu_Akla
@@ -632,7 +628,7 @@ class Pelayanan extends BaseController
       'kartukeluarga' => [
         'rules' => 'uploaded[kartukeluarga]|max_size[kartukeluarga,1024]|mime_in[kartukeluarga,application/pdf]|ext_in[kartukeluarga,pdf]',
         'errors' => [
-          'uploaded' => 'Formulir Desa Harus Diisi !!',
+          'uploaded' => 'Kartu Keluarga Harus Diisi !!',
           'max_size' => 'File anda terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format File Harus PDF !!',
           'ext_in' => ''
@@ -642,7 +638,7 @@ class Pelayanan extends BaseController
       'ktporangmeninggal' => [
         'rules' => 'uploaded[ktporangmeninggal]|max_size[ktporangmeninggal,1024]|mime_in[ktporangmeninggal,application/pdf]|ext_in[ktporangmeninggal,pdf]',
         'errors' => [
-          'uploaded' => 'Formulir Desa Harus Diisi !!',
+          'uploaded' => 'KTP Orang Meninggal Harus Diisi !!',
           'max_size' => 'File anda terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format File Harus PDF !!',
           'ext_in' => ''
@@ -652,7 +648,7 @@ class Pelayanan extends BaseController
       'suratkematian' => [
         'rules' => 'uploaded[suratkematian]|max_size[suratkematian,1024]|mime_in[suratkematian,application/pdf]|ext_in[suratkematian,pdf]',
         'errors' => [
-          'uploaded' => 'Formulir Desa Harus Diisi !!',
+          'uploaded' => 'Surat Kematian Harus Diisi !!',
           'max_size' => 'File anda terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format File Harus PDF !!',
           'ext_in' => ''
@@ -703,15 +699,16 @@ class Pelayanan extends BaseController
 
 
 
-  // Menampilkan Form Perbaikan Data
-  public function perbaikan_data()
+
+  // Menampilkan Form Pendaftaran Perbaikan Data
+  public function pendaftaran_perbaikandata()
   {
     helper(['form']);
     $data = [
-      'title' => 'Perbaikan Data || Disdukcapil Majalengka',
+      'title' => 'Pendaftaran Perbaikan Data || Disdukcapil Majalengka',
       'validation' => \Config\Services::validation()
     ];
-    return view('pelayanan/perbaikan_data', $data);
+    return view('pelayanan/pendaftaran_perbaikandata', $data);
   }
 
   // Validasi Form Perbaikan Data
@@ -773,10 +770,20 @@ class Pelayanan extends BaseController
           'mime_in' => 'Format File Harus PDF !!',
           'ext_in' => ''
         ]
+      ],
+      // Berkas Perbaikan 3
+      'berkasperbaikan3' => [
+        'rules' => 'uploaded[berkasperbaikan3]|max_size[berkasperbaikan3,1024]|mime_in[berkasperbaikan3,application/pdf]|ext_in[berkasperbaikan3,pdf]',
+        'errors' => [
+          'uploaded' => 'Surat Pindah Harus Diisi !!',
+          'max_size' => 'File anda terlalu besar, Kompress terlebih dahulu !!',
+          'mime_in' => 'Format File Harus PDF !!',
+          'ext_in' => ''
+        ]
       ]
 
     ])) {
-      return redirect()->to(base_url() . '/pelayanan/pendaftaran_aktakematian/')->withInput();
+      return redirect()->to(base_url() . '/pelayanan/pendaftaran_perbaikandata/')->withInput();
     }
 
     // Berkas Perbaikan 1
@@ -789,6 +796,11 @@ class Pelayanan extends BaseController
     $namaBerkasPerbaikan2 = $berkasPerbaikan2->getname();
     $berkasPerbaikan2->move('pelayanan/perbaikan_data', $namaBerkasPerbaikan2);
 
+    // Berkas Perbaikan 3
+    $berkasPerbaikan3 = $this->request->getFile('berkasperbaikan3');
+    $namaBerkasPerbaikan3 = $berkasPerbaikan3->getname();
+    $berkasPerbaikan3->move('pelayanan/perbaikan_data', $namaBerkasPerbaikan3);
+
     $this->perbaikandataModel->save([
       'namapemohon' => $this->request->getVar('namapemohon'),
       'emailpemohon' => $this->request->getVar('emailpemohon'),
@@ -796,7 +808,8 @@ class Pelayanan extends BaseController
       'alamatpemohon' => $this->request->getVar('alamatpemohon'),
       'penjelasanperbaikan' => $this->request->getVar('penjelasanperbaikan'),
       'berkasperbaikan1' => $namaBerkasPerbaikan1,
-      'berkasperbaikan2' => $namaBerkasPerbaikan2
+      'berkasperbaikan2' => $namaBerkasPerbaikan2,
+      'berkasperbaikan3' => $namaBerkasPerbaikan3
     ]);
     session()->setFlashdata('pesan', 'Selamat Pendaftaran Perbaikan Data anda Berhasil !!');
     return redirect()->to('/pelayanan/pendaftaran_perbaikandata/');
@@ -815,14 +828,14 @@ class Pelayanan extends BaseController
 
 
   // Menampilkan Form Pengaduan Update
-  public function pengaduan_update()
+  public function pendaftaran_pengaduanupdate()
   {
     helper(['form']);
     $data = [
       'title' => 'Pengaduan Update || Disdukcapil Majalengka',
       'validation' => \Config\Services::validation()
     ];
-    return view('pelayanan/pengaduan_update', $data);
+    return view('pelayanan/pendaftaran_pengaduanupdate', $data);
   }
 
   // Validasi Form Pengaduan Update
@@ -883,7 +896,7 @@ class Pelayanan extends BaseController
       ]
 
     ])) {
-      return redirect()->to(base_url() . '/pelayanan/pengaduan_update/')->withInput();
+      return redirect()->to(base_url() . '/pelayanan/pendaftaran_pengaduanupdate/')->withInput();
     }
 
     // Berkas KTP
@@ -907,7 +920,7 @@ class Pelayanan extends BaseController
 
     ]);
     session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
-    return redirect()->to('/pelayanan/pengaduan_update/');
+    return redirect()->to('/pelayanan/pendaftaran_pengaduanupdate/');
   }
 
 
@@ -923,14 +936,14 @@ class Pelayanan extends BaseController
 
 
   // Menampilkan Form Perbaikan NIK
-  public function perbaikan_nik()
+  public function pendaftaran_perbaikannik()
   {
     helper(['form']);
     $data = [
       'title' => 'Perbaikan NIK || Disdukcapil Majalengka',
       'validation' => \Config\Services::validation()
     ];
-    return view('pelayanan/perbaikan_nik', $data);
+    return view('pelayanan/pendaftaran_perbaikannik', $data);
   }
 
   // Validasi Form Perbaikan NIK
@@ -989,7 +1002,7 @@ class Pelayanan extends BaseController
       ]
 
     ])) {
-      return redirect()->to(base_url() . '/pelayanan/perbaikan_nik')->withInput();
+      return redirect()->to(base_url() . '/pelayanan/pendaftaran_perbaikannik')->withInput();
     }
 
     // Berkas KTP Perbaikan NIK
@@ -1011,7 +1024,7 @@ class Pelayanan extends BaseController
       'kartukeluarga' => $namaKK_PerNIK
     ]);
     session()->setFlashdata('pesan', 'Selamat Pendaftaran Perbaikan NIK anda Berhasil !!');
-    return redirect()->to('/pelayanan/perbaikan_nik/');
+    return redirect()->to('/pelayanan/pendaftaran_perbaikannik/');
   }
 
 

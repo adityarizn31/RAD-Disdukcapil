@@ -9,6 +9,7 @@
   </button>
 
   <div class="card shadow mb-4" style="margin-top: 25px;">
+
     <div class="card-header py-3" style="border: none; border: 0; outline: none; box-shadow: none;">
       <h4 class="m-0 font-weight-bold text-primary text-center">Detail Data Pendaftaran Kartu Tanda Penduduk</h4>
     </div>
@@ -44,7 +45,7 @@
             <tr>
               <th width="">Alamat Pemohon</th>
               <th width="">:</th>
-              <th><?= $pendaftaran_ktp['alamatpemohon']; ?></th>
+              <td><?= $pendaftaran_ktp['alamatpemohon']; ?></td>
             </tr>
 
           </table>

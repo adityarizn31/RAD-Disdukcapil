@@ -167,7 +167,7 @@
 
         <!-- Pengaduan Update -->
         <div class="card shadow border-2" style="width: 18rem; padding: 10px; margin: 20px;">
-          <a href="/admin/pengaduan_update_admin">
+          <a href="/admin/pendaftaran_pengaduanupdate_admin">
             <img src="/img/PENGADUAN.png" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title text-black">Pengaduan Update</h5>
@@ -178,7 +178,7 @@
 
         <!-- Perbaikan NIK -->
         <div class="card shadow border-2" style="width: 18rem; padding: 10px; margin: 20px;">
-          <a href="/admin/perbaikan_nik_admin">
+          <a href="/admin/pendaftaran_perbaikannik_admin">
             <img src="/img/PERBAIKANNIK.png" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title text-black">Perbaikan Nik</h5>
@@ -186,6 +186,7 @@
             </div>
           </a>
         </div>
+
       </div>
     </div>
 

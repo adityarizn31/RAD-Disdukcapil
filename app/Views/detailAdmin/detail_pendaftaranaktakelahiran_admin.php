@@ -56,11 +56,10 @@
 
             <div class="card-header">
               <div class="card-title"> Berkas Formulir F201 Akta Kelahiran </div>
-
             </div>
 
             <div class="col-sm-12">
-              <iframe src="<?= base_url('/pelayanan/aktakelahiran/' . $pendaftaran_aktakelahiran['formurlirf201']) ?>" frameborder="0" height="500" width="100%"></iframe>
+              <iframe src="<?= base_url('/pelayanan/aktakelahiran/' . $pendaftaran_aktakelahiran['formulirf201akta']) ?>" frameborder="0" height="500" width="100%"></iframe>
             </div>
 
           </div>
@@ -116,7 +115,7 @@
             </div>
 
             <div class="col-sm-12">
-              <iframe src="<?= base_url('/pelayanan/aktakelahiran/' . $pendaftaran_aktalahir['ktpibu']) ?>" frameborder="0" height="200" width="100%"></iframe>
+              <iframe src="<?= base_url('/pelayanan/aktakelahiran/' . $pendaftaran_aktalahir['ktpibu']) ?>" frameborder="0" height="500" width="100%"></iframe>
             </div>
 
           </div>

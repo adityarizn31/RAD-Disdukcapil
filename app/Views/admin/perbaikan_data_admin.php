@@ -26,23 +26,23 @@
             <th scope="col">Aksi</th>
           </tr>
         </thead>
-      </table>
 
-      <tbody>
-        <tr>
+        <tbody>
           <?php $i = 1; ?>
           <?php foreach ($perbaikan_data as $perda) :  ?>
-            <th scope="row"><?= $i++; ?></th>
-            <td><?= $perda['namapemohon']; ?></td>
-            <td><?= $perda['emailpemohon']; ?></td>
-            <td><?= $perda['nomorpemohon']; ?></td>
-            <td>Perbaikan Data</td>
-            <td>
-              <a href="/DetailAdmin/detail_perbaikandata_admin/<?= $perda['namapemohon']; ?>" class="btn btn-success">Detail</a>
-            </td>
+            <tr>
+              <th scope="row"><?= $i++; ?></th>
+              <td><?= $perda['namapemohon']; ?></td>
+              <td><?= $perda['emailpemohon']; ?></td>
+              <td><?= $perda['nomorpemohon']; ?></td>
+              <td>Perbaikan Data</td>
+              <td>
+                <a href="/DetailAdmin/detail_pendaftaranperbaikandata_admin/<?= $perda['namapemohon']; ?>" class="btn btn-success">Detail</a>
+              </td>
+            </tr>
           <?php endforeach; ?>
-        </tr>
-      </tbody>
+        </tbody>
+      </table>
 
     </div>
   </div>

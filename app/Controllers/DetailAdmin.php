@@ -188,13 +188,13 @@ class DetailAdmin extends BaseController
 
 
   // Halaman Pendaftaran Akta Kelahiran
-  public function detail_pendaftaranaktalahir_admin($namaPemohonAktalahir)
+  public function detail_pendaftaranaktakelahiran_admin($namaPemohonAktalahir)
   {
     $data = [
       'title' => 'Detail Pendaftaran Akta Kelahiran || Disdukcapil Majalengka',
       'pendaftaran_aktakelahiran' => $this->aktakelahiranModel->getDataAktakelahiran($namaPemohonAktalahir)
     ];
-    return view('detailAdmin/detail_pendaftaranaktalahir_admin', $data);
+    return view('detailAdmin/detail_pendaftaranaktakelahiran_admin', $data);
   }
 
 
@@ -223,13 +223,13 @@ class DetailAdmin extends BaseController
 
 
   // Halaman Pendaftaran Perbaikan Data
-  public function detail_perbaikandata_admin($namaPemohonPerbaikan)
+  public function detail_pendaftaranperbaikandata_admin($namaPemohonPerbaikan)
   {
     $data = [
       'title' => 'Detail Perbaikan Data || Disdukcapil Majalengka',
       'perbaikan_data' => $this->perbaikandataModel->getPerbaikanData($namaPemohonPerbaikan)
     ];
-    return view('detailAdmin/detail_perbaikandata_admin', $data);
+    return view('detailAdmin/detail_pendaftaranperbaikandata_admin', $data);
   }
 
 
@@ -241,13 +241,13 @@ class DetailAdmin extends BaseController
 
 
   // Halaman Pendaftaran Pengaduan Data
-  public function detail_pengaduanupdate_admin($namaPemohonPengaduan)
+  public function detail_pendaftaranpengaduanupdate_admin($namaPemohonPengaduan)
   {
     $data = [
       'title' => 'Detail Pengaduan Data || Disdukcapil Majalengka',
-      'pengaduan_data' => $this->pengaduanupdateModel->getDataPengaduanUpdate($namaPemohonPengaduan)
+      'pengaduan_update' => $this->pengaduanupdateModel->getDataPengaduanUpdate($namaPemohonPengaduan)
     ];
-    return view('detailAdmin/detail_pengaduandata_admin', $data);
+    return view('detailAdmin/detail_pendaftaranpengaduanupdate_admin', $data);
   }
 
 
@@ -259,12 +259,12 @@ class DetailAdmin extends BaseController
 
 
   // Halaman Perbaikan NIK 
-  public function detail_perbaikannik_admin($namaPemohonPerbaikanNIK)
+  public function detail_pendaftaranperbaikannik_admin($namaPemohonPerbaikanNIK)
   {
     $data = [
       'title' => 'Detail Perbaikan NIK || Disdukcapil Majalengka',
       'perbaikan_nik' => $this->perbaikannikModel->getDataPerbaikanNIK($namaPemohonPerbaikanNIK)
     ];
-    return view('detailAdmin/detail_perbaikannik_admin', $data);
+    return view('detailAdmin/detail_pendaftaranperbaikannik_admin', $data);
   }
 }

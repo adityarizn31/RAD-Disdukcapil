@@ -2,6 +2,7 @@
 
 <?= $this->section('content'); ?>
 
+<!-- Pendaftaran Perbaikan Data -->
 <div class="container" style="padding: 10px;">
   <div class="card shadow mb-4" style="padding: 20px;">
     <div class="container">
@@ -68,7 +69,7 @@
 
       <hr>
 
-      <!-- Form Berkas Perbaikan -->
+      <!-- Form Berkas Perbaikan 1 -->
       <div class="row">
         <div class="mb-3">
           <label for="berkasperbaikan1" class="form-label fw-semibold">Berkas Perbaikan 1</label>
@@ -79,13 +80,24 @@
         </div>
       </div>
 
-      <!-- Form Berkas Perbaikan -->
+      <!-- Form Berkas Perbaikan 2 -->
       <div class="row">
         <div class="mb-3">
           <label for="berkasperbaikan2" class="form-label fw-semibold">Berkas Perbaikan 2</label>
           <input type="file" class="form-control <?= ($validation->hasError('berkasperbaikan2')) ? 'is-invalid' : ''; ?>" name="berkasperbaikan2" id="berkasperbaikan2" value="<?= old('berkasperbaikan2'); ?>">
           <div class="invalid-feedback">
             <?= $validation->getError('berkasperbaikan2'); ?>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Berkas Perbaikan 3 -->
+      <div class="row">
+        <div class="mb-3">
+          <label for="berkasperbaikan3" class="form-label fw-semibold">Berkas Perbaikan 3</label>
+          <input type="file" class="form-control <?= ($validation->hasError('berkasperbaikan3')) ? 'is-invalid' : ''; ?>" name="berkasperbaikan3" id="berkasperbaikan3" value="<?= old('berkasperbaikan3'); ?>">
+          <div class="invalid-feedback">
+            <?= $validation->getError('berkasperbaikan3'); ?>
           </div>
         </div>
       </div>

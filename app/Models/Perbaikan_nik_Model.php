@@ -8,7 +8,7 @@ class Perbaikan_nik_Model extends Model
 {
   protected $table = 'perbaikan_nik';
   protected $useTimeStamps = true;
-  protected $allowedFields = ['namapemohon', 'emailpemohon', 'nomorpemohon', 'kartutandapenduduk', 'kartukeluarga'];
+  protected $allowedFields = ['namapemohon', 'emailpemohon', 'nomorpemohon', 'alamatpemohon', 'kartutandapenduduk', 'kartukeluarga'];
 
   public function getDataPerbaikanNIK($nama = false)
   {

@@ -8,7 +8,7 @@ class Pendaftaran_aktakelahiran_Model extends Model
 {
   protected $table = 'pendaftaran_aktakelahiran';
   protected $useTimeStamps = true;
-  protected $allowedFields = ['namapemohon', 'emailpemohon', 'nomorpemohon', 'alamatpemohon', 'formulirf201', 'suratketeranganlahir', 'kartukeluarga', 'ktpayah', 'ktpibu'];
+  protected $allowedFields = ['namapemohon', 'emailpemohon', 'nomorpemohon', 'alamatpemohon', 'formulirf201akta', 'suratketeranganlahir', 'kartukeluarga', 'ktpayah', 'ktpibu'];
 
   public function getDataAktaKelahiran($nama = false)
   {

@@ -58,7 +58,8 @@
         <div class="row">
           <div class="mb-3">
             <label for="alamatpemohon" class="form-label fw-semibold">Alamat Pemohon</label>
-            <input type="text" class="form-control <?= ($validation->hasError('alamatpemohon')) ? 'is-invalid' : ''; ?>" name="alamatpemohon" id="alamatpemohon" value="<?= old('alamatpemohon'); ?>">
+            <br>
+            <textarea class=" form-control text-area <?= ($validation->hasError('alamatpemohon')) ? 'is-invalid' : ''; ?>" name="alamatpemohon" id="alamatpemohon" value="<?= old('alamatpemohon'); ?>"></textarea>
             <div class="invalid-feedback">
               <?= $validation->getError('alamatpemohon'); ?>
             </div>

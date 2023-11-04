@@ -11,7 +11,7 @@
   <div class="card shadow mb-4" style="margin-top: 25px;">
 
     <div class="card-header py-3" style="border: none; border: 0; outline: none; box-shadow: none;">
-      <h4 class="m-0 font-weight-bold text-primary text-center">Detail Data Pengaduan Update</h4>
+      <h4 class="m-0 font-weight-bold text-primary text-center">Detail Data Perbaikan Data</h4>
     </div>
 
     <div class="col-sm-12 col-md-12" style="padding: 20px;">
@@ -25,33 +25,33 @@
           <table>
 
             <tr>
-              <th width="150px">Nama</th>
+              <th width="170px">Nama</th>
               <th width="20px">:</th>
-              <td><?= $pengaduan_update['namapemohon']; ?></td>
+              <td><?= $perbaikan_data['namapemohon']; ?></td>
             </tr>
 
             <tr>
               <th width="">Email</th>
               <th width="">:</th>
-              <td><?= $pengaduan_update['emailpemohon']; ?></td>
+              <td><?= $perbaikan_data['emailpemohon']; ?></td>
             </tr>
 
             <tr>
               <th width="">Nomor Pemohon</th>
               <th width="">:</th>
-              <td><?= $pengaduan_update['nomorpemohon']; ?></td>
+              <td><?= $perbaikan_data['nomorpemohon']; ?></td>
             </tr>
 
             <tr>
               <th width="">Alamat Pemohon</th>
               <th width="">:</th>
-              <th><?= $pengaduan_update['alamatpemohon']; ?></th>
+              <td><?= $perbaikan_data['alamatpemohon']; ?></td>
             </tr>
 
             <tr>
-              <th width="">Pengaduan Update</th>
+              <th width="">Penjelasan Perbaikan</th>
               <th width="">:</th>
-              <td><?= $pengaduan_update['pengaduanupdate']; ?></td>
+              <td><?= $perbaikan_data['penjelasanperbaikan']; ?></td>
             </tr>
 
           </table>
@@ -62,12 +62,12 @@
           <div class="card card-outline card-primary">
 
             <div class="card-header">
-              <div class="card-title"> Berkas Kartu Tanda Penduduk </div>
+              <div class="card-title"> Berkas Perbaikan 1 </div>
 
             </div>
 
             <div class="col-sm-12">
-              <iframe src="<?= base_url('/pelayanan/pengaduan_update/' . $pengaduan_update['kartutandapenduduk']) ?>" frameborder="0" height="500" width="100%"></iframe>
+              <iframe src="<?= base_url('/pelayanan/perbaikan_data/' . $perbaikan_data['berkasperbaikan1']) ?>" frameborder="0" height="500" width="100%"></iframe>
             </div>
 
           </div>
@@ -77,11 +77,25 @@
           <div class="card card-outline card-primary">
 
             <div class="card-header">
-              <div class="card-title"> Berkas Kartu Keluarga </div>
+              <div class="card-title"> Berkas Perbaikan 2 </div>
             </div>
 
             <div class="col-sm-12">
-              <iframe src="<?= base_url('/pelayanan/pengaduan_update/' . $pengaduan_update['kartukeluarga']) ?>" frameborder="0" height="500" width="100%"></iframe>
+              <iframe src="<?= base_url('/pelayanan/perbaikan_data/' . $perbaikan_data['berkasperbaikan2']) ?>" frameborder="0" height="500" width="100%"></iframe>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12" style="padding: 20px;">
+          <div class="card card-outline card-primary">
+
+            <div class="card-header">
+              <div class="card-title"> Berkas Perbaikan 3 </div>
+            </div>
+
+            <div class="col-sm-12">
+              <iframe src="<?= base_url('/pelayanan/perbaikan_data/' . $perbaikan_data['berkasperbaikan3']) ?>" frameborder="0" height="500" width="100%"></iframe>
             </div>
 
           </div>

@@ -45,7 +45,7 @@
             <tr>
               <th width="">Alamat Pemohon</th>
               <th width="">:</th>
-              <th><?= $pendaftaran_kk['alamatpemohon']; ?></th>
+              <td><?= $pendaftaran_kk['alamatpemohon']; ?></td>
             </tr>
 
           </table>

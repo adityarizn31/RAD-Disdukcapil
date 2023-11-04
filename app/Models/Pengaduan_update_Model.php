@@ -8,7 +8,7 @@ class Pengaduan_update_Model extends Model
 {
   protected $table = 'pengaduan_update';
   protected $useTimeStamps = true;
-  protected $allowedFields = ['namapemohon', 'emailpemohon', 'nomorpemohon', 'kartutandapenduduk', 'kartukeluarga', 'pengaduanupdate'];
+  protected $allowedFields = ['namapemohon', 'emailpemohon', 'nomorpemohon', 'alamatpemohon', 'kartutandapenduduk', 'kartukeluarga', 'pengaduanupdate'];
 
   public function getDataPengaduanUpdate($nama = false)
   {

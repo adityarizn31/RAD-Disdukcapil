@@ -2,10 +2,11 @@
 
 <?= $this->section('content'); ?>
 
+<!-- Form Pendaftaran KIA -->
 <div class="container" style="padding: 10px;">
   <div class="card shadow mb-4" style="padding: 20px;">
     <div class="container">
-      <h4 class="text-center mt-2 mb-2"> Pendaftaran KIA </h4>
+      <h4 class="text-center"> Pendaftaran Kartu Keluarga Baru </h4>
 
       <?php if (session()->getFlashdata('pesan')) : ?>
 
@@ -67,7 +68,7 @@
 
         <hr>
 
-        <!-- Form Akta Lahir -->
+        <!-- Berkas Akta Kelahiran -->
         <div class="row">
           <div class="mb-3">
             <label for="aktakelahiran" class="form-label fw-semibold">Akta Kelahiran</label>
@@ -78,7 +79,7 @@
           </div>
         </div>
 
-        <!-- Form KK -->
+        <!-- Berkas Kartu Keluarga -->
         <div class="row">
           <div class="mb-3">
             <label for="kartukeluarga" class="form-label fw-semibold">Kartu Keluarga</label>
@@ -89,16 +90,18 @@
           </div>
         </div>
 
-        <!-- Form Pas Foto -->
+        <!-- Berkas Pas Foto 3x4 -->
         <div class="row">
           <div class="mb-3">
-            <label for="pasfoto" class="form-label fw-semibold">Pas Foto 3x4</label>
+            <label for="pasfoto" class="form-label fw-semibold">Pas Foto</label>
             <input type="file" class="form-control <?= ($validation->hasError('pasfoto')) ? 'is-invalid' : ''; ?>" name="pasfoto" id="pasfoto" value="<?= old('pasfoto'); ?>">
             <div class="invalid-feedback">
               <?= $validation->getError('pasfoto'); ?>
             </div>
           </div>
         </div>
+
+        <hr>
 
         <div class="d-grid gap-2 col-6 mx-auto">
           <button type="submit" value="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>

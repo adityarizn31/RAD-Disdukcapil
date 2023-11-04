@@ -45,7 +45,7 @@
             <tr>
               <th width="">Alamat Pemohon</th>
               <th width="">:</th>
-              <th><?= $perbaikan_nik['alamatpemohon']; ?></th>
+              <td><?= $perbaikan_nik['alamatpemohon']; ?></td>
             </tr>
 
           </table>

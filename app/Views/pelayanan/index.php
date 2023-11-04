@@ -72,9 +72,9 @@
       </a>
     </div>
 
-    <!-- Perbaikan Data -->
+    <!-- Pendaftaran Perbaikan Data -->
     <div class="card shadow border-2" style="width: 18rem; padding: 10px; margin: 20px;">
-      <a href="/pelayanan/perbaikan_data">
+      <a href="/pelayanan/pendaftaran_perbaikandata">
         <img src="/img/DATA.png" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title text-black">Perbaikan Data</h5>
@@ -83,27 +83,30 @@
       </a>
     </div>
 
-    <!-- Pengaduan Update -->
+    <!-- Pendaftaran Pengaduan Data -->
     <div class="card shadow border-2" style="width: 18rem; padding: 10px; margin: 20px;">
-      <a href="/pelayanan/pengaduan_update">
-        <img src="/img/PENGADUAN.png" class="card-img-top" alt="...">
+      <a href="/pelayanan/pendaftaran_pengaduanupdate">
+        <img src="/img/DATA.png" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title text-black">Pengaduan Update</h5>
+          <h5 class="card-title text-black">Pengaduan Data</h5>
           <p class="card-text text-black">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
       </a>
     </div>
 
-    <!-- Perbaikan NIK -->
+    <!-- Pendaftaran Pengaduan Data -->
     <div class="card shadow border-2" style="width: 18rem; padding: 10px; margin: 20px;">
-      <a href="/pelayanan/perbaikan_nik">
-        <img src="/img/PERBAIKANNIK.png" class="card-img-top" alt="...">
+      <a href="/pelayanan/pendaftaran_perbaikannik">
+        <img src="/img/DATA.png" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title text-black">Perbaikan Nik</h5>
+          <h5 class="card-title text-black">Pengaduan Data</h5>
           <p class="card-text text-black">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
       </a>
     </div>
+
+
+
   </div>
 </div>
 

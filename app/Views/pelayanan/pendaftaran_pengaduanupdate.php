@@ -68,7 +68,7 @@
 
       <hr>
 
-      <!-- Form KTP Pemohon -->
+      <!-- Berkas Kartu Tanda Penduduk -->
       <div class="row">
         <div class="mb-3">
           <label for="kartutandapenduduk" class="form-label fw-semibold">KTP Pemohon</label>
@@ -79,7 +79,7 @@
         </div>
       </div>
 
-      <!-- Form KK Pemohon -->
+      <!-- Berkas Kartu Keluarga -->
       <div class="row">
         <div class="mb-3">
           <label for="kartukeluarga" class="form-label fw-semibold">KK Pemohon</label>
@@ -90,11 +90,12 @@
         </div>
       </div>
 
-      <!-- Form Pengaduan -->
+      <!-- Form Alamat Pemohon -->
       <div class="row">
         <div class="mb-3">
-          <label for="pengaduanupdate" class="form-label fw-semibold">Pengaduan</label>
-          <input type="text" class="form-control <?= ($validation->hasError('pengaduanupdate')) ? 'is-invalid' : ''; ?>" name="pengaduanupdate" id="pengaduanupdate" value="<?= old('pengaduanupdate'); ?>">
+          <label for="pengaduanupdate" class="form-label fw-semibold">Alamat Pemohon</label>
+          <br>
+          <textarea class=" form-control text-area <?= ($validation->hasError('pengaduanupdate')) ? 'is-invalid' : ''; ?>" name="pengaduanupdate" id="pengaduanupdate" value="<?= old('pengaduanupdate'); ?>"></textarea>
           <div class="invalid-feedback">
             <?= $validation->getError('pengaduanupdate'); ?>
           </div>

@@ -342,25 +342,25 @@ class Admin extends BaseController
 
 
   // Menampilkan data Pengaduan Update pada halaman Admin
-  public function pengaduan_update_admin()
+  public function pendaftaran_pengaduanupdate_admin()
   {
     // Menghubungkan Controller Admin dengan Pengaduan update Model
     // $pengaduanupdate = $this->pengaduanupdateModel->findAll();
     $data = [
-      'title' => 'Data Pengaduan Update || Admin Disdukcapil',
+      'title' => 'Pendaftaran Pengaduan Update || Admin Disdukcapil',
       'pengaduan_update' => $this->pengaduanupdateModel->getDataPengaduanUpdate()
     ];
-    return view('admin/pengaduan_update_admin', $data);
+    return view('admin/pendaftaran_pengaduanupdate_admin', $data);
   }
 
   // Menampilkan detail Data Pengaduan pada halaman Admin
-  public function detail_datapengaduan_admin($namaPemohonPengaduan)
+  public function detail_pendaftaranpengaduanupdate_admin($namaPemohonPengaduan)
   {
     $data = [
       'title' => 'Detail Data Pengaduan Update || Admin Disdukcapil',
       'pengaduan_update' => $this->pengaduanupdateModel->getDataPengaduanUpdate($namaPemohonPengaduan)
     ];
-    return view('detailAdmin/detail_datapengaduan_admin', $data);
+    return view('detailAdmin/detail_pendaftaranpengaduanupdate_admin', $data);
   }
 
 
@@ -371,7 +371,7 @@ class Admin extends BaseController
 
 
   // Menampilkan data Perbaikan NIK pada halaman Admin
-  public function perbaikan_nik_admin()
+  public function pendaftaran_perbaikannik_admin()
   {
     // Menghubungkan Controller Admin dengan Perbaikan NIK Model
     // $perbaikannik = $this->perbaikannikModel->findAll();
@@ -379,16 +379,16 @@ class Admin extends BaseController
       'title' => 'Data Perbaikan NIK || Admin Disdukcapil',
       'perbaikan_nik' => $this->perbaikannikModel->getDataPerbaikanNIK()
     ];
-    return view('admin/perbaikan_nik_admin', $data);
+    return view('admin/pendaftaran_perbaikannik_admin', $data);
   }
 
   // Menampilkan detail Perbaikan NIK pada halaman Admin
-  public function detail_perbaikannik_admin($namaPemohonPerbaikan)
+  public function detail_pendaftaranperbaikannik_admin($namaPemohonPerbaikan)
   {
     $data = [
       'title' => 'Detail Data Perbaikan NIK || Admin Disdukcapil',
       'perbaikan_nik' => $this->perbaikannikModel->getDataPerbaikanNIK($namaPemohonPerbaikan)
     ];
-    return view('detailAdmin/detail_perbaikannik_admin', $data);
+    return view('detailAdmin/detail_pendaftaranperbaikannik_admin', $data);
   }
 }

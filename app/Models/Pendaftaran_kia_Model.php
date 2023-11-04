@@ -8,7 +8,7 @@ class Pendaftaran_kia_Model extends Model
 {
   protected $table = 'pendaftaran_kia';
   protected $useTimeStamps = true;
-  protected $allowedFields = ['namapemohon', 'emailpemohon', 'nomorpemohon', 'aktakelahiran', 'kartukeluarga', 'pasfoto'];
+  protected $allowedFields = ['namapemohon', 'emailpemohon', 'nomorpemohon', 'alamatpemohon', 'aktakelahiran', 'kartukeluarga', 'pasfoto'];
 
   public function getDataKIA($nama = false)
   {

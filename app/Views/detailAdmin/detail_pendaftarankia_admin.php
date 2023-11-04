@@ -9,11 +9,12 @@
   </button>
 
   <div class="card shadow mb-4" style="margin-top: 25px;">
+
     <div class="card-header py-3" style="border: none; border: 0; outline: none; box-shadow: none;">
-      <h6 class="m-0 font-weight-bold text-primary">Detail Data Pendaftaran Kartu Identitas Anak</h6>
+      <h4 class="m-0 font-weight-bold text-primary text-center">Detail Data Pendaftaran Kartu Identitas Anak</h4>
     </div>
 
-    <div class="col-sm-12 col-md-12" style="padding: 20px;">
+    <div class="col-sm-12 col-md-12" style="padding: 10px;">
       <div class="card card-outline card-primary">
 
         <div class="card-header">
@@ -44,7 +45,7 @@
             <tr>
               <th width="">Alamat Pemohon</th>
               <th width="">:</th>
-              <th><?= $pendaftaran_kia['alamatpemohon']; ?></th>
+              <td><?= $pendaftaran_kia['alamatpemohon']; ?></td>
             </tr>
 
           </table>
@@ -84,7 +85,7 @@
           <div class="card card-outline card-primary">
 
             <div class="card-header">
-              <div class="card-title"> Berkas Pas Foto 3X4 </div>
+              <div class="card-title"> Berkas Pas Foto 3 x 4 </div>
             </div>
 
             <div class="col-sm-12">

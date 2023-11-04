@@ -2,10 +2,11 @@
 
 <?= $this->section('content'); ?>
 
+<!-- Form Pendaftaran Akta Kelahiran -->
 <div class="container" style="padding: 10px;">
   <div class="card shadow mb-4" style="padding: 20px;">
     <div class="container">
-      <h4 class="text-center mt-2 mb-2">Pendaftaran Akta Kelahiran</h4>
+      <h4 class="text-center"> Pendaftaran Akta Kelahiran </h4>
 
       <?php if (session()->getFlashdata('pesan')) : ?>
 
@@ -67,21 +68,21 @@
 
         <hr>
 
-        <!-- Form F201 -->
+        <!-- Berkas Formulir F201 Akta Kelahiran -->
         <div class="row">
           <div class="mb-3">
-            <label for="formulirf201" class="form-label fw-semibold">Formulir Desa</label>
-            <input type="file" class="form-control <?= ($validation->hasError('formulirf201')) ? 'is-invalid' : ''; ?>" name="formulirf201" id="formulirf201" value="<?= old('formulirf201'); ?>">
+            <label for="formulirf201akta" class="form-label fw-semibold">Formulir F201 Akta</label>
+            <input type="file" class="form-control <?= ($validation->hasError('formulirf201akta')) ? 'is-invalid' : ''; ?>" name="formulirf201akta" id="formulirf201akta" value="<?= old('formulirf201akta'); ?>">
             <div class="invalid-feedback">
-              <?= $validation->getError('formulirf201'); ?>
+              <?= $validation->getError('formulirf201akta'); ?>
             </div>
           </div>
         </div>
 
-        <!-- Form Surat Kelahiran -->
+        <!-- Berkas Surat Keterangan Lahir -->
         <div class="row">
           <div class="mb-3">
-            <label for="suratketeranganlahir" class="form-label fw-semibold">Formulir Desa</label>
+            <label for="suratketeranganlahir" class="form-label fw-semibold">Surat Keterangan Lahir</label>
             <input type="file" class="form-control <?= ($validation->hasError('suratketeranganlahir')) ? 'is-invalid' : ''; ?>" name="suratketeranganlahir" id="suratketeranganlahir" value="<?= old('suratketeranganlahir'); ?>">
             <div class="invalid-feedback">
               <?= $validation->getError('suratketeranganlahir'); ?>
@@ -89,10 +90,10 @@
           </div>
         </div>
 
-        <!-- Form KK -->
+        <!-- Berkas Kartu Keluarga -->
         <div class="row">
           <div class="mb-3">
-            <label for="kartukeluarga" class="form-label fw-semibold">Formulir Desa</label>
+            <label for="kartukeluarga" class="form-label fw-semibold">Kartu Keluarga Istri(masing-masing)</label>
             <input type="file" class="form-control <?= ($validation->hasError('kartukeluarga')) ? 'is-invalid' : ''; ?>" name="kartukeluarga" id="kartukeluarga" value="<?= old('kartukeluarga'); ?>">
             <div class="invalid-feedback">
               <?= $validation->getError('kartukeluarga'); ?>
@@ -100,10 +101,10 @@
           </div>
         </div>
 
-        <!-- Form KTP Ayah -->
+        <!-- Berkas KTP Ayah -->
         <div class="row">
           <div class="mb-3">
-            <label for="ktpayah" class="form-label fw-semibold">Formulir Desa</label>
+            <label for="ktpayah" class="form-label fw-semibold">Surat Nikah</label>
             <input type="file" class="form-control <?= ($validation->hasError('ktpayah')) ? 'is-invalid' : ''; ?>" name="ktpayah" id="ktpayah" value="<?= old('ktpayah'); ?>">
             <div class="invalid-feedback">
               <?= $validation->getError('ktpayah'); ?>
@@ -111,10 +112,10 @@
           </div>
         </div>
 
-        <!-- Form KTP Ibu -->
+        <!-- Berkas KTP Ibu -->
         <div class="row">
           <div class="mb-3">
-            <label for="ktpibu" class="form-label fw-semibold">Formulir Desa</label>
+            <label for="ktpibu" class="form-label fw-semibold">Surat Pindah (Jika alamat berbeda)</label>
             <input type="file" class="form-control <?= ($validation->hasError('ktpibu')) ? 'is-invalid' : ''; ?>" name="ktpibu" id="ktpibu" value="<?= old('ktpibu'); ?>">
             <div class="invalid-feedback">
               <?= $validation->getError('ktpibu'); ?>
@@ -129,9 +130,9 @@
         </div>
 
       </form>
+
     </div>
   </div>
-
 </div>
 
-<?= $this->endSection('content') ?>
+<?= $this->endSection('content'); ?>
