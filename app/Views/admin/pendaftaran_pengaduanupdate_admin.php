@@ -9,8 +9,16 @@
   </button>
 
   <div class="card shadow mb-4" style="margin-top: 25px;">
-    <div class="card-header py-3">
+
+    <!-- <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary">Data Pengaduan Update</h6>
+    </div> -->
+
+    <div class="card-header py-3">
+      <div class="d-sm-flex align-items-center justify-content-between mb-2">
+        <h4 class="m-0 font-weight-bold text-primary">Data Pendaftaran Pengaduan Update</h4>
+        <a href="<?= base_url('ExportExcel/export_pendaftaranpengaduanupdate') ?>" method="POST" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mt-2"><i class="fas fa-download fa-sm text-white-50"></i> Downloads Data</a>
+      </div>
     </div>
 
     <div class="card-body">

@@ -55,7 +55,7 @@
     <li>
       <a class="text-white" href="/admin/pelayanan">
         <i class="bi bi-menu-button-wide mr-2"></i>
-        Pelayanan
+        Pelayanan Si Lancar
       </a>
       <!-- CodeIgniter akan mengakses Controller admin dengan method Pelayanan -->
     </li>
@@ -70,21 +70,6 @@
 
     <hr>
 
-    <div class="dropdown-center" style="padding-left: 14px;">
-      <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Data dan Pelaporan
-      </button>
-      <ul class="dropdown-menu collapse-inner rounded">
-        <li><a class="dropdown-item" href="/admin/pendaftaran_kk_admin">Pendaftaran KK</a></li>
-        <li><a class="dropdown-item" href="/admin/pendaftaran_ktp_admin">Pendaftaran KTP</a></li>
-        <li><a class="dropdown-item" href="/admin/pendaftaran_kia_admin">Pendaftaran KIA</a></li>
-        <li><a class="dropdown-item" href="/admin/pendaftaran_aktalahir_admin">Pendaftaran Akta Kelahiran</a></li>
-        <li><a class="dropdown-item" href="/admin/pendaftaran_aktakematian_admin">Pendaftaran Akta Kematian</a></li>
-        <li><a class="dropdown-item" href="/admin/perbaikan_data_admin">Perbaikan Data</a></li>
-        <li><a class="dropdown-item" href="/admin/pengaduan_update_admin">Pengaduan Update</a></li>
-        <li><a class="dropdown-item" href="/admin/perbaikan_nik_admin">Perbaikan NIK</a></li>
-      </ul>
-    </div>
 
   </div>
 </div>

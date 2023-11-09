@@ -539,7 +539,7 @@ class Pelayanan extends BaseController
 
     // Berkas Kartu Keluarga
     $berkasKartuKeluarga_Akla = $this->request->getFile('kartukeluarga');
-    $namaKartuKeluarga_Akla = $berkasKartuKeluarga_Akla->getName('kartukeluarga');
+    $namaKartuKeluarga_Akla = $berkasKartuKeluarga_Akla->getName('');
     $berkasKartuKeluarga_Akla->move('pelayanan/aktakelahiran', $namaKartuKeluarga_Akla);
 
     // Berkas KTP Ayah
@@ -562,7 +562,6 @@ class Pelayanan extends BaseController
       'suratketeranganlahir' => $namaSuratKeteranganLahir_Akla,
       'ktpayah' => $namaKTPAyah_Akla,
       'ktpibu' => $namaKTPIbu_Akla
-
     ]);
     session()->setFlashdata('pesan', 'Selamat Pendaftaran Akta Kelahiran Anda Berhasil !!');
     return redirect()->to('/pelayanan/pendaftaran_aktakelahiran/');

@@ -20,14 +20,13 @@
       <div class="row">
         <!-- Pendaftaran Kartu Keluarga -->
         <div class="card shadow border-2" style="width: 18rem; padding: 30px; margin: 20px;">
-          <a href="/pelayanan/pendaftaran_kk">
+          <a href="/EditUpdateAdmin/edit_pelayanan_kk">
             <img src="/img/KK.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title text-black text-center">Pendaftaran Kartu Keluarga</h5>
             </div>
           </a>
         </div>
-
 
         <!-- Pendaftaran KTP -->
         <div class="card shadow border-2" style="width: 18rem; padding: 10px; margin: 20px;">
@@ -104,6 +103,7 @@
             </div>
           </a>
         </div>
+
       </div>
     </div>
 

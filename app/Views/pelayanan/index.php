@@ -97,9 +97,9 @@
     <!-- Pendaftaran Pengaduan Data -->
     <div class="card shadow border-2" style="width: 18rem; padding: 10px; margin: 20px;">
       <a href="/pelayanan/pendaftaran_perbaikannik">
-        <img src="/img/DATA.png" class="card-img-top" alt="...">
+        <img src="/img/PERBAIKANNIK.png" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title text-black">Pengaduan Data</h5>
+          <h5 class="card-title text-black">Perbaikan NIK</h5>
           <p class="card-text text-black">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
       </a>

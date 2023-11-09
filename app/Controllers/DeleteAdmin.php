@@ -7,7 +7,7 @@ use App\Models\BeritaModel;
 use App\Models\InovasiModel;
 use App\Models\VisiMisiModel;
 use App\Models\Pendaftaran_aktakematian_Model;
-use App\Models\Pendaftaran_aktalahir_Model;
+use App\Models\Pendaftaran_aktakelahiran_Model;
 use App\Models\Pendaftaran_kia_Model;
 use App\Models\Pendaftaran_kk_Model;
 use App\Models\Pendaftaran_ktp_Model;
@@ -22,7 +22,7 @@ class DeleteAdmin extends BaseController
   protected $inovasiModel;
   protected $visimisiModel;
   protected $aktakematianModel;
-  protected $aktalahirModel;
+  protected $aktakelahiranModel;
   protected $kiaModel;
   protected $kkModel;
   protected $ktpModel;
@@ -37,7 +37,7 @@ class DeleteAdmin extends BaseController
     $this->inovasiModel = new InovasiModel();
     $this->visimisiModel = new VisiMisiModel();
     $this->aktakematianModel = new Pendaftaran_aktakematian_Model();
-    $this->aktalahirModel = new Pendaftaran_aktalahir_Model();
+    $this->aktakelahiranModel = new Pendaftaran_aktakelahiran_Model();
     $this->kiaModel = new Pendaftaran_kia_Model();
     $this->kkModel = new Pendaftaran_kk_Model();
     $this->ktpModel = new Pendaftaran_ktp_Model();

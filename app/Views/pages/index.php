@@ -11,7 +11,7 @@
         <div class="row">
 
           <div class="col-sm-6 mb-3 mb-sm-0">
-            <div class="card">
+            <div class="card" style="border: none; border: 0; outline: none; box-shadow: none;">
               <div class="card-body">
                 <h5 class="card-title">Selamat Datang</h5>
                 <p class="text-justify">Di Si Lancar (Sistem Layanan Administrasi Cepat dari Rumah) Situs ini digunakan untuk melayani masyarakat yang bertujuan untuk mempercepat pelayanan, memudahkan pelayanan dan mewujudkan pelayanan Administrasi Kependudukan yang membahagiakan masyarakat.</p>
@@ -21,7 +21,7 @@
           </div>
 
           <div class="col-sm-6 mb-3 mb-sm-0">
-            <div class="card" style="border: none;">
+            <div class="card" style="border: none; border: 0; outline: none; box-shadow: none;">
               <img src="/img/silancar/LogoSindangKasih.png" alt="" style="padding: 20px;">
             </div>
           </div>
@@ -66,7 +66,7 @@
 
       <h3 class="text-center">Inovasi</h3>
 
-      <div class="card" style="padding: 10px;">
+      <div class="card" style="border: none; border: 0; outline: none; box-shadow: none; padding: 10px;">
         <div class="row row-cols-1 row-cols-md-2 g-4">
           <?php foreach ($inovasi as $inov) : ?>
             <div class="col">
@@ -83,9 +83,6 @@
           <?php endforeach; ?>
 
         </div>
-
-        <hr>
-
       </div>
 
     </div>

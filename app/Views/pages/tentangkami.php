@@ -8,7 +8,7 @@
   <div class="row">
     <div class="col">
 
-      <div class="card text-center">
+      <div class="card text-center" style="border: none; border: 0; outline: none; box-shadow: none;">
         <h5 class="card-title" style="padding-top: 20px;">
           Visi & Misi
         </h5>

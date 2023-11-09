@@ -44,7 +44,7 @@
             <tr>
               <th width="">Alamat Pemohon</th>
               <th width="">:</th>
-              <th><?= $pendaftaran_aktakelahiran['alamatpemohon']; ?></th>
+              <td><?= $pendaftaran_aktakelahiran['alamatpemohon']; ?></td>
             </tr>
 
           </table>
@@ -87,7 +87,7 @@
             </div>
 
             <div class="col-sm-12">
-              <iframe src="<?= base_url('/pelayanan/aktakelahiran/' . $pendaftaran_aktalahir['kartukeluarga']) ?>" frameborder="0" height="500" width="100%"></iframe>
+              <iframe src="<?= base_url('/pelayanan/aktakelahiran/' . $pendaftaran_aktakelahiran['kartukeluarga']) ?>" frameborder="0" height="500" width="100%"></iframe>
             </div>
 
           </div>
@@ -101,7 +101,7 @@
             </div>
 
             <div class="col-sm-12">
-              <iframe src="<?= base_url('/pelayanan/aktakelahiran/' . $pendaftaran_aktalahir['ktpayah']) ?>" frameborder="0" height="500" width="100%"></iframe>
+              <iframe src="<?= base_url('/pelayanan/aktakelahiran/' . $pendaftaran_aktakelahiran['ktpayah']) ?>" frameborder="0" height="500" width="100%"></iframe>
             </div>
 
           </div>
@@ -115,7 +115,7 @@
             </div>
 
             <div class="col-sm-12">
-              <iframe src="<?= base_url('/pelayanan/aktakelahiran/' . $pendaftaran_aktalahir['ktpibu']) ?>" frameborder="0" height="500" width="100%"></iframe>
+              <iframe src="<?= base_url('/pelayanan/aktakelahiran/' . $pendaftaran_aktakelahiran['ktpibu']) ?>" frameborder="0" height="500" width="100%"></iframe>
             </div>
 
           </div>
