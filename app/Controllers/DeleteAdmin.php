@@ -36,6 +36,7 @@ class DeleteAdmin extends BaseController
     $this->beritaModel = new BeritaModel();
     $this->inovasiModel = new InovasiModel();
     $this->visimisiModel = new VisiMisiModel();
+
     $this->aktakematianModel = new Pendaftaran_aktakematian_Model();
     $this->aktakelahiranModel = new Pendaftaran_aktakelahiran_Model();
     $this->kiaModel = new Pendaftaran_kia_Model();
@@ -61,14 +62,15 @@ class DeleteAdmin extends BaseController
   {
     // Mencari Gambar berdasarkan ID
     $berita = $this->beritaModel->find($id);
-    // Hapus Gambar
-    unlink('img/berita/' . $berita['fotoberita']);
-
+    // Mengecek Jika Gambarnya Default
+    if ($berita['fotoberita'] != 'default.jpg') {
+      // Hapus Gambar
+      unlink('img/berita/' . $berita['fotoberita']);
+    }
     $beritaModel = new BeritaModel();
     $beritaModel->delete($id);
     session()->setFlashdata('pesan', 'Data berhasil dihapus !!');
     return redirect()->to('admin/berita_admin');
-    // return view('admin/berita_admin');
   }
 
 

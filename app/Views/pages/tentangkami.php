@@ -84,7 +84,7 @@
               <h6>Kepala Dinas</h6>
             </button>
           </h2>
-          <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample" style="">
+          <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body text-justify">Kepala Dinas berkedudukan di bawah dan bertanggung jawab kepada Bupati melalui Sekretaris Daerah yang mempunyai tugas pokok merumuskan sasaran, mengoordinasikan, membina, mengevaluasi dan melaporkan kebijakan daerah dalam bidang Kependudukan dan Pencatatan Sipil yang meliputi Bidang Pelayanan Pendaftaran Penduduk, Bidang Pelayanan Pencatatan Sipil, Bidang Pengelolaan Informasi Administrasi Kependudukan dan Bidang Pemanfaatan Data dan Inovasi Pelayanan.</div>
             <ul>
               <ul>
@@ -103,7 +103,7 @@
               <h6>Sekretariat</h6>
             </button>
           </h2>
-          <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample" style="">
+          <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body text-justify">Sekretariat Dinas dipimpin oleh seorang Sekretaris berkedudukan di bawah dan bertanggung jawab kepada Kepala Dinas yang mempunyai tugas pokok melaksanakan pengkajian bahan perumusan kebijakan teknis dan koordinasi dengan unit kerja terkait serta penyusunan bahan pengkajian di bidang pengelolaan keuangan, kepegawaian dan umum serta perencanaan, evaluasi dan pelaporan.
               Dalam melaksanakan tugas pokok sebagaimana dimaksud Sekretaris mempunyai fungsi:</div>
             <ul>
@@ -123,7 +123,7 @@
               <h6>Sub Bagian Umum dan Kepegawaian</h6>
             </button>
           </h2>
-          <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample" style="">
+          <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body text-justify">Sub Bagian Umum dan Kepegawaian dipimpin oleh seorang Kepala Sub Bagian berkedudukan di bawah dan bertanggung jawab kepada Sekretaris yang mempunyai tugas pokok melaksanakan penyusunan bahan pengkajian kebijakan teknis dan koordinasi dengan unit kerja terkait serta pelaporan tugas di bidang umum dan kepegawaian.
               <ul>
                 <ul>
@@ -143,7 +143,7 @@
               <h6>Sub Bagian Keuangan</h6>
             </button>
           </h2>
-          <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample" style="">
+          <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body text-justify">Sub Bagian Keuangan dipimpin oleh seorang Kepala Sub Bagian yang berkedudukan di bawah dan bertanggung jawab kepada Sekretaris mempunyai tugas pokok melaksanakan penyusunan bahan pengkajian kebijakan teknis dan koordinasi dengan unit kerja terkait serta pelaporan tugas di bidang keuangan :
               <ol>a. Pelaksanaan penyusunan bahan pengkajian kebijakan teknis di bidang keuangan;</ol>
               <ol>b. Pelaksanaan penyusunan bahan koordinasi dengan unit kerja terkait di bidang keuangan; dan </ol>
@@ -159,7 +159,7 @@
               <h6>Sub Bagian Perencanaan, Evaluasi dan Pelaporan</h6>
             </button>
           </h2>
-          <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample" style="">
+          <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body text-justify">Sub Bagian Perencanaan, Evaluasi dan Pelaporan dipimpin oleh seorang Kepala Sub Bagian yang berkedudukan di bawah dan bertanggung jawab kepada Sekretaris mempunyai tugas pokok melaksanakan penyusunan bahan pengkajian kebijakan teknis dan koordinasi dengan unit kerja terkait serta pelaporan tugas di bidang perencanaan, evaluasi dan pelaporan. Kepala Sub Bagian Perencanaan, Evaluasi dan Pelaporan mempunyai fungsi :
               <ol>a. Sub Koordinator Bidang perencanaan Evaluasi Dan Pelaporan berkedudukan di bawah dan bertanggungjawab kepada Sekretaris.</ol>
               <ol>b. Sub Koordinator sebagaimana dimaksud pada point (a) memiliki tugas pokok dan fungsi menyelenggarakan tugas koordinasi penyusunan rencana, pelaksanaan dan pengendalian, pemantauan dan evaluasi serta pelaporan di bidang Perencanaan dan Evaluasi dan Pelaporan.</ol>
@@ -175,7 +175,7 @@
               <h6>Bidang Pelayanan Pendaftaran Penduduk</h6>
             </button>
           </h2>
-          <div id="flush-collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample" style="">
+          <div id="flush-collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body text-justify">Bidang Pelayanan Pendaftaran Penduduk dipimpin oleh seorang Kepala Bidang berkedudukan di bawah dan bertanggung jawab kepada Kepala Dinas yang mempunyai tugas pokok merencanakan operasional, merumuskan melaksanakan, mengelola, mengendalikan, mengevaluasi dan melaporkan urusan Pelayanan Pendaftaran Penduduk.
               Kepala Bidang Pelayanan Pendaftaran Penduduk mempunyai fungsi :
               <ol>a. Perencanaan operasional kegiatan urusan Pelayanan Pendaftaran Penduduk; </ol>
@@ -192,7 +192,7 @@
               <h6>Sub Koordinator Bidang Identitas Penduduk</h6>
             </button>
           </h2>
-          <div id="flush-collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample" style="">
+          <div id="flush-collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body text-justify">
               <ol>a. Sub Koordinator Bidang Identitas Penduduk berkedudukan di bawah dan bertanggungjawab kepada Kepala Bidang Pelayanan Pendaftaran Penduduk</ol>
               <ol>b. Sub Koordinator sebagaimana dimaksud dalam point (a) melaksanakan tugas pokok dan fungsi pengoordinasian, penyusunan rencana, pelaksanaan dan pengendalian, pemantauan dan evaluasi serta pelaporan di bidang Identitas Penduduk. </ol>
@@ -208,7 +208,7 @@
               <h6>Sub Koordinator Bidang Pindah Datang dan Pendataan Penduduk</h6>
             </button>
           </h2>
-          <div id="flush-collapseEight" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample" style="">
+          <div id="flush-collapseEight" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body text-justify">
               <ol>a. Sub Koordinator Bidang Pindah Datang dan Pendataan Penduduk berkedudukan di bawah dan bertanggung jawab kepada Kepala Bidang Pelayanan Pendaftaran Penduduk </ol>
               <ol>b. Sub Koordinator sebagaimana dimaksud pada point (a) melaksanakan tugas pokok dan fungsi pengoordinasian, penyusunan rencana, pelaksanaan dan pengendalian, pemantauan dan evaluasi serta pelaporan di bidang Pindah Datang dan Pendataan Penduduk</ol>
@@ -225,7 +225,7 @@
               <h6>Bidang Pelayanan Pencatatan Sipil</h6>
             </button>
           </h2>
-          <div id="flush-collapseNine" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample" style="">
+          <div id="flush-collapseNine" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body text-justify">Bidang Pelayanan Pencatatan Sipil dipimpin oleh seorang Kepala Bidang berkedudukan di bawah dan bertanggung jawab kepada Kepala Dinas yang mempunyai tugas pokok merencanakan, program, mendistribusi tugas, mengendalikan, mengoordinasikan dan melaporkan urusan Pelayanan Pencatatan Sipil.
               <ol>a. Pelaksanaan pengkajian bahan perumusan kebijakan teknis dan pedoman pelayanan umum di bidang kelahiran, perkawinan dan perceraian, perubahan status anak, kewarganegaraan dan kematian;</ol>
               <ol>b. Pelaksanaan pengkajian bahan pembinaan di bidang kelahiran, perkawinan dan perceraian, perubahan status anak, kewarganegaraan dan kematian; dan</ol>
@@ -241,7 +241,7 @@
               <h6>Sub Koordinator Bidang Kelahiran dan Kematian</h6>
             </button>
           </h2>
-          <div id="flush-collapseTen" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample" style="">
+          <div id="flush-collapseTen" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body text-justify">
               <ol>a. Sub Koordinator Bidang Kelahiran dan Kematian berkedudukan di bawah dan bertanggung jawab kepada Kepala Bidang Pelayanan Pencatatan Sipil.</ol>
               <ol>b. Sub Koordinator sebagaimana dimaksud pada point (a) melaksanakan tugas pokok dan fungsi pengoordinasian, penyusunan rencana, pelaksanaan dan pengendalian, pemantauan dan evaluasi serta pelaporan di bidang Kelahiran dan Kematian.</ol>
@@ -257,7 +257,7 @@
               <h6>Sub Koordinator Bidang Perkawinan, Perceraian, Perubahan Status Anak dan Kewaraganegaraan</h6>
             </button>
           </h2>
-          <div id="flush-collapseEleven" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample" style="">
+          <div id="flush-collapseEleven" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body text-justify">
               <ol>a. Sub Koordinator Bidang Perkawinan, Perceraian, Perubahan Status Anak dan Pewarganegaraan berkedudukan di bawah dan bertanggungjawab kepada Kepala Bidang Pelayanan Pencatatan Sipil</ol>
               <ol>b. Sub Koordinator sebagaimana dimaksud dalam point (a) melaksanakan tugas pokok dan fungsi pengoordinasian, penyusunan rencana, pelaksanaan dan pengendalian, pemantauan dan evaluasi serta pelaporan di bidang Perkawinan, Perceraian, Perubahan Status Anak dan Pewarganegaraan </ol>
@@ -273,7 +273,7 @@
               <h6>Sub Koordinator Bidang Sistem Informasi Administrasi Kependudukan </h6>
             </button>
           </h2>
-          <div id="flush-collapseTwelve" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample" style="">
+          <div id="flush-collapseTwelve" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body text-justify">
               <ol>a. Sub Koordinator Bidang Sistem Informasi Administrasi Kependudukan berkedudukan di bawah dan bertanggung jawab kepada Kepala Bidang Pengelolaan Informasi Administrasi Kependudukan</ol>
               <ol>b. Sub Koordinator sebagaimana dimaksud pada point (a) melaksanakan tugas pokok dan fungsi pengoordinasian, penyusunan rencana, pelaksanaan dan pengendalian, pemantauan dan evaluasi serta pelaporan di bidang Sistem Informasi Administrasi Kependudukan </ol>
@@ -289,7 +289,7 @@
               <h6>Sub Koordinator Bidang Pengolahan dan Penyajian Data Kependudukan</h6>
             </button>
           </h2>
-          <div id="flush-collapseThirteen" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample" style="">
+          <div id="flush-collapseThirteen" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body text-justify">
               <ol>a. Sub Koordinator Bidang Pengolahan dan Penyajian Data Kependudukan berkedudukan di bawah dan bertanggung jawab kepada Kepala Bidang Pengelolaan Informasi Administrasi Kependudukan</ol>
               <ol>b. Sub Koordinator sebagaimana dimaksud dalam point (a) melaksanakan tugas pokok dan fungsi pengoordinasian, penyusunan rencana, pelaksanaan dan pengendalian, pemantauan dan evaluasi serta pelaporan di bidang Pengolahan dan Penyajian Data Kependudukan </ol>
@@ -305,7 +305,7 @@
               <h6>Bidang Pemanfaatan Data dan Inovasi Pelayanan</h6>
             </button>
           </h2>
-          <div id="flush-collapseFourteen" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample" style="">
+          <div id="flush-collapseFourteen" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body text-justify">Bidang Pemanfaatan Data dan Inovasi Pelayanan dipimpin oleh seorang Kepala Bidang berkedudukan di bawah dan bertanggung jawab kepada Kepala Dinas yang mempunyai tugas pokok merencanakan operasional, merumuskan, melaksanakan, mengelola, mengendalikan, mengevaluasi dan melaporkan urusan Pemanfaatan Data dan Inovasi Pelayanan.
               <ol>a. Perencanaan operasional kegiatan urusan Pemanfaatan Data dan Inovasi Pelayanan;</ol>
               <ol>b. Pengelolaan Pemanfaatan Data dan Inovasi Pelayanan;</ol>
@@ -321,7 +321,7 @@
               <h6>Sub Koordinator Bidang Pemanfaatan Data dan Dokumen Kependudukan</h6>
             </button>
           </h2>
-          <div id="flush-collapseFiveteen" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample" style="">
+          <div id="flush-collapseFiveteen" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body text-justify">Bidang Pemanfaatan Data dan Inovasi Pelayanan dipimpin oleh seorang Kepala Bidang berkedudukan di bawah dan bertanggung jawab kepada Kepala Dinas yang mempunyai tugas pokok merencanakan operasional, merumuskan, melaksanakan, mengelola, mengendalikan, mengevaluasi dan melaporkan urusan Pemanfaatan Data dan Inovasi Pelayanan.
               <ol>a. Sub Koordinator Bidang Pemanfaatan Data dan Dokumen Kependudukan berkedudukan di bawah dan bertanggung jawab kepada Kepala Bidang Pemanfaatan Data dan Inovasi Pelayanan</ol>
               <ol>b. Sub Koordinator sebagaimana dimaksud dalam point (a) melaksanakan tugas pokok dan fungsi pengoordinasian, penyusunan rencana, pelaksanaan dan pengendalian, pemantauan dan evaluasi serta pelaporan di bidang Pemanfaatan Data dan Dokumen Kependudukan</ol>
@@ -337,7 +337,7 @@
               <h6>Sub Koordinator Bidang Kerjasama dan Inovasi Pelayanan </h6>
             </button>
           </h2>
-          <div id="flush-collapseSixteen" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample" style="">
+          <div id="flush-collapseSixteen" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body text-justify">
               <ol>a. Sub Koordinator Bidang Kerjasama dan Inovasi Pelayanan berkedudukan di bawah dan bertanggung jawab kepada Kepala Bidang Pemanfaatan Data dan Inovasi Pelayanan</ol>
               <ol>b. Sub Koordinator sebagaimana dimaksud dalam point (a) melaksanakan tugas pokok dan fungsi pengoordinasian, penyusunan rencana, pelaksanaan dan pengendalian, pemantauan dan evaluasi serta pelaporan di bidang Kerjasama dan Inovasi Pelayanan</ol>

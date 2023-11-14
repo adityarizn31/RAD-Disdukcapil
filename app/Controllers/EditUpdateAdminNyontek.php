@@ -85,6 +85,91 @@ class EditUpdateAdmin extends BaseController
 
 
 
+  // Halaman Inovasi
+  // Menampilkan Form untuk mengedit data berita
+  public function editInovasi($judulInovasi)
+  {
+    $data = [
+      'title' => 'Form Edit Data Inovasi || Disdukcapil Majalengka',
+      'validation' => \Config\Services::validation(),
+      'inovasi' => $this->inovasiModel->getInovasi($judulInovasi)
+    ];
+    return view('editAdmin/edit_inovasi_admin', $data);
+  }
+
+  public function updateInovasi($id)
+  {
+    // Digunakan untuk operasi judul berita 
+    $inovasiLama = $this->inovasiModel->getInovasi($this->request->getVar('judulinovasi'));
+    if ($inovasiLama['judulinovasi'] == $this->request->getVar('judulinovasi')) {
+      $rule_judul = 'required';
+    } else {
+      $rule_judul = 'required|is_unique[inovasi.judulinovasi]';
+    }
+
+    // Validasi Input
+    if (!$this->validate([
+      // Judul inovasi
+      'judulinovasi' => [
+        'rules' => $rule_judul,
+        'errors' => [
+          'required' => 'Judul Inovasi Harus diisi !! ',
+          'is_unique' => 'Judul Inovasi Sudah terdaftar !!'
+        ]
+      ],
+      // Foto inovasi
+      'fotoinovasi' => [
+        'rules' => 'max_size[fotoinovasi,1024]|is_image[fotoinovasi]|mime_in[fotoinovasi,image/jpg,image/jpeg,image/png]',
+        'errors' => [
+          'max_size' => 'Ukuran Gambar terlalu besar !!',
+          'is_image' => 'Yang anda pilih bukan gambar !!',
+          'mime_in' => 'Yang anda pilih bukan gambar'
+        ]
+      ],
+      // Keterangan Berita
+      'keteranganinovasi' => [
+        'rules' => 'required[inovasi.keteranganinovasi]',
+        'errors' => [
+          'required' => 'Keterangan Inovasi Harus Diisi !!'
+        ]
+      ]
+    ])) {
+      return redirect()->to(base_url() . '/EditUpdateAdmin/editInovasi/' . $this->request->getVar('judulinovasi'))->withInput();
+    }
+
+    $fileFotoInovasi = $this->request->getFile('fotoinovasi');
+
+    if ($fileFotoInovasi->getError() == 4) {
+      $namaFotoInovasi = $this->request->getVar('fotolama');
+    } else {
+      // Generate nama File Random
+      $namaFotoInovasi = $fileFotoInovasi->getRandomName();
+      // Memindahkan File Random 
+      $fileFotoInovasi->move('img/inovasi', $namaFotoInovasi);
+      // Menghapus File lama 
+      unlink('img/inovasi/' . $this->request->getVar('fotolama'));
+    }
+
+    $this->inovasiModel->save(
+      [
+        'id' => $id,
+        'fotoinovasi' => $namaFotoInovasi,
+        'judulinovasi' => $this->request->getVar('judulinovasi'),
+        'keteranganinovasi' => $this->request->getVar('keteranganinovasi')
+      ]
+    );
+    session()->setFlashdata('pesan', 'Data Inovasi berhasil diubah !!');
+    return redirect()->to('admin/inovasi_admin');
+  }
+
+
+
+
+
+
+
+
+
 
   // Menampilkan Form untuk mengedit data berita
   public function editBerita($judulBerita)
@@ -97,7 +182,7 @@ class EditUpdateAdmin extends BaseController
     return view('editAdmin/edit_berita_admin', $data);
   }
 
-  public function updateBerita($judulBerita)
+  public function updateBerita($id)
   {
     // Digunakan untuk operasi judul berita 
     $beritaLama = $this->beritaModel->getBerita($this->request->getVar('judulberita'));
@@ -109,19 +194,24 @@ class EditUpdateAdmin extends BaseController
 
     // Validasi Input
     if (!$this->validate([
-      'fotoberita' => [
+      // Judul berita
+      'judulberita' => [
         'rules' => $rule_judul,
         'errors' => [
-          'required' => 'Foto Berita Harus diisi !! ',
-          'is_unique' => 'Foto Berita Sudah terdaftar !!'
+          'required' => 'Judul Berita Harus diisi !! ',
+          'is_unique' => 'Judul Berita Sudah terdaftar !!'
         ]
       ],
-      'judulberita' => [
-        'rules' => 'required[berita.judulberita]',
+      // Foto berita
+      'fotoberita' => [
+        'rules' => 'max_size[fotoberita,1024]|is_image[fotoberita]|mime_in[fotoberita,image/jpg,image/jpeg,image/png]',
         'errors' => [
-          'required' => 'Judul Berita Harus Diisi !!'
+          'max_size' => 'Ukuran Gambar terlalu besar !!',
+          'is_image' => 'Yang anda pilih bukan gambar !!',
+          'mime_in' => 'Yang anda pilih bukan gambar'
         ]
       ],
+      // Keterangan Berita
       'keteranganberita' => [
         'rules' => 'required[berita.keteranganberita]',
         'errors' => [
@@ -131,83 +221,30 @@ class EditUpdateAdmin extends BaseController
     ])) {
       return redirect()->to(base_url() . '/EditUpdateAdmin/editBerita/' . $this->request->getVar('judulberita'))->withInput();
     }
+
+    $fileFotoBerita = $this->request->getFile('fotoberita');
+
+    if ($fileFotoBerita->getError() == 4) {
+      $namaFotoBerita = $this->request->getVar('fotolama');
+    } else {
+      // Generate nama File Random
+      $namaFotoBerita = $fileFotoBerita->getRandomName();
+      // Memindahkan File Random 
+      $fileFotoBerita->move('img/berita', $namaFotoBerita);
+      // Menghapus File lama 
+      unlink('img/berita/' . $this->request->getVar('fotolama'));
+    }
+
     $this->beritaModel->save(
       [
-        'id' => $judulBerita,
-        'fotoberita' => $this->request->getVar('fotoberita'),
+        'id' => $id,
+        'fotoberita' => $namaFotoBerita,
         'judulberita' => $this->request->getVar('judulberita'),
         'keteranganberita' => $this->request->getVar('keteranganberita')
       ]
     );
-    session()->setFlashdata('pesan', 'Data berhasil diubah !!');
+    session()->setFlashdata('pesan', 'Data Berita berhasil diubah !!');
     return redirect()->to('admin/berita_admin');
-  }
-
-
-
-
-
-
-
-
-
-
-  // Halaman Inovasi
-  // Digunakan untuk menampilkan Form Edit Data
-  public function editInovasi($judulInovasi)
-  {
-    $data = [
-      'title' => 'Form Edit Data Inovasi || Disdukcapil Majalengka',
-      'validation' => \Config\Services::validation(),
-      'inovasi' => $this->inovasiModel->getInovasi($judulInovasi)
-    ];
-    return view('editAdmin/edit_inovasi_admin/', $data);
-  }
-
-  public function updateInovasi($judulInovasi)
-  {
-    // Digunakan untuk operasi Judul Inovasi
-    $inovasiLama = $this->inovasiModel->getInovasi($this->request->getVar('judulinovasi'));
-    if ($inovasiLama['judulinovasi'] == $this->request->getVar('judulinovasi')) {
-      $rule_judul = 'required';
-    } else {
-      $rule_judul = 'required|is_unique[inovasi.judulinovasi]';
-    }
-
-    // Validasi Input
-    if (!$this->validate([
-      'fotoinovasi' => [
-        'rules' => $rule_judul,
-        'errors' => [
-          'required' => 'Foto Inovasi Harus diisi !!',
-          'is_unique' => 'Foto Inovasi Sudah terdaftar !!'
-        ]
-      ],
-      'judulinovasi' => [
-        'rules' => 'required[inovasi.judulinovasi]',
-        'errors' => [
-          'required' => 'Judul Inovasi Harus Diisi !!'
-        ]
-      ],
-      'keteranganinovasi' => [
-        'rules' => 'required[inovasi.keteranganinovasi]',
-        'errors' => [
-          'required' => 'Keterangan Inovasi Harus Diisi !!'
-        ]
-      ]
-    ])) {
-      return redirect()->to(base_url() . '/editAdmin/edit_inovasi_admin' . $this->request->getVar('judulinovasi'))->withInput();
-    }
-    $this->inovasiModel->save(
-      [
-        'id' => $judulInovasi,
-        'fotoinovasi' => $this->request->getVar('fotoinovasi'),
-        'judulinovasi' => $this->request->getVar('judulinovasi'),
-        'keteranganinovasi' => $this->request->getVar('keteranganinovasi')
-      ]
-    );
-    session()->setFlashdata('pesan', 'Data Inovasi berhasil dihapus !!');
-    return redirect()->to('admin/inovasi_admin');
   }
 
 

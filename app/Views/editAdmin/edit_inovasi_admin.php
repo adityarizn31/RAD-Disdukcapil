@@ -16,10 +16,13 @@
         <div class="m-0 font-weight-bold text-primary">Ubah Inovasi</div>
       </div>
 
+      <!-- Diarahkan ke Method baru yang terdapat dalam Controller EditUpdateAdmin -->
       <form action="/EditUpdateAdmin/updateInovasi/<?= $inovasi['id']; ?>" method="post" enctype="multipart/form-data">
 
         <!-- Keamanan -->
         <?= csrf_field(); ?>
+
+        <input type="hidden" name="fotolama" value="<?= $inovasi['fotoinovasi']; ?>">
 
         <!-- Form Judul Inovasi -->
         <div class="row">
@@ -59,7 +62,7 @@
         </div>
 
         <div class="d-grid gap-2 col-6 mx-auto">
-          <button type="submit" class="btn btn-primary">Tambah Inovasi</button>
+          <button type="submit" class="btn btn-primary">Ubah Inovasi</button>
         </div>
 
 

@@ -16,16 +16,19 @@
         <h6 class="m-0 font-weight-bold text-primary">Ubah Berita admin</h6>
       </div>
 
+      <!-- Diarahkan ke Method baru yang terdapat dalam Controller EditUpdateAdmin -->
       <form action="/EditUpdateAdmin/updateBerita/<?= $berita['id']; ?>" method="post" enctype="multipart/form-data">
 
         <!-- Keamanan -->
         <?= csrf_field(); ?>
 
+        <input type="hidden" name="fotolama" value="<?= $berita['fotoberita']; ?>">
+
         <!-- Form Judul Berita -->
         <div class="row">
           <div class="mb-3">
             <label for="judulberita" class="form-label fw-semibold">Judul Berita</label>
-            <input type="text" class="form-control <?= ($validation->hasError('judulberita')) ? 'is-invalid' : ''; ?>" name="judulberita" id="judulberita" autofocus value="<?= (old('judulberita')) ? old('judul') : $berita['judulberita'] ?>" ?>
+            <input type="text" class="form-control <?= ($validation->hasError('judulberita')) ? 'is-invalid' : ''; ?>" name="judulberita" id="judulberita" autofocus value="<?= (old('judulberita')) ? old('judulberita') : $berita['judulberita'] ?>" ?>
             <div class="invalid-feedback">
               <?= $validation->getError('judulberita'); ?>
             </div>
@@ -59,7 +62,7 @@
         </div>
 
         <div class="d-grid gap-2 col-6 mx-auto">
-          <input type="submit" value="Submit" id="submit" class="btn-primary rounded-md">
+          <button type="submit" value="submit" name="submit" id="submit" class="btn btn-primary">Ubah Berita</button>
         </div>
 
       </form>
