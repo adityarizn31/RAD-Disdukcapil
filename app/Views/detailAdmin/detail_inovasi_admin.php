@@ -21,9 +21,10 @@
 
           <div class="card mb-3">
             <center>
-              <img src="/img/inovasi/<?= $inovasi['fotoinovasi']; ?>" class="mt-3" alt="Foto Inovasi" style="width: 70%;">
+              <img src="/img/inovasi/<?= $inovasi['fotoinovasi']; ?>" style="width: 50%;" class="detail_inovasi mt-3" alt="Foto Inovasi">
             </center>
             <div class="card-body mt-2">
+
               <h5 class="card-title"><?= $inovasi['judulinovasi']; ?></h5>
               <p class="card-text"><?= $inovasi['keteranganinovasi']; ?></p>
               <p class="card-text"><small class="text-body-secondary"><?= $inovasi['created_at']; ?></small></p>

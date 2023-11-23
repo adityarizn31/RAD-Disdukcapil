@@ -10,10 +10,6 @@
 
   <div class="card shadow mb-4" style="margin-top: 25px;">
 
-    <!-- <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Data Pendaftaran Akta Kematian</h6>
-    </div> -->
-
     <div class="card-header py-3">
       <div class="d-sm-flex align-items-center justify-content-between mb-2">
         <h4 class="m-0 font-weight-bold text-primary">Data Pendaftaran Akta Kematian</h4>
@@ -24,6 +20,7 @@
     <div class="card-body">
 
       <table class="table table-fixed table-hover">
+
         <thead class="table-dark">
           <tr>
             <th scope="col">No</th>
@@ -36,9 +33,9 @@
         </thead>
 
         <tbody>
-          <tr>
-            <?php $i = 1; ?>
-            <?php foreach ($pendaftaran_aktakematian as $kema) : ?>
+          <?php $i = 1 + (10 * ($currentPage - 1)); ?>
+          <?php foreach ($pendaftaran_aktakematian as $kema) : ?>
+            <tr>
               <th scope="row"><?= $i++; ?></th>
               <td><?= $kema['namapemohon']; ?></td>
               <td><?= $kema['emailpemohon']; ?></td>
@@ -47,12 +44,12 @@
               <td>
                 <a href="/DetailAdmin/detail_pendaftaranaktakematian_admin/<?= $kema['namapemohon']; ?>" class="btn btn-success">Detail</a>
               </td>
-            <?php endforeach; ?>
-          </tr>
+            </tr>
+          <?php endforeach; ?>
         </tbody>
 
       </table>
-
+      <?= $pager->links('pendaftaran_aktakematian', 'aktakematian_pagination'); ?>
     </div>
   </div>
 

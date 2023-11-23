@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\Pendaftaran_kk_Model;
 use App\Models\Pendaftaran_ktp_Model;
 use App\Models\Pendaftaran_kia_Model;
+
 use App\Models\Pendaftaran_aktakelahiran_Model;
 use App\Models\Pendaftaran_aktakematian_Model;
 use App\Models\Perbaikan_data_Model;
@@ -16,6 +17,7 @@ class Pelayanan extends BaseController
   protected $kkModel;
   protected $ktpModel;
   protected $kiaModel;
+
   protected $aktakelahiranModel;
   protected $aktakematianModel;
   protected $perbaikandataModel;
@@ -27,6 +29,7 @@ class Pelayanan extends BaseController
     $this->kkModel = new Pendaftaran_kk_Model();
     $this->ktpModel = new Pendaftaran_ktp_Model();
     $this->kiaModel = new Pendaftaran_kia_Model();
+
     $this->aktakelahiranModel = new Pendaftaran_aktakelahiran_Model();
     $this->aktakematianModel = new Pendaftaran_aktakematian_Model();
     $this->perbaikandataModel = new Perbaikan_data_Model();
@@ -79,9 +82,10 @@ class Pelayanan extends BaseController
       ],
       // Form Email Pemohon
       'emailpemohon' => [
-        'rules' => 'required[pendaftaran_kk.emailpemohon]',
+        'rules' => 'required[pendaftaran_kk.emailpemohon]|valid_email',
         'errors' => [
-          'required' => 'Email Pemohon Harus Diisi !!'
+          'required' => 'Email Pemohon Harus Diisi !!',
+          'valid_email' => 'Mohon cek kembali email anda, gunakan @ agar valid !!'
         ]
       ],
       // Form Nomor Pemohon
@@ -230,9 +234,10 @@ class Pelayanan extends BaseController
       ],
       // Form Email Pemohon
       'emailpemohon' => [
-        'rules' => 'required[pendaftaran_ktp.emailpemohon]',
+        'rules' => 'required[pendaftaran_ktp.emailpemohon]|valid_email',
         'errors' => [
-          'required' => 'Email Pemohon Harus Diisi !!'
+          'required' => 'Email Pemohon Harus Diisi !!',
+          'valid_email' => 'Mohon cek kembali email anda, gunakan @ agar valid !!'
         ]
       ],
       // Form Nomor Pemohon
@@ -333,9 +338,10 @@ class Pelayanan extends BaseController
       ],
       //Form Email Pemohon
       'emailpemohon' => [
-        'rules' => 'required[pendaftaran_kia.emailpemohon]',
+        'rules' => 'required[pendaftaran_kia.emailpemohon]|valid_email',
         'errors' => [
-          'required' => 'Email Pemohon Harus Diisi !!'
+          'required' => 'Email Pemohon Harus Diisi !!',
+          'valid_email' => 'Mohon cek kembali email anda, gunakan @ agar valid !!'
         ]
       ],
       //Form Nomor Pemohon
@@ -453,9 +459,10 @@ class Pelayanan extends BaseController
       ],
       // Form Email Pemohon
       'emailpemohon' => [
-        'rules' => 'required[pendaftaran_aktakelahiran.emailpemohon]',
+        'rules' => 'required[pendaftaran_aktakelahiran.emailpemohon]|valid_email',
         'errors' => [
-          'required' => 'Email Pemohon Harus Diisi !!'
+          'required' => 'Email Pemohon Harus Diisi !!',
+          'valid_email' => 'Mohon cek kembali email anda, gunakan @ agar valid !!'
         ]
       ],
       // Form Nomor Pemohon
@@ -604,9 +611,10 @@ class Pelayanan extends BaseController
       ],
       // Form Email Pemohon
       'emailpemohon' => [
-        'rules' => 'required[pendaftaran_aktakematian.emailpemohon]',
+        'rules' => 'required[pendaftaran_aktakematian.emailpemohon]|valid_email',
         'errors' => [
-          'required' => 'Email Pemohon Harus Diisi !!'
+          'required' => 'Email Pemohon Harus Diisi !!',
+          'valid_email' => 'Mohon cek kembali email anda, gunakan @ agar valid !!'
         ]
       ],
       // Form Nomor Pemohon
@@ -724,9 +732,10 @@ class Pelayanan extends BaseController
       ],
       // Form Email Pemohon
       'emailpemohon' => [
-        'rules' => 'required[perbaikan_data.emailpemohon]',
+        'rules' => 'required[perbaikan_data.emailpemohon]|valid_email',
         'errors' => [
-          'required' => 'Email Pemohon Harus Diisi !!'
+          'required' => 'Email Pemohon Harus Diisi !!',
+          'valid_email' => 'Mohon cek kembali email anda, gunakan @ agar valid !!'
         ]
       ],
       // Form Nomor Pemohon
@@ -851,9 +860,10 @@ class Pelayanan extends BaseController
       ],
       // Form Email Pemohon
       'emailpemohon' => [
-        'rules' => 'required[pengaduan_update.emailpemohon]',
+        'rules' => 'required[pengaduan_update.emailpemohon]|valid_email',
         'errors' => [
-          'required' => 'Email Pemohon Harus Diisi !!'
+          'required' => 'Email Pemohon Harus Diisi !!',
+          'valid_email' => 'Mohon cek kembali email anda, gunakan @ agar valid !!'
         ]
       ],
       // Form Nomor Pemohon
@@ -918,7 +928,7 @@ class Pelayanan extends BaseController
       'kartukeluarga' => $namaKK_PengUp
 
     ]);
-    session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
+    session()->setFlashdata('pesan', 'Selamat Pendaftaran Pengaduan Update anda Berhasil !!');
     return redirect()->to('/pelayanan/pendaftaran_pengaduanupdate/');
   }
 
@@ -960,9 +970,10 @@ class Pelayanan extends BaseController
       ],
       //Form Email Pemohon
       'emailpemohon' => [
-        'rules' => 'required[perbaikan_nik.emailpemohon]',
+        'rules' => 'required[perbaikan_nik.emailpemohon]|valid_email',
         'errors' => [
-          'required' => 'Email Pemohon Harus Diisi !!'
+          'required' => 'Email Pemohon Harus Diisi !!',
+          'valid_email' => 'Mohon cek kembali email anda, gunakan @ agar valid !!'
         ]
       ],
       //Form Nomor Pemohon

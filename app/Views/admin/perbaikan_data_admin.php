@@ -10,10 +10,6 @@
 
   <div class="card shadow mb-4" style="margin-top: 25px;">
 
-    <!-- <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Data Perbaikan Data</h6>
-    </div> -->
-
     <div class="card-header py-3">
       <div class="d-sm-flex align-items-center justify-content-between mb-2">
         <h4 class="m-0 font-weight-bold text-primary">Data Pendaftaran Perbaikan Data</h4>
@@ -24,6 +20,7 @@
     <div class="card-body">
 
       <table class="table table-fixed table-hover">
+
         <thead class="table-dark">
           <tr>
             <th scope="col">No</th>
@@ -36,7 +33,7 @@
         </thead>
 
         <tbody>
-          <?php $i = 1; ?>
+          <?php $i = 1 + (10 * ($currentPage - 1)); ?>
           <?php foreach ($perbaikan_data as $perda) :  ?>
             <tr>
               <th scope="row"><?= $i++; ?></th>
@@ -50,8 +47,9 @@
             </tr>
           <?php endforeach; ?>
         </tbody>
-      </table>
 
+      </table>
+      <?= $pager->links('perbaikan_data', 'perbaikandata_pagination'); ?>
     </div>
   </div>
 

@@ -1,3 +1,5 @@
+<!-- Halaman Index untuk Pelayanan Masyarakat == Masyarakat Input - Input -->
+
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
@@ -14,8 +16,11 @@
   </div>
 </center>
 
-
 <div class="container card" style="padding: 20px; padding-left: 100px;">
+
+  <div class="container">
+    <h4 class="text-center">Pelayanan Pendaftaran Baru Si Lancar</h4>
+  </div>
 
   <div class="row">
     <!-- Pendaftaran Kartu Keluarga -->
@@ -27,7 +32,6 @@
         </div>
       </a>
     </div>
-
 
     <!-- Pendaftaran KTP -->
     <div class="card shadow border-2" style="width: 18rem; padding: 10px; margin: 20px;">
@@ -104,8 +108,6 @@
         </div>
       </a>
     </div>
-
-
 
   </div>
 </div>

@@ -17,7 +17,7 @@
       <h6 class="m-0 font-weight-bold text-primary">Ubah Card Pelayanan Kartu Keluarga</h6>
     </div>
 
-    <form action="/createadmin/saveEditPelayananKK" method="post" enctype="multipart/form-data">
+    <form action="/EditUpdateAdmin/updatePelayanankk" method="post" enctype="multipart/form-data">
 
       <!-- Keamanan -->
       <?= csrf_field(); ?>
@@ -53,17 +53,17 @@
           <!-- Keterangan Pelayanan -->
           <div class="col-sm-6">
             <div class="form-group">
-              <label for="judulpelayanan" class="form-label fw-semibold">Judul Pelayanan</label>
-              <input type="text" class="form-control <?= ($validation->hasError('judulpelayanan')) ? 'is-invalid' : '';  ?>" name="naama" id="judulpelayanan" autofocus value="<?= old('judulpelayanan');  ?>">
+              <label for="keteranganpelayanan" class="form-label fw-semibold">Keterangan Pelayanan</label>
+              <input type="text" class="form-control <?= ($validation->hasError('keteranganpelayanan')) ? 'is-invalid' : '';  ?>" name="naama" id="keteranganpelayanan" autofocus value="<?= old('keteranganpelayanan');  ?>">
               <div class="invalid-feedback">
-                <?= $validation->getError('judulpelayanan'); ?>
+                <?= $validation->getError('keteranganpelayanan'); ?>
               </div>
             </div>
           </div>
 
           <div class="form-group row">
             <div class="col-sm-10">
-              <button type="submit" class="btn btn-primary">Tambah Akun</button>
+              <button type="submit" class="btn btn-primary">Ubah Card Pelayanan KK</button>
             </div>
           </div>
 

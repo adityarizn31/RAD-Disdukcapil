@@ -22,6 +22,7 @@
     </div>
 
     <div class="card-body">
+
       <table class="table table-fixed table-hover">
 
         <thead class="table-dark">
@@ -36,7 +37,7 @@
         </thead>
 
         <tbody>
-          <?php $i = 1; ?>
+          <?php $i = 1 + (10 * ($currentPage - 1)); ?>
           <?php foreach ($perbaikan_nik as $perb) :  ?>
             <tr>
               <th scope="row"><?= $i++; ?></th>
@@ -50,7 +51,9 @@
             </tr>
           <?php endforeach; ?>
         </tbody>
+
       </table>
+      <?= $pager->links('perbaikan_nik', 'perbaikannik_pagination'); ?>
     </div>
   </div>
 

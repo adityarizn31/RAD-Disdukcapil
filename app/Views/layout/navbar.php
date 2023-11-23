@@ -12,6 +12,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/pelayanan/index">Pelayanan SiLancar</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pelayanan/pencarian">Pencarian</a>
+        </li>
       </ul>
     </div>
   </div>

@@ -6,6 +6,7 @@
 
   <div class="container">
     <div class="row">
+
       <div class="col" style="padding: 15px;">
 
         <div class="row">
@@ -35,7 +36,7 @@
 </div>
 
 <!-- Berita -->
-<div class="container mt-3 mb-3">
+<div class="container mt-3 mb-3 pt-20">
   <div class="row">
 
     <h3 class="text-center">Berita</h3>
@@ -48,7 +49,7 @@
           <div class="card-body">
             <h5 class="card-title"> <?= $b['judulberita']; ?> </h5>
             <p class="card-text"><?= $b['keteranganberita']; ?></p>
-            <p class="card-text"><small class="text-body-secondary">Last updated <?= $b['created_at']; ?> mins ago</small></p>
+            <p class="card-text"><small class="text-body-secondary">Last updated <?= $b['created_at']; ?></small></p>
           </div>
         </div>
       <?php endforeach; ?>
@@ -58,36 +59,34 @@
   </div>
 </div>
 
-
 <!-- Inovasi -->
-<div class="container">
-  <div class="row">
-    <div class="col">
+<section class="pt-4 mt-4">
+  <div class="container px-lg-5">
+    <div class="row gx-lg-5">
 
-      <h3 class="text-center">Inovasi</h3>
+      <h3 class="text-center fw-bold">Inovasi</h3>
+      <p class="fs-6 text-center">Inovasi Terbaru Disdukcapil Majalengka</p>
 
-      <div class="card" style="border: none; border: 0; outline: none; box-shadow: none; padding: 10px;">
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-          <?php foreach ($inovasi as $inov) : ?>
-            <div class="col">
+      <?php foreach ($inovasi as $inov) : ?>
+        <div class="col-lg-6 col-xxl-4 mb-5">
+          <div class="card bg-dark border-0 h-100">
+            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
 
-              <div class="card" style="border: none;">
-                <img src="/img/inovasi/<?= $inov['fotoinovasi']; ?>" class="foto_inovasi" alt="Foto Inovasi">
-                <div class="card-body">
-                  <h5 class="card-title"><?= $inov['judulinovasi']; ?></h5>
-                  <p class="card-text"><?= $inov['keteranganinovasi']; ?></p>
-                </div>
-              </div>
+              <img src="/img/inovasi/<?= $inov['fotoinovasi']; ?>" class="pt-4 pb-4" alt="" style="width: 75%; height: auto; border-radius: 8px;">
+              <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-collection"></i></div>
+              <h2 class="fs-4 fw-bold text-white"><?= $inov['judulinovasi']; ?></h2>
+              <p class="mb-0 text-white text-justify"><?= $inov['keteranganinovasi']; ?></p>
+              <br>
+              <p class="card-text text-white text-justify"><small>Last Updated <?= $inov['created_at']; ?></small></p>
 
             </div>
-          <?php endforeach; ?>
-
+          </div>
         </div>
-      </div>
+      <?php endforeach; ?>
 
     </div>
   </div>
-</div>
+</section>
 
 <br>
 <br>

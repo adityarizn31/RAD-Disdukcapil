@@ -1,4 +1,4 @@
-<!-- Halaman Tampilan Pelayanan -->
+<!-- Halaman Pelayanan untuk Admin == Mengubah Judul, Gambar dan Keterangan -->
 
 <?= $this->extend('layout/templateadmin'); ?>
 

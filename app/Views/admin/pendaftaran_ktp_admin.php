@@ -10,10 +10,6 @@
 
   <div class="card shadow mb-4" style="margin-top: 25px;">
 
-    <!-- <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Data Pendaftaran KTP</h6>
-    </div> -->
-
     <div class="card-header py-3">
       <div class="d-sm-flex align-items-center justify-content-between mb-2">
         <h4 class="m-0 font-weight-bold text-primary">Data Pendaftaran KTP</h4>
@@ -37,7 +33,7 @@
         </thead>
 
         <tbody>
-          <?php $i = 1; ?>
+          <?php $i = 1 + (10 * ($currentPage - 1)); ?>
           <?php foreach ($pendaftaran_ktp as $ktp) :  ?>
             <tr>
               <th scope="row"><?= $i++; ?></th>
@@ -53,7 +49,7 @@
         </tbody>
 
       </table>
-
+      <?= $pager->links('pendaftaran_ktp', 'ktp_pagination'); ?>
     </div>
   </div>
 

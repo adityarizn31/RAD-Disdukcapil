@@ -6,6 +6,7 @@ use App\Models\AdminModel;
 use App\Models\BeritaModel;
 use App\Models\InovasiModel;
 use App\Models\VisiMisiModel;
+
 use App\Models\Pendaftaran_aktakematian_Model;
 use App\Models\Pendaftaran_aktakelahiran_Model;
 use App\Models\Pendaftaran_kia_Model;
@@ -15,6 +16,8 @@ use App\Models\Perbaikan_data_Model;
 use App\Models\Pengaduan_update_Model;
 use App\Models\Perbaikan_nik_Model;
 
+use App\Models\PelayananModel;
+
 class CreateAdmin extends BaseController
 {
 
@@ -22,14 +25,17 @@ class CreateAdmin extends BaseController
   protected $beritaModel;
   protected $inovasiModel;
   protected $visimisiModel;
-  protected $aktakematianModel;
-  protected $aktakelahiranModel;
-  protected $kiaModel;
+
   protected $kkModel;
   protected $ktpModel;
+  protected $kiaModel;
+  protected $aktakematianModel;
+  protected $aktakelahiranModel;
   protected $perbaikandataModel;
   protected $pengaduanupdateModel;
   protected $perbaikannikModel;
+
+  protected $pelayananModel;
 
   public function __construct()
   {
@@ -37,14 +43,17 @@ class CreateAdmin extends BaseController
     $this->beritaModel = new BeritaModel();
     $this->inovasiModel = new InovasiModel();
     $this->visimisiModel = new VisiMisiModel();
-    $this->aktakematianModel = new Pendaftaran_aktakematian_Model();
-    $this->aktakelahiranModel = new Pendaftaran_aktakelahiran_Model();
-    $this->kiaModel = new Pendaftaran_kia_Model();
+
     $this->kkModel = new Pendaftaran_kk_Model();
     $this->ktpModel = new Pendaftaran_ktp_Model();
+    $this->kiaModel = new Pendaftaran_kia_Model();
+    $this->aktakematianModel = new Pendaftaran_aktakematian_Model();
+    $this->aktakelahiranModel = new Pendaftaran_aktakelahiran_Model();
     $this->perbaikandataModel = new Perbaikan_data_Model();
     $this->pengaduanupdateModel = new Pengaduan_update_Model();
     $this->perbaikannikModel = new Perbaikan_nik_Model();
+
+    $this->pelayananModel = new PelayananModel();
   }
 
 
@@ -278,5 +287,22 @@ class CreateAdmin extends BaseController
     ]);
     session()->setFlashdata('pesan', 'Selamat Anda Berhasil Melakukan Pendaftaran  !!');
     return redirect()->to('/admin/data_admin');
+  }
+
+
+
+
+
+
+
+
+
+
+  // Form Halaman Tambah Pelayanan
+  public function create_pelayanan()
+  {
+    $data = [
+      'title'
+    ];
   }
 }

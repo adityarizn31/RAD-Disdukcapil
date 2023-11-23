@@ -36,7 +36,7 @@
         </thead>
 
         <tbody>
-          <?php $i = 1; ?>
+          <?php $i = 1 + (10 * ($currentPage - 1)); ?>
           <?php foreach ($pengaduan_update as $ngadu) : ?>
             <tr>
               <th scope="row"><?= $i++; ?></th>
@@ -50,8 +50,9 @@
             </tr>
           <?php endforeach; ?>
         </tbody>
-      </table>
 
+      </table>
+      <?= $pager->links('pengaduan_update', 'kk_pagination'); ?>
     </div>
   </div>
 

@@ -57,11 +57,11 @@
           <?php foreach ($berita as $b) : ?>
             <tr>
               <th scope="row"><?= $i++; ?></th>
-              <td><img src="/img/berita/<?= $b['fotoberita']; ?>" class="foto_berita" alt="..."></td>
+              <td><img src="/img/berita/<?= $b['fotoberita']; ?>" class="foto_berita" alt="Foto Berita" style="width: 50%; height: auto;"></td>
               <td><?= $b['judulberita']; ?></td>
               <td><?= $b['keteranganberita']; ?></td>
               <td>
-                <a href="/DetailAdmin/detail_berita_admin/<?= $b['judulberita']; ?>" class="btn btn-success">Detail</a>
+                <a href="/detailAdmin/detail_berita_admin/<?= $b['judulberita']; ?>" class="btn btn-success">Detail</a>
               </td>
             </tr>
           <?php endforeach; ?>

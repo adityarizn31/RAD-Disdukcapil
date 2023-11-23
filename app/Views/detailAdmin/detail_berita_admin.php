@@ -24,6 +24,7 @@
               <img src="/img/berita/<?= $berita['fotoberita']; ?>" style="width: 50%;" class="detail_berita mt-3" alt="Foto Berita">
             </center>
             <div class="card-body mt-2">
+
               <h5 class="card-title"><?= $berita['judulberita']; ?></h5>
               <p class="card-text"><?= $berita['keteranganberita']; ?></p>
               <p class="card-text"><small class="text-body-secondary"><?= $berita['created_at']; ?></small></p>

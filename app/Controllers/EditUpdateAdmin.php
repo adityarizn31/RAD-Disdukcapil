@@ -170,7 +170,7 @@ class EditUpdateAdmin extends BaseController
 
 
 
-
+  // Halaman Berita
   // Menampilkan Form untuk mengedit data berita
   public function editBerita($judulBerita)
   {
@@ -266,28 +266,64 @@ class EditUpdateAdmin extends BaseController
     return view('editAdmin/edit_visimisi_admin', $data);
   }
 
-  public function updateVisiMisi($visimisi)
+  public function updateVisiMisi($id)
   {
     if (!$this->validate([
-      'visi' => [
-        'rules' => 'required[visimisi.visi]',
+      'visi1' => [
+        'rules' => 'required[visimisi.visi1]',
         'errors' => [
-          'required' => '{field} Harus Diisi !!'
+          'required' => 'Visi 1 Harus Diisi !!'
         ]
       ],
-      'misi' => [
-        'rules' => 'required[visimisi.misi]',
+      'misi1' => [
+        'rules' => 'required[visimisi.misi1]',
         'errors' => [
-          'required' => '{field} Harus Diisi !!'
+          'required' => 'Misi 1 Harus Diisi !!'
+        ]
+      ],
+      'visi2' => [
+        'rules' => 'required[visimisi.visi2]',
+        'errors' => [
+          'required' => 'Visi 2 Harus Diisi !!'
+        ]
+      ],
+      'misi2' => [
+        'rules' => 'required[visimisi.misi2]',
+        'errors' => [
+          'required' => 'Misi 2 Harus Diisi !!'
+        ]
+      ],
+      'visi3' => [
+        'rules' => 'required[visimisi.visi3]',
+        'errors' => [
+          'required' => 'Visi 3 Harus Diisi !!'
+        ]
+      ],
+      'misi3' => [
+        'rules' => 'required[visimisi.misi3]',
+        'errors' => [
+          'required' => 'Misi 3 Harus Diisi !!'
+        ]
+      ],
+      'visi4' => [
+        'rules' => 'required[visimisi.visi4]',
+        'errors' => [
+          'required' => 'Visi 4 Harus Diisi !!'
+        ]
+      ],
+      'misi4' => [
+        'rules' => 'required[visimisi.misi1]',
+        'errors' => [
+          'required' => 'Misi 4 Harus Diisi !!'
         ]
       ]
     ])) {
-      $validation = \Config\Services::validation();
-      return redirect()->to(base_url() . '/editAdmin/edit_visimisi_admin' . $this->request->getVar('visi'))->withInput();
+
+      return redirect()->to(base_url() . '/EditUpdateAdmin/editVisiMisi/' . $this->request->getVar('visi'))->withInput();
     }
     $this->visimisiModel->save(
       [
-        'id' => $visimisi,
+        'id' => $id,
         'visi' => $this->request->getVar('visi'),
         'misi' => $this->request->getVar('misi')
       ]
@@ -306,14 +342,42 @@ class EditUpdateAdmin extends BaseController
 
 
   // Halaman Edit Card Pelayanan KK
-  public function edit_pelayanan_kk($judulPelayanan_KK)
+  public function edit_pelayanan_kk()
   {
     $data = [
       'title' => 'Form Edit Card Pelayanan Kartu Keluarga || Disdukcapil Majalengka',
       'validation' => \Config\Services::validation(),
-      'pelayanan_kk' => $this->pelkkModel->getDataPelayananKK($judulPelayanan_KK)
+      'pelayanan_kk' => $this->pelkkModel->getDataPelayananKK()
     ];
     return view('editAdmin/edit_pelayanan_kk', $data);
+  }
+
+  public function updatePelayanankk($id)
+  {
+    if (!$this->validate([
+      'judulpelayanan' => [
+        'rules' => 'required[pelayanan_kk.judulpelayanan]',
+        'errors' => [
+          'required' => 'Judul Pelayanan Harus Diisi !!'
+        ]
+      ],
+      'fotopelayanan' => [
+        'rules' => 'max_size[fotoberita,1024]|is_image[fotoberita]|mime_in[fotoberita,image/jpg,image/jpeg,image/png]',
+        'errors' => [
+          'max_size' => 'Ukuran Gambar terlalu besar !!',
+          'is_image' => 'Yang anda pilih bukan gambar !!',
+          'mime_in' => 'Yang anda pilih bukan gambar'
+        ]
+      ],
+      'keteranganpelayanan' => [
+        'rules' => 'required[pelayanan_kk.keteranganpelayanan]',
+        'errors' => [
+          'required' => 'Keterangan Pelayanan Harus Diisi !!'
+        ]
+      ]
+    ])) {
+      # code...
+    }
   }
 
 

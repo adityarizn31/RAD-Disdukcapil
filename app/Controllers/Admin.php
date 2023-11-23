@@ -44,12 +44,12 @@ class Admin extends BaseController
     $this->inovasiModel = new InovasiModel();
     $this->visimisiModel = new VisiMisiModel();
 
+    $this->kkModel = new Pendaftaran_kk_Model();
+    $this->ktpModel = new Pendaftaran_ktp_Model();
+    $this->kiaModel = new Pendaftaran_kia_Model();
     $this->pelayananModel = new PelayananModel();
     $this->aktakematianModel = new Pendaftaran_aktakematian_Model();
     $this->aktakelahiranModel = new Pendaftaran_aktakelahiran_Model();
-    $this->kiaModel = new Pendaftaran_kia_Model();
-    $this->kkModel = new Pendaftaran_kk_Model();
-    $this->ktpModel = new Pendaftaran_ktp_Model();
     $this->perbaikandataModel = new Perbaikan_data_Model();
     $this->pengaduanupdateModel = new Pengaduan_update_Model();
     $this->perbaikannikModel = new Perbaikan_nik_Model();
@@ -172,9 +172,13 @@ class Admin extends BaseController
   {
     // Menghubungkan Controller Admin dengan Pendaftaran KK Model
     //$kk = $this->kkModel->findAll();
+    $currentPageKK =  $this->request->getVar('page_pendaftaran_kk') ? $this->request->getVar('page_pendaftaran_kk') : 1;
     $data = [
       'title' => 'Data Pendaftaran KK || Admin Disdukcapil',
-      'pendaftaran_kk' => $this->kkModel->getDataKK()
+      'pendaftaran_kk' => $this->kkModel->getDataKK(),
+      'pendaftaran_kk' => $this->kkModel->paginate(10, 'pendaftaran_kk'),
+      'pager' => $this->kkModel->pager,
+      'currentPage' => $currentPageKK
     ];
     return view('admin/pendaftaran_kk_admin', $data);
   }
@@ -190,9 +194,13 @@ class Admin extends BaseController
   {
     // Menghubungkan Controller Admin dengan Pendaftaran KTP Model
     // $ktp = $this->ktpModel->findAll();
+    $currentPageKTP =  $this->request->getVar('page_pendaftaran_ktp') ? $this->request->getVar('page_pendaftaran_ktp') : 1;
     $data = [
       'title' => 'Data Pendaftaran KTP || Admin Disdukcapil',
-      'pendaftaran_ktp' => $this->ktpModel->getDataKTP()
+      'pendaftaran_ktp' => $this->ktpModel->getDataKTP(),
+      'pendaftaran_ktp' => $this->ktpModel->paginate(10, 'pendaftaran_ktp'),
+      'pager' => $this->ktpModel->pager,
+      'currentPage' => $currentPageKTP
     ];
     return view('admin/pendaftaran_ktp_admin', $data);
   }
@@ -209,9 +217,13 @@ class Admin extends BaseController
   {
     // Menghubungkan Controller Admin dengan Pendaftaran KIA Model
     // $kia = $this->kiaModel->findAll();
+    $currentPageKIA =  $this->request->getVar('page_pendaftaran_kia') ? $this->request->getVar('page_pendaftaran_kia') : 1;
     $data = [
       'title' => 'Data Pendaftaran KIA || Admin Disdukcapil',
-      'pendaftaran_kia' => $this->kiaModel->getDataKIA()
+      'pendaftaran_kia' => $this->kiaModel->getDataKIA(),
+      'pendaftaran_kia' => $this->kiaModel->paginate(10, 'pendaftaran_kia'),
+      'pager' => $this->kiaModel->pager,
+      'currentPage' => $currentPageKIA
     ];
     return view('admin/pendaftaran_kia_admin', $data);
   }
@@ -227,9 +239,13 @@ class Admin extends BaseController
   {
     // Menghubungkan Controller Admin dengan Pendaftaran aktalahir Model
     // $aktalahir = $this->aktalahirModel->findAll();
+    $currentPageAkla =  $this->request->getVar('page_pendaftaran_aktakelahiran') ? $this->request->getVar('page_pendaftaran_aktakelahiran') : 1;
     $data = [
       'title' => 'Data Pendaftaran Akta Kelahiran || Admin Disdukcapil ',
-      'pendaftaran_aktakelahiran' => $this->aktakelahiranModel->getDataAktaKelahiran()
+      'pendaftaran_aktakelahiran' => $this->aktakelahiranModel->getDataAktaKelahiran(),
+      'pendaftaran_aktakelahiran' => $this->aktakelahiranModel->paginate(10, 'pendaftaran_aktakelahiran'),
+      'pager' => $this->aktakelahiranModel->pager,
+      'currentPage' => $currentPageAkla
     ];
     return view('admin/pendaftaran_aktakelahiran_admin', $data);
   }
@@ -246,9 +262,13 @@ class Admin extends BaseController
   {
     // Menghubungkan Controller Admin degnan Pendaftaran aktakematian Model
     // $aktakematian = $this->aktalahirModel->findAll();
+    $currentPageAkket =  $this->request->getVar('page_pendaftaran_aktakematian') ? $this->request->getVar('page_pendaftaran_aktakematian') : 1;
     $data = [
       'title' => 'Data Pendaftaran Akta Kematian || Admin Disdukcapil',
-      'pendaftaran_aktakematian' => $this->aktakematianModel->getDataAktaKematian()
+      'pendaftaran_aktakematian' => $this->aktakematianModel->getDataAktaKematian(),
+      'pendaftaran_aktakematian' => $this->aktakematianModel->paginate(10, 'pendaftaran_aktakematian'),
+      'pager' => $this->aktakematianModel->pager,
+      'currentPage' => $currentPageAkket
     ];
     return view('admin/pendaftaran_aktakematian_admin', $data);
   }
@@ -265,9 +285,13 @@ class Admin extends BaseController
   {
     // Menghubungkan Controller Admin dengan Perbaikan data Model
     // $perbaikandata = $this->perbaikandataModel->findAll();
+    $currentPagePerdat =  $this->request->getVar('page_perbaikan_data') ? $this->request->getVar('page_perbaikan_data') : 1;
     $data = [
       'title' => 'Data Pendaftaran Perbaikan Data || Admin Disdukcapil',
-      'perbaikan_data' => $this->perbaikandataModel->getPerbaikanData()
+      'perbaikan_data' => $this->perbaikandataModel->getPerbaikanData(),
+      'perbaikan_data' => $this->perbaikandataModel->paginate(10, 'perbaikan_data'),
+      'pager' => $this->perbaikandataModel->pager,
+      'currentPage' => $currentPagePerdat
     ];
     return view('admin/perbaikan_data_admin', $data);
   }
@@ -284,9 +308,13 @@ class Admin extends BaseController
   {
     // Menghubungkan Controller Admin dengan Pengaduan update Model
     // $pengaduanupdate = $this->pengaduanupdateModel->findAll();
+    $currentPagePengdat =  $this->request->getVar('page_pengaduan_update') ? $this->request->getVar('page_pengaduan_update') : 1;
     $data = [
       'title' => 'Data Pendaftaran Pengaduan Update || Admin Disdukcapil',
-      'pengaduan_update' => $this->pengaduanupdateModel->getDataPengaduanUpdate()
+      'pengaduan_update' => $this->pengaduanupdateModel->getDataPengaduanUpdate(),
+      'pengaduan_update' => $this->pengaduanupdateModel->paginate(10, 'pengaduan_update'),
+      'pager' => $this->pengaduanupdateModel->pager,
+      'currentPage' => $currentPagePengdat
     ];
     return view('admin/pendaftaran_pengaduanupdate_admin', $data);
   }
@@ -303,9 +331,13 @@ class Admin extends BaseController
   {
     // Menghubungkan Controller Admin dengan Perbaikan NIK Model
     // $perbaikannik = $this->perbaikannikModel->findAll();
+    $currentPagePernik =  $this->request->getVar('page_perbaikan_nik') ? $this->request->getVar('page_perbaikan_nik') : 1;
     $data = [
       'title' => 'Data Perbaikan NIK || Admin Disdukcapil',
-      'perbaikan_nik' => $this->perbaikannikModel->getDataPerbaikanNIK()
+      'perbaikan_nik'   => $this->perbaikannikModel->getDataPerbaikanNIK(),
+      'perbaikan_nik' => $this->perbaikannikModel->paginate(10, 'perbaikan_nik'),
+      'pager' => $this->perbaikannikModel->pager,
+      'currentPage' => $currentPagePernik
     ];
     return view('admin/pendaftaran_perbaikannik_admin', $data);
   }

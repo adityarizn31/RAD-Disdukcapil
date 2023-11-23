@@ -11,6 +11,7 @@
   </button>
 
   <div class="card shadow mb-4 border-2" style="margin-top: 25px;">
+
     <div class="card-header py-3">
 
       <div class="d-sm-flex align-items-center justify-content-between" style="padding-top: 10px;">
@@ -57,7 +58,7 @@
           <?php foreach ($inovasi as $inov) : ?>
             <tr>
               <th scope="row"><?= $i++; ?></th>
-              <td><img src="/img/inovasi/<?= $inov['fotoinovasi']; ?>" class="foto_inovasi" alt="Foto Inovasi"></td>
+              <td><img src="/img/inovasi/<?= $inov['fotoinovasi']; ?>" class="foto_inovasi" alt="Foto Inovasi" style="width: 70%; height: auto;"></td>
               <td><?= $inov['judulinovasi']; ?></td>
               <td><?= $inov['keteranganinovasi']; ?></td>
               <td>
@@ -68,6 +69,7 @@
         </tbody>
 
       </table>
+
     </div>
   </div>
 
