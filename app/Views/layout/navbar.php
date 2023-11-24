@@ -10,7 +10,7 @@
           <a class="nav-link" href="/pages/about">Tentang Kami</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/pelayanan/index">Pelayanan SiLancar</a>
+          <a class="nav-link" href="/pelayanan/index">Pelayanan Si Lancar</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/pelayanan/pencarian">Pencarian</a>

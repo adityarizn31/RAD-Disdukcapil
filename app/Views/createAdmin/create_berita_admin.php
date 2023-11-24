@@ -10,7 +10,7 @@
     <i class="bi bi-list"></i>
   </button>
 
-  <div class="card shadow mb-4 border-2" style="margin-top: 25px; padding: 20px;">
+  <div class="card shadow shadow-blue-500/50 mb-4 border-2" style="margin-top: 25px; padding: 20px;">
     <div class="container">
       <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Tambah Berita admin</h6>
@@ -67,6 +67,21 @@
 
     </div>
   </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Preview Berita</h6>
+        </div>
+
+        <img src="/img/default/v_Berita.jpg" alt="Preview Berita" srcset="" style="width: 100%; height: 100%;">
+      </div>
+    </div>
+  </div>
+
 
 </section>
 

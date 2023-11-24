@@ -170,13 +170,22 @@ class Admin extends BaseController
   // Menampilkan data Kartu Keluarga pada halaman Admin
   public function pendaftaran_kk_admin()
   {
-    // Menghubungkan Controller Admin dengan Pendaftaran KK Model
-    //$kk = $this->kkModel->findAll();
+    // Digunakan untuk Pagination
     $currentPageKK =  $this->request->getVar('page_pendaftaran_kk') ? $this->request->getVar('page_pendaftaran_kk') : 1;
+
+    // Digunakan untuk Pencarian Data
+    $keyword = $this->request->getVar('keyword');
+    if ($keyword) {
+      $orangKK = $this->kkModel->search($keyword);
+    } else {
+      $orangKK = $this->kkModel;
+    }
+
+    // Digunakan untuk menampilkan Detail data, Jumlah data per Halaman serta Halamannya
     $data = [
       'title' => 'Data Pendaftaran KK || Admin Disdukcapil',
       'pendaftaran_kk' => $this->kkModel->getDataKK(),
-      'pendaftaran_kk' => $this->kkModel->paginate(10, 'pendaftaran_kk'),
+      'pendaftaran_kk' => $orangKK->paginate(10, 'pendaftaran_kk'),
       'pager' => $this->kkModel->pager,
       'currentPage' => $currentPageKK
     ];
@@ -192,13 +201,22 @@ class Admin extends BaseController
   // Menampilkan data KTP
   public function pendaftaran_ktp_admin()
   {
-    // Menghubungkan Controller Admin dengan Pendaftaran KTP Model
-    // $ktp = $this->ktpModel->findAll();
+    // Digunakan untuk Pagination
     $currentPageKTP =  $this->request->getVar('page_pendaftaran_ktp') ? $this->request->getVar('page_pendaftaran_ktp') : 1;
+
+    // Digunakan untuk Pencarian Data
+    $keyword = $this->request->getVar('keyword');
+    if ($keyword) {
+      $orangKTP = $this->ktpModel->search($keyword);
+    } else {
+      $orangKTP = $this->ktpModel;
+    }
+
+    // Digunakan untuk menampilkan Detail data, Jumlah data per Halaman serta Halamannya
     $data = [
       'title' => 'Data Pendaftaran KTP || Admin Disdukcapil',
       'pendaftaran_ktp' => $this->ktpModel->getDataKTP(),
-      'pendaftaran_ktp' => $this->ktpModel->paginate(10, 'pendaftaran_ktp'),
+      'pendaftaran_ktp' => $orangKTP->paginate(10, 'pendaftaran_ktp'),
       'pager' => $this->ktpModel->pager,
       'currentPage' => $currentPageKTP
     ];
@@ -215,13 +233,22 @@ class Admin extends BaseController
   // Menampilkan data pendaftaran KIA pada halaman admin
   public function pendaftaran_kia_admin()
   {
-    // Menghubungkan Controller Admin dengan Pendaftaran KIA Model
-    // $kia = $this->kiaModel->findAll();
+    // Digunakan untuk Pagination
     $currentPageKIA =  $this->request->getVar('page_pendaftaran_kia') ? $this->request->getVar('page_pendaftaran_kia') : 1;
+
+    // Digunakan untuk Pencarian Data
+    $keyword = $this->request->getVar('keyword');
+    if ($keyword) {
+      $orangKIA = $this->kiaModel->search($keyword);
+    } else {
+      $orangKIA = $this->kiaModel;
+    }
+
+    // Digunakan untuk menampilkan Detail data, Jumlah data per halaman serta Halamannya
     $data = [
       'title' => 'Data Pendaftaran KIA || Admin Disdukcapil',
       'pendaftaran_kia' => $this->kiaModel->getDataKIA(),
-      'pendaftaran_kia' => $this->kiaModel->paginate(10, 'pendaftaran_kia'),
+      'pendaftaran_kia' => $orangKIA->paginate(10, 'pendaftaran_kia'),
       'pager' => $this->kiaModel->pager,
       'currentPage' => $currentPageKIA
     ];
@@ -237,13 +264,22 @@ class Admin extends BaseController
   // Menampilkan data aktakelahiran pada halaman Admin
   public function pendaftaran_aktakelahiran_admin()
   {
-    // Menghubungkan Controller Admin dengan Pendaftaran aktalahir Model
-    // $aktalahir = $this->aktalahirModel->findAll();
+    // Digunakan untuk Pagination
     $currentPageAkla =  $this->request->getVar('page_pendaftaran_aktakelahiran') ? $this->request->getVar('page_pendaftaran_aktakelahiran') : 1;
+
+    // Digunakan untuk Pencarian Data
+    $keyword = $this->request->getVar('keyword');
+    if ($keyword) {
+      $orangAkla = $this->aktakelahiranModel->search($keyword);
+    } else {
+      $orangAkla = $this->aktakelahiranModel;
+    }
+
+    // Digunakan untuk menampilkan Detail data, Jumlah data per halaman serta halamannya
     $data = [
       'title' => 'Data Pendaftaran Akta Kelahiran || Admin Disdukcapil ',
       'pendaftaran_aktakelahiran' => $this->aktakelahiranModel->getDataAktaKelahiran(),
-      'pendaftaran_aktakelahiran' => $this->aktakelahiranModel->paginate(10, 'pendaftaran_aktakelahiran'),
+      'pendaftaran_aktakelahiran' => $orangAkla->paginate(10, 'pendaftaran_aktakelahiran'),
       'pager' => $this->aktakelahiranModel->pager,
       'currentPage' => $currentPageAkla
     ];

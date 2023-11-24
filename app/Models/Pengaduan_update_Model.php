@@ -20,4 +20,9 @@ class Pengaduan_update_Model extends Model
     // Namun jika nama pemohon == true makan akan ditampilkan nama tersebut saja
     return $this->where(['namapemohon' => $nama])->first();
   }
+
+  public function search($keyword)
+  {
+    return $this->table('pengaduan_update')->like('namapemohon', $keyword);
+  }
 }

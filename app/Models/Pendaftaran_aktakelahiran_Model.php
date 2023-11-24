@@ -20,4 +20,9 @@ class Pendaftaran_aktakelahiran_Model extends Model
     // Namun jika nama pemohon == true makan akan ditampilkan nama tersebut saja
     return $this->where(['namapemohon' => $nama])->first();
   }
+
+  public function search($keyword)
+  {
+    return $this->table('pendaftaran_aktakelahiran')->like('namapemohon', $keyword);
+  }
 }

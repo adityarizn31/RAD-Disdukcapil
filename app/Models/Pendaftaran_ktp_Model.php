@@ -20,4 +20,9 @@ class Pendaftaran_ktp_Model extends Model
     // Namun jika nama pemohon == true makan akan ditampilkan nama tersebut saja
     return $this->where(['namapemohon' => $nama])->first();
   }
+
+  public function search($keyword)
+  {
+    return $this->table('pendaftaran_ktp')->like('namapemohon', $keyword);
+  }
 }

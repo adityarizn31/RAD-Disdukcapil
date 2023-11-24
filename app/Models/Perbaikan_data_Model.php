@@ -20,4 +20,9 @@ class Perbaikan_data_Model extends Model
     // Namun jika nama pemohon == true makan akan ditampilkan nama tersebut saja
     return $this->where(['namapemohon' => $nama])->first();
   }
+
+  public function search($keyword)
+  {
+    return $this->table('perbaikan_data')->like('namapemohon', $keyword);
+  }
 }

@@ -12,7 +12,6 @@ class Pelayanan_kk_Model extends Model
 
   public function getDataPelayananKK($judulPelayanan = false)
   {
-    // Jika
     if ($judulPelayanan == false) {
       return $this->findAll();
     }

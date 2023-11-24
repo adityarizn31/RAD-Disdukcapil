@@ -17,6 +17,17 @@
       </div>
     </div>
 
+    <form action="" method="post">
+      <div class="col-6">
+        <div class="input-group mb-3 mt-3 ms-3">
+          <input type="text" class="form-control" placeholder="Masukan Nama ... " name="keyword">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-outline-secondary" name="submit">Cari</button>
+          </div>
+        </div>
+      </div>
+    </form>
+
     <div class="card-body">
 
       <table class="table table-fixed table-hover">

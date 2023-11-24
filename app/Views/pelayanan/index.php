@@ -16,7 +16,7 @@
   </div>
 </center>
 
-<div class="container card" style="padding: 20px; padding-left: 100px;">
+<div class="container card border-sky-500" style="padding: 20px; padding-left: 100px;">
 
   <div class="container">
     <h4 class="text-center">Pelayanan Pendaftaran Baru Si Lancar</h4>

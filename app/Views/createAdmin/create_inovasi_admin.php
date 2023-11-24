@@ -10,9 +10,9 @@
     <i class="bi bi-list"></i>
   </button>
 
-  <div class="card shadow mb-4 border-2" style="margin-top: 25px; padding: 20px;">
+  <div class="card shadow mb-4 border-2 outline hover:outline-dashed" style="margin-top: 25px; padding: 20px;">
     <div class="container">
-      
+
       <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Tambah Inovasi Admin</h6>
       </div>
@@ -65,6 +65,19 @@
 
       </form>
 
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Preview Inovasi</h6>
+        </div>
+
+        <img src="/img/default/v_Inovasi.jpg" alt="Preview Berita" srcset="" style="width: 100%; height: 100%;">
+      </div>
     </div>
   </div>
 

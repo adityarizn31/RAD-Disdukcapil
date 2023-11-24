@@ -20,4 +20,9 @@ class Perbaikan_nik_Model extends Model
     // Namun jika nama pemohon == true makan akan ditampilkan nama tersebut saja
     return $this->where(['namapemohon' => $nama])->first();
   }
+
+  public function search($keyword)
+  {
+    return $this->table('perbaikan_nik')->like('namapemohon', $keyword);
+  }
 }

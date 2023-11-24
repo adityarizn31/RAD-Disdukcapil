@@ -20,4 +20,9 @@ class Pendaftaran_kia_Model extends Model
     // Namun jika nama pemohon == true makan akan ditampilkan nama tersebut saja
     return $this->where(['namapemohon' => $nama])->first();
   }
+
+  public function search($keyword)
+  {
+    return $this->table('pendaftaran_kia')->like('namapemohon', $keyword);
+  }
 }
