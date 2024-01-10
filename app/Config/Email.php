@@ -9,12 +9,13 @@ class Email extends BaseConfig
     /**
      * @var string
      */
-    public $fromEmail;
+    // Digunakan jika aplikasi lupa password dan aktivasi
+    public $fromEmail = 'adityarizkiawann@gmail.com';
 
     /**
      * @var string
      */
-    public $fromName;
+    public $fromName = 'AdityaRizkiawanNugraha';
 
     /**
      * @var string
@@ -23,7 +24,7 @@ class Email extends BaseConfig
 
     /**
      * The "user agent"
-     *
+     *  
      * @var string
      */
     public $userAgent = 'CodeIgniter';
@@ -33,7 +34,7 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $protocol = 'mail';
+    public $protocol = 'smtp';
 
     /**
      * The server path to Sendmail.
@@ -47,34 +48,35 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $SMTPHost;
+    public $SMTPHost = 'smtp.gmail.com';
 
     /**
      * SMTP Username
      *
      * @var string
      */
-    public $SMTPUser;
+    public $SMTPUser = 'adityarizkiawann@gmail.com';
 
     /**
      * SMTP Password
      *
      * @var string
      */
-    public $SMTPPass;
+    public $SMTPPass = '';
 
     /**
      * SMTP Port
      *
      * @var int
      */
-    public $SMTPPort = 25;
+    public $SMTPPort = 465;
 
-    /**
+    /**s
      * SMTP Timeout (in seconds)
      *
      * @var int
      */
+    // Digunakan jika 5 detik tidak ada respon maka akan error
     public $SMTPTimeout = 5;
 
     /**
@@ -89,7 +91,7 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $SMTPCrypto = 'tls';
+    public $SMTPCrypto = 'ssl';
 
     /**
      * Enable word-wrap
@@ -110,7 +112,7 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $mailType = 'text';
+    public $mailType = 'html';
 
     /**
      * Character set (utf-8, iso-8859-1, etc.)

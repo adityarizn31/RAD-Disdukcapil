@@ -5,7 +5,7 @@
 <div class="container" style="padding: 10px;">
   <div class="card shadow mb-4" style="padding: 20px;">
     <div class="container">
-      <h4 class="text-center mt-2 mb-2"> Layanan Pengaduan</h4>
+      <h4 class="text-center mt-2 mb-2"> Pendaftaran Pengaduan Update</h4>
     </div>
 
     <?php if (session()->getFlashdata('pesan')) : ?>
@@ -93,7 +93,7 @@
       <!-- Form Alamat Pemohon -->
       <div class="row">
         <div class="mb-3">
-          <label for="pengaduanupdate" class="form-label fw-semibold">Alamat Pemohon</label>
+          <label for="pengaduanupdate" class="form-label fw-semibold">Pengaduan</label>
           <br>
           <textarea class=" form-control text-area <?= ($validation->hasError('pengaduanupdate')) ? 'is-invalid' : ''; ?>" name="pengaduanupdate" id="pengaduanupdate" value="<?= old('pengaduanupdate'); ?>"></textarea>
           <div class="invalid-feedback">

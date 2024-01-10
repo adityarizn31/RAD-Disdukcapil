@@ -99,6 +99,37 @@
         imgPreviewInovasi.src = e.target.result;
       }
     }
+
+
+
+    // Halaman Persyaratan
+    function previewImgPersyaratan() {
+      const fotopersyaratan = document.querySelector('#fotopersyaratan');
+      const imgPreviewPersyaratan = document.querySelector('.img-preview');
+
+      const fileFotoPersyaratan = new FileReader();
+      fileFotoPersyaratan.readAsDataURL(fotopersyaratan.files[0]);
+
+      fileFotoPersyaratan.onload = function(e) {
+        imgPreviewPersyaratan.src = e.target.result;
+      }
+    }
+
+
+
+
+    // Halaman Pendaftaran KIA
+    function previewImgPendaftaranKIA() {
+      const pasfoto = document.querySelector('#pasfoto');
+      const imgPreviewPasFoto = document.querySelector('.img-preview');
+
+      const filePasFoto = new FileReader();
+      filePasFoto.readAsDataURL(pasfoto.files[0]);
+
+      filePasFoto.onload = function(e) {
+        imgPreviewPasFoto.src = e.target.result;
+      }
+    }
   </script>
 
   <!-- Login Page -->

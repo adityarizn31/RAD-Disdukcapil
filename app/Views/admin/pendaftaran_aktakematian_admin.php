@@ -17,17 +17,6 @@
       </div>
     </div>
 
-    <form action="" method="post">
-      <div class="col-6">
-        <div class="input-group mb-3 mt-3 ms-3">
-          <input type="text" class="form-control" placeholder="Masukan Nama ... " name="keyword">
-          <div class="input-group-append">
-            <button type="submit" class="btn btn-outline-secondary" name="submit">Cari</button>
-          </div>
-        </div>
-      </div>
-    </form>
-
     <div class="card-body">
 
       <table class="table table-fixed table-hover">
@@ -38,7 +27,8 @@
             <th scope="col">Nama Pemohon</th>
             <th scope="col">Whatsapp Pemohon</th>
             <th scope="col">Email Pemohon</th>
-            <th scope="col">Alamat Pemohon</th>
+            <th scope="col">Permohonan</th>
+            <th scope="col">Waktu</th>
             <th scope="col">Aksi</th>
           </tr>
         </thead>
@@ -51,7 +41,8 @@
               <td><?= $kema['namapemohon']; ?></td>
               <td><?= $kema['emailpemohon']; ?></td>
               <td><?= $kema['nomorpemohon']; ?></td>
-              <td>Pendaftaran Akta Kematian</td>
+              <td>Akta Kematian</td>
+              <td><?= $kema['created_at']; ?></td>
               <td>
                 <a href="/DetailAdmin/detail_pendaftaranaktakematian_admin/<?= $kema['namapemohon']; ?>" class="btn btn-success">Detail</a>
               </td>

@@ -8,7 +8,7 @@ class Pendaftaran_aktakematian_Model extends Model
 {
   protected $table = 'pendaftaran_aktakematian';
   protected $useTimeStamps = true;
-  protected $allowedFields = ['namapemohon', 'emailpemohon', 'nomorpemohon', 'alamatpemohon', 'kartukeluarga', 'ktporangmeninggal', 'suratkematian'];
+  protected $allowedFields = ['namapemohon', 'emailpemohon', 'nomorpemohon', 'alamatpemohon', 'kartukeluarga', 'suratkematian'];
 
   public function getDataAktaKematian($nama = false)
   {

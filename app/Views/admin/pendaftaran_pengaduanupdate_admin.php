@@ -17,17 +17,6 @@
       </div>
     </div>
 
-    <form action="" method="post">
-      <div class="col-6">
-        <div class="input-group mb-3 mt-3 ms-3">
-          <input type="text" class="form-control" placeholder="Masukan Nama ... " name="keyword">
-          <div class="input-group-append">
-            <button type="submit" class="btn btn-outline-secondary" name="submit">Cari</button>
-          </div>
-        </div>
-      </div>
-    </form>
-
     <div class="card-body">
 
       <table class="table table-fixed table-hover">
@@ -38,6 +27,7 @@
             <th scope="col">Email Pemohon</th>
             <th scope="col">No Whatsapp</th>
             <th scope="col">Permohonan</th>
+            <th scope="col">Waktu</th>
             <th scope="col">Aksi</th>
           </tr>
         </thead>
@@ -51,6 +41,7 @@
               <td><?= $ngadu['emailpemohon']; ?></td>
               <td><?= $ngadu['nomorpemohon']; ?></td>
               <td>Pengaduan Update</td>
+              <td><?= $ngadu['created_at']; ?></td>
               <td>
                 <a href="/DetailAdmin/detail_pendaftaranpengaduanupdate_admin/<?= $ngadu['namapemohon']; ?>" class="btn btn-success">Detail</a>
               </td>

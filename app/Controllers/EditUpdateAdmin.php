@@ -6,6 +6,7 @@ use App\Models\AdminModel;
 use App\Models\BeritaModel;
 use App\Models\InovasiModel;
 use App\Models\VisiMisiModel;
+use App\Models\PersyaratansilancarModel;
 
 use App\Models\Pendaftaran_kia_Model;
 use App\Models\Pendaftaran_kk_Model;
@@ -32,6 +33,7 @@ class EditUpdateAdmin extends BaseController
   protected $beritaModel;
   protected $inovasiModel;
   protected $visimisiModel;
+  protected $persyaratansilancarModel;
 
   protected $kkModel;
   protected $ktpModel;
@@ -57,6 +59,7 @@ class EditUpdateAdmin extends BaseController
     $this->beritaModel = new BeritaModel();
     $this->inovasiModel = new InovasiModel();
     $this->visimisiModel = new VisiMisiModel();
+    $this->persyaratansilancarModel = new PersyaratansilancarModel();
 
     $this->kkModel = new Pendaftaran_kk_Model();
     $this->ktpModel = new Pendaftaran_ktp_Model();
@@ -255,6 +258,7 @@ class EditUpdateAdmin extends BaseController
 
 
 
+
   // Halaman Visi Misi 
   public function editVisiMisi($visimisi)
   {
@@ -269,67 +273,126 @@ class EditUpdateAdmin extends BaseController
   public function updateVisiMisi($id)
   {
     if (!$this->validate([
-      'visi1' => [
-        'rules' => 'required[visimisi.visi1]',
+      // Foto Visi Misi
+      'fotovisimisi' => [
+        'rules' => 'max_size[fotovisimisi,1024]|is_image[fotovisimisi]|mime_in[fotovisimisi,image/jpg,image/jpeg,image/png]',
         'errors' => [
-          'required' => 'Visi 1 Harus Diisi !!'
-        ]
-      ],
-      'misi1' => [
-        'rules' => 'required[visimisi.misi1]',
-        'errors' => [
-          'required' => 'Misi 1 Harus Diisi !!'
-        ]
-      ],
-      'visi2' => [
-        'rules' => 'required[visimisi.visi2]',
-        'errors' => [
-          'required' => 'Visi 2 Harus Diisi !!'
-        ]
-      ],
-      'misi2' => [
-        'rules' => 'required[visimisi.misi2]',
-        'errors' => [
-          'required' => 'Misi 2 Harus Diisi !!'
-        ]
-      ],
-      'visi3' => [
-        'rules' => 'required[visimisi.visi3]',
-        'errors' => [
-          'required' => 'Visi 3 Harus Diisi !!'
-        ]
-      ],
-      'misi3' => [
-        'rules' => 'required[visimisi.misi3]',
-        'errors' => [
-          'required' => 'Misi 3 Harus Diisi !!'
-        ]
-      ],
-      'visi4' => [
-        'rules' => 'required[visimisi.visi4]',
-        'errors' => [
-          'required' => 'Visi 4 Harus Diisi !!'
-        ]
-      ],
-      'misi4' => [
-        'rules' => 'required[visimisi.misi1]',
-        'errors' => [
-          'required' => 'Misi 4 Harus Diisi !!'
+          'max_size' => 'Ukuran Gambar terlalu besar !!',
+          'is_image' => 'Yang anda pilih bukan gambar !!',
+          'mime_in' => 'Yang anda pilih bukan gambar'
         ]
       ]
     ])) {
 
       return redirect()->to(base_url() . '/EditUpdateAdmin/editVisiMisi/' . $this->request->getVar('visi'))->withInput();
     }
+
+    $fileFotoVisiMisi = $this->request->getFile('fotovisimisi');
+
+    if ($fileFotoVisiMisi->getError() == 4) {
+      $namaFotoVisiMisi = $this->request->getVar('fotolama');
+    } else {
+      // Generate nama File Random
+      $namaFotoVisiMisi = $fileFotoVisiMisi->getRandomName();
+      // Memindahkan File Random
+      $fileFotoVisiMisi->move('img/visimisi', $namaFotoVisiMisi);
+      // Menghapus File Lama
+      unlink('img/visimisi/' . $this->request->getVar('fotolama'));
+    }
+
     $this->visimisiModel->save(
       [
         'id' => $id,
-        'visi' => $this->request->getVar('visi'),
-        'misi' => $this->request->getVar('misi')
+        'fotovisimisi' => $namaFotoVisiMisi
       ]
     );
     session()->setFlashdata('pesan', 'Visi Misi Berhasil Diubah !!');
     return redirect()->to('admin/visimisi_admin');
+  }
+
+
+
+
+
+
+
+
+
+
+  // Halaman Persyaratan
+  public function editPersyaratan($persyaratansilancar)
+  {
+    $data = [
+      'title' => 'Form Edit Persyaratan || Admin Disdukcapil',
+      'validation' => \Config\Services::validation(),
+      'persyaratansilancar' => $this->persyaratansilancarModel->getPersyaratan($persyaratansilancar)
+    ];
+    return view('editAdmin/editPersyaratan', $data);
+  }
+
+  public function updatePersyaratan($id)
+  {
+
+    $persyaratanlama = $this->persyaratansilancarModel->getPersyaratan($this->request->getVar('judulpersyaratan'));
+    if ($persyaratanlama['judulpersyaratan'] == $this->request->getVar('judulpersyaratan')) {
+      $rule_judul = 'required';
+    } else {
+      $rule_judul = 'required|[persyaratansilancar.judulpersyaratan]';
+    }
+
+    if (!$this->validate([
+
+      // Judul Persyaratan
+      'judulpersyaratan' => [
+        'rules' => $rule_judul,
+        'errors' => [
+          'required' => 'Judul Persyaratan harus diisi !!'
+        ]
+      ],
+      // Foto Persyaratan
+      'fotopersyaratan' => [
+        'rules' => 'max_size[fotopersyaratan,2048]|is_image[fotopersyaratan]|mime_in[fotopersyaratan,image/jpg,image/jpeg,image/png]',
+        'errors' => [
+          'max_size' => 'File Gambar terlalu besar !!',
+          'is_image' => 'Yang anda pilih bukan Gambar !!',
+          'mime_in' => 'Gunakan Format JPG, JPEG dan PNG'
+        ]
+      ],
+      // Keterangan Persyaratan
+      'keteranganpersyaratan' => [
+        'rules' => 'required[persyaratansilancar.keteranganpersyaratan]',
+        'errors' => [
+          'required' => 'Keterangan Persyaratan Harus Diisi !!'
+        ]
+      ]
+
+    ])) {
+      return redirect()->to(base_url() . 'EditUpdateAdmin/editPersyaratan/' . $this->request->getVar('judulpersyaratan'))->withInput();
+    }
+
+    $fileFotoPersyaratan = $this->request->getFile('fotopersyaratan');
+
+    if ($fileFotoPersyaratan->getError() == 4) {
+      $namaFotoPersyaratan = $this->request->getVar('fotolama');
+    } else {
+      // Generate nama File Random
+      $namaFotoPersyaratan = $fileFotoPersyaratan->getRandomName();
+      // Memindahkan File Random
+      $fileFotoPersyaratan->move('img/persyaratan', $namaFotoPersyaratan);
+      // Menghapus File lama
+      unlink('img/persyaratan/' . $this->request->getVar('fotolama'));
+    }
+
+    $this->persyaratansilancarModel->save(
+      [
+        'id' => $id,
+        'fotopersyaratan' => $namaFotoPersyaratan,
+        'judulpersyaratan' => $this->request->getVar('judulpersyaratan'),
+        'keteranganpersyaratan' => $this->request->getVar('keteranganpersyaratan')
+      ]
+    );
+    session()->setFlashdata('pesan', 'Data Persyaratan berhasil diubah !!');
+    return redirect()->to('admin/persyaratan');
   }
 
 

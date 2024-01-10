@@ -53,7 +53,14 @@
     </li>
 
     <li>
-      <a class="text-white" href="/admin/pelayanan">
+      <a class="text-white" href="/Admin/persyaratan">
+        <i class="bi bi-journal-medical mr-2"></i>
+        Persyaratan Si Lancar
+      </a>
+    </li>
+
+    <li>
+      <a class="text-white" href="/Admin/pelayanan">
         <i class="bi bi-menu-button-wide mr-2"></i>
         Pelayanan Si Lancar
       </a>
@@ -61,7 +68,7 @@
     </li>
 
     <li>
-      <a class="text-white" href="/admin/login">
+      <a class="text-white" href="/logout">
         <i class="bi bi-box-arrow-right mr-2"></i>
         Logout
       </a>

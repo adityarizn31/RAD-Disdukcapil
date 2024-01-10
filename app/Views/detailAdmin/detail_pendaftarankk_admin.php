@@ -18,7 +18,7 @@
       <div class="card card-outline card-primary">
 
         <div class="card-header">
-          <div class="card-title"> Data Pemohon </div>
+          <div class="card-title fw-semibold"> Data Pemohon </div>
         </div>
 
         <div class="card-body">
@@ -50,13 +50,23 @@
 
           </table>
 
+          <div class="grid-container2">
+            <div class="div">
+              <a href="" class="btn btn-success" data-popup="tooltip" data-placement="top" title="Selesai"><i class="bi bi-check-square" aria-hidden="true"></i></a>
+            </div>
+
+            <div class="div">
+              <a href="" class="btn btn-danger" data-popup="tooltip" data-placement="top" title="Tidak Selesai"><i class="bi bi-x-square" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
         </div>
 
         <div class="col-sm-12 col-md-12" style="padding: 20px;">
           <div class="card card-outline card-primary">
 
             <div class="card-header">
-              <div class="card-title"> Berkas Formulir Desa </div>
+              <div class="card-title fw-semibold"> Berkas Formulir Desa </div>
 
             </div>
 
@@ -71,7 +81,7 @@
           <div class="card card-outline card-primary">
 
             <div class="card-header">
-              <div class="card-title"> Berkas Kartu Keluarga Suami </div>
+              <div class="card-title fw-semibold"> Berkas Kartu Keluarga Suami </div>
             </div>
 
             <div class="col-sm-12">
@@ -85,7 +95,7 @@
           <div class="card card-outline card-primary">
 
             <div class="card-header">
-              <div class="card-title"> Berkas Kartu Keluarga Istri </div>
+              <div class="card-title fw-semibold"> Berkas Kartu Keluarga Istri </div>
             </div>
 
             <div class="col-sm-12">
@@ -99,7 +109,7 @@
           <div class="card card-outline card-primary">
 
             <div class="card-header">
-              <div class="card-title"> Berkas Surat Nikah </div>
+              <div class="card-title fw-semibold"> Berkas Surat Nikah </div>
             </div>
 
             <div class="col-sm-12">
@@ -113,7 +123,7 @@
           <div class="card card-outline card-primary">
 
             <div class="card-header">
-              <div class="card-title"> Berkas Surat Pindah </div>
+              <div class="card-title fw-semibold"> Berkas Surat Pindah </div>
             </div>
 
             <div class="col-sm-12">

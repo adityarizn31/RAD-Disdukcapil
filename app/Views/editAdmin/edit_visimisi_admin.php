@@ -16,44 +16,27 @@
         <h6 class="m-0 font-weight-bold text-primary">Ubah Visi Misi admin</h6>
       </div>
 
-      <form action="/admin/updateBerita/<?= $visimisi['id']; ?>" method="post">
+      <form action="/EditUpdateAdmin/updateVisiMisi/<?= $visimisi['id']; ?>" method="post">
 
         <!-- Keamanan -->
         <?= csrf_field(); ?>
 
+        <!-- Form Upload File -->
         <div class="row">
           <div class="mb-3">
-            <label for="visi" class="form-label fw-semibold">Visi</label>
-            <input type="text" class="form-control <?= ($validation->hasError('visi')) ? 'is-invalid' : ''; ?>" name="visi" id="visi" autofocus value="<?= (old('visi')) ? old('judul') : $berita['visi'] ?>" ?>
+            <label for="fotovisimisi" class="form-label fw-semibold">Foto Visi Misi</label>
+            <input type="file" class="form-control <?= ($validation->hasError('fotovisimisi')) ? 'is-invalid' : '';  ?>" name="fotovisimisi" id="fotovisimisi" value="<?= old('fotovisimisi'); ?>" onchange="previewImgVisimisi()">
             <div class="invalid-feedback">
-              <?= $validation->getError('visi'); ?>
+              <?= $validation->getError('fotovisimisi'); ?>
             </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="mb-3">
-            <label for="misi" class="form-label fw-semibold">Misi</label>
-            <input type="text" class="form-control <?= ($validation->hasError('misi')) ? 'is-invalid' : ''; ?>" name="misi" id="misi" value="<?= $berita['misi']; ?>">
-            <div class="invalid-feedback">
-              <?= $validation->getError('misi'); ?>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="mb-3">
-            <label for="misi" class="form-label fw-semibold">Keterangan</label>
-            <br>
-            <textarea name="misi" id="misi" class="form-control text-area <?= ($validation->hasError('misi')) ? 'is-invalid' : ''; ?>" value="<?= $berita['misi']; ?>"></textarea>
-            <div class="invalid-feedback">
-              <?= $validation->getError('misi'); ?>
+            <div class="col-xxl-4 my-4">
+              <img src="/img/visimisi/<?= $visimisi['fotovisimisi']; ?>" class="img-thumbnail img-preview" srcset="">
             </div>
           </div>
         </div>
 
         <div class="d-grid gap-2 col-6 mx-auto">
-          <input type="submit" value="Submit" id="submit" class="btn-primary rounded-md">
+          <button type="submit" value="submit" name="submit" id="submit" class="btn btn-primary">Ubah Berita</button>
         </div>
 
       </form>

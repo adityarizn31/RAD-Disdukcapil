@@ -39,11 +39,11 @@ class Pages extends BaseController
     return view('pages/tentangkami', $data);
   }
 
-  public function pelayanan()
-  {
-    $data = [
-      'title' => 'Pelayanan || Disdukcapil Majalengka'
-    ];
-    return view('pages/pelayanan', $data);
-  }
+  // public function pelayanan()
+  // {
+  //   $data = [
+  //     'title' => 'Pelayanan || Disdukcapil Majalengka'
+  //   ];
+  //   return view('pages/pelayanan', $data);
+  // }
 }

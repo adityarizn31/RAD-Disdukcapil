@@ -7,17 +7,28 @@ namespace App\Controllers;
 use App\Models\AdminModel;
 use App\Models\BeritaModel;
 use App\Models\InovasiModel;
-use App\Models\PelayananModel;
 use App\Models\VisiMisiModel;
+use App\Models\PersyaratansilancarModel;
 
-use App\Models\Pendaftaran_aktakematian_Model;
-use App\Models\Pendaftaran_aktakelahiran_Model;
 use App\Models\Pendaftaran_kia_Model;
 use App\Models\Pendaftaran_kk_Model;
-use App\Models\Pendaftaran_ktp_Model;
+use App\Models\Pendaftaran_suratperpindahan_Model;
+use App\Models\Pendaftaran_suratperpindahanluar_Model;
+
+use App\Models\Pendaftaran_aktakelahiran_Model;
+use App\Models\Pendaftaran_aktakematian_Model;
+use App\Models\Pendaftaran_keabsahanakla_Model;
+
 use App\Models\Perbaikan_data_Model;
 use App\Models\Pengaduan_update_Model;
+
+use App\Models\Pendaftaran_ktp_Model;
 use App\Models\Perbaikan_nik_Model;
+
+use App\Models\PelayananModel;
+
+
+
 
 class Admin extends BaseController
 {
@@ -26,16 +37,25 @@ class Admin extends BaseController
   protected $beritaModel;
   protected $inovasiModel;
   protected $visimisiModel;
+  protected $persyaratansilancarModel;
 
-  protected $pelayananModel;
+  protected $kkModel;
+  protected $kiaModel;
+  protected $suratperpindahanModel;
+  protected $suratperpindahanluarModel;
+
   protected $aktakematianModel;
   protected $aktakelahiranModel;
-  protected $kiaModel;
-  protected $kkModel;
-  protected $ktpModel;
+  protected $keabsahanaklaModel;
+
   protected $perbaikandataModel;
   protected $pengaduanupdateModel;
+
+  protected $ktpModel;
   protected $perbaikannikModel;
+
+  protected $pelayananModel;
+
 
   public function __construct()
   {
@@ -43,16 +63,24 @@ class Admin extends BaseController
     $this->beritaModel = new BeritaModel();
     $this->inovasiModel = new InovasiModel();
     $this->visimisiModel = new VisiMisiModel();
+    $this->persyaratansilancarModel = new PersyaratansilancarModel();
 
     $this->kkModel = new Pendaftaran_kk_Model();
-    $this->ktpModel = new Pendaftaran_ktp_Model();
     $this->kiaModel = new Pendaftaran_kia_Model();
-    $this->pelayananModel = new PelayananModel();
+    $this->suratperpindahanModel = new Pendaftaran_suratperpindahan_Model();
+    $this->suratperpindahanluarModel = new Pendaftaran_suratperpindahanluar_Model();
+
     $this->aktakematianModel = new Pendaftaran_aktakematian_Model();
     $this->aktakelahiranModel = new Pendaftaran_aktakelahiran_Model();
+    $this->keabsahanaklaModel = new Pendaftaran_keabsahanakla_Model();
+
     $this->perbaikandataModel = new Perbaikan_data_Model();
     $this->pengaduanupdateModel = new Pengaduan_update_Model();
+
     $this->perbaikannikModel = new Perbaikan_nik_Model();
+    $this->ktpModel = new Pendaftaran_ktp_Model();
+
+    $this->pelayananModel = new PelayananModel();
   }
 
 
@@ -148,6 +176,22 @@ class Admin extends BaseController
 
 
 
+
+  public function persyaratan()
+  {
+    // Menghubungkan Controller Admin dengan Persyaratan Pelayanan
+    $data = [
+      'title' => 'Persyaratan Pelayanan || Admin Disdukcapil',
+      'persyaratansilancar' => $this->persyaratansilancarModel->getPersyaratan()
+    ];
+    return view('admin/persyaratan', $data);
+  }
+
+
+
+
+
+
   public function pelayanan()
   {
     // Menghubungkan Controller Admin dengan Pelayanan
@@ -198,38 +242,6 @@ class Admin extends BaseController
 
 
 
-  // Menampilkan data KTP
-  public function pendaftaran_ktp_admin()
-  {
-    // Digunakan untuk Pagination
-    $currentPageKTP =  $this->request->getVar('page_pendaftaran_ktp') ? $this->request->getVar('page_pendaftaran_ktp') : 1;
-
-    // Digunakan untuk Pencarian Data
-    $keyword = $this->request->getVar('keyword');
-    if ($keyword) {
-      $orangKTP = $this->ktpModel->search($keyword);
-    } else {
-      $orangKTP = $this->ktpModel;
-    }
-
-    // Digunakan untuk menampilkan Detail data, Jumlah data per Halaman serta Halamannya
-    $data = [
-      'title' => 'Data Pendaftaran KTP || Admin Disdukcapil',
-      'pendaftaran_ktp' => $this->ktpModel->getDataKTP(),
-      'pendaftaran_ktp' => $orangKTP->paginate(10, 'pendaftaran_ktp'),
-      'pager' => $this->ktpModel->pager,
-      'currentPage' => $currentPageKTP
-    ];
-    return view('admin/pendaftaran_ktp_admin', $data);
-  }
-
-
-
-
-
-
-
-
   // Menampilkan data pendaftaran KIA pada halaman admin
   public function pendaftaran_kia_admin()
   {
@@ -253,6 +265,67 @@ class Admin extends BaseController
       'currentPage' => $currentPageKIA
     ];
     return view('admin/pendaftaran_kia_admin', $data);
+  }
+
+
+
+
+
+
+
+  // Menampilkan data pendaftaran Surat Perpindahan pada halaman admin
+  public function pendaftaran_suratperpindahan_admin()
+  {
+    // Digunakan untuk Pagination
+    $currentPageSuratPerpindahan =  $this->request->getVar('page_pendaftaran_suratperpindahan') ? $this->request->getVar('page_pendaftaran_suratperpindahan') : 1;
+
+    // Digunakan untuk Pencarian Data
+    $keyword = $this->request->getVar('keyword');
+    if ($keyword) {
+      $orangSuratPerpindahan = $this->suratperpindahanModel->search($keyword);
+    } else {
+      $orangSuratPerpindahan = $this->suratperpindahanModel;
+    }
+
+    // Digunakan untuk menampilkan Detail data, Jumlah data per halaman serta Halamannya
+    $data = [
+      'title' => 'Data Pendaftaran Surat Perpindahan dari Majalengka ke Luar || Admin Disdukcapil',
+      'pendaftaran_suratperpindahan' => $this->suratperpindahanModel->getDataSuratPerpindahan(),
+      'pendaftaran_suratperpindahan' => $orangSuratPerpindahan->paginate(10, 'pendaftaran_suratperpindahan'),
+      'pager' => $this->suratperpindahanModel->pager,
+      'currentPage' => $currentPageSuratPerpindahan
+    ];
+    return view('admin/pendaftaran_suratperpindahan_admin', $data);
+  }
+
+
+
+
+
+
+
+  public function pendaftaran_suratperpindahanluar_admin()
+  {
+    // Digunakan untuk Pagination
+    $currentPageSuratPerpindahanLuar = $this->request->getVar('page_pendaftaran_suratperpindahanluar') ? $this->request->getVar('page_pendaftaran_suratperpindahanluar') : 1;
+
+    // Digunakan untuk Pencarian Data
+    $keyword = $this->request->getVar('keyword');
+    if ($keyword) {
+      $orangSuratPerpindahanluar = $this->suratperpindahanluarModel->search($keyword);
+    } else {
+      $orangSuratPerpindahanluar = $this->suratperpindahanluarModel;
+    }
+
+    // Digunakan untuk menampilkan Detail data, Jumlah data per halaman serta Halamannya
+    $data = [
+      'title' => 'Data Pendaftaran Surat Perpindahan dari Luar ke Majalengka || Admin Disdukcapil',
+      'pendaftaran_suratperpindahanluar' => $this->suratperpindahanluarModel->getDataSuratPerpindahanLuar(),
+      'pendaftaran_suratperpindahanluar' => $orangSuratPerpindahanluar->paginate(10, 'pendaftaran_suratperpindahanluar'),
+      'pager' => $this->suratperpindahanluarModel->pager,
+      'currentPage' => $currentPageSuratPerpindahanLuar
+    ];
+    return  view('admin/pendaftaran_suratperpindahanluar_admin', $data);
   }
 
 
@@ -293,7 +366,7 @@ class Admin extends BaseController
 
 
 
-  // Menampilkan data Pendaftara Akta Kematian pada halaman admin
+  // Menampilkan data Pendaftaran Akta Kematian pada halaman admin
   public function pendaftaran_aktakematian_admin()
   {
     // Menghubungkan Controller Admin degnan Pendaftaran aktakematian Model
@@ -307,6 +380,30 @@ class Admin extends BaseController
       'currentPage' => $currentPageAkket
     ];
     return view('admin/pendaftaran_aktakematian_admin', $data);
+  }
+
+
+
+
+
+
+
+
+
+  // Menampilkan Data Pendaftaran Keabsahan Akta Kelahiran Admin
+  public function pendaftaran_keabsahanakla_admin()
+  {
+    // Menghubungkan Controller Admin degnan Pendaftaran aktakematian Model
+    // $aktakematian = $this->aktalahirModel->findAll();
+    $currentPageAkket =  $this->request->getVar('page_pendaftaran_aktakematian') ? $this->request->getVar('page_pendaftaran_aktakematian') : 1;
+    $data = [
+      'title' => 'Data Pendaftaran Keabsahan Akta Kelahiran || Admin Disdukcapil',
+      'pendaftaran_keabsahanakla' => $this->keabsahanaklaModel->getDataKeabsahanakla(),
+      'pendaftaran_keabsahanakla' => $this->keabsahanaklaModel->paginate(10, 'pendaftaran_keabsahanakla'),
+      'pager' => $this->keabsahanaklaModel->pager,
+      'currentPage' => $currentPageAkket
+    ];
+    return view('admin/pendaftaran_keabsahanakla_admin', $data);
   }
 
 
@@ -376,5 +473,22 @@ class Admin extends BaseController
       'currentPage' => $currentPagePernik
     ];
     return view('admin/pendaftaran_perbaikannik_admin', $data);
+  }
+
+
+
+
+
+
+
+
+  // Menampilkan Halaman Pelayanan KK
+  // Digunakan untuk mengedit Judul, Foto dan Keterangan
+  public function pelayananKK()
+  {
+    $data = [
+      'title' => 'Pelayanan KK || Admin Disdukcapil '
+    ];
+    return view('admin/pelayananKK', $data);
   }
 }

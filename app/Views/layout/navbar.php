@@ -1,26 +1,34 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-    <a class="navbar-brand" href="/pages/index">Dinas Kependudukan dan Pencatatan Sipil</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-sm">
+
+  <a href="/Beranda/">
+    <img class="logonav" src="/img/header/HeaderDisduk.PNG" alt="" srcset="">
+  </a>
+
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
         <li class="nav-item">
-          <a class="nav-link" href="/pages/about">Tentang Kami</a>
+          <a class="nav-link text-white" aria-current="page" href="/TentangSiLancar/">Tentang Si Lancar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/pelayanan/index">Pelayanan Si Lancar</a>
+          <!-- <a class="nav-link text-white" aria-current="page" href="/pelayanan/index">Pelayanan Si Lancar</a> -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/pelayanan/pencarian">Pencarian</a>
+          <a class="nav-link text-white" aria-current="page" href="/PelayananSilancar/">Pelayanan Si Lancar</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" aria-current="page" href="/Admin/">Admin</a>
+        </li>
+
       </ul>
+
     </div>
   </div>
-  <ul class="nav justify-content-end">
-    <li class="nav-item">
-      <a href="/admin/index">Admin</a>
-    </li>
-  </ul>
 </nav>

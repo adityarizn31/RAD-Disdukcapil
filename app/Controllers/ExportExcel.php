@@ -7,16 +7,21 @@ namespace App\Controllers;
 use App\Models\AdminModel;
 use App\Models\BeritaModel;
 use App\Models\InovasiModel;
-use App\Models\PelayananModel;
 use App\Models\VisiMisiModel;
+use App\Models\PelayananModel;
+
+use App\Models\Pendaftaran_kk_Model;
+use App\Models\Pendaftaran_kia_Model;
+use App\Models\Pendaftaran_suratperpindahan_Model;
 
 use App\Models\Pendaftaran_aktakematian_Model;
 use App\Models\Pendaftaran_aktakelahiran_Model;
-use App\Models\Pendaftaran_kia_Model;
-use App\Models\Pendaftaran_kk_Model;
-use App\Models\Pendaftaran_ktp_Model;
+use App\Models\Pendaftaran_keabsahanakla_Model;
+
 use App\Models\Perbaikan_data_Model;
 use App\Models\Pengaduan_update_Model;
+
+use App\Models\Pendaftaran_ktp_Model;
 use App\Models\Perbaikan_nik_Model;
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -28,15 +33,20 @@ class ExportExcel extends BaseController
   protected $beritaModel;
   protected $inovasiModel;
   protected $visimisiModel;
-
   protected $pelayananModel;
+
+  protected $kkModel;
+  protected $kiaModel;
+  protected $suratperpindahanModel;
+
   protected $aktakematianModel;
   protected $aktakelahiranModel;
-  protected $kiaModel;
-  protected $kkModel;
-  protected $ktpModel;
+  protected $keabsahanaklaModel;
+
   protected $perbaikandataModel;
   protected $pengaduanupdateModel;
+
+  protected $ktpModel;
   protected $perbaikannikModel;
 
   public function __construct()
@@ -45,17 +55,23 @@ class ExportExcel extends BaseController
     $this->beritaModel = new BeritaModel();
     $this->inovasiModel = new InovasiModel();
     $this->visimisiModel = new VisiMisiModel();
-
     $this->pelayananModel = new PelayananModel();
+
+    $this->kkModel = new Pendaftaran_kk_Model();
+    $this->kiaModel = new Pendaftaran_kia_Model();
+    $this->suratperpindahanModel = new Pendaftaran_suratperpindahan_Model();
+
     $this->aktakematianModel = new Pendaftaran_aktakematian_Model();
     $this->aktakelahiranModel = new Pendaftaran_aktakelahiran_Model();
-    $this->kiaModel = new Pendaftaran_kia_Model();
-    $this->kkModel = new Pendaftaran_kk_Model();
-    $this->ktpModel = new Pendaftaran_ktp_Model();
+    $this->keabsahanaklaModel = new Pendaftaran_keabsahanakla_Model();
+
     $this->perbaikandataModel = new Perbaikan_data_Model();
     $this->pengaduanupdateModel = new Pengaduan_update_Model();
+
+    $this->ktpModel = new Pendaftaran_ktp_Model();
     $this->perbaikannikModel = new Perbaikan_nik_Model();
   }
+
 
 
 
@@ -122,53 +138,6 @@ class ExportExcel extends BaseController
 
 
 
-  // Halaman Pendaftaran KTP
-  public function export_pendaftaranktp()
-  {
-    $pendaftaranKTP = new Pendaftaran_ktp_Model();
-    $dataPendaftaranKTP = $pendaftaranKTP->findAll();
-
-    $spreadsheetPendaftaranKTP = new Spreadsheet();
-    $spreadsheetPendaftaranKTP->setActiveSheetIndex(0)
-      ->setCellValue('A1', 'Nama Pemohon')
-      ->setCellValue('B1', 'Email Pemohon')
-      ->setCellValue('C1', 'Nomor Pemohon')
-      ->setCellValue('D1', 'Alamat Pemohon')
-      ->setCellValue('E1', 'formulirf102ktp')
-      ->setCellValue('F1', 'kartukeluarga');
-
-    $column = 2;
-    foreach ($dataPendaftaranKTP as $KTP) {
-      $spreadsheetPendaftaranKTP->setActiveSheetIndex(0)
-        ->setCellValue('A' . $column, $KTP['namapemohon'])
-        ->setCellValue('B' . $column, $KTP['emailpemohon'])
-        ->setCellValue('C' . $column, $KTP['nomorpemohon'])
-        ->setCellValue('D' . $column, $KTP['alamatpemohon'])
-        ->setCellValue('E' . $column, $KTP['formulirf102ktp'])
-        ->setCellValue('F' . $column, $KTP['kartukeluarga']);
-      $column++;
-    }
-
-    $writerKTP = new Xlsx($spreadsheetPendaftaranKTP);
-    $fileNameKTP = 'Data Pendaftaran KTP';
-
-    // Redirect hasil generate Xlsx ke web
-    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-    header('Content-Disposition: attachment;filename=' . $fileNameKTP . '.xlsx');
-    header('Cache-Control: max-age=0');
-
-    $writerKTP->save('php://output');
-  }
-
-
-
-
-
-
-
-
-
-
 
 
   // Halaman Pendaftaran KIA
@@ -209,6 +178,56 @@ class ExportExcel extends BaseController
     header('Cache-Control: max-age=0');
 
     $writerKIA->save('php://output');
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // Halaman Pendaftaran Surat Perpindahan
+  public function export_pendaftaranSuratPerpindahan()
+  {
+    $pendaftaranSuratPerpindahan = new Pendaftaran_suratperpindahan_Model();
+    $dataPendaftaranSuratPerpindahan = $pendaftaranSuratPerpindahan->findAll();
+
+    $spreadsheetPendaftaranSuratPerpindahan = new Spreadsheet();
+    $spreadsheetPendaftaranSuratPerpindahan->setActiveSheetIndex(0)
+      ->setCellValue('A1', 'Nama Pemohon')
+      ->setCellValue('B1', 'Email Pemohon')
+      ->setCellValue('C1', 'Nomor Pemohon')
+      ->setCellValue('D1', 'Alamat Pemohon')
+      ->setCellValue('E1', 'formulirf102ktp')
+      ->setCellValue('F1', 'kartukeluarga');
+
+    $column = 2;
+    foreach ($dataPendaftaranSuratPerpindahan as $Surpin) {
+      $spreadsheetPendaftaranSuratPerpindahan->setActiveSheetIndex(0)
+        ->setCellValue('A' . $column, $Surpin['namapemohon'])
+        ->setCellValue('B' . $column, $Surpin['emailpemohon'])
+        ->setCellValue('C' . $column, $Surpin['nomorpemohon'])
+        ->setCellValue('D' . $column, $Surpin['alamatpemohon'])
+        ->setCellValue('E' . $column, $Surpin['formulirf102ktp'])
+        ->setCellValue('F' . $column, $Surpin['kartukeluarga']);
+      $column++;
+    }
+
+    $writerSuratPerpindahan = new Xlsx($spreadsheetPendaftaranSuratPerpindahan);
+    $fileNameSuratPerpindahan = 'Data Pendaftaran Surat Perpindahan';
+
+    // Redirect hasil generate Xlsx ke web
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header('Content-Disposition: attachment;filename=' . $fileNameSuratPerpindahan . '.xlsx');
+    header('Cache-Control: max-age=0');
+
+    $writerSuratPerpindahan->save('php://output');
   }
 
 
@@ -277,6 +296,7 @@ class ExportExcel extends BaseController
 
 
 
+
   // Halaman Pendaftaran Akta Kematian
   public function export_pendaftaranaktakematian()
   {
@@ -289,11 +309,30 @@ class ExportExcel extends BaseController
       ->setCellValue('B1', 'Email Pemohon')
       ->setCellValue('C1', 'Nomor Pemohon')
       ->setCellValue('D1', 'Alamat Pemohon')
-      ->setCellValue('E1', 'Formulir Desa')
-      ->setCellValue('F1', 'Kartu Keluarga Suami')
-      ->setCellValue('G1', 'Kartu Keluarga Istri')
-      ->setCellValue('H1', 'Surat Nikah')
-      ->setCellValue('I1', 'Surat Pindah');
+      ->setCellValue('E1', 'Kartu Keluarga')
+      ->setCellValue('F1', 'Surat Kematian');
+
+    $column = 2;
+    foreach ($dataPendaftaranAkke as $Akke) {
+      $spreadsheetPendaftaranAkke->setActiveSheetIndex(0)
+        ->setCellValue('A' . $column, $Akke['namapemohon'])
+        ->setCellValue('B' . $column, $Akke['emailpemohon'])
+        ->setCellValue('C' . $column, $Akke['nomorpemohon'])
+        ->setCellValue('D' . $column, $Akke['alamatpemohon'])
+        ->setCellValue('E' . $column, $Akke['kartukeluarga'])
+        ->setCellValue('F' . $column, $Akke['suratkematian']);
+      $column++;
+    }
+    // Menuliskan dalam format
+    $writerAkke = new Xlsx($spreadsheetPendaftaranAkke);
+    $fileNameAkke = 'Data Pendaftaran Akta Kematian';
+
+    // Redirect hasil generate Xlsx ke web
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header('Content-Disposition: attachment;filename=' . $fileNameAkke . '.xlsx');
+    header('Cache-Control: max-age=0');
+
+    $writerAkke->save('php://output');
   }
 
 
@@ -362,7 +401,6 @@ class ExportExcel extends BaseController
 
 
 
-
   // Halaman Pendaftaran Pengaduan Update
   public function export_pendaftaranpengaduanupdate()
   {
@@ -402,8 +440,6 @@ class ExportExcel extends BaseController
 
     $writerPengaduanUpdate->save('php://output');
   }
-
-
 
 
 

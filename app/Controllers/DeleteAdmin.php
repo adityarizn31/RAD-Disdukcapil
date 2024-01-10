@@ -6,6 +6,8 @@ use App\Models\AdminModel;
 use App\Models\BeritaModel;
 use App\Models\InovasiModel;
 use App\Models\VisiMisiModel;
+use App\Models\PersyaratansilancarModel;
+
 use App\Models\Pendaftaran_aktakematian_Model;
 use App\Models\Pendaftaran_aktakelahiran_Model;
 use App\Models\Pendaftaran_kia_Model;
@@ -21,6 +23,8 @@ class DeleteAdmin extends BaseController
   protected $beritaModel;
   protected $inovasiModel;
   protected $visimisiModel;
+  protected $persyaratansilancarModel;
+
   protected $aktakematianModel;
   protected $aktakelahiranModel;
   protected $kiaModel;
@@ -36,6 +40,7 @@ class DeleteAdmin extends BaseController
     $this->beritaModel = new BeritaModel();
     $this->inovasiModel = new InovasiModel();
     $this->visimisiModel = new VisiMisiModel();
+    $this->persyaratansilancarModel = new PersyaratansilancarModel();
 
     $this->aktakematianModel = new Pendaftaran_aktakematian_Model();
     $this->aktakelahiranModel = new Pendaftaran_aktakelahiran_Model();
@@ -98,5 +103,33 @@ class DeleteAdmin extends BaseController
     $inovasiModel->delete($id);
     session()->setFlashdata('pesan', 'Data Inovasi berhasil dihapus !!');
     return redirect()->to('admin/inovasi_admin');
+  }
+
+
+
+
+
+
+
+
+
+
+
+  // Halaman Persyaratan Si Lancar
+  // Digunakan untuk menghapus data Persyaratan
+  public function deletePersyaratan($id)
+  {
+    // Mencari Foto Persyaratan Berdasarkan ID
+    $persyaratansilancar = $this->persyaratansilancarModel->find($id);
+    // Pengeceka Foto Persyaratan
+    if ($persyaratansilancar['fotopersyaratan'] != '') {
+      // Hapus Foto Persyaratan
+      unlink('img/persyaratan/' . $persyaratansilancar['fotopersyaratan']);
+    }
+
+    $persyaratansilancarModel = new PersyaratansilancarModel();
+    $persyaratansilancarModel->delete($id);
+    session()->setFlashdata('pesan', 'Data Persyaratan berhasil dihapus !!');
+    return redirect()->to('admin/persyaratan');
   }
 }

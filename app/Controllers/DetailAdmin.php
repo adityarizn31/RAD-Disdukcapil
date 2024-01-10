@@ -6,13 +6,20 @@ use App\Models\AdminModel;
 use App\Models\BeritaModel;
 use App\Models\InovasiModel;
 use App\Models\VisiMisiModel;
+use App\Models\PersyaratansilancarModel;
+
+use App\Models\Pendaftaran_kk_Model;
+use App\Models\Pendaftaran_kia_Model;
+use App\Models\Pendaftaran_suratperpindahan_Model;
+
 use App\Models\Pendaftaran_aktakematian_Model;
 use App\Models\Pendaftaran_aktakelahiran_Model;
-use App\Models\Pendaftaran_kia_Model;
-use App\Models\Pendaftaran_kk_Model;
-use App\Models\Pendaftaran_ktp_Model;
+use App\Models\Pendaftaran_keabsahanakla_Model;
+
 use App\Models\Perbaikan_data_Model;
 use App\Models\Pengaduan_update_Model;
+
+use App\Models\Pendaftaran_ktp_Model;
 use App\Models\Perbaikan_nik_Model;
 
 class DetailAdmin extends BaseController
@@ -22,14 +29,22 @@ class DetailAdmin extends BaseController
   protected $beritaModel;
   protected $inovasiModel;
   protected $visimisiModel;
+  protected $persyaratansilancarModel;
+
+  protected $kkModel;
+  protected $kiaModel;
+  protected $suratperpindahanModel;
+
   protected $aktakematianModel;
   protected $aktakelahiranModel;
-  protected $kiaModel;
-  protected $kkModel;
-  protected $ktpModel;
+  protected $keabsahanaklaModel;
+
   protected $perbaikandataModel;
   protected $pengaduanupdateModel;
+
+  protected $ktpModel;
   protected $perbaikannikModel;
+
 
   public function __construct()
   {
@@ -37,13 +52,20 @@ class DetailAdmin extends BaseController
     $this->beritaModel = new BeritaModel();
     $this->inovasiModel = new InovasiModel();
     $this->visimisiModel = new VisiMisiModel();
+    $this->persyaratansilancarModel = new PersyaratansilancarModel();
+
+    $this->kkModel = new Pendaftaran_kk_Model();
+    $this->kiaModel = new Pendaftaran_kia_Model();
+    $this->suratperpindahanModel = new Pendaftaran_suratperpindahan_Model();
+
     $this->aktakematianModel = new Pendaftaran_aktakematian_Model();
     $this->aktakelahiranModel = new Pendaftaran_aktakelahiran_Model();
-    $this->kiaModel = new Pendaftaran_kia_Model();
-    $this->kkModel = new Pendaftaran_kk_Model();
-    $this->ktpModel = new Pendaftaran_ktp_Model();
+    $this->keabsahanaklaModel = new Pendaftaran_keabsahanakla_Model();
+
     $this->perbaikandataModel = new Perbaikan_data_Model();
     $this->pengaduanupdateModel = new Pengaduan_update_Model();
+
+    $this->ktpModel = new Pendaftaran_ktp_Model();
     $this->perbaikannikModel = new Perbaikan_nik_Model();
   }
 
@@ -114,16 +136,33 @@ class DetailAdmin extends BaseController
 
 
   // Halaman Visi Misi Admin
-  public function detail_visimisi_admin($visimisii)
+  public function detail_visimisi_admin($visimisi)
   {
     $data = [
       'title' => 'Visi Misi Admin || Disdukcapil Majalengka',
-      'visimisi' => $this->visimisiModel->getVisiMisi($visimisii)
+      'visimisi' => $this->visimisiModel->getVisiMisi($visimisi)
     ];
     return view('detailAdmin/detail_visimisi_admin', $data);
   }
 
 
+
+
+
+
+
+
+
+
+  // Halaman Persyaratan Si Lancar
+  public function detailPersyaratan($persyaratansilancar)
+  {
+    $data = [
+      'title' => 'Persyaratan Si Lancar || Disdukcapil Majalengka',
+      'persyaratansilancar' => $this->persyaratansilancarModel->getPersyaratan($persyaratansilancar)
+    ];
+    return view('detailAdmin/detailPersyaratan', $data);
+  }
 
 
 
@@ -149,26 +188,6 @@ class DetailAdmin extends BaseController
 
 
 
-
-
-  // Halaman Pendaftaran KTP
-  public function detail_pendaftaranktp_admin($namaPemohonKTP)
-  {
-    $data = [
-      'title' => 'Detail Pendaftaran KTP || Disdukcapil Majalengka',
-      'pendaftaran_ktp' => $this->ktpModel->getDataKTP($namaPemohonKTP)
-    ];
-    return view('detailAdmin/detail_pendaftaranktp_admin', $data);
-  }
-
-
-
-
-
-
-
-
-
   // Halaman Pendaftaran KIA
   public function detail_pendaftarankia_admin($namaPemohonKIA)
   {
@@ -179,6 +198,22 @@ class DetailAdmin extends BaseController
     return view('detailAdmin/detail_pendaftarankia_admin', $data);
   }
 
+
+
+
+
+
+
+
+  // Halaman Pendaftaran KTP
+  public function detail_pendaftaransuratperpindahan_admin($namaPemohonSuratPerpindahan)
+  {
+    $data = [
+      'title' => 'Detail Pendaftaran Surat Perpindahan || Disdukcapil Majalengka',
+      'pendaftaran_suratperpindahan' => $this->suratperpindahanModel->getDataSuratPerpindahan($namaPemohonSuratPerpindahan)
+    ];
+    return view('detailAdmin/detail_pendaftaransuratperpindahan_admin', $data);
+  }
 
 
 
@@ -212,6 +247,25 @@ class DetailAdmin extends BaseController
       'pendaftaran_aktakematian' => $this->aktakematianModel->getDataAktakematian($namaPemohonAktakematian)
     ];
     return view('detailAdmin/detail_pendaftaranaktakematian_admin', $data);
+  }
+
+
+
+
+
+
+
+
+
+
+  // Halamaan Pendaftaran Pendaftaran Keabsahan Akta Kelahiran
+  public function detail_pendaftarankeabsahanakla_admin($namaPemohonKeabsahanAkla)
+  {
+    $data = [
+      'title' => 'Detail Pendaftaran Keabsahan Akta Kelahiran || Admin Disdukcapil',
+      'pendaftaran_keabsahanakla' => $this->keabsahanaklaModel->getDataKeabsahanakla($namaPemohonKeabsahanAkla)
+    ];
+    return view('detailAdmin/detail_pendaftarankeabsahanakla_admin', $data);
   }
 
 

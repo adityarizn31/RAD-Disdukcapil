@@ -1,4 +1,4 @@
-<!-- Halaman List Berita Admin  -->
+<!-- Halaman Tampilan List Berita Admin  -->
 
 <?= $this->extend('layout/templateadmin'); ?>
 
@@ -60,8 +60,9 @@
               <td><img src="/img/berita/<?= $b['fotoberita']; ?>" class="foto_berita" alt="Foto Berita" style="width: 50%; height: auto;"></td>
               <td><?= $b['judulberita']; ?></td>
               <td><?= $b['keteranganberita']; ?></td>
+              <!-- <td>Jumlah Data <?= count($berita) ?></td> -->
               <td>
-                <a href="/detailAdmin/detail_berita_admin/<?= $b['judulberita']; ?>" class="btn btn-success">Detail</a>
+                <a href="/DetailAdmin/detail_berita_admin/<?= $b['judulberita']; ?>" class="btn btn-success">Detail</a>
               </td>
             </tr>
           <?php endforeach; ?>

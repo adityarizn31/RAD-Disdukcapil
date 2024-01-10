@@ -50,6 +50,16 @@
 
           </table>
 
+          <div class="grid-container2">
+            <div class="div">
+              <a href="" class="btn btn-success" data-popup="tooltip" data-placement="top" title="Selesai"><i class="bi bi-check-square" aria-hidden="true"></i></a>
+            </div>
+
+            <div class="div">
+              <a href="" class="btn btn-danger" data-popup="tooltip" data-placement="top" title="Tidak Selesai"><i class="bi bi-x-square" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
         </div>
 
         <div class="col-sm-12 col-md-12" style="padding: 20px;">
@@ -62,20 +72,6 @@
 
             <div class="col-sm-12">
               <iframe src="<?= base_url('/pelayanan/aktakematian/' . $pendaftaran_aktakematian['kartukeluarga']) ?>" frameborder="0" height="500" width="100%"></iframe>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="col-sm-12 col-md-12" style="padding: 20px;">
-          <div class="card card-outline card-primary">
-
-            <div class="card-header">
-              <div class="card-title"> Berkas KTP Orang Meninggal </div>
-            </div>
-
-            <div class="col-sm-12">
-              <iframe src="<?= base_url('/pelayanan/aktakematian/' . $pendaftaran_aktakematian['ktporangmeninggal']) ?>" frameborder="0" height="500" width="100%"></iframe>
             </div>
 
           </div>

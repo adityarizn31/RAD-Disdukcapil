@@ -18,7 +18,7 @@
       <div class="card card-outline card-primary">
 
         <div class="card-header">
-          <div class="card-title"> Data Pemohon </div>
+          <div class="card-title fw-semibold"> Data Pemohon </div>
         </div>
 
         <div class="card-body">
@@ -50,13 +50,23 @@
 
           </table>
 
+          <div class="grid-container2">
+            <div class="div">
+              <a href="" class="btn btn-success" data-popup="tooltip" data-placement="top" title="Selesai"><i class="bi bi-check-square" aria-hidden="true"></i></a>
+            </div>
+
+            <div class="div">
+              <a href="" class="btn btn-danger" data-popup="tooltip" data-placement="top" title="Tidak Selesai"><i class="bi bi-x-square" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
         </div>
 
         <div class="col-sm-12 col-md-12" style="padding: 20px;">
           <div class="card card-outline card-primary">
 
             <div class="card-header">
-              <div class="card-title"> Berkas Akta Kelahiran </div>
+              <div class="card-title fw-semibold"> Berkas Akta Kelahiran </div>
 
             </div>
 
@@ -71,7 +81,7 @@
           <div class="card card-outline card-primary">
 
             <div class="card-header">
-              <div class="card-title"> Berkas Kartu Keluarga </div>
+              <div class="card-title fw-semibold"> Berkas Kartu Keluarga </div>
             </div>
 
             <div class="col-sm-12">
@@ -85,7 +95,8 @@
           <div class="card card-outline card-primary">
 
             <div class="card-header">
-              <div class="card-title"> Berkas Pas Foto 3 x 4 </div>
+              <div class="card-title fw-semibold"> Berkas Pas Foto 3 x 4 </div>
+              <a href="" class="btn btn-success mx-2"> <i class="bi bi-download"></i></a>
             </div>
 
             <div class="col-sm-12">

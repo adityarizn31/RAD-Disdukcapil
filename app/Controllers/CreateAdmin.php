@@ -6,6 +6,7 @@ use App\Models\AdminModel;
 use App\Models\BeritaModel;
 use App\Models\InovasiModel;
 use App\Models\VisiMisiModel;
+use App\Models\PersyaratansilancarModel;
 
 use App\Models\Pendaftaran_aktakematian_Model;
 use App\Models\Pendaftaran_aktakelahiran_Model;
@@ -25,6 +26,7 @@ class CreateAdmin extends BaseController
   protected $beritaModel;
   protected $inovasiModel;
   protected $visimisiModel;
+  protected $persyaratansilancarModel;
 
   protected $kkModel;
   protected $ktpModel;
@@ -43,6 +45,7 @@ class CreateAdmin extends BaseController
     $this->beritaModel = new BeritaModel();
     $this->inovasiModel = new InovasiModel();
     $this->visimisiModel = new VisiMisiModel();
+    $this->persyaratansilancarModel = new PersyaratansilancarModel();
 
     $this->kkModel = new Pendaftaran_kk_Model();
     $this->ktpModel = new Pendaftaran_ktp_Model();

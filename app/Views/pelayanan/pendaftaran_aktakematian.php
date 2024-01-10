@@ -15,7 +15,7 @@
 
       <?php endif; ?>
 
-      <form action="/pelayanan/saveAktaKematian" method="post" enctype="multipart/form-data">
+      <form action="/PelayananSilancar/saveAktaKematian" method="post" enctype="multipart/form-data">
 
         <!-- Keamanan   -->
         <?= csrf_field(); ?>
