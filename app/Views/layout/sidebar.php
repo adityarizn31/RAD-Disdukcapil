@@ -53,10 +53,11 @@
     </li>
 
     <li>
-      <a class="text-white" href="/Admin/persyaratan">
+      <a class="text-white" href="/Admin/persyaratansilancar_admin">
         <i class="bi bi-journal-medical mr-2"></i>
         Persyaratan Si Lancar
       </a>
+      <!-- Controller akan mengakses Controller admin dengan method persyaratan -->
     </li>
 
     <li>

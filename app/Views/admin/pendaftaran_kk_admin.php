@@ -17,8 +17,6 @@
       </div>
     </div>
 
-    <!-- <h4 class="justify-content-end">Jumlah Pendaftar Hari Ini : <?= count($pendaftaran_kk) ?></h4> -->
-
     <div class="card-body">
 
       <table class="table table-fixed table-hover">

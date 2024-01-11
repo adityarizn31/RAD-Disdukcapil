@@ -13,14 +13,14 @@ class PersyaratansilancarModel extends Model
 
 
   // Digunakan untuk menampilkan detail suatu berita
-  public function getPersyaratan($judulpersyaratan = false)
+  public function getPersyaratan($judulPersyaratan = false)
   {
     // Jika judul == false maka yang ditampilkan semua
-    if ($judulpersyaratan == false) {
+    if ($judulPersyaratan == false) {
       return $this->findAll();
     }
 
     // Namun jika judul == true maka ditampilkan hanya satu
-    return $this->where(['judulpersyaratan' => $judulpersyaratan])->first();
+    return $this->where(['judulpersyaratan' => $judulPersyaratan])->first();
   }
 }

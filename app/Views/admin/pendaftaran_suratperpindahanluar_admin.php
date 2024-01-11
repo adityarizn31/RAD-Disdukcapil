@@ -12,8 +12,8 @@
 
     <div class="card-header py-3">
       <div class="d-sm-flex align-items-center justify-content-between mb-2">
-        <h4 class="m-0 font-weight-bold text-primary">Data Pendaftaran Keabsahan Akta Kelahiran</h4>
-        <a href="<?= base_url('ExportExcel/export_pendaftarankeabsahanakla') ?>" method="POST" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mt-2"><i class="fas fa-download fa-sm text-white-50"></i> Downloads Data</a>
+        <h4 class="m-0 font-weight-bold text-primary">Data Pendaftaran Surat Perpindahan Luar Menuju Majalengka</h4>
+        <a href="<?= base_url('ExportExcel/export_pendaftaransuratperpindahan') ?>" method="POST" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mt-2"><i class="fas fa-download fa-sm text-white-50"></i> Downloads Data</a>
       </div>
     </div>
 
@@ -35,23 +35,23 @@
 
         <tbody>
           <?php $i = 1 + (10 * ($currentPage - 1)); ?>
-          <?php foreach ($pendaftaran_keabsahanakla as $keabsahan) : ?>
+          <?php foreach ($pendaftaran_suratperpindahanluar as $surpinluar) : ?>
             <tr>
               <th scope="row"><?= $i++; ?></th>
-              <td><?= $keabsahan['namapemohon']; ?></td>
-              <td><?= $keabsahan['emailpemohon']; ?></td>
-              <td><?= $keabsahan['nomorpemohon']; ?></td>
-              <td>Pendaftaran Keabsahan Akla</td>
-              <td><?= $keabsahan['created_at']; ?></td>
+              <td><?= $surpinluar['namapemohon']; ?></td>
+              <td><?= $surpinluar['emailpemohon']; ?></td>
+              <td><?= $surpinluar['nomorpemohon']; ?></td>
+              <td>Pendaftaran Surat Perpindahan Luar Menuju Majalengka</td>
+              <td><?= $surpinluar['created_at']; ?></td>
               <td>
-                <a href="/DetailAdmin/detail_pendaftarankeabsahanakla_admin/<?= $keabsahan['namapemohon']; ?>" class="btn btn-success">Detail</a>
+                <a href="/DetailAdmin/detail_pendaftaransuratperpindahan_admin/<?= $surpinluar['namapemohon']; ?>" class="btn btn-success">Detail</a>
               </td>
             </tr>
           <?php endforeach; ?>
         </tbody>
 
       </table>
-      <?= $pager->links('pendaftaran_keabsahanakla', 'keabsahanaktakelahiran_pagination'); ?>
+      <?= $pager->links('pendaftaran_suratperpindahanluar', 'suratperpindahanluar_pagination'); ?>
     </div>
   </div>
 

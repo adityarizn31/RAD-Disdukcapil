@@ -40,7 +40,7 @@
 
                 <div class="grid-container">
                   <div>
-                    <img class="fotopersyaratan" src="/img/persyaratan/<?= $pers['fotopersyaratan']; ?>" alt="" srcset="">
+                    <img class="fotopersyaratan" src="/img/persyaratansilancar/<?= $pers['fotopersyaratan']; ?>" alt="" srcset="">
                   </div>
                   <div>
                     <p class="text-justify">
@@ -49,14 +49,14 @@
                   </div>
                 </div>
 
-                <div class="text-justify"></div>
+                <!-- <div class="text-justify"></div>
                 <ul>
                   <ul>
                     <li>a. Perumusan kebijakan teknis bidang Administrasi Kependudukan dan Pencatatan Sipil yang meliputi Bidang Pelayanan Pendaftaran Penduduk, Bidang Pelayanan Pencatatan Sipil, Bidang Pengelolaan Informasi Administrasi Kependudukan dan Bidang Pemanfaatan Data dan Inovasi Pelayanan</li>
                     <li>b. Pengkoordinasian urusan bidang Administrasi Kependudukan dan Pencatatan Sipil yang meliputi Bidang Pelayanan Pendaftaran Penduduk, Bidang Pelayanan Pencatatan Sipil, Bidang Pengelolaan Informasi Administrasi Kependudukan dan Pemanfaatan Data dan Inovasi Pelayanan</li>
                     <li>c. Pembinaan dan evaluasi bidang Administrasi Kependudukan dan Pencatatan Sipil yang meliputi Bidang Pelayanan Pendaftaran Penduduk, Bidang Pelayanan Pencatatan Sipil, Bidang Pengelolaan Informasi Administrasi Kependudukan dan Bidang Pemanfaatan Data dan Inovasi Pelayanan</li>
                   </ul>
-                </ul>
+                </ul> -->
 
               </div>
             </div>

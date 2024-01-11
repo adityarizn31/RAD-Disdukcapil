@@ -1509,4 +1509,28 @@ class PelayananSilancar extends BaseController
     session()->setFlashdata('pesan', 'Selamat Pendaftaran Pengaduan Update anda Berhasil !!');
     return redirect()->to('/PelayananSilancar/pendaftaranPengaduanupdate/');
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // Halaman Error Page
+  public function errorPage()
+  {
+    $data = [
+      'title' => 'Pelayanan Online Si Lancar || Disdukcapil Majalengka',
+    ];
+    return view('pelayanan_views/errorPage', $data);
+  }
 }

@@ -82,7 +82,7 @@ class DetailAdmin extends BaseController
   public function detail_akun_admin($nama)
   {
     $data = [
-      'title' => 'Detail Akun Admin || Disdukcapil Majalengka',
+      'title' => 'Detail Akun Admin || Admin Disdukcapil',
       'admin' => $this->adminModel->getAkunAdmin($nama)
     ];
     return view('detailAdmin/detail_akun_admin', $data);
@@ -101,7 +101,7 @@ class DetailAdmin extends BaseController
   public function detail_berita_admin($judulBerita)
   {
     $data = [
-      'title' => 'Detail Berita || Disdukcapil Majalengka',
+      'title' => 'Detail Berita || Admin Disdukcapil',
       'berita' => $this->beritaModel->getBerita($judulBerita)
     ];
     return view('detailAdmin/detail_berita_admin', $data);
@@ -120,7 +120,7 @@ class DetailAdmin extends BaseController
   public function detail_inovasi_admin($judulInovasi)
   {
     $data = [
-      'title' => 'Detail Inovasi || Disdukcapil Majalengka',
+      'title' => 'Detail Inovasi || Admin Disdukcapil',
       'inovasi' => $this->inovasiModel->getInovasi($judulInovasi)
     ];
     return view('detailAdmin/detail_inovasi_admin', $data);
@@ -139,7 +139,7 @@ class DetailAdmin extends BaseController
   public function detail_visimisi_admin($visimisi)
   {
     $data = [
-      'title' => 'Visi Misi Admin || Disdukcapil Majalengka',
+      'title' => 'Visi Misi Admin || Admin Disdukcapil',
       'visimisi' => $this->visimisiModel->getVisiMisi($visimisi)
     ];
     return view('detailAdmin/detail_visimisi_admin', $data);
@@ -155,13 +155,13 @@ class DetailAdmin extends BaseController
 
 
   // Halaman Persyaratan Si Lancar
-  public function detailPersyaratan($persyaratansilancar)
+  public function detail_persyaratansilancar_admin($persyaratansilancar)
   {
     $data = [
-      'title' => 'Persyaratan Si Lancar || Disdukcapil Majalengka',
+      'title' => 'Detail Persyaratan Si Lancar || Admin Disdukcapil',
       'persyaratansilancar' => $this->persyaratansilancarModel->getPersyaratan($persyaratansilancar)
     ];
-    return view('detailAdmin/detailPersyaratan', $data);
+    return view('detailAdmin/detail_persyaratansilancar_admin', $data);
   }
 
 
@@ -175,7 +175,7 @@ class DetailAdmin extends BaseController
   public function detail_pendaftarankk_admin($namaPemohonKK)
   {
     $data = [
-      'title' => 'Detail Pendaftaran KK || Disdukcapil Majalengka',
+      'title' => 'Detail Pendaftaran KK || Admin Disdukcapil',
       'pendaftaran_kk' => $this->kkModel->getDataKK($namaPemohonKK)
     ];
     return view('detailAdmin/detail_pendaftarankk_admin', $data);
@@ -192,7 +192,7 @@ class DetailAdmin extends BaseController
   public function detail_pendaftarankia_admin($namaPemohonKIA)
   {
     $data = [
-      'title' => 'Detail Pendaftaran KIA || Disdukcapil Majalengka',
+      'title' => 'Detail Pendaftaran KIA || Admin Disdukcapil',
       'pendaftaran_kia' => $this->kiaModel->getDataKIA($namaPemohonKIA)
     ];
     return view('detailAdmin/detail_pendaftarankia_admin', $data);
@@ -209,7 +209,7 @@ class DetailAdmin extends BaseController
   public function detail_pendaftaransuratperpindahan_admin($namaPemohonSuratPerpindahan)
   {
     $data = [
-      'title' => 'Detail Pendaftaran Surat Perpindahan || Disdukcapil Majalengka',
+      'title' => 'Detail Pendaftaran Surat Perpindahan || Admin Disdukcapil',
       'pendaftaran_suratperpindahan' => $this->suratperpindahanModel->getDataSuratPerpindahan($namaPemohonSuratPerpindahan)
     ];
     return view('detailAdmin/detail_pendaftaransuratperpindahan_admin', $data);
@@ -226,7 +226,7 @@ class DetailAdmin extends BaseController
   public function detail_pendaftaranaktakelahiran_admin($namaPemohonAktalahir)
   {
     $data = [
-      'title' => 'Detail Pendaftaran Akta Kelahiran || Disdukcapil Majalengka',
+      'title' => 'Detail Pendaftaran Akta Kelahiran || Admin Disdukcapil',
       'pendaftaran_aktakelahiran' => $this->aktakelahiranModel->getDataAktakelahiran($namaPemohonAktalahir)
     ];
     return view('detailAdmin/detail_pendaftaranaktakelahiran_admin', $data);
@@ -243,7 +243,7 @@ class DetailAdmin extends BaseController
   public function detail_pendaftaranaktakematian_admin($namaPemohonAktakematian)
   {
     $data = [
-      'title' => 'Detail Pendaftaran Akta Kematian || Disdukcapil Majalengka',
+      'title' => 'Detail Pendaftaran Akta Kematian || Admin Disdukcapil',
       'pendaftaran_aktakematian' => $this->aktakematianModel->getDataAktakematian($namaPemohonAktakematian)
     ];
     return view('detailAdmin/detail_pendaftaranaktakematian_admin', $data);
@@ -280,7 +280,7 @@ class DetailAdmin extends BaseController
   public function detail_pendaftaranperbaikandata_admin($namaPemohonPerbaikan)
   {
     $data = [
-      'title' => 'Detail Perbaikan Data || Disdukcapil Majalengka',
+      'title' => 'Detail Perbaikan Data || Admin Disdukcapil',
       'perbaikan_data' => $this->perbaikandataModel->getPerbaikanData($namaPemohonPerbaikan)
     ];
     return view('detailAdmin/detail_pendaftaranperbaikandata_admin', $data);
@@ -298,7 +298,7 @@ class DetailAdmin extends BaseController
   public function detail_pendaftaranpengaduanupdate_admin($namaPemohonPengaduan)
   {
     $data = [
-      'title' => 'Detail Pengaduan Data || Disdukcapil Majalengka',
+      'title' => 'Detail Pengaduan Data || Admin Disdukcapil',
       'pengaduan_update' => $this->pengaduanupdateModel->getDataPengaduanUpdate($namaPemohonPengaduan)
     ];
     return view('detailAdmin/detail_pendaftaranpengaduanupdate_admin', $data);
@@ -316,7 +316,7 @@ class DetailAdmin extends BaseController
   public function detail_pendaftaranperbaikannik_admin($namaPemohonPerbaikanNIK)
   {
     $data = [
-      'title' => 'Detail Perbaikan NIK || Disdukcapil Majalengka',
+      'title' => 'Detail Perbaikan NIK || Admin Disdukcapil',
       'perbaikan_nik' => $this->perbaikannikModel->getDataPerbaikanNIK($namaPemohonPerbaikanNIK)
     ];
     return view('detailAdmin/detail_pendaftaranperbaikannik_admin', $data);

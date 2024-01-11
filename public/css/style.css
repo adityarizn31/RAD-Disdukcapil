@@ -119,6 +119,12 @@ body {
   box-shadow: inset;
 }
 
+.errorpage {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 2%;
+}
+
 .judulpersyaratansilancar {
   padding: 1.5%;
 }

@@ -89,6 +89,8 @@
           <div class="card-body">
             <h5 class="card-title text-black text-center font-weight-bold">Data Pendaftaran Kartu Keluarga</h5>
           </div>
+          <p class="justify-content-end text-black">Permohonan = <?= count($pendaftaran_kk) ?></p>
+          <p class="justify-content-end text-black"> Tanggal : <?= date('d-m-Y') ?></p>
         </a>
       </div>
 
@@ -99,6 +101,8 @@
           <div class="card-body">
             <h5 class="card-title text-black text-center font-weight-bold"> Data Pendaftaran Kartu Identitas Anak</h5>
           </div>
+          <p class="justify-content-end text-black">Permohonan = <?= count($pendaftaran_kia) ?></p>
+          <p class="justify-content-end text-black"> Tanggal : <?= date('d-m-Y') ?></p>
         </a>
       </div>
 
@@ -107,8 +111,21 @@
         <a href="/Admin/pendaftaran_suratperpindahan_admin">
           <img src="/img/silancar/Kartu Surat Perpindahan.png" class="card-img-top">
           <div class="card-body">
-            <h5 class="card-title text-black text-center font-weight-bold">Data Pendaftaran Surat Perpindahan Domisili</h5>
+            <h5 class="card-title text-black text-center font-weight-bold">Data Pendaftaran Surat Perpindahan Majalengka Menuju Luar</h5>
           </div>
+          <p class="justify-content-end text-black">Permohonan = <?= count($pendaftaran_suratperpindahan) ?> </p>
+          <p class="justify-content-end text-black"> Tanggal : <?= date('d-m-Y') ?></p>
+      </div>
+
+      <!-- Pendaftaran Surat Perpindahan Domisili -->
+      <div class="card shadow border-2" style="width: 19rem; padding: 3%; margin: 3%;">
+        <a href="/Admin/pendaftaran_suratperpindahanluar_admin">
+          <img src="/img/silancar/Kartu Surat Perpindahan.png" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title text-black text-center font-weight-bold">Data Pendaftaran Surat Perpindahan Luar Menuju Majalengka</h5>
+          </div>
+          <p class="justify-content-end text-black">Permohonan = <?= count($pendaftaran_suratperpindahanluar) ?> </p>
+          <p class="justify-content-end text-black"> Tanggal : <?= date('d-m-Y') ?></p>
         </a>
       </div>
 
@@ -119,6 +136,8 @@
           <div class="card-body">
             <h5 class="card-title text-black text-center font-weight-bold"> Data Pendaftaran Akta Kelahiran</h5>
           </div>
+          <p class="justify-content-end text-black">Permohonan = <?= count($pendaftaran_aktakelahiran) ?> </p>
+          <p class="justify-content-end text-black"> Tanggal : <?= date('d-m-Y') ?></p>
         </a>
       </div>
 
@@ -129,6 +148,8 @@
           <div class="card-body">
             <h5 class="card-title text-black text-center font-weight-bold"> Data Pendaftaran Akta Kematian</h5>
           </div>
+          <p class="justify-content-end text-black">Permohonan = <?= count($pendaftaran_aktakematian) ?> </p>
+          <p class="justify-content-end text-black"> Tanggal : <?= date('d-m-Y') ?></p>
         </a>
       </div>
 
@@ -138,19 +159,21 @@
           <img src="/img/silancar/Keabsahan Akta Kelahiran.png" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-black text-center font-weight-bold"> Data Pendaftaran Keabsahan Akta Kelahiran</h5>
-            <p class="card-text text-black pt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
+          <p class="justify-content-end text-black">Permohonan = <?= count($pendaftaran_keabsahanakla) ?> </p>
+          <p class="justify-content-end text-black"> Tanggal : <?= date('d-m-Y') ?></p>
         </a>
       </div>
 
       <!-- Pelayanan Pemanfaatan Data dan Inovasi -->
       <div class="card shadow border-2" style="width: 19rem; padding: 3%; margin: 3%;">
-        <a href="/Admin/pendaftaran_perbaikannik_admin">
+        <a href="/Admin/pendaftaran_pelayanandata_admin">
           <img src="/img/silancar/kartu Pelayanan Pemanfaatan Data.png" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title text-black text-center font-weight-bold"> Data Pendaftaran Pelayanan Pemanfaatan Data dan Inovasi</h5>
-            <p class="card-text text-black pt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title text-black text-center font-weight-bold"> Data Pendaftaran Pelayanan Pemanfaatan Data & Inovasi dan Pengaduan Antar Lembaga</h5>
           </div>
+          <p class="justify-content-end text-black">Permohonan = <?= count($pendaftaran_pelayanandata) ?> </p>
+          <p class="justify-content-end text-black"> Tanggal : <?= date('d-m-Y') ?></p>
         </a>
       </div>
 
@@ -161,6 +184,8 @@
           <div class="card-body">
             <h5 class="card-title text-black text-center font-weight-bold"> Data Pendaftaran Perbaikan Data</h5>
           </div>
+          <p class="justify-content-end text-black">Permohonan = <?= count($pendaftaran_perbaikandata) ?> </p>
+          <p class="justify-content-end text-black"> Tanggal : <?= date('d-m-Y') ?></p>
         </a>
       </div>
 
@@ -171,13 +196,15 @@
           <div class="card-body">
             <h5 class="card-title text-black text-center font-weight-bold"> Data Pendaftaran Pengaduan Update</h5>
           </div>
+          <p class="justify-content-end text-black">Permohonan = <?= count($pendaftaran_pengaduanupdate) ?> </p>
+          <p class="justify-content-end text-black"> Tanggal : <?= date('d-m-Y') ?></p>
         </a>
       </div>
 
     </div>
   </div>
 
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-lg-6 mb-4">
       <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -194,7 +221,7 @@
       </div>
 
     </div>
-  </div>
+  </div> -->
 
 </section>
 

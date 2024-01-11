@@ -72,8 +72,8 @@ class DeleteAdmin extends BaseController
       // Hapus Gambar
       unlink('img/berita/' . $berita['fotoberita']);
     }
-    $beritaModel = new BeritaModel();
-    $beritaModel->delete($id);
+
+    $this->beritaModel->delete($id);
     session()->setFlashdata('pesan', 'Data berhasil dihapus !!');
     return redirect()->to('admin/berita_admin');
   }
@@ -86,7 +86,7 @@ class DeleteAdmin extends BaseController
 
 
 
-
+  // Kodingan Delete Benar
   // Halaman Inovasi
   // Digunakan untuk menghapus data inovasi
   public function deleteInovasi($id)
@@ -99,8 +99,7 @@ class DeleteAdmin extends BaseController
       unlink('img/inovasi/' . $inovasi['fotoinovasi']);
     }
 
-    $inovasiModel = new InovasiModel();
-    $inovasiModel->delete($id);
+    $this->inovasiModel->delete($id);
     session()->setFlashdata('pesan', 'Data Inovasi berhasil dihapus !!');
     return redirect()->to('admin/inovasi_admin');
   }
@@ -113,23 +112,22 @@ class DeleteAdmin extends BaseController
 
 
 
-
-
+  // Kodingan Delete Benar
   // Halaman Persyaratan Si Lancar
   // Digunakan untuk menghapus data Persyaratan
   public function deletePersyaratan($id)
   {
     // Mencari Foto Persyaratan Berdasarkan ID
     $persyaratansilancar = $this->persyaratansilancarModel->find($id);
-    // Pengeceka Foto Persyaratan
+    // Pengecekan Foto Persyaratan
     if ($persyaratansilancar['fotopersyaratan'] != '') {
       // Hapus Foto Persyaratan
-      unlink('img/persyaratan/' . $persyaratansilancar['fotopersyaratan']);
+      unlink('img/persyaratansilancar/' . $persyaratansilancar['fotopersyaratan']);
     }
 
-    $persyaratansilancarModel = new PersyaratansilancarModel();
-    $persyaratansilancarModel->delete($id);
-    session()->setFlashdata('pesan', 'Data Persyaratan berhasil dihapus !!');
-    return redirect()->to('admin/persyaratan');
+
+    $this->persyaratansilancarModel->delete($id);
+    session()->setFlashdata('pesan', 'Data Persyaratan Si Lancar berhasil dihapus !!');
+    return redirect()->to('admin/persyaratansilancar_admin');
   }
 }

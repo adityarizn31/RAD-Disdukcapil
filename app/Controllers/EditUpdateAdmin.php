@@ -207,7 +207,7 @@ class EditUpdateAdmin extends BaseController
       ],
       // Foto berita
       'fotoberita' => [
-        'rules' => 'max_size[fotoberita,1024]|is_image[fotoberita]|mime_in[fotoberita,image/jpg,image/jpeg,image/png]',
+        'rules' => 'max_size[fotoberita,2048]|is_image[fotoberita]|mime_in[fotoberita,image/jpg,image/jpeg,image/png]',
         'errors' => [
           'max_size' => 'Ukuran Gambar terlalu besar !!',
           'is_image' => 'Yang anda pilih bukan gambar !!',
@@ -320,14 +320,14 @@ class EditUpdateAdmin extends BaseController
 
 
   // Halaman Persyaratan
-  public function editPersyaratan($persyaratansilancar)
+  public function editPersyaratan($judulPersyaratan)
   {
     $data = [
-      'title' => 'Form Edit Persyaratan || Admin Disdukcapil',
+      'title' => 'Form Edit Persyaratan Si Lancar || Admin Disdukcapil',
       'validation' => \Config\Services::validation(),
-      'persyaratansilancar' => $this->persyaratansilancarModel->getPersyaratan($persyaratansilancar)
+      'persyaratansilancar' => $this->persyaratansilancarModel->getPersyaratan($judulPersyaratan)
     ];
-    return view('editAdmin/editPersyaratan', $data);
+    return view('editAdmin/edit_persyaratansilancar_admin', $data);
   }
 
   public function updatePersyaratan($id)
@@ -337,7 +337,7 @@ class EditUpdateAdmin extends BaseController
     if ($persyaratanlama['judulpersyaratan'] == $this->request->getVar('judulpersyaratan')) {
       $rule_judul = 'required';
     } else {
-      $rule_judul = 'required|[persyaratansilancar.judulpersyaratan]';
+      $rule_judul = 'required|is_unique[persyaratansilancar.judulpersyaratan]';
     }
 
     if (!$this->validate([
@@ -346,7 +346,8 @@ class EditUpdateAdmin extends BaseController
       'judulpersyaratan' => [
         'rules' => $rule_judul,
         'errors' => [
-          'required' => 'Judul Persyaratan harus diisi !!'
+          'required' => 'Judul Persyaratan harus diisi !!',
+          'is_unique' => 'Judul Persyaratan Sudah terdaftar !!'
         ]
       ],
       // Foto Persyaratan
@@ -367,7 +368,7 @@ class EditUpdateAdmin extends BaseController
       ]
 
     ])) {
-      return redirect()->to(base_url() . 'EditUpdateAdmin/editPersyaratan/' . $this->request->getVar('judulpersyaratan'))->withInput();
+      return redirect()->to(base_url() . '/EditUpdateAdmin/editPersyaratan/' . $this->request->getVar('judulpersyaratan'))->withInput();
     }
 
     $fileFotoPersyaratan = $this->request->getFile('fotopersyaratan');
@@ -378,9 +379,9 @@ class EditUpdateAdmin extends BaseController
       // Generate nama File Random
       $namaFotoPersyaratan = $fileFotoPersyaratan->getRandomName();
       // Memindahkan File Random
-      $fileFotoPersyaratan->move('img/persyaratan', $namaFotoPersyaratan);
+      $fileFotoPersyaratan->move('img/persyaratansilancar', $namaFotoPersyaratan);
       // Menghapus File lama
-      unlink('img/persyaratan/' . $this->request->getVar('fotolama'));
+      unlink('img/persyaratansilancar/' . $this->request->getVar('fotolama'));
     }
 
     $this->persyaratansilancarModel->save(
@@ -392,7 +393,7 @@ class EditUpdateAdmin extends BaseController
       ]
     );
     session()->setFlashdata('pesan', 'Data Persyaratan berhasil diubah !!');
-    return redirect()->to('admin/persyaratan');
+    return redirect()->to('admin/persyaratansilancar_admin');
   }
 
 

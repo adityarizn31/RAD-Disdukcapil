@@ -1,29 +1,29 @@
 <?php
-// Mendapatkan waktu saat ini
-$JamSekarang = date('H');
 
-// Menentukan rentang waktu yang diizinkan (dalam contoh ini, dari jam 8 pagi hingga jam 11 siang)
-$WaktuPembukaan = 8;
-$WaktuPenutupan = 11;
+// Get the current time in the server's time zone
+$waktuSekarang = new DateTime('now', new DateTimeZone('Asia/Jakarta'));
+$jamSekarang = $waktuSekarang->format('G');
 
-// Menentukan apakah waktu saat ini berada dalam rentang waktu yang diizinkan
-$isWithinAllowedTime = ($JamSekarang >= $WaktuPembukaan && $JamSekarang < $WaktuPenutupan);
+// Check if the access time is within the allowed range (8 AM to 11 AM)
+if ($jamSekarang >= 8 && $jamSekarang < 14) {
+  // Allow access to the form
 ?>
 
-<?= $this->extend('layout/template'); ?>
+  <?= $this->extend('layout/template'); ?>
 
-<?= $this->section('content'); ?>
+  <?= $this->section('content'); ?>
 
-<div class="container" style="padding: 10px;">
-  <?php if ($isWithinAllowedTime) : ?>
+  <div class="container" style="padding: 10px;">
     <div class="card shadow mb-4" style="padding: 20px;">
       <div class="container">
         <h4 class="text-center fw-bold"> Pendaftaran Kartu Keluarga Baru </h4>
 
         <?php if (session()->getFlashdata('pesan')) : ?>
+
           <div class="alert alert-success" role="alert">
             <?= session()->getFlashdata('pesan'); ?>
           </div>
+
         <?php endif; ?>
 
         <form action="/PelayananSilancar/saveKK" method="post" enctype="multipart/form-data">
@@ -138,14 +138,18 @@ $isWithinAllowedTime = ($JamSekarang >= $WaktuPembukaan && $JamSekarang < $Waktu
           <div class="d-grid gap-2 col-6 mx-auto">
             <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
           </div>
+
         </form>
+
       </div>
     </div>
-  <?php else : ?>
-    <div class="alert alert-warning" role="alert">
-      Formulir hanya dapat diakses antara jam 8 pagi hingga 11 siang.
-    </div>
-  <?php endif; ?>
-</div>
+  </div>
 
-<?= $this->endSection('content'); ?>
+  <?= $this->endSection('content'); ?>
+
+<?php
+} else {
+  // Redirect to a message page or display a message
+  header('Location: /PelayananSilancar/errorPage');
+  exit;
+}

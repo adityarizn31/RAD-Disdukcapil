@@ -19,6 +19,8 @@ use App\Models\Pendaftaran_aktakelahiran_Model;
 use App\Models\Pendaftaran_aktakematian_Model;
 use App\Models\Pendaftaran_keabsahanakla_Model;
 
+use App\Models\Pendaftaran_pelayanandata_Model;
+
 use App\Models\Perbaikan_data_Model;
 use App\Models\Pengaduan_update_Model;
 
@@ -48,6 +50,8 @@ class Admin extends BaseController
   protected $aktakelahiranModel;
   protected $keabsahanaklaModel;
 
+  protected $pelayanandataModel;
+
   protected $perbaikandataModel;
   protected $pengaduanupdateModel;
 
@@ -74,6 +78,8 @@ class Admin extends BaseController
     $this->aktakelahiranModel = new Pendaftaran_aktakelahiran_Model();
     $this->keabsahanaklaModel = new Pendaftaran_keabsahanakla_Model();
 
+    $this->pelayanandataModel = new Pendaftaran_pelayanandata_Model();
+
     $this->perbaikandataModel = new Perbaikan_data_Model();
     $this->pengaduanupdateModel = new Pengaduan_update_Model();
 
@@ -93,8 +99,28 @@ class Admin extends BaseController
   // Halaman Utama / Dashboard
   public function index()
   {
+    $pendaftaran_kk = $this->kkModel->findAll();
+    $pendaftaran_kia = $this->kiaModel->findAll();
+    $pendaftaran_suratperpindahan = $this->suratperpindahanModel->findAll();
+    $pendaftaran_suratperpindahanluar = $this->suratperpindahanluarModel->findAll();
+    $pendaftaran_aktakelahiran = $this->aktakelahiranModel->findAll();
+    $pendaftaran_aktakematian = $this->aktakematianModel->findAll();
+    $pendaftaran_keabsahanakla = $this->keabsahanaklaModel->findAll();
+    $pendaftaran_pelayanandata = $this->pelayanandataModel->findAll();
+    $pendaftaran_perbaikandata = $this->perbaikandataModel->findAll();
+    $pendaftaran_pengaduanupdate = $this->pengaduanupdateModel->findAll();
     $data = [
-      'title' => 'Admin Disdukcapil'
+      'title' => 'Admin Disdukcapil',
+      'pendaftaran_kk' => $pendaftaran_kk,
+      'pendaftaran_kia' => $pendaftaran_kia,
+      'pendaftaran_suratperpindahan' => $pendaftaran_suratperpindahan,
+      'pendaftaran_suratperpindahanluar' => $pendaftaran_suratperpindahanluar,
+      'pendaftaran_aktakelahiran' => $pendaftaran_aktakelahiran,
+      'pendaftaran_aktakematian' => $pendaftaran_aktakematian,
+      'pendaftaran_keabsahanakla' => $pendaftaran_keabsahanakla,
+      'pendaftaran_pelayanandata' => $pendaftaran_pelayanandata,
+      'pendaftaran_perbaikandata' => $pendaftaran_perbaikandata,
+      'pendaftaran_pengaduanupdate' => $pendaftaran_pengaduanupdate
     ];
     return view('admin/index', $data);
   }
@@ -177,14 +203,14 @@ class Admin extends BaseController
 
 
 
-  public function persyaratan()
+  public function persyaratansilancar_admin()
   {
     // Menghubungkan Controller Admin dengan Persyaratan Pelayanan
     $data = [
       'title' => 'Persyaratan Pelayanan || Admin Disdukcapil',
       'persyaratansilancar' => $this->persyaratansilancarModel->getPersyaratan()
     ];
-    return view('admin/persyaratan', $data);
+    return view('admin/persyaratansilancar_admin', $data);
   }
 
 
@@ -404,6 +430,30 @@ class Admin extends BaseController
       'currentPage' => $currentPageAkket
     ];
     return view('admin/pendaftaran_keabsahanakla_admin', $data);
+  }
+
+
+
+
+
+
+
+
+
+  // Menampilkan Data Pendaftaran Keabsahan Akta Kelahiran Admin
+  public function pendaftaran_pelayanandata_admin()
+  {
+    // Menghubungkan Controller Admin degnan Pendaftaran aktakematian Model
+    // $aktakematian = $this->aktalahirModel->findAll();
+    $currentPagePelayananData =  $this->request->getVar('page_pendaftaran_pelayanandata') ? $this->request->getVar('page_pendaftaran_pelayanandata') : 1;
+    $data = [
+      'title' => 'Data Pendaftaran Pelayanan Data || Admin Disdukcapil',
+      'pendaftaran_pelayanandata' => $this->pelayanandataModel->getDataPelayananData(),
+      'pendaftaran_pelayanandata' => $this->pelayanandataModel->paginate(10, 'pendaftaran_pelayanandata'),
+      'pager' => $this->pelayanandataModel->pager,
+      'currentPage' => $currentPagePelayananData
+    ];
+    return view('admin/pendaftaran_pelayanandata_admin', $data);
   }
 
 

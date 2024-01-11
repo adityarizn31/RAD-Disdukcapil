@@ -13,7 +13,7 @@
   <div class="card shadow mb-4 border-2" style="margin-top: 25px; padding: 20px;">
     <div class="container">
       <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Ubah Persyaratan <?= $persyaratansilancar['judulpersyaratan']; ?></h6>
+        <h6 class="m-0 font-weight-bold text-primary">Ubah Persyaratan Si Lancar <?= $persyaratansilancar['judulpersyaratan']; ?></h6>
       </div>
 
       <!-- Diarahkan ke Method baru yang terdapat dalam Controller EditUpdateAdmin -->
@@ -44,7 +44,7 @@
               <?= $validation->getError('fotopersyaratan'); ?>
             </div>
             <div class="col-sm-2 my-4">
-              <img src="/img/persyaratan/<?= $persyaratansilancar['fotopersyaratan']; ?>" class="img-thumbnail img-preview" srcset="">
+              <img src="/img/persyaratansilancar/<?= $persyaratansilancar['fotopersyaratan']; ?>" class="img-thumbnail img-preview" srcset="">
             </div>
           </div>
         </div>
@@ -62,7 +62,7 @@
         </div>
 
         <div class="d-grid gap-2 col-6 mx-auto">
-          <button type="submit" value="submit" name="submit" id="submit" class="btn btn-primary">Ubah Persyaratan</button>
+          <button type="submit" value="submit" name="submit" id="submit" class="btn btn-primary">Ubah Persyaratan Si Lancar </button>
         </div>
 
       </form>

@@ -131,7 +131,6 @@ class CreateAdmin extends BaseController
     ]);
 
     session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
-
     return redirect()->to('/admin/berita_admin');
   }
 
@@ -302,10 +301,65 @@ class CreateAdmin extends BaseController
 
 
   // Form Halaman Tambah Pelayanan
-  public function create_pelayanan()
+  public function create_persyaratansilancar_admin()
   {
     $data = [
-      'title'
+      'title' => 'Form Halaman Tambah Persyaratan Si Lancar || Admin Disdukcapil',
+      'validation' => \Config\Services::validation()
     ];
+    return view('createAdmin/create_persyaratansilancar_admin', $data);
+  }
+
+  public function savePersyaratanSilancar()
+  {
+    if (!$this->validate([
+
+      // Judul Persyaratan
+      'judulpersyaratan' => [
+        'rules' => 'required[persyaratansilancar.judulpersyaratan]',
+        'errors' => [
+          'required' => 'Judul Persyaratan Harus Di isi !!'
+        ]
+      ],
+      // Foto Persyaratan
+      'fotopersyaratan' => [
+        'rules' => 'max_size[fotopersyaratan,2048]|is_image[fotopersyaratan]|mime_in[fotopersyaratan,image/jpg,image/jpeg,image/png]',
+        'errors' => [
+          'max_size' => 'Ukuran Gambar terlalu besar !!',
+          'is_image' => 'Yang anda pilih bukan gambar !!',
+          'mime_in' => 'Yang anda pilih bukan gambar'
+        ]
+      ],
+      // Keterangan Persyaratan
+      'keteranganpersyaratan' => [
+        'rules' => 'required[persyaratansilancar.keteranganpersyaratan]',
+        'errors' => [
+          'required' => 'Keterangan Persyaratan Si Lancar Harus diisi !!'
+        ]
+      ]
+    ])) {
+      return redirect()->to(base_url() . '/CreateAdmin/create_persyaratansilancar_admin/')->withInput();
+    }
+
+    // Cara Memanggil Gambar
+    $fileFotoPersyaratan = $this->request->getFile('fotopersyaratan');
+    // Jika terdapat Foto Inovasi yang tidak di upload 
+    if ($fileFotoPersyaratan->getError() == 4) {
+      $namaFotoPersyaratan = 'inovasidef.PNG';
+    } else {
+      // Generate nama foto random inovasi
+      $namaFotoPersyaratan = $fileFotoPersyaratan->getRandomName();
+      // Memindahkan FIle Gambar ke Folder img/Inovasi
+      $fileFotoPersyaratan->move('img/persyaratansilancar', $namaFotoPersyaratan);
+    }
+
+    $this->persyaratansilancarModel->save([
+      'fotopersyaratan' => $namaFotoPersyaratan,
+      'judulpersyaratan' => $this->request->getVar('judulpersyaratan'),
+      'keteranganpersyaratan' => $this->request->getVar('keteranganpersyaratan')
+    ]);
+
+    session()->setFlashdata('pesan', 'Data Persyaratan Si Lancar Berhasil Ditambahkan');
+    return redirect()->to('admin/persyaratansilancar_admin');
   }
 }

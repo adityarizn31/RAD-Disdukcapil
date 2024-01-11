@@ -24,13 +24,21 @@ class Pager extends BaseConfig
         'default_full'   => 'CodeIgniter\Pager\Views\default_full',
         'default_simple' => 'CodeIgniter\Pager\Views\default_simple',
         'default_head'   => 'CodeIgniter\Pager\Views\default_head',
+
         'kk_pagination' => 'App\Views\Pagers\kk_pagination',
-        'ktp_pagination' => 'App\Views\Pagers\ktp_pagination',
         'kia_pagination' => 'App\Views\Pagers\kia_pagination',
+        'suratperpindahan_pagination' => 'App\Views\Pagers\suratperpindahan_pagination',
+        'suratperpindahanluar_pagination' => 'App\Views\Pagers\suratperpindahanluar_pagination',
+
         'aktakelahiran_pagination' => 'App\Views\Pagers\aktakelahiran_pagination',
         'aktakematian_pagination' => 'App\Views\Pagers\aktakematian_pagination',
+        'keabsahanaktakelahiran_pagination' => 'App\Views\Pagers\keabsahanaktakelahiran_pagination',
+
+        'pelayanandata_pagination' => 'App\Views\Pagers\pelayanandata_pagination',
+
         'perbaikandata_pagination' => 'App\Views\Pagers\perbaikandata_pagination',
         'pengaduanupdate_pagination' => 'App\Views\Pagers\pengaduanupdate_pagination',
+
         'perbaikannik_pagination' => 'App\Views\Pagers\perbaikannik_pagination'
     ];
 
