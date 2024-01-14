@@ -4,20 +4,19 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PelayananModel extends Model
+class Pelayanan_keabsahanakla_Model extends Model
 {
-  protected $table = 'pelayanan';
+  protected $table = 'pelayanan_keabsahanakla';
   protected $useTimeStamps = true;
   protected $allowedFields = ['fotopelayanan', 'judulpelayanan'];
 
-  public function getDataPelayanan($judulPelayanan = false)
+  public function getDataKeabsahanAkla($judulPelayanan = false)
   {
-    // Jika Judul Pelayanan == false maka yang akan ditampilkan yaitu keseluruhan
+    // Jika Judul Pelayanan == false maka y1ang akan ditampilkan 
     if ($judulPelayanan == false) {
       return $this->findAll();
     }
 
-    // Namun jika judul pelayanan == true maka akan ditampilkan judul tersebut
     return $this->where(['judulpelayanan' => $judulPelayanan])->first();
   }
 }

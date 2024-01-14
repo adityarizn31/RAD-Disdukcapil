@@ -17,10 +17,13 @@
       <h6 class="m-0 font-weight-bold text-primary">Ubah Card Pelayanan Kartu Keluarga</h6>
     </div>
 
-    <form action="/EditUpdateAdmin/updatePelayanankk" method="post" enctype="multipart/form-data">
+    <!-- Diarahkan ke Method baru yang terdapat dalam Controller EditUpdateAdmin -->
+    <form action="/EditUpdateAdmin/updateVisiMisi/<?= $pelayanan_kk['id']; ?>" method="post" enctype="multipart/form-data">
 
       <!-- Keamanan -->
       <?= csrf_field(); ?>
+
+      <input type="hidden" name="fotolama" value="<?= $pelayanan_kk['fotopelayanan']; ?>">
 
       <div class="card-body">
         <div class="row">
@@ -46,17 +49,6 @@
               </div>
               <div class="col-sm-2 my-4">
                 <img src="/img/berita/beritadef.PNG" class="img-thumbnail img-preview" srcset="">
-              </div>
-            </div>
-          </div>
-
-          <!-- Keterangan Pelayanan -->
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="keteranganpelayanan" class="form-label fw-semibold">Keterangan Pelayanan</label>
-              <input type="text" class="form-control <?= ($validation->hasError('keteranganpelayanan')) ? 'is-invalid' : '';  ?>" name="naama" id="keteranganpelayanan" autofocus value="<?= old('keteranganpelayanan');  ?>">
-              <div class="invalid-feedback">
-                <?= $validation->getError('keteranganpelayanan'); ?>
               </div>
             </div>
           </div>

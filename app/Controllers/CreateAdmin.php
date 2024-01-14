@@ -2,22 +2,47 @@
 
 namespace App\Controllers;
 
+namespace App\Controllers;
+
 use App\Models\AdminModel;
 use App\Models\BeritaModel;
 use App\Models\InovasiModel;
 use App\Models\VisiMisiModel;
 use App\Models\PersyaratansilancarModel;
 
-use App\Models\Pendaftaran_aktakematian_Model;
-use App\Models\Pendaftaran_aktakelahiran_Model;
-use App\Models\Pendaftaran_kia_Model;
+// Halaman Pendaftaran Si Lancar
+
 use App\Models\Pendaftaran_kk_Model;
-use App\Models\Pendaftaran_ktp_Model;
+use App\Models\Pendaftaran_kia_Model;
+use App\Models\Pendaftaran_suratperpindahan_Model;
+use App\Models\Pendaftaran_suratperpindahanluar_Model;
+
+use App\Models\Pendaftaran_aktakelahiran_Model;
+use App\Models\Pendaftaran_aktakematian_Model;
+use App\Models\Pendaftaran_keabsahanakla_Model;
+
+use App\Models\Pendaftaran_pelayanandata_Model;
+
 use App\Models\Perbaikan_data_Model;
 use App\Models\Pengaduan_update_Model;
-use App\Models\Perbaikan_nik_Model;
+
+// Halaman Pelayanan
 
 use App\Models\PelayananModel;
+
+use App\Models\Pelayanan_kk_Model;
+use App\Models\Pelayanan_kia_Model;
+use App\Models\Pelayanan_suratperpindahan_Model;
+use App\Models\Pelayanan_suratperpindahanluar_Model;
+
+use App\Models\Pelayanan_aktakelahiran_Model;
+use App\Models\Pelayanan_aktakematian_Model;
+use App\Models\Pelayanan_keabsahanakla_Model;
+
+use App\Models\Pelayanan_pelayanandata_Model;
+
+use App\Models\Pelayanan_perbaikandata_Model;
+use App\Models\Pelayanan_pengaduanupdate_Model;
 
 class CreateAdmin extends BaseController
 {
@@ -28,16 +53,40 @@ class CreateAdmin extends BaseController
   protected $visimisiModel;
   protected $persyaratansilancarModel;
 
+  // Halaman Pendaftaran Si Lancar
+
   protected $kkModel;
-  protected $ktpModel;
   protected $kiaModel;
-  protected $aktakematianModel;
+  protected $suratperpindahanModel;
+  protected $suratperpindahanluarModel;
+
   protected $aktakelahiranModel;
+  protected $aktakematianModel;
+  protected $keabsahanaklaModel;
+
+  protected $pelayanandataModel;
+
   protected $perbaikandataModel;
   protected $pengaduanupdateModel;
-  protected $perbaikannikModel;
+
+  // Halaman Pelayanan
 
   protected $pelayananModel;
+
+  protected $pelkkModel;
+  protected $pelkiaModel;
+  protected $pelsuratperpindahanModel;
+  protected $pelsuratperpindahanluarModel;
+
+  protected $pelaktakelahiranModel;
+  protected $pelaktakematianModel;
+  protected $pelkeabsahanaklaModel;
+
+  protected $pelpelayanandataModel;
+
+  protected $pelperbaikandataModel;
+  protected $pelpengaduanupdateModel;
+
 
   public function __construct()
   {
@@ -47,16 +96,39 @@ class CreateAdmin extends BaseController
     $this->visimisiModel = new VisiMisiModel();
     $this->persyaratansilancarModel = new PersyaratansilancarModel();
 
+    // Halaman Pendaftaran Si Lancar
+
     $this->kkModel = new Pendaftaran_kk_Model();
-    $this->ktpModel = new Pendaftaran_ktp_Model();
     $this->kiaModel = new Pendaftaran_kia_Model();
+    $this->suratperpindahanModel = new Pendaftaran_suratperpindahan_Model();
+    $this->suratperpindahanluarModel = new Pendaftaran_suratperpindahanluar_Model();
+
     $this->aktakematianModel = new Pendaftaran_aktakematian_Model();
     $this->aktakelahiranModel = new Pendaftaran_aktakelahiran_Model();
+    $this->keabsahanaklaModel = new Pendaftaran_keabsahanakla_Model();
+
+    $this->pelayanandataModel = new Pendaftaran_pelayanandata_Model();
+
     $this->perbaikandataModel = new Perbaikan_data_Model();
     $this->pengaduanupdateModel = new Pengaduan_update_Model();
-    $this->perbaikannikModel = new Perbaikan_nik_Model();
+
+    // Halaman Pelayanan
 
     $this->pelayananModel = new PelayananModel();
+
+    $this->pelkkModel = new Pelayanan_kk_Model();
+    $this->pelkiaModel = new Pelayanan_kia_Model();
+    $this->pelsuratperpindahanModel = new Pelayanan_suratperpindahan_Model();
+    $this->pelsuratperpindahanluarModel = new Pelayanan_suratperpindahanluar_Model();
+
+    $this->pelaktakelahiranModel = new Pelayanan_aktakelahiran_Model();
+    $this->pelaktakematianModel = new Pelayanan_aktakematian_Model();
+    $this->pelkeabsahanaklaModel = new Pelayanan_keabsahanakla_Model();
+
+    $this->pelpelayanandataModel = new Pelayanan_pelayanandata_Model();
+
+    $this->pelperbaikandataModel = new Pelayanan_perbaikandata_Model();
+    $this->pelpengaduanupdateModel = new Pelayanan_pengaduanupdate_Model();
   }
 
 
@@ -71,7 +143,7 @@ class CreateAdmin extends BaseController
   public function create_berita_admin()
   {
     $data = [
-      'title' => 'Form Tambah Berita || Disdukcapil Majalengka',
+      'title' => 'Form Tambah Berita || Admin Disdukcapil',
       'validation' => \Config\Services::validation()
     ];
     return view('createadmin/create_berita_admin', $data);
@@ -147,10 +219,10 @@ class CreateAdmin extends BaseController
   public function create_inovasi_admin()
   {
     $data = [
-      'title' => 'Form Tambah Inovasi || Disdukcapil Majalengka',
+      'title' => 'Form Tambah Inovasi || Admin Disdukcapil',
       'validation' => \Config\Services::validation()
     ];
-    return view('createadmin/create_inovasi_admin', $data);
+    return view('createAdmin/create_inovasi_admin', $data);
   }
 
   // Digunakan Untuk Form Halaman Tambah Inovasi
@@ -183,7 +255,7 @@ class CreateAdmin extends BaseController
       ]
     ])) {
       // $validation = \Config\Services::validation();
-      return redirect()->to(base_url() . '/createAdmin/create_inovasi_admin/')->withInput();
+      return redirect()->to(base_url() . '/CreateAdmin/create_inovasi_admin/')->withInput();
     }
     // Cara Memanggil Gambar
     $fileFotoInovasi = $this->request->getFile('fotoinovasi');
@@ -214,11 +286,12 @@ class CreateAdmin extends BaseController
 
 
 
+
   // Form Halaman Tambah Akun Admin
   public function create_akun_admin()
   {
     $data = [
-      'title' => 'Form Tambah Akun Admin || Disdukcapil Majalengka',
+      'title' => 'Form Tambah Akun Admin || Admin Disdukcapil',
       'validation' => \Config\Services::validation()
     ];
     return view('createAdmin/create_akun_admin', $data);

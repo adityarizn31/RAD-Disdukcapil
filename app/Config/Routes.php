@@ -57,7 +57,7 @@ $routes->get('detailadmin/inovasi_admin/(:any)', 'DetailAdmin::detail_inovasi_ad
 
 
 // Routes untuk Halaman Pelayanan
-$routes->get('/admin/pelayanan/(:segment)', 'EditUpdateAdmin::edit_pelayanan_kk/$1');
+$routes->get('/admin/pelayanan/(:segment)', 'EditUpdateAdmin::edit_pelayanankk_admin/$1');
 $routes->get('/admin/pelayanan/(:any)', 'EditUpdateAdmin::edit_pelayanan_ktp/$1');
 
 

@@ -1,4 +1,5 @@
 <!-- Halaman Detail Berita Admin -->
+
 <?= $this->extend('layout/templateadmin'); ?>
 
 <?= $this->section('contentadmin'); ?>

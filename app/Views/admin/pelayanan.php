@@ -23,10 +23,17 @@
         <a href="/Admin/pelayananKK">
           <img src="/img/silancar/Kartu Keluarga.png" class="card-img-top">
           <div class="card-body">
-            <h5 class="card-title text-black text-center font-weight-bold">Data Pendaftaran Kartu Keluarga</h5>
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="card-title text-black text-center font-weight-bold">Data Pendaftaran Kartu Keluarga</h5>
+            </div>
           </div>
         </a>
+        <div class="d-flex justify-content-center">
+          <!-- Edit Button -->
+
+        </div>
       </div>
+
 
       <!-- Pendaftaran Kartu Identitas Anak-->
       <div class="card shadow border-2" style="width: 19rem; padding: 3%; margin: 3%;">
@@ -36,6 +43,10 @@
             <h5 class="card-title text-black text-center font-weight-bold"> Data Pendaftaran Kartu Identitas Anak</h5>
           </div>
         </a>
+        <div class="d-flex justify-content-center">
+          <!-- Edit Button -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
+        </div>
       </div>
 
       <!-- Pendaftaran Surat Perpindahan Domisili -->
@@ -44,9 +55,12 @@
           <img src="/img/silancar/Kartu Surat Perpindahan.png" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-black text-center font-weight-bold">Data Pendaftaran Surat Perpindahan Domisili</h5>
-            <p class="card-text text-black pt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </a>
+        <div class="d-flex justify-content-center">
+          <!-- Edit Button -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
+        </div>
       </div>
 
       <!-- Pendaftaran Akta Kelahiran -->
@@ -55,9 +69,12 @@
           <img src="/img/silancar/Kartu Akta Kelahiran.png" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-black text-center font-weight-bold"> Data Pendaftaran Akta Kelahiran</h5>
-            <p class="card-text text-black pt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </a>
+        <div class="d-flex justify-content-center">
+          <!-- Edit Button -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
+        </div>
       </div>
 
       <!-- Pendaftaran Akta Kematian -->
@@ -66,9 +83,12 @@
           <img src="/img/silancar/Kartu Akta Kematian.png" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-black text-center font-weight-bold"> Data Pendaftaran Akta Kematian</h5>
-            <p class="card-text text-black pt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </a>
+        <div class="d-flex justify-content-center">
+          <!-- Edit Button -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
+        </div>
       </div>
 
       <!-- Pendaftaran Keabsahan Akta Kelahiran -->
@@ -77,9 +97,12 @@
           <img src="/img/silancar/Keabsahan Akta Kelahiran.png" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-black text-center font-weight-bold"> Data Pendaftaran Keabsahan Akta Kelahiran</h5>
-            <p class="card-text text-black pt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </a>
+        <div class="d-flex justify-content-center">
+          <!-- Edit Button -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
+        </div>
       </div>
 
       <!-- Pelayanan Pemanfaatan Data dan Inovasi -->
@@ -88,9 +111,12 @@
           <img src="/img/silancar/kartu Pelayanan Pemanfaatan Data.png" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title text-black text-center font-weight-bold"> Data Pendaftaran Pelayanan Pemanfaatan Data dan Inovasi</h5>
-            <p class="card-text text-black pt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </a>
+        <div class="d-flex justify-content-center">
+          <!-- Edit Button -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
+        </div>
       </div>
 
       <!-- Perbaikan Data -->
@@ -99,9 +125,12 @@
           <img src="/img/silancar/Kartu Perbaikan Data.png" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-black text-center font-weight-bold"> Data Pendaftaran Perbaikan Data</h5>
-            <p class="card-text text-black pt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </a>
+        <div class="d-flex justify-content-center">
+          <!-- Edit Button -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
+        </div>
       </div>
 
       <!-- Pengaduan Update -->
@@ -110,9 +139,12 @@
           <img src="/img/silancar/Kartu Pengaduan Update.png" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title text-black text-center font-weight-bold"> Data Pendaftaran Pengaduan Update</h5>
-            <p class="card-text text-black pt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </a>
+        <div class="d-flex justify-content-center">
+          <!-- Edit Button -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
+        </div>
       </div>
 
     </div>

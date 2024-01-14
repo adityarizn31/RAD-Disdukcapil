@@ -8,23 +8,39 @@ use App\Models\InovasiModel;
 use App\Models\VisiMisiModel;
 use App\Models\PersyaratansilancarModel;
 
-use App\Models\Pendaftaran_kia_Model;
+// Halaman Pendaftaran Si Lancar
+
 use App\Models\Pendaftaran_kk_Model;
-use App\Models\Pendaftaran_ktp_Model;
+use App\Models\Pendaftaran_kia_Model;
+use App\Models\Pendaftaran_suratperpindahan_Model;
+use App\Models\Pendaftaran_suratperpindahanluar_Model;
+
 use App\Models\Pendaftaran_aktakelahiran_Model;
 use App\Models\Pendaftaran_aktakematian_Model;
+use App\Models\Pendaftaran_keabsahanakla_Model;
+
+use App\Models\Pendaftaran_pelayanandata_Model;
+
 use App\Models\Perbaikan_data_Model;
 use App\Models\Pengaduan_update_Model;
-use App\Models\Perbaikan_nik_Model;
+
+// Halaman Pelayanan
+
+use App\Models\PelayananModel;
 
 use App\Models\Pelayanan_kk_Model;
-use App\Models\Pelayanan_ktp_Model;
 use App\Models\Pelayanan_kia_Model;
+use App\Models\Pelayanan_suratperpindahan_Model;
+use App\Models\Pelayanan_suratperpindahanluar_Model;
+
 use App\Models\Pelayanan_aktakelahiran_Model;
 use App\Models\Pelayanan_aktakematian_Model;
+use App\Models\Pelayanan_keabsahanakla_Model;
+
+use App\Models\Pelayanan_pelayanandata_Model;
+
 use App\Models\Pelayanan_perbaikandata_Model;
 use App\Models\Pelayanan_pengaduanupdate_Model;
-use App\Models\Pelayanan_perbaikannik_Model;
 
 class EditUpdateAdmin extends BaseController
 {
@@ -35,23 +51,40 @@ class EditUpdateAdmin extends BaseController
   protected $visimisiModel;
   protected $persyaratansilancarModel;
 
+  // Halaman Pendaftaran Si Lancar
+
   protected $kkModel;
-  protected $ktpModel;
   protected $kiaModel;
+  protected $suratperpindahanModel;
+  protected $suratperpindahanluarModel;
+
   protected $aktakelahiranModel;
   protected $aktakematianModel;
+  protected $keabsahanaklaModel;
+
+  protected $pelayanandataModel;
+
   protected $perbaikandataModel;
   protected $pengaduanupdateModel;
-  protected $perbaikannikModel;
+
+  // Halaman Pelayanan
+
+  protected $pelayananModel;
 
   protected $pelkkModel;
-  protected $pelktpModel;
   protected $pelkiaModel;
+  protected $pelsuratperpindahanModel;
+  protected $pelsuratperpindahanluarModel;
+
   protected $pelaktakelahiranModel;
   protected $pelaktakematianModel;
+  protected $pelkeabsahanaklaModel;
+
+  protected $pelpelayanandataModel;
+
   protected $pelperbaikandataModel;
   protected $pelpengaduanupdateModel;
-  protected $pelperbaikannikModel;
+
 
   public function __construct()
   {
@@ -61,23 +94,39 @@ class EditUpdateAdmin extends BaseController
     $this->visimisiModel = new VisiMisiModel();
     $this->persyaratansilancarModel = new PersyaratansilancarModel();
 
+    // Halaman Pendaftaran Si Lancar
+
     $this->kkModel = new Pendaftaran_kk_Model();
-    $this->ktpModel = new Pendaftaran_ktp_Model();
     $this->kiaModel = new Pendaftaran_kia_Model();
-    $this->aktakelahiranModel = new Pendaftaran_aktakelahiran_Model();
+    $this->suratperpindahanModel = new Pendaftaran_suratperpindahan_Model();
+    $this->suratperpindahanluarModel = new Pendaftaran_suratperpindahanluar_Model();
+
     $this->aktakematianModel = new Pendaftaran_aktakematian_Model();
+    $this->aktakelahiranModel = new Pendaftaran_aktakelahiran_Model();
+    $this->keabsahanaklaModel = new Pendaftaran_keabsahanakla_Model();
+
+    $this->pelayanandataModel = new Pendaftaran_pelayanandata_Model();
+
     $this->perbaikandataModel = new Perbaikan_data_Model();
     $this->pengaduanupdateModel = new Pengaduan_update_Model();
-    $this->perbaikannikModel = new Perbaikan_nik_Model();
+
+    // Halaman Pelayanan
+
+    $this->pelayananModel = new PelayananModel();
 
     $this->pelkkModel = new Pelayanan_kk_Model();
-    $this->pelktpModel = new Pelayanan_ktp_Model();
     $this->pelkiaModel = new Pelayanan_kia_Model();
+    $this->pelsuratperpindahanModel = new Pelayanan_suratperpindahan_Model();
+    $this->pelsuratperpindahanluarModel = new Pelayanan_suratperpindahanluar_Model();
+
     $this->pelaktakelahiranModel = new Pelayanan_aktakelahiran_Model();
     $this->pelaktakematianModel = new Pelayanan_aktakematian_Model();
+    $this->pelkeabsahanaklaModel = new Pelayanan_keabsahanakla_Model();
+
+    $this->pelpelayanandataModel = new Pelayanan_pelayanandata_Model();
+
     $this->pelperbaikandataModel = new Pelayanan_perbaikandata_Model();
     $this->pelpengaduanupdateModel = new Pelayanan_pengaduanupdate_Model();
-    $this->pelperbaikannikModel = new Pelayanan_perbaikannik_Model();
   }
 
 
@@ -93,7 +142,7 @@ class EditUpdateAdmin extends BaseController
   public function editInovasi($judulInovasi)
   {
     $data = [
-      'title' => 'Form Edit Data Inovasi || Disdukcapil Majalengka',
+      'title' => 'Form Edit Data Inovasi || Admin Disdukcapil',
       'validation' => \Config\Services::validation(),
       'inovasi' => $this->inovasiModel->getInovasi($judulInovasi)
     ];
@@ -178,7 +227,7 @@ class EditUpdateAdmin extends BaseController
   public function editBerita($judulBerita)
   {
     $data = [
-      'title' => 'Form Edit Data Berita || Disdukcapil Majalengka',
+      'title' => 'Form Edit Data Berita || Admin Disdukcapil',
       'validation' => \Config\Services::validation(),
       'berita' => $this->beritaModel->getBerita($judulBerita)
     ];
@@ -263,7 +312,7 @@ class EditUpdateAdmin extends BaseController
   public function editVisiMisi($visimisi)
   {
     $data = [
-      'title' => 'Form Edit Visi Misi || Disdukcapil Majalengka',
+      'title' => 'Form Edit Visi Misi || Admin Disdukcapil',
       'validation' => \Config\Services::validation(),
       'visimisi' => $this->visimisiModel->getVisiMisi($visimisi)
     ];
@@ -275,7 +324,7 @@ class EditUpdateAdmin extends BaseController
     if (!$this->validate([
       // Foto Visi Misi
       'fotovisimisi' => [
-        'rules' => 'max_size[fotovisimisi,1024]|is_image[fotovisimisi]|mime_in[fotovisimisi,image/jpg,image/jpeg,image/png]',
+        'rules' => 'max_size[fotovisimisi,2048]|is_image[fotovisimisi]|mime_in[fotovisimisi,image/jpg,image/jpeg,image/png]',
         'errors' => [
           'max_size' => 'Ukuran Gambar terlalu besar !!',
           'is_image' => 'Yang anda pilih bukan gambar !!',
@@ -284,7 +333,7 @@ class EditUpdateAdmin extends BaseController
       ]
     ])) {
 
-      return redirect()->to(base_url() . '/EditUpdateAdmin/editVisiMisi/' . $this->request->getVar('visi'))->withInput();
+      return redirect()->to(base_url() . '/EditUpdateAdmin/editVisiMisi/' . $this->request->getVar('fotovisimisi'))->withInput();
     }
 
     $fileFotoVisiMisi = $this->request->getFile('fotovisimisi');
@@ -406,17 +455,17 @@ class EditUpdateAdmin extends BaseController
 
 
   // Halaman Edit Card Pelayanan KK
-  public function edit_pelayanan_kk()
+  public function editPelayananKK($pelayanan_kk)
   {
     $data = [
-      'title' => 'Form Edit Card Pelayanan Kartu Keluarga || Disdukcapil Majalengka',
+      'title' => 'Form Edit Card Pelayanan Kartu Keluarga || Admin Disdukcapil',
       'validation' => \Config\Services::validation(),
-      'pelayanan_kk' => $this->pelkkModel->getDataPelayananKK()
+      'pelayanan_kk' => $this->pelkkModel->getDataPelayananKK($pelayanan_kk)
     ];
-    return view('editAdmin/edit_pelayanan_kk', $data);
+    return view('editAdmin/edit_pelayanankk_admin', $data);
   }
 
-  public function updatePelayanankk($id)
+  public function updatePelayananKK($id)
   {
     if (!$this->validate([
       'judulpelayanan' => [
@@ -426,23 +475,41 @@ class EditUpdateAdmin extends BaseController
         ]
       ],
       'fotopelayanan' => [
-        'rules' => 'max_size[fotoberita,1024]|is_image[fotoberita]|mime_in[fotoberita,image/jpg,image/jpeg,image/png]',
+        'rules' => 'max_size[fotopelayanan,2048]|is_image[fotopelayanan]|mime_in[fotopelayanan,image/jpg,image/jpeg,image/png]',
         'errors' => [
           'max_size' => 'Ukuran Gambar terlalu besar !!',
           'is_image' => 'Yang anda pilih bukan gambar !!',
           'mime_in' => 'Yang anda pilih bukan gambar'
         ]
-      ],
-      'keteranganpelayanan' => [
-        'rules' => 'required[pelayanan_kk.keteranganpelayanan]',
-        'errors' => [
-          'required' => 'Keterangan Pelayanan Harus Diisi !!'
-        ]
       ]
     ])) {
-      # code...
+      return redirect()->to(base_url() . '/EditUpdateAdmin/editPelayananKK/' . $this->request->getVar('judulpelayanan'))->withInput();
     }
+
+    $fileFotoPelayanan = $this->request->getFile('fotopelayanan');
+
+    if ($fileFotoPelayanan->getError() == 4) {
+      $namaFotoPelayanan = $this->request->getVar('fotolama');
+    } else {
+      // Generate nama File Random
+      $namaFotoPelayanan = $fileFotoPelayanan->getRandomName();
+      // Memindahkan File Random
+      $fileFotoPelayanan->move('img/pelayananKK', $namaFotoPelayanan);
+      // Menghapus File lama
+      unlink('img/pelayananKK/' . $this->request->getVar('fotolama'));
+    }
+
+    $this->pelkkModel->save(
+      [
+        'id' => $id,
+        'fotopelayanan' => $namaFotoPelayanan,
+        'judulpelayanan' => $this->request->getVar('judulpelayanan')
+      ]
+    );
+    session()->setFlashdata('pesan', 'Data Pelayanan KK berhasil diubah !!');
+    return redirect()->to('admin/pelayanan');
   }
+
 
 
 

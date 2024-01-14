@@ -16,6 +16,22 @@
       <div class="m-0 font-weight-bold text-primary"> Visi Misi Disdukcapil </div>
     </div>
 
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col">
+
+          <?php if (session()->getFlashdata('pesan')) : ?>
+
+            <div class="alert alert-success" role="alert">
+              <?= session()->getFlashdata('pesan'); ?>
+            </div>
+
+          <?php endif; ?>
+
+        </div>
+      </div>
+    </div>
+
     <div class="container">
       <div class="row">
         <div class="col">
@@ -37,6 +53,7 @@
 
             </div>
 
+            // Diarahkan ke halaman Form Ganti Foto Visi Misi
             <a href="/EditUpdateAdmin/editVisiMisi/<?= $v['fotovisimisi'] ?>" class="btn btn-warning">Edit</a>
 
           </div>

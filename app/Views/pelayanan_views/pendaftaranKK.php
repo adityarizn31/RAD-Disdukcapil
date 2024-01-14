@@ -5,7 +5,7 @@ $waktuSekarang = new DateTime('now', new DateTimeZone('Asia/Jakarta'));
 $jamSekarang = $waktuSekarang->format('G');
 
 // Check if the access time is within the allowed range (8 AM to 11 AM)
-if ($jamSekarang >= 8 && $jamSekarang < 14) {
+if ($jamSekarang >= 8 && $jamSekarang < 11) {
   // Allow access to the form
 ?>
 
@@ -132,6 +132,8 @@ if ($jamSekarang >= 8 && $jamSekarang < 14) {
               </div>
             </div>
           </div>
+
+          <input type="hidden" name="status" id="status" value="Belum Di Proses">
 
           <hr>
 

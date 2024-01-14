@@ -73,6 +73,8 @@
       document.getElementById("main-content").classList.toggle("active-main-content");
     });
 
+
+
     // Halaman Berita
     function previewImgBerita() {
       const fotoberita = document.querySelector('#fotoberita');
@@ -85,6 +87,7 @@
         imgPreviewBerita.src = e.target.result;
       }
     }
+
 
 
     // Halaman Inovasi
@@ -102,6 +105,22 @@
 
 
 
+
+    // Halaman Visi Misi
+    function previewImgVisiMisi() {
+      const fotovisimisi = document.querySelector('#fotovisimisi');
+      const imgPreviewVisiMisi = document.querySelector('.img-preview');
+
+      const filefotovisimisi = new FileReader();
+      filefotovisimisi.readAsDataURL(fotovisimisi.files[0]);
+
+      filefotovisimisi.onload = function(e) {
+        imgPreviewVisiMisi.src = e.target.result;
+      }
+    }
+
+
+
     // Halaman Persyaratan
     function previewImgPersyaratan() {
       const fotopersyaratan = document.querySelector('#fotopersyaratan');
@@ -114,7 +133,6 @@
         imgPreviewPersyaratan.src = e.target.result;
       }
     }
-
 
 
 

@@ -10,8 +10,10 @@ use App\Models\InovasiModel;
 use App\Models\VisiMisiModel;
 use App\Models\PersyaratansilancarModel;
 
-use App\Models\Pendaftaran_kia_Model;
+// Halaman Pendaftaran Si Lancar
+
 use App\Models\Pendaftaran_kk_Model;
+use App\Models\Pendaftaran_kia_Model;
 use App\Models\Pendaftaran_suratperpindahan_Model;
 use App\Models\Pendaftaran_suratperpindahanluar_Model;
 
@@ -24,13 +26,23 @@ use App\Models\Pendaftaran_pelayanandata_Model;
 use App\Models\Perbaikan_data_Model;
 use App\Models\Pengaduan_update_Model;
 
-use App\Models\Pendaftaran_ktp_Model;
-use App\Models\Perbaikan_nik_Model;
+// Halaman Pelayanan
 
 use App\Models\PelayananModel;
 
+use App\Models\Pelayanan_kk_Model;
+use App\Models\Pelayanan_kia_Model;
+use App\Models\Pelayanan_suratperpindahan_Model;
+use App\Models\Pelayanan_suratperpindahanluar_Model;
 
+use App\Models\Pelayanan_aktakelahiran_Model;
+use App\Models\Pelayanan_aktakematian_Model;
+use App\Models\Pelayanan_keabsahanakla_Model;
 
+use App\Models\Pelayanan_pelayanandata_Model;
+
+use App\Models\Pelayanan_perbaikandata_Model;
+use App\Models\Pelayanan_pengaduanupdate_Model;
 
 class Admin extends BaseController
 {
@@ -41,13 +53,15 @@ class Admin extends BaseController
   protected $visimisiModel;
   protected $persyaratansilancarModel;
 
+  // Halaman Pendaftaran Si Lancar
+
   protected $kkModel;
   protected $kiaModel;
   protected $suratperpindahanModel;
   protected $suratperpindahanluarModel;
 
-  protected $aktakematianModel;
   protected $aktakelahiranModel;
+  protected $aktakematianModel;
   protected $keabsahanaklaModel;
 
   protected $pelayanandataModel;
@@ -55,10 +69,23 @@ class Admin extends BaseController
   protected $perbaikandataModel;
   protected $pengaduanupdateModel;
 
-  protected $ktpModel;
-  protected $perbaikannikModel;
+  // Halaman Pelayanan
 
   protected $pelayananModel;
+
+  protected $pelkkModel;
+  protected $pelkiaModel;
+  protected $pelsuratperpindahanModel;
+  protected $pelsuratperpindahanluarModel;
+
+  protected $pelaktakelahiranModel;
+  protected $pelaktakematianModel;
+  protected $pelkeabsahanaklaModel;
+
+  protected $pelpelayanandataModel;
+
+  protected $pelperbaikandataModel;
+  protected $pelpengaduanupdateModel;
 
 
   public function __construct()
@@ -68,6 +95,8 @@ class Admin extends BaseController
     $this->inovasiModel = new InovasiModel();
     $this->visimisiModel = new VisiMisiModel();
     $this->persyaratansilancarModel = new PersyaratansilancarModel();
+
+    // Halaman Pendaftaran Si Lancar
 
     $this->kkModel = new Pendaftaran_kk_Model();
     $this->kiaModel = new Pendaftaran_kia_Model();
@@ -83,10 +112,23 @@ class Admin extends BaseController
     $this->perbaikandataModel = new Perbaikan_data_Model();
     $this->pengaduanupdateModel = new Pengaduan_update_Model();
 
-    $this->perbaikannikModel = new Perbaikan_nik_Model();
-    $this->ktpModel = new Pendaftaran_ktp_Model();
+    // Halaman Pelayanan
 
     $this->pelayananModel = new PelayananModel();
+
+    $this->pelkkModel = new Pelayanan_kk_Model();
+    $this->pelkiaModel = new Pelayanan_kia_Model();
+    $this->pelsuratperpindahanModel = new Pelayanan_suratperpindahan_Model();
+    $this->pelsuratperpindahanluarModel = new Pelayanan_suratperpindahanluar_Model();
+
+    $this->pelaktakelahiranModel = new Pelayanan_aktakelahiran_Model();
+    $this->pelaktakematianModel = new Pelayanan_aktakematian_Model();
+    $this->pelkeabsahanaklaModel = new Pelayanan_keabsahanakla_Model();
+
+    $this->pelpelayanandataModel = new Pelayanan_pelayanandata_Model();
+
+    $this->pelperbaikandataModel = new Pelayanan_perbaikandata_Model();
+    $this->pelpengaduanupdateModel = new Pelayanan_pengaduanupdate_Model();
   }
 
 
@@ -120,7 +162,7 @@ class Admin extends BaseController
       'pendaftaran_keabsahanakla' => $pendaftaran_keabsahanakla,
       'pendaftaran_pelayanandata' => $pendaftaran_pelayanandata,
       'pendaftaran_perbaikandata' => $pendaftaran_perbaikandata,
-      'pendaftaran_pengaduanupdate' => $pendaftaran_pengaduanupdate
+      'pendaftaran_pengaduanupdate' => $pendaftaran_pengaduanupdate,
     ];
     return view('admin/index', $data);
   }
@@ -221,9 +263,11 @@ class Admin extends BaseController
   public function pelayanan()
   {
     // Menghubungkan Controller Admin dengan Pelayanan
+    $pelayanan_kk = $this->pelkkModel->findAll();
     $data = [
       'title' => 'Pelayanan Si Lancar || Disdukcapil Majalengka',
-      'pelayanan' => $this->pelayananModel->getDataPelayanan()
+      'pelayanan' => $this->pelayananModel->getDataPelayanan(),
+      'pelayanan_kk' => $pelayanan_kk
     ];
     return view('admin/pelayanan', $data);
   }
@@ -506,24 +550,6 @@ class Admin extends BaseController
 
 
 
-
-
-
-  // Menampilkan data Perbaikan NIK pada halaman Admin
-  public function pendaftaran_perbaikannik_admin()
-  {
-    // Menghubungkan Controller Admin dengan Perbaikan NIK Model
-    // $perbaikannik = $this->perbaikannikModel->findAll();
-    $currentPagePernik =  $this->request->getVar('page_perbaikan_nik') ? $this->request->getVar('page_perbaikan_nik') : 1;
-    $data = [
-      'title' => 'Data Perbaikan NIK || Admin Disdukcapil',
-      'perbaikan_nik'   => $this->perbaikannikModel->getDataPerbaikanNIK(),
-      'perbaikan_nik' => $this->perbaikannikModel->paginate(10, 'perbaikan_nik'),
-      'pager' => $this->perbaikannikModel->pager,
-      'currentPage' => $currentPagePernik
-    ];
-    return view('admin/pendaftaran_perbaikannik_admin', $data);
-  }
 
 
 

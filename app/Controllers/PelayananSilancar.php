@@ -17,7 +17,7 @@ use App\Models\Pendaftaran_pelayanandata_Model;
 use App\Models\Perbaikan_data_Model;
 use App\Models\Pengaduan_update_Model;
 
-use App\Models\Perbaikan_nik_Model;
+
 
 class PelayananSilancar extends BaseController
 {
@@ -54,8 +54,6 @@ class PelayananSilancar extends BaseController
 
     $this->perbaikandataModel = new Perbaikan_data_Model();
     $this->pengaduanupdateModel = new Pengaduan_update_Model();
-
-    $this->perbaikannikModel = new Perbaikan_nik_Model();
   }
 
   public function index()

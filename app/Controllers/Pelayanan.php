@@ -2,45 +2,129 @@
 
 namespace App\Controllers;
 
+use App\Models\AdminModel;
+use App\Models\BeritaModel;
+use App\Models\InovasiModel;
+use App\Models\VisiMisiModel;
+use App\Models\PersyaratansilancarModel;
+
+// Halaman Pendaftaran Si Lancar
+
 use App\Models\Pendaftaran_kk_Model;
-use App\Models\Pendaftaran_ktp_Model;
 use App\Models\Pendaftaran_kia_Model;
-use App\Models\Perpindahan_kabprov_Model;
+use App\Models\Pendaftaran_suratperpindahan_Model;
+use App\Models\Pendaftaran_suratperpindahanluar_Model;
 
 use App\Models\Pendaftaran_aktakelahiran_Model;
 use App\Models\Pendaftaran_aktakematian_Model;
-use App\Models\Pendaftaran_kabprov_Model;
+use App\Models\Pendaftaran_keabsahanakla_Model;
+
+use App\Models\Pendaftaran_pelayanandata_Model;
+
 use App\Models\Perbaikan_data_Model;
 use App\Models\Pengaduan_update_Model;
-use App\Models\Perbaikan_nik_Model;
+
+// Halaman Pelayanan
+
+use App\Models\PelayananModel;
+
+use App\Models\Pelayanan_kk_Model;
+use App\Models\Pelayanan_kia_Model;
+use App\Models\Pelayanan_suratperpindahan_Model;
+use App\Models\Pelayanan_suratperpindahanluar_Model;
+
+use App\Models\Pelayanan_aktakelahiran_Model;
+use App\Models\Pelayanan_aktakematian_Model;
+use App\Models\Pelayanan_keabsahanakla_Model;
+
+use App\Models\Pelayanan_pelayanandata_Model;
+
+use App\Models\Pelayanan_perbaikandata_Model;
+use App\Models\Pelayanan_pengaduanupdate_Model;
 
 class Pelayanan extends BaseController
 {
+  protected $adminModel;
+  protected $beritaModel;
+  protected $inovasiModel;
+  protected $visimisiModel;
+  protected $persyaratansilancarModel;
+
+  // Halaman Pendaftaran Si Lancar
+
   protected $kkModel;
-  protected $ktpModel;
   protected $kiaModel;
-  protected $kabprovModel;
+  protected $suratperpindahanModel;
+  protected $suratperpindahanluarModel;
 
   protected $aktakelahiranModel;
   protected $aktakematianModel;
+  protected $keabsahanaklaModel;
+
+  protected $pelayanandataModel;
 
   protected $perbaikandataModel;
   protected $pengaduanupdateModel;
-  protected $perbaikannikModel;
+
+  // Halaman Pelayanan
+
+  protected $pelayananModel;
+
+  protected $pelkkModel;
+  protected $pelkiaModel;
+  protected $pelsuratperpindahanModel;
+  protected $pelsuratperpindahanluarModel;
+
+  protected $pelaktakelahiranModel;
+  protected $pelaktakematianModel;
+  protected $pelkeabsahanaklaModel;
+
+  protected $pelpelayanandataModel;
+
+  protected $pelperbaikandataModel;
+  protected $pelpengaduanupdateModel;
 
   public function __construct()
   {
-    $this->kkModel = new Pendaftaran_kk_Model();
-    $this->ktpModel = new Pendaftaran_ktp_Model();
-    $this->kiaModel = new Pendaftaran_kia_Model();
-    $this->kabprovModel = new Pendaftaran_kabprov_Model();
+    $this->adminModel = new AdminModel();
+    $this->beritaModel = new BeritaModel();
+    $this->inovasiModel = new InovasiModel();
+    $this->visimisiModel = new VisiMisiModel();
+    $this->persyaratansilancarModel = new PersyaratansilancarModel();
 
-    $this->aktakelahiranModel = new Pendaftaran_aktakelahiran_Model();
+    // Halaman Pendaftaran Si Lancar
+
+    $this->kkModel = new Pendaftaran_kk_Model();
+    $this->kiaModel = new Pendaftaran_kia_Model();
+    $this->suratperpindahanModel = new Pendaftaran_suratperpindahan_Model();
+    $this->suratperpindahanluarModel = new Pendaftaran_suratperpindahanluar_Model();
+
     $this->aktakematianModel = new Pendaftaran_aktakematian_Model();
+    $this->aktakelahiranModel = new Pendaftaran_aktakelahiran_Model();
+    $this->keabsahanaklaModel = new Pendaftaran_keabsahanakla_Model();
+
+    $this->pelayanandataModel = new Pendaftaran_pelayanandata_Model();
 
     $this->perbaikandataModel = new Perbaikan_data_Model();
     $this->pengaduanupdateModel = new Pengaduan_update_Model();
-    $this->perbaikannikModel = new Perbaikan_nik_Model();
+
+    // Halaman Pelayanan
+
+    $this->pelayananModel = new PelayananModel();
+
+    $this->pelkkModel = new Pelayanan_kk_Model();
+    $this->pelkiaModel = new Pelayanan_kia_Model();
+    $this->pelsuratperpindahanModel = new Pelayanan_suratperpindahan_Model();
+    $this->pelsuratperpindahanluarModel = new Pelayanan_suratperpindahanluar_Model();
+
+    $this->pelaktakelahiranModel = new Pelayanan_aktakelahiran_Model();
+    $this->pelaktakematianModel = new Pelayanan_aktakematian_Model();
+    $this->pelkeabsahanaklaModel = new Pelayanan_keabsahanakla_Model();
+
+    $this->pelpelayanandataModel = new Pelayanan_pelayanandata_Model();
+
+    $this->pelperbaikandataModel = new Pelayanan_perbaikandata_Model();
+    $this->pelpengaduanupdateModel = new Pelayanan_pengaduanupdate_Model();
   }
 
   public function index()
@@ -216,99 +300,6 @@ class Pelayanan extends BaseController
 
 
 
-  // Si Lancar 1
-  // Menampilkan Form Pendaftaran KTP
-  public function pendaftaran_ktp()
-  {
-    helper(['form']);
-    $data = [
-      'title' => 'Pendaftaran KTP || Disdukcapil Majalengka',
-      'validation' => \Config\Services::validation()
-    ];
-    return view('pelayanan/pendaftaran_ktp', $data);
-  }
-
-  // Validasi Pendaftaran KK
-  public function saveKTP()
-  {
-    if (!$this->validate([
-
-      // Form Nama Pemohon
-      'namapemohon' => [
-        'rules' => 'required[pendaftaran_ktp.namapemohon]',
-        'errors' => [
-          'required' => 'Nama Pemohon Harus Diisi !!'
-        ]
-      ],
-      // Form Email Pemohon
-      'emailpemohon' => [
-        'rules' => 'required[pendaftaran_ktp.emailpemohon]|valid_email',
-        'errors' => [
-          'required' => 'Email Pemohon Harus Diisi !!',
-          'valid_email' => 'Mohon cek kembali email anda, gunakan @ agar valid !!'
-        ]
-      ],
-      // Form Nomor Pemohon
-      'nomorpemohon' => [
-        'rules' => 'required[pendaftaran_ktp.nomorpemohon]',
-        'errors' => [
-          'required' => 'Nomor Pemohon Harus Diisi !!'
-        ]
-      ],
-      // Form Alamat Pemohon
-      'alamatpemohon' => [
-        'rules' => 'required[pendaftaran_ktp.alamatpemohon]',
-        'errors' => [
-          'required' => 'Alamat Pemohon Harus Diisi !!'
-        ]
-      ],
-      // Form Formulir Desa
-      'formulirf102ktp' => [
-        'rules' => 'uploaded[formulirf102ktp]|max_size[formulirf102ktp,1024]|mime_in[formulirf102ktp,application/pdf]|ext_in[formulirf102ktp,pdf]',
-        'errors' => [
-          'uploaded' => 'Formulir F102 KTP Harus Diisi !!',
-          'max_size' => 'File anda terlalu besar, Kompress terlebih dahulu !!',
-          'mime_in' => 'Format File Harus PDF !!',
-          'ext_in' => ''
-        ]
-      ],
-      // Form KK Suami
-      'kartukeluarga' => [
-        'rules' => 'uploaded[kartukeluarga]|max_size[kartukeluarga,1024]|mime_in[kartukeluarga,application/pdf]|ext_in[kartukeluarga,pdf]',
-        'errors' => [
-          'uploaded' => 'Kartu Keluarga Harus Diisi !!',
-          'max_size' => 'File anda terlalu besar, Kompress terlebih dahulu !!',
-          'mime_in' => 'Format File Harus PDF !!',
-          'ext_in' => ''
-        ]
-      ]
-
-    ])) {
-      return redirect()->to(base_url() . '/pelayanan/pendaftaran_ktp/')->withInput();
-    }
-
-    // Berkas Formulir Desa
-    $berkasFormulirf102ktp_KTP = $this->request->getFile('formulirf102ktp');
-    $namaformulirf102ktp_KTP = $berkasFormulirf102ktp_KTP->getName();
-    $berkasFormulirf102ktp_KTP->move('pelayanan/ktp', $namaformulirf102ktp_KTP);
-
-    // Berkas KK Suami
-    $berkasKK_KTP = $this->request->getFile('kartukeluarga');
-    $namaKK_KTP = $berkasKK_KTP->getName();
-    $berkasKK_KTP->move('pelayanan/ktp', $namaKK_KTP);
-
-    $this->ktpModel->save([
-      'namapemohon' => $this->request->getVar('namapemohon'),
-      'emailpemohon' => $this->request->getVar('emailpemohon'),
-      'nomorpemohon' => $this->request->getVar('nomorpemohon'),
-      'alamatpemohon' => $this->request->getVar('alamatpemohon'),
-      'formulirf102ktp' => $namaformulirf102ktp_KTP,
-      'kartukeluarga' => $namaKK_KTP
-    ]);
-    session()->setFlashdata('pesan', 'Selamat Pendaftaran KTP anda berhasil !!');
-    return redirect()->to('/pelayanan/pendaftaran_ktp');
-  }
-
 
 
 
@@ -443,111 +434,7 @@ class Pelayanan extends BaseController
 
 
 
-  // Si Lancar 1
-  // Menampilkan Form Pendaftaran Perpindahan Pendatang Provinsi dan Kabupaten
-  public function pendaftaran_perpindahankabprov()
-  {
-    helper(['form']);
-    $data = [
-      'title' => 'Pendaftaran Perpindahan Datang Kabupaten dan Provinsi',
-      'validation' => \Config\Services::validation()
-    ];
-    return view('pelayanan/pendaftaran_perpindahankabprov', $data);
-  }
 
-  // Validasi Pendaftaran Perpindahan Kab dan Prov
-  public function savePerpindahanKabProv()
-  {
-    if (!$this->validate([
-
-      // Form Nama Pemohon
-      'namapemohon' => [
-        'rules' => 'required[pendaftaran_aktakelahiran.namapemohon]',
-        'errors' => [
-          'required' => 'Nama Pemohon Harus Diisi !!'
-        ]
-      ],
-      // Form Email Pemohon
-      'emailpemohon' => [
-        'rules' => 'required[pendaftaran_aktakelahiran.emailpemohon]|valid_email',
-        'errors' => [
-          'required' => 'Email Pemohon Harus Diisi !!',
-          'valid_email' => 'Mohon cek kembali email anda, gunakan @ agar valid !!'
-        ]
-      ],
-      // Form Nomor Pemohon
-      'nomorpemohon' => [
-        'rules' => 'required[pendaftaran_aktakelahiran.nomorpemohon]',
-        'errors' => [
-          'required' => 'Nomor Pemohon Harus Diisi !!'
-        ]
-      ],
-      // Form Alamat Pemohon
-      'alamatpemohon' => [
-        'rules' => 'required[pendaftaran_aktakelahiran.alamatpemohon]',
-        'errors' => [
-          'required' => 'Alamat Pemohon Harus Diisi !!'
-        ]
-      ],
-      // Berkas Kartu Keluarga
-      'kartukeluarga' => [
-        'rules' => 'max_size[kartukeluarga,2048]|mime_in[kartukeluarga,application/pdf]|ext_in[kartukeluarga,pdf]',
-        'errors' => [
-          'max_size' => 'File anda terlalu besar Min 2MB, Kompress Terlebih dahulu !!',
-          'mime_in' => 'Format File Harus PDF !!',
-          'ext_in' => 'Ekstension Format .PDF'
-        ]
-      ],
-      // Berkas Kartu Tanda Penduduk
-      'kartutandapenduduk' => [
-        'rules' => 'max_size[kartutandapenduduk,2048]|mime_in[kartutandapenduduk,application/pdf]|ext_in[kartutandapenduduk,pdf]',
-        'errors' => [
-          'max_size' => 'File anda terlalu besar Min 2MB, Kompress Terlebih dahulu !!',
-          'mime_in' => 'Format File Harus PDF !!',
-          'ext_in' => 'Ekstension Format .PDF'
-        ]
-      ],
-      // Berkas SKPWNI
-      'skpwni' => [
-        'rules' => 'max_size[skpwni,2048]|mime_in[skpwni,application/pdf]|ext_in[skpwni,pdf]',
-        'errors' => [
-          'max_size' => 'File anda terlalu besar Min 2MB, Kompress Terlebih dahulu !!',
-          'mime_in' => 'Format File Harus PDF !!',
-          'ext_in' => 'Ekstension Format .PDF'
-        ]
-      ]
-
-    ])) {
-      return redirect()->to(base_url() . '/pelayanan/pendaftaran_perpindahankabprov')->withInput();
-    }
-
-    // Berkas Kartu Keluarga
-    $berkasKartuKeluarga_Perpindahan = $this->request->getFile('kartukeluarga');
-    $namaKartuKeluarga_Perpindahan = $berkasKartuKeluarga_Perpindahan->getName();
-    $berkasKartuKeluarga_Perpindahan->move('pelayanan/perpindahankabprov', $namaKartuKeluarga_Perpindahan);
-
-    // Berkas Kartu Tanda Penduduk
-    $berkasKartuTandaPenduduk_Perpindahan = $this->request->getFile('kartutandapenduduk');
-    $namaKartuTandaPenduduk_Perpindahan = $berkasKartuTandaPenduduk_Perpindahan->getName();
-    $berkasKartuTandaPenduduk_Perpindahan->move('pelayanan/perpindahankabprov', $namaKartuTandaPenduduk_Perpindahan);
-
-    // Berkas SKPWNI
-    $berkasSKPWNI_Perpindahan = $this->request->getFile('skpwni');
-    $namaSKWPNI_Perpindahan = $berkasSKPWNI_Perpindahan->getName();
-    $berkasSKPWNI_Perpindahan->move('pelayanan/perpindahankabprov', $namaSKWPNI_Perpindahan);
-
-    $this->kabprovModel->save([
-      'namapemohon' => $this->request->getVar('namapemohon'),
-      'emailpemohon' => $this->request->getVar('emailpemohon'),
-      'nomorpemohon' => $this->request->getVar('nomorpemohon'),
-      'alamatpemohon' => $this->request->getVar('alamatpemohon'),
-      'kartukeluarga' => $namaKartuKeluarga_Perpindahan,
-      'kartutandapenduduk' => $namaKartuTandaPenduduk_Perpindahan,
-      'skpwni' => $namaSKWPNI_Perpindahan
-    ]);
-    session()->setFlashdata('pesan', 'Selamat Pendaftara Akta Kelahiran Anda Berhasil !!');
-    return redirect()->to('/pelayanan/pendaftaran_perpindahankabprov/');
-  }
 
 
 
@@ -1070,98 +957,7 @@ class Pelayanan extends BaseController
 
 
 
-  // Menampilkan Form Perbaikan NIK
-  public function pendaftaran_perbaikannik()
-  {
-    helper(['form']);
-    $data = [
-      'title' => 'Perbaikan NIK || Disdukcapil Majalengka',
-      'validation' => \Config\Services::validation()
-    ];
-    return view('pelayanan/pendaftaran_perbaikannik', $data);
-  }
 
-  // Validasi Form Perbaikan NIK
-  public function savePerbaikanNIK()
-  {
-
-    // $periksa = $this->validate([
-    if (!$this->validate([
-      //Form Nama Pemohon
-      'namapemohon' => [
-        'rules' => 'required[perbaikan_nik.namapemohon]',
-        'errors' => [
-          'required' => 'Nama Pemohon Harus Diisi !!'
-        ]
-      ],
-      //Form Email Pemohon
-      'emailpemohon' => [
-        'rules' => 'required[perbaikan_nik.emailpemohon]|valid_email',
-        'errors' => [
-          'required' => 'Email Pemohon Harus Diisi !!',
-          'valid_email' => 'Mohon cek kembali email anda, gunakan @ agar valid !!'
-        ]
-      ],
-      //Form Nomor Pemohon
-      'nomorpemohon' => [
-        'rules' => 'required[perbaikan_nik.nomorpemohon]',
-        'errors' => [
-          'required' => 'Nomor Pemohon Harus Diisi !!'
-        ]
-      ],
-      //Form Alamat Pemohon
-      'alamatpemohon' => [
-        'rules' => 'required[perbaikan_nik.alamatpemohon]',
-        'errors' => [
-          'required' => 'Alamat Pemohon Harus Diisi !!'
-        ]
-      ],
-      // Berkas KTP
-      'kartutandapenduduk' => [
-        'rules' => 'uploaded[kartutandapenduduk]|max_size[kartutandapenduduk,1024]|mime_in[kartutandapenduduk,application/pdf]|ext_in[kartutandapenduduk,pdf]',
-        'errors' => [
-          'uploaded' => 'Kartu Tanda Penduduk Harus Diisi !!',
-          'max_size' => 'File anda terlalu besar, Kompress terlebih dahulu !!',
-          'mime_in' => 'Format File Harus PDF !!',
-          'ext_in' => ''
-        ]
-      ],
-      // Berkas KK
-      'kartukeluarga' => [
-        'rules' => 'uploaded[kartukeluarga]|max_size[kartukeluarga,1024]|mime_in[kartukeluarga,application/pdf]|ext_in[kartukeluarga,pdf]',
-        'errors' => [
-          'uploaded' => 'Surat Pindah Harus Diisi !!',
-          'max_size' => 'File anda terlalu besar, Kompress terlebih dahulu !!',
-          'mime_in' => 'Format File Harus PDF !!',
-          'ext_in' => ''
-        ]
-      ]
-
-    ])) {
-      return redirect()->to(base_url() . '/pelayanan/pendaftaran_perbaikannik')->withInput();
-    }
-
-    // Berkas KTP Perbaikan NIK
-    $berkasKTP_PerNIK = $this->request->getFile('kartutandapenduduk');
-    $namaKTP_PerNIK = $berkasKTP_PerNIK->getName();
-    $berkasKTP_PerNIK->move('pelayanan/perbaikan_nik', $namaKTP_PerNIK);
-
-    // Berkas KK Perbaikan Nik
-    $berkasKK_PerNIK = $this->request->getFile('kartukeluarga');
-    $namaKK_PerNIK = $berkasKK_PerNIK->getName();
-    $berkasKK_PerNIK->move('pelayanan/perbaikan_nik', $namaKK_PerNIK);
-
-    $this->perbaikannikModel->save([
-      'namapemohon' => $this->request->getVar('namapemohon'),
-      'emailpemohon' => $this->request->getVar('emailpemohon'),
-      'nomorpemohon' => $this->request->getVar('nomorpemohon'),
-      'alamatpemohon' => $this->request->getVar('alamatpemohon'),
-      'kartutandapenduduk' => $namaKTP_PerNIK,
-      'kartukeluarga' => $namaKK_PerNIK
-    ]);
-    session()->setFlashdata('pesan', 'Selamat Pendaftaran Perbaikan NIK anda Berhasil !!');
-    return redirect()->to('/pelayanan/pendaftaran_perbaikannik/');
-  }
 
 
 

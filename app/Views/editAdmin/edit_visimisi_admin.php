@@ -16,16 +16,19 @@
         <h6 class="m-0 font-weight-bold text-primary">Ubah Visi Misi admin</h6>
       </div>
 
-      <form action="/EditUpdateAdmin/updateVisiMisi/<?= $visimisi['id']; ?>" method="post">
+      <!-- Diarahkan ke Method baru yang terdapat dalam Controller EditUpdateAdmin -->
+      <form action="/EditUpdateAdmin/updateVisiMisi/<?= $visimisi['id']; ?>" method="post" enctype="multipart/form-data">
 
         <!-- Keamanan -->
         <?= csrf_field(); ?>
+
+        <input type="hidden" name="fotolama" value="<?= $visimisi['fotovisimisi']; ?>">
 
         <!-- Form Upload File -->
         <div class="row">
           <div class="mb-3">
             <label for="fotovisimisi" class="form-label fw-semibold">Foto Visi Misi</label>
-            <input type="file" class="form-control <?= ($validation->hasError('fotovisimisi')) ? 'is-invalid' : '';  ?>" name="fotovisimisi" id="fotovisimisi" value="<?= old('fotovisimisi'); ?>" onchange="previewImgVisimisi()">
+            <input type="file" class="form-control <?= ($validation->hasError('fotovisimisi')) ? 'is-invalid' : '';  ?>" name="fotovisimisi" id="fotovisimisi" value="<?= old('fotovisimisi'); ?>" onchange="previewImgVisiMisi()">
             <div class="invalid-feedback">
               <?= $validation->getError('fotovisimisi'); ?>
             </div>
@@ -36,7 +39,7 @@
         </div>
 
         <div class="d-grid gap-2 col-6 mx-auto">
-          <button type="submit" value="submit" name="submit" id="submit" class="btn btn-primary">Ubah Berita</button>
+          <button type="submit" value="submit" name="submit" id="submit" class="btn btn-primary">Ubah Foto Visi Misi</button>
         </div>
 
       </form>
