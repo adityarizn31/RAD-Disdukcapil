@@ -17,7 +17,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 14) {
   <div class="container" style="padding: 10px;">
     <div class="card shadow mb-4" style="padding: 20px;">
       <div class="container">
-        <h4 class="text-center fw-semibold"> Pendaftaran Surat Perpindahan Domisili dari Luar Menuju Majalengka</h4>
+        <h4 class="text-center fw-semibold"> Pendaftaran Surat Perpindahan Domisili dari Luar Menuju Majalengka </h4>
 
         <?php if (session()->getFlashdata('pesan')) : ?>
 
@@ -35,7 +35,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 14) {
           <!-- Form Nama Pemohon -->
           <div class="row">
             <div class="mb-3">
-              <label for="namapemohon" class="form-label fw-semibold">Nama Pemohon</label>
+              <label for="namapemohon" class="form-label fw-semibold"> Nama Pemohon </label>
               <input type="text" class="form-control <?= ($validation->hasError('namapemohon')) ? 'is-invalid' : ''; ?>" name="namapemohon" id="namapemohon" autofocus value="<?= old('namapemohon'); ?>">
               <div class="invalid-feedback">
                 <?= $validation->getError('namapemohon') ?>
@@ -46,7 +46,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 14) {
           <!-- Form Email Pemohon  -->
           <div class="row">
             <div class="mb-3">
-              <label for="emailpemohon" class="form-label fw-semibold">Email Pemohon</label>
+              <label for="emailpemohon" class="form-label fw-semibold"> Email Pemohon </label>
               <input type="text" class="form-control <?= ($validation->hasError('emailpemohon')) ? 'is-invalid' : ''; ?>" name="emailpemohon" id="emailpemohon" value="<?= old('emailpemohon'); ?>">
               <div class="invalid-feedback">
                 <?= $validation->getError('emailpemohon'); ?>
@@ -57,7 +57,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 14) {
           <!-- Form Nomor Pemohon -->
           <div class="row">
             <div class="mb-3">
-              <label for="nomorpemohon" class="form-label fw-semibold">Nomor Whatsapp</label>
+              <label for="nomorpemohon" class="form-label fw-semibold"> Nomor Whatsapp </label>
               <input type="text" class="form-control <?= ($validation->hasError('nomorpemohon')) ? 'is-invalid' : ''; ?>" name="nomorpemohon" id="nomorpemohon" value="<?= old('nomorpemohon'); ?>">
               <div class="invalid-feedback">
                 <?= $validation->getError('nomorpemohon'); ?>
@@ -68,7 +68,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 14) {
           <!-- Form Alamat Pemohon -->
           <div class="row">
             <div class="mb-3">
-              <label for="alamatpemohon" class="form-label fw-semibold">Alamat Pemohon</label>
+              <label for="alamatpemohon" class="form-label fw-semibold"> Alamat Pemohon </label>
               <br>
               <textarea class=" form-control text-area <?= ($validation->hasError('alamatpemohon')) ? 'is-invalid' : ''; ?>" name="alamatpemohon" id="alamatpemohon" value="<?= old('alamatpemohon'); ?>"></textarea>
               <div class="invalid-feedback">
@@ -82,7 +82,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 14) {
           <!-- Berkas SKPWNI -->
           <div class="row">
             <div class="mb-3">
-              <label for="skpwni" class="form-label fw-semibold">SKPWNI</label>
+              <label for="skpwni" class="form-label fw-semibold"> Berkas SKPWNI </label>
               <input type="file" class="form-control <?= ($validation->hasError('skpwni')) ? 'is-invalid' : ''; ?>" name="skpwni" id="skpwni" value="<?= old('skpwni'); ?>">
               <div class="invalid-feedback">
                 <?= $validation->getError('skpwni'); ?>
@@ -93,7 +93,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 14) {
           <!-- Berkas Kartu Tanda Penduduk -->
           <div class="row">
             <div class="mb-3">
-              <label for="kartutandapenduduk" class="form-label fw-semibold">Kartu Tanda Penduduk</label>
+              <label for="kartutandapenduduk" class="form-label fw-semibold"> Berkas Kartu Tanda Penduduk </label>
               <input type="file" class="form-control <?= ($validation->hasError('kartutandapenduduk')) ? 'is-invalid' : ''; ?>" name="kartutandapenduduk" id="kartutandapenduduk" value="<?= old('kartutandapenduduk'); ?>">
               <div class="invalid-feedback">
                 <?= $validation->getError('kartutandapenduduk'); ?>

@@ -60,7 +60,7 @@
         </div>
 
         <div class="d-grid gap-2 col-6 mx-auto">
-          <button type="submit" class="btn btn-primary">Tambah Inovasi</button>
+          <button type="submit" class="btn btn-primary">Tambah Persyaratan Si Lancar</button>
         </div>
 
       </form>
@@ -76,7 +76,7 @@
           <h6 class="m-0 font-weight-bold text-primary">Preview Persyaratan Si Lancar</h6>
         </div>
 
-        <img src="/img/default/v_Inovasi.jpg" alt="Preview Persyaratan" srcset="" style="width: 100%; height: 100%;">
+        <img src="/img/default/v_Persyaratan.jpg" alt="Preview Persyaratan" srcset="" style="width: 100%; height: 100%;">
       </div>
     </div>
   </div>

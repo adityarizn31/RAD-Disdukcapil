@@ -17,6 +17,7 @@
 .sampul {
   width: 100%;
   background-color: #C65958;
+  
 }
 
 .inovasi {
@@ -181,8 +182,8 @@ a {
 }
 
 .foto_berita {
-  width: 70%;
-  height: 50%;
+  width: 50%;
+  height: 40%;
 }
 
 .foto_inovasi {
@@ -343,6 +344,10 @@ a {
   .sampulsilancar {
     width: 100%;
     
+  }
+
+  .berita {    
+    margin-left: 28%;
   }
 
   .pelayanan {

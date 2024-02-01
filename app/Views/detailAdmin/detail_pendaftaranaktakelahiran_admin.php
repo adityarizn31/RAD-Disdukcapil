@@ -9,8 +9,21 @@
   </button>
 
   <div class="card shadow mb-4" style="margin-top: 25px;">
+
     <div class="card-header py-3" style="border: none; border: 0; outline: none; box-shadow: none;">
       <h6 class="m-0 font-weight-bold text-primary">Detail Data Pendaftaran Kartu Keluarga</h6>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <?php if (session()->getFlashdata('pesan')) : ?>
+
+          <div class="alert alert-success" role="alert">
+            <?= session()->getFlashdata('pesan'); ?>
+          </div>
+
+        <?php endif; ?>
+      </div>
     </div>
 
     <div class="col-sm-12 col-md-12" style="padding: 20px;">
@@ -47,16 +60,24 @@
               <td><?= $pendaftaran_aktakelahiran['alamatpemohon']; ?></td>
             </tr>
 
+            <tr>
+              <th width="">Status</th>
+              <th width="">:</th>
+              <td><?= $pendaftaran_aktakelahiran['status']; ?></td>
+            </tr>
+
           </table>
 
-          <div class="grid-container2">
+          <div class="grid-container2 align-items-center justify-content-center">
+
             <div class="div">
-              <a href="" class="btn btn-success" data-popup="tooltip" data-placement="top" title="Selesai"><i class="bi bi-check-square" aria-hidden="true"></i></a>
+              <a href="<?= base_url('/DetailAdmin/selesaiAktaKelahiran/' . $pendaftaran_aktakelahiran['namapemohon']) ?>" class="btn btn-success" data-popup="tooltip" data-placement="top" title="Selesai"><i class="bi bi-check-square" aria-hidden="true"></i></a>
             </div>
 
             <div class="div">
-              <a href="" class="btn btn-danger" data-popup="tooltip" data-placement="top" title="Tidak Selesai"><i class="bi bi-x-square" aria-hidden="true"></i></a>
+              <a href="<?= base_url('/DetailAdmin/belumSelesaiAktaKelahiran/' . $pendaftaran_aktakelahiran['namapemohon']) ?>" class="btn btn-danger" data-popup="tooltip" data-placement="top" title="Tidak Selesai"><i class="bi bi-x-square" aria-hidden="true"></i></a>
             </div>
+
           </div>
 
         </div>

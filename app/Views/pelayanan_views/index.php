@@ -32,8 +32,7 @@
         </a>
       </div>
 
-
-      <!-- Pendaftaran KTP Si Lancar 1-->
+      <!-- Pendaftaran Kartu Identitas Anak Si Lancar 1-->
       <div class="card kartupelayanan">
         <a href="/PelayananSilancar/pendaftaranKIA">
           <img src="/img/silancar/Kartu Identitas Anak.png" class="card-img-top" alt="...">
@@ -43,17 +42,26 @@
         </a>
       </div>
 
-      <!-- Pendaftaran Kartu Identitas Anak Si Lancar 1-->
       <div class="card kartupelayanan">
-        <a href="/PelayananSilancar/pendaftaranSuratPerpindahan">
-          <img src="/img/silancar/Kartu Surat Perpindahan.png" class="card-img-top" alt="...">
+        <a href="/PelayananSilancar/pendaftaranKKPerceraian">
+          <img src="/img/silancar/Kartu Keluarga Perceraian.png" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title text-black text-center fw-bold">Pendaftaran Surat Perpindahan Majalengka Menuju Luar</h5>
+            <h5 class="card-title text-black text-center fw-bold">Pendaftaran Kartu Keluarga Perceraian</h5>
           </div>
         </a>
       </div>
 
-      <!-- Pendaftaran Kartu Identitas Anak Si Lancar 1-->
+      <!-- Pendaftaran Surat Perpindahan dari Majalengka Menuju Luar Si Lancar 1-->
+      <div class="card kartupelayanan">
+        <a href="/PelayananSilancar/pendaftaranSuratPerpindahan">
+          <img src="/img/silancar/Kartu Surat Perpindahan.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-black text-center fw-bold">Pendaftaran Surat Perpindahan dari Majalengka Menuju Luar</h5>
+          </div>
+        </a>
+      </div>
+
+      <!-- Pendaftaran Surat Perpindahan dari Luar Menuju Majalengka Si Lancar 1-->
       <div class="card kartupelayanan">
         <a href="/PelayananSilancar/pendaftaranSuratPerpindahanLuar">
           <img src="/img/silancar/Kartu Surat Perpindahan.png" class="card-img-top" alt="...">
@@ -94,7 +102,7 @@
         </a>
       </div>
 
-      <!-- Pendaftaran Perbaikan Data Si Lancar 3-->
+      <!-- Pendaftaran Pelayanan Data Si Lancar 3-->
       <div class="card kartupelayanan">
         <a href="/PelayananSilancar/pendaftaranPelayananData">
           <img src="/img/silancar/Kartu Pelayanan Pemanfaatan Data.png" class="card-img-top" alt="...">
@@ -104,7 +112,7 @@
         </a>
       </div>
 
-      <!-- Pendaftaran Pengaduan Data Si Lancar 4-->
+      <!-- Pendaftaran Perbaikan Data Si Lancar 4-->
       <div class="card kartupelayanan">
         <a href="/PelayananSilancar/pendaftaranPerbaikanData">
           <img src="/img/silancar/Kartu Perbaikan data.png" class="card-img-top" alt="...">
@@ -115,7 +123,7 @@
       </div>
 
 
-      <!-- Pendaftaran Pengaduan Data Si Lancar 4-->
+      <!-- Pendaftaran Pengaduan Update Si Lancar 4-->
       <div class="card kartupelayanan">
         <a href="/PelayananSilancar/pendaftaranPengaduanUpdate">
           <img src="/img/silancar/Kartu Pengaduan Update.png" class="card-img-top" alt="...">
@@ -126,9 +134,7 @@
       </div>
 
     </div>
-
   </div>
-
 </div>
 
 <?= $this->endSection('content'); ?>

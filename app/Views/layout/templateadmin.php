@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+
   <!-- Required Meta Tags -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +35,6 @@
 
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
 
   <title> <?= $title; ?> </title>
 

@@ -20,9 +20,30 @@ if ($jamSekarang >= 8 && $jamSekarang < 11) {
 
         <?php if (session()->getFlashdata('pesan')) : ?>
 
-          <div class="alert alert-success" role="alert">
-            <?= session()->getFlashdata('pesan'); ?>
+          <div id="myModal" class="modal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Notifikasi</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <?= session()->getFlashdata('pesan'); ?>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <script>
+            // Tampilkan modal secara otomatis saat halaman dimuat
+            var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+              keyboard: false
+            });
+            myModal.show();
+          </script>
 
         <?php endif; ?>
 
@@ -34,7 +55,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 11) {
           <!-- Form Nama Pemohon -->
           <div class="row">
             <div class="mb-3">
-              <label for="namapemohon" class="form-label fw-semibold">Nama Pemohon</label>
+              <label for="namapemohon" class="form-label fw-semibold"> Nama Pemohon </label>
               <input type="text" class="form-control <?= ($validation->hasError('namapemohon')) ? 'is-invalid' : ''; ?>" name="namapemohon" id="namapemohon" autofocus value="<?= old('namapemohon'); ?>">
               <div class="invalid-feedback">
                 <?= $validation->getError('namapemohon') ?>
@@ -45,7 +66,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 11) {
           <!-- Form Email Pemohon  -->
           <div class="row">
             <div class="mb-3">
-              <label for="emailpemohon" class="form-label fw-semibold">Email Pemohon</label>
+              <label for="emailpemohon" class="form-label fw-semibold"> Email Pemohon </label>
               <input type="text" class="form-control <?= ($validation->hasError('emailpemohon')) ? 'is-invalid' : ''; ?>" name="emailpemohon" id="emailpemohon" value="<?= old('emailpemohon'); ?>">
               <div class="invalid-feedback">
                 <?= $validation->getError('emailpemohon'); ?>
@@ -56,7 +77,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 11) {
           <!-- Form Nomor Pemohon -->
           <div class="row">
             <div class="mb-3">
-              <label for="nomorpemohon" class="form-label fw-semibold">Nomor Whatsapp</label>
+              <label for="nomorpemohon" class="form-label fw-semibold"> Nomor Whatsapp </label>
               <input type="text" class="form-control <?= ($validation->hasError('nomorpemohon')) ? 'is-invalid' : ''; ?>" name="nomorpemohon" id="nomorpemohon" value="<?= old('nomorpemohon'); ?>">
               <div class="invalid-feedback">
                 <?= $validation->getError('nomorpemohon'); ?>
@@ -67,7 +88,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 11) {
           <!-- Form Alamat Pemohon -->
           <div class="row">
             <div class="mb-3">
-              <label for="alamatpemohon" class="form-label fw-semibold">Alamat Pemohon</label>
+              <label for="alamatpemohon" class="form-label fw-semibold"> Alamat Pemohon </label>
               <br>
               <textarea class="form-control text-area <?= ($validation->hasError('alamatpemohon')) ? 'is-invalid' : ''; ?>" name="alamatpemohon" id="alamatpemohon" value="<?= old('alamatpemohon'); ?>"></textarea>
               <div class="invalid-feedback">
@@ -81,7 +102,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 11) {
           <!-- Form Desa -->
           <div class="row">
             <div class="mb-3">
-              <label for="formulirdesa" class="form-label fw-semibold">Formulir Desa</label>
+              <label for="formulirdesa" class="form-label fw-semibold"> Berkas Formulir Desa </label>
               <input type="file" class="form-control <?= ($validation->hasError('formulirdesa')) ? 'is-invalid' : ''; ?>" name="formulirdesa" id="formulirdesa" value="<?= old('formulirdesa'); ?>">
               <div class="invalid-feedback">
                 <?= $validation->getError('formulirdesa'); ?>
@@ -92,7 +113,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 11) {
           <!-- Form KK Suami -->
           <div class="row">
             <div class="mb-3">
-              <label for="kartukeluargasuami" class="form-label fw-semibold">Kartu Keluarga Suami(masing-masing)</label>
+              <label for="kartukeluargasuami" class="form-label fw-semibold"> Kartu Keluarga Suami(masing-masing) </label>
               <input type="file" class="form-control <?= ($validation->hasError('kartukeluargasuami')) ? 'is-invalid' : ''; ?>" name="kartukeluargasuami" id="kartukeluargasuami" value="<?= old('kartukeluargasuami'); ?>">
               <div class="invalid-feedback">
                 <?= $validation->getError('kartukeluargasuami'); ?>
@@ -103,7 +124,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 11) {
           <!-- Form KK Istri -->
           <div class="row">
             <div class="mb-3">
-              <label for="kartukeluargaistri" class="form-label fw-semibold">Kartu Keluarga Istri(masing-masing)</label>
+              <label for="kartukeluargaistri" class="form-label fw-semibold"> Kartu Keluarga Istri(masing-masing) </label>
               <input type="file" class="form-control <?= ($validation->hasError('kartukeluargaistri')) ? 'is-invalid' : ''; ?>" name="kartukeluargaistri" id="kartukeluargaistri" value="<?= old('kartukeluargaistri'); ?>">
               <div class="invalid-feedback">
                 <?= $validation->getError('kartukeluargaistri'); ?>
@@ -114,7 +135,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 11) {
           <!-- Form Surat Nikah -->
           <div class="row">
             <div class="mb-3">
-              <label for="suratnikah" class="form-label fw-semibold">Surat Nikah</label>
+              <label for="suratnikah" class="form-label fw-semibold"> Surat Nikah </label>
               <input type="file" class="form-control <?= ($validation->hasError('suratnikah')) ? 'is-invalid' : ''; ?>" name="suratnikah" id="suratnikah" value="<?= old('suratnikah'); ?>">
               <div class="invalid-feedback">
                 <?= $validation->getError('suratnikah'); ?>
@@ -125,7 +146,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 11) {
           <!-- Form Surat Pindah -->
           <div class="row">
             <div class="mb-3">
-              <label for="suratpindah" class="form-label fw-semibold">Surat Pindah (Jika alamat berbeda)</label>
+              <label for="suratpindah" class="form-label fw-semibold"> Surat Pindah (Jika alamat berbeda) </label>
               <input type="file" class="form-control <?= ($validation->hasError('suratpindah')) ? 'is-invalid' : ''; ?>" name="suratpindah" id="suratpindah" value="<?= old('suratpindah'); ?>">
               <div class="invalid-feedback">
                 <?= $validation->getError('suratpindah'); ?>
@@ -133,12 +154,10 @@ if ($jamSekarang >= 8 && $jamSekarang < 11) {
             </div>
           </div>
 
-          <input type="hidden" name="status" id="status" value="Belum Di Proses">
-
           <hr>
 
           <div class="d-grid gap-2 col-6 mx-auto">
-            <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" name="submit" id="submit" class="btn btn-primary"> Daftar </button>
           </div>
 
         </form>

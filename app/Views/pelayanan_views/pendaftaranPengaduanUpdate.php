@@ -5,7 +5,7 @@ $waktuSekarang = new DateTime('now', new DateTimeZone('Asia/Jakarta'));
 $jamSekarang = $waktuSekarang->format('G');
 
 // Check if the access time is within the allowed range (8 AM to 11 AM)
-if ($jamSekarang >= 8 && $jamSekarang < 14) {
+if ($jamSekarang >= 8 && $jamSekarang < 24) {
   // Allow access to the form
 ?>
 
@@ -16,7 +16,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 14) {
   <div class="container" style="padding: 10px;">
     <div class="card shadow mb-4" style="padding: 20px;">
       <div class="container">
-        <h4 class="text-center mt-2 mb-2 fw-bold"> Pendaftaran Pengaduan Update</h4>
+        <h4 class="text-center mt-2 mb-2 fw-bold"> Pendaftaran Pengaduan Update </h4>
       </div>
 
       <?php if (session()->getFlashdata('pesan')) : ?>
@@ -35,7 +35,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 14) {
         <!-- Form Nama Pemohon -->
         <div class="row">
           <div class="mb-3">
-            <label for="namapemohon" class="form-label fw-semibold">Nama Pemohon</label>
+            <label for="namapemohon" class="form-label fw-semibold"> Nama Pemohon </label>
             <input type="text" class="form-control <?= ($validation->hasError('namapemohon')) ? 'is-invalid' : ''; ?>" name="namapemohon" id="namapemohon" autofocus value="<?= old('namapemohon'); ?>">
             <div class="invalid-feedback">
               <?= $validation->getError('namapemohon') ?>
@@ -46,7 +46,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 14) {
         <!-- Form Email Pemohon  -->
         <div class="row">
           <div class="mb-3">
-            <label for="emailpemohon" class="form-label fw-semibold">Email Pemohon</label>
+            <label for="emailpemohon" class="form-label fw-semibold"> Email Pemohon </label>
             <input type="text" class="form-control <?= ($validation->hasError('emailpemohon')) ? 'is-invalid' : ''; ?>" name="emailpemohon" id="emailpemohon" value="<?= old('emailpemohon'); ?>">
             <div class="invalid-feedback">
               <?= $validation->getError('emailpemohon'); ?>
@@ -57,7 +57,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 14) {
         <!-- Form Nomor Pemohon -->
         <div class="row">
           <div class="mb-3">
-            <label for="nomorpemohon" class="form-label fw-semibold">Nomor Whatsapp</label>
+            <label for="nomorpemohon" class="form-label fw-semibold"> Nomor Whatsapp </label>
             <input type="text" class="form-control <?= ($validation->hasError('nomorpemohon')) ? 'is-invalid' : ''; ?>" name="nomorpemohon" id="nomorpemohon" value="<?= old('nomorpemohon'); ?>">
             <div class="invalid-feedback">
               <?= $validation->getError('nomorpemohon'); ?>
@@ -68,7 +68,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 14) {
         <!-- Form Alamat Pemohon -->
         <div class="row">
           <div class="mb-3">
-            <label for="alamatpemohon" class="form-label fw-semibold">Alamat Pemohon</label>
+            <label for="alamatpemohon" class="form-label fw-semibold"> Alamat Pemohon </label>
             <br>
             <textarea class=" form-control text-area <?= ($validation->hasError('alamatpemohon')) ? 'is-invalid' : ''; ?>" name="alamatpemohon" id="alamatpemohon" value="<?= old('alamatpemohon'); ?>"></textarea>
             <div class="invalid-feedback">
@@ -82,7 +82,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 14) {
         <!-- Berkas Kartu Tanda Penduduk Pemohon -->
         <div class="row">
           <div class="mb-3">
-            <label for="kartutandapenduduk" class="form-label fw-semibold">KTP Pemohon</label>
+            <label for="kartutandapenduduk" class="form-label fw-semibold"> Berkas KTP Pemohon </label>
             <input type="file" class="form-control <?= ($validation->hasError('kartutandapenduduk')) ? 'is-invalid' : ''; ?>" name="kartutandapenduduk" id="kartutandapenduduk" value="<?= old('kartutandapenduduk'); ?>">
             <div class="invalid-feedback">
               <?= $validation->getError('kartutandapenduduk'); ?>
@@ -93,7 +93,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 14) {
         <!-- Berkas Kartu Keluarga Pemohon -->
         <div class="row">
           <div class="mb-3">
-            <label for="kartukeluarga" class="form-label fw-semibold">KK Pemohon</label>
+            <label for="kartukeluarga" class="form-label fw-semibold"> Berkas KK Pemohon </label>
             <input type="file" class="form-control <?= ($validation->hasError('kartukeluarga')) ? 'is-invalid' : ''; ?>" name="kartukeluarga" id="kartukeluarga" value="<?= old('kartukeluarga'); ?>">
             <div class="invalid-feedback">
               <?= $validation->getError('kartukeluarga'); ?>
@@ -104,7 +104,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 14) {
         <!-- Form Pengaduan Pemohon -->
         <div class="row">
           <div class="mb-3">
-            <label for="pengaduanupdate" class="form-label fw-semibold">Pengaduan</label>
+            <label for="pengaduanupdate" class="form-label fw-semibold"> Deskripsi Pengaduan </label>
             <br>
             <textarea class=" form-control text-area <?= ($validation->hasError('pengaduanupdate')) ? 'is-invalid' : ''; ?>" name="pengaduanupdate" id="pengaduanupdate" value="<?= old('pengaduanupdate'); ?>"></textarea>
             <div class="invalid-feedback">
@@ -116,7 +116,7 @@ if ($jamSekarang >= 8 && $jamSekarang < 14) {
         <hr>
 
         <div class="d-grid gap-2 col-6 mx-auto">
-          <button type="submit" value="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" value="submit" name="submit" id="submit" class="btn btn-primary"> Daftar </button>
         </div>
 
       </form>

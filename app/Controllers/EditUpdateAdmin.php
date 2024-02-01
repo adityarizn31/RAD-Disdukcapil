@@ -455,12 +455,12 @@ class EditUpdateAdmin extends BaseController
 
 
   // Halaman Edit Card Pelayanan KK
-  public function editPelayananKK($pelayanan_kk)
+  public function editPelayananKK($judulPelayanan)
   {
     $data = [
       'title' => 'Form Edit Card Pelayanan Kartu Keluarga || Admin Disdukcapil',
       'validation' => \Config\Services::validation(),
-      'pelayanan_kk' => $this->pelkkModel->getDataPelayananKK($pelayanan_kk)
+      'pelayanan_kk' => $this->pelkkModel->getDataPelayananKK($judulPelayanan)
     ];
     return view('editAdmin/edit_pelayanankk_admin', $data);
   }
@@ -468,12 +468,14 @@ class EditUpdateAdmin extends BaseController
   public function updatePelayananKK($id)
   {
     if (!$this->validate([
+      // Judul Pelayanan
       'judulpelayanan' => [
         'rules' => 'required[pelayanan_kk.judulpelayanan]',
         'errors' => [
           'required' => 'Judul Pelayanan Harus Diisi !!'
         ]
       ],
+      // Foto Pelayanan
       'fotopelayanan' => [
         'rules' => 'max_size[fotopelayanan,2048]|is_image[fotopelayanan]|mime_in[fotopelayanan,image/jpg,image/jpeg,image/png]',
         'errors' => [

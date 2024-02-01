@@ -8,7 +8,7 @@ class Pendaftaran_pelayanandata_Model extends Model
 {
   protected $table = 'pendaftaran_pelayanandata';
   protected $useTimeStamps = true; // Mengaktifkan Created at dan Updated at
-  protected $allowedFields = ['namapemohon', 'emailpemohon', 'nomorpemohon', 'alamatpemohon', 'berkaspelayanan1', 'berkaspelayanan2', 'berkaspelayanan3', 'berkaspelayanan4', 'berkaspelayanan5', 'berkaspelayanan6', 'berkaspelayanan7', 'berkaspelayanan8', 'berkaspelayanan9', 'berkaspelayanan10'];
+  protected $allowedFields = ['namapemohon', 'emailpemohon', 'nomorpemohon', 'alamatpemohon', 'berkaspelayanan1', 'berkaspelayanan2', 'berkaspelayanan3', 'berkaspelayanan4', 'berkaspelayanan5', 'berkaspelayanan6', 'berkaspelayanan7', 'berkaspelayanan8', 'berkaspelayanan9', 'berkaspelayanan10', 'status'];
 
   public function getDataPelayananData($nama = false)
   {
@@ -24,5 +24,13 @@ class Pendaftaran_pelayanandata_Model extends Model
   public function search($keyword)
   {
     return $this->table('pendaftaran_pelayanandata')->like('namapemohon', $keyword);
+  }
+
+  // Digunakan untuk mengubah updateStatus
+  public function updateStatus($nama, $status)
+  {
+    return $this->db->table('pendaftaran_pelayanandata')
+      ->where('namapemohon', $nama)
+      ->update(['status' => $status]);
   }
 }

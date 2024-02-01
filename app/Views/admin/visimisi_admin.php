@@ -53,7 +53,7 @@
 
             </div>
 
-            // Diarahkan ke halaman Form Ganti Foto Visi Misi
+            <!-- Diarahkan ke halaman Form Ganti Foto Visi Misi -->
             <a href="/EditUpdateAdmin/editVisiMisi/<?= $v['fotovisimisi'] ?>" class="btn btn-warning">Edit</a>
 
           </div>

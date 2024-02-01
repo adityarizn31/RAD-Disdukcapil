@@ -25,4 +25,11 @@ class Pengaduan_update_Model extends Model
   {
     return $this->table('pengaduan_update')->like('namapemohon', $keyword);
   }
+
+  public function updateStatus($nama, $status)
+  {
+    return $this->db->table('pengaduan_update')
+      ->where('namapemohon', $nama)
+      ->update(['status' => $status]);
+  }
 }

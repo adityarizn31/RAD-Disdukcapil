@@ -48,15 +48,21 @@
               <td><?= $pendaftaran_pelayanandata['alamatpemohon']; ?></td>
             </tr>
 
+            <tr>
+              <th width="">Status</th>
+              <th width="">:</th>
+              <td><?= $pendaftaran_pelayanandata['status']; ?></td>
+            </tr>
+
           </table>
 
-          <div class="grid-container2">
+          <div class="grid-container2 align-items-center justify-content-center">
             <div class="div">
-              <a href="" class="btn btn-success" data-popup="tooltip" data-placement="top" title="Selesai"><i class="bi bi-check-square" aria-hidden="true"></i></a>
+              <a href="<?= base_url('/DetailAdmin/selesaiPelayananData/' . $pendaftaran_pelayanandata['namapemohon']) ?>" class="btn btn-success" data-popup="tooltip" data-placement="top" title="Selesai"><i class="bi bi-check-square" aria-hidden="true"></i></a>
             </div>
 
             <div class="div">
-              <a href="" class="btn btn-danger" data-popup="tooltip" data-placement="top" title="Tidak Selesai"><i class="bi bi-x-square" aria-hidden="true"></i></a>
+              <a href="<?= base_url('/DetailAdmin/belumSelesaiPelayananData/' . $pendaftaran_pelayanandata['namapemohon']) ?>" class="btn btn-danger" data-popup="tooltip" data-placement="top" title="Tidak Selesai"><i class="bi bi-x-square" aria-hidden="true"></i></a>
             </div>
           </div>
 
@@ -86,7 +92,7 @@
             </div>
 
             <div class="col-sm-12">
-              <iframe src="<?= base_url('/pelayanan/pelayanandata/' . $pendaftaran_pelayanandata['berkaspelayanan2']) ?>" frameborder="0" height="500" width="100%"></iframe>
+              <iframe src="<?= base_url('/pelayanan/pelayanan_data/' . $pendaftaran_pelayanandata['berkaspelayanan2']) ?>" frameborder="0" height="500" width="100%"></iframe>
             </div>
 
           </div>
@@ -101,7 +107,7 @@
             </div>
 
             <div class="col-sm-12">
-              <iframe src="<?= base_url('/pelayanan/pelayanandata/' . $pendaftaran_pelayanandata['berkaspelayanan3']) ?>" frameborder="0" height="500" width="100%"></iframe>
+              <iframe src="<?= base_url('/pelayanan/pelayanan_data/' . $pendaftaran_pelayanandata['berkaspelayanan3']) ?>" frameborder="0" height="500" width="100%"></iframe>
             </div>
 
           </div>
@@ -116,7 +122,7 @@
             </div>
 
             <div class="col-sm-12">
-              <iframe src="<?= base_url('/pelayanan/pelayanandata/' . $pendaftaran_pelayanandata['berkaspelayanan4']) ?>" frameborder="0" height="500" width="100%"></iframe>
+              <iframe src="<?= base_url('/pelayanan/pelayanan_data/' . $pendaftaran_pelayanandata['berkaspelayanan4']) ?>" frameborder="0" height="500" width="100%"></iframe>
             </div>
 
           </div>
@@ -131,7 +137,7 @@
             </div>
 
             <div class="col-sm-12">
-              <iframe src="<?= base_url('/pelayanan/pelayanandata/' . $pendaftaran_pelayanandata['berkaspelayanan5']) ?>" frameborder="0" height="500" width="100%"></iframe>
+              <iframe src="<?= base_url('/pelayanan/pelayanan_data/' . $pendaftaran_pelayanandata['berkaspelayanan5']) ?>" frameborder="0" height="500" width="100%"></iframe>
             </div>
 
           </div>
@@ -146,7 +152,7 @@
             </div>
 
             <div class="col-sm-12">
-              <iframe src="<?= base_url('/pelayanan/pelayanandata/' . $pendaftaran_pelayanandata['berkaspelayanan6']) ?>" frameborder="0" height="500" width="100%"></iframe>
+              <iframe src="<?= base_url('/pelayanan/pelayanan_data/' . $pendaftaran_pelayanandata['berkaspelayanan6']) ?>" frameborder="0" height="500" width="100%"></iframe>
             </div>
 
           </div>
@@ -161,7 +167,7 @@
             </div>
 
             <div class="col-sm-12">
-              <iframe src="<?= base_url('/pelayanan/pelayanandata/' . $pendaftaran_pelayanandata['berkaspelayanan7']) ?>" frameborder="0" height="500" width="100%"></iframe>
+              <iframe src="<?= base_url('/pelayanan/pelayanan_data/' . $pendaftaran_pelayanandata['berkaspelayanan7']) ?>" frameborder="0" height="500" width="100%"></iframe>
             </div>
 
           </div>
@@ -176,7 +182,7 @@
             </div>
 
             <div class="col-sm-12">
-              <iframe src="<?= base_url('/pelayanan/pelayanandata/' . $pendaftaran_pelayanandata['berkaspelayanan8']) ?>" frameborder="0" height="500" width="100%"></iframe>
+              <iframe src="<?= base_url('/pelayanan/pelayanan_data/' . $pendaftaran_pelayanandata['berkaspelayanan8']) ?>" frameborder="0" height="500" width="100%"></iframe>
             </div>
 
           </div>
@@ -191,7 +197,7 @@
             </div>
 
             <div class="col-sm-12">
-              <iframe src="<?= base_url('/pelayanan/pelayanandata/' . $pendaftaran_pelayanandata['berkaspelayanan9']) ?>" frameborder="0" height="500" width="100%"></iframe>
+              <iframe src="<?= base_url('/pelayanan/pelayanan_data/' . $pendaftaran_pelayanandata['berkaspelayanan9']) ?>" frameborder="0" height="500" width="100%"></iframe>
             </div>
 
           </div>
@@ -203,10 +209,10 @@
             <div class="card-header">
               <div class="card-title fw-semibold"> Berkas Pelayanan 10 </div>
 
-            </div>
+            </div>P
 
             <div class="col-sm-12">
-              <iframe src="<?= base_url('/pelayanan/pelayanandata/' . $pendaftaran_pelayanandata['berkaspelayanan10']) ?>" frameborder="0" height="500" width="100%"></iframe>
+              <iframe src="<?= base_url('/pelayanan/pelayanan_data/' . $pendaftaran_pelayanandata['berkaspelayanan10']) ?>" frameborder="0" height="500" width="100%"></iframe>
             </div>
 
           </div>

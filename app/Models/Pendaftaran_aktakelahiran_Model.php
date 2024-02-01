@@ -8,7 +8,7 @@ class Pendaftaran_aktakelahiran_Model extends Model
 {
   protected $table = 'pendaftaran_aktakelahiran';
   protected $useTimeStamps = true;
-  protected $allowedFields = ['namapemohon', 'emailpemohon', 'nomorpemohon', 'alamatpemohon', 'formulirf201akta', 'suratketeranganlahir', 'kartukeluarga', 'ktpayah', 'ktpibu'];
+  protected $allowedFields = ['namapemohon', 'emailpemohon', 'nomorpemohon', 'alamatpemohon', 'formulirf201akta', 'suratketeranganlahir', 'kartukeluarga', 'ktpayah', 'ktpibu', 'status'];
 
   public function getDataAktaKelahiran($nama = false)
   {
@@ -24,5 +24,13 @@ class Pendaftaran_aktakelahiran_Model extends Model
   public function search($keyword)
   {
     return $this->table('pendaftaran_aktakelahiran')->like('namapemohon', $keyword);
+  }
+
+  // Digunakan untuk mengubah Status Pendaftaran
+  public function updateStatus($nama, $status)
+  {
+    return $this->db->table('pendaftaran_aktakelahiran')
+      ->where('namapemohon', $nama)
+      ->update(['status' => $status]);
   }
 }

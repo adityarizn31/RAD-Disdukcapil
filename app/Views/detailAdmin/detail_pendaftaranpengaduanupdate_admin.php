@@ -14,6 +14,18 @@
       <h4 class="m-0 font-weight-bold text-primary text-center">Detail Data Pengaduan Update</h4>
     </div>
 
+    <div class="container">
+      <div class="row">
+        <?php if (session()->getFlashdata('pesan')) : ?>
+
+          <div class="alert alert-success" role="alert">
+            <?= session()->getFlashdata('pesan'); ?>
+          </div>
+
+        <?php endif; ?>
+      </div>
+    </div>
+
     <div class="col-sm-12 col-md-12" style="padding: 20px;">
       <div class="card card-outline card-primary">
 
@@ -54,16 +66,24 @@
               <td><?= $pengaduan_update['pengaduanupdate']; ?></td>
             </tr>
 
+            <tr>
+              <th width="">Status</th>
+              <th width="">:</th>
+              <td><?= $pengaduan_update['status']; ?></td>
+            </tr>
+
           </table>
 
-          <div class="grid-container2">
+          <div class="grid-container2 align-items-center justify-content-center">
+
             <div class="div">
-              <a href="" class="btn btn-success" data-popup="tooltip" data-placement="top" title="Selesai"><i class="bi bi-check-square" aria-hidden="true"></i></a>
+              <a href="<?= base_url('/DetailAdmin/selesaiPengaduanUpdate/' . $pengaduan_update['namapemohon']) ?>" class="btn btn-success" data-popup="tooltip" data-placement="top" title="Selesai"><i class="bi bi-check-square" aria-hidden="true"></i></a>
             </div>
 
             <div class="div">
-              <a href="" class="btn btn-danger" data-popup="tooltip" data-placement="top" title="Tidak Selesai"><i class="bi bi-x-square" aria-hidden="true"></i></a>
+              <a href="<?= base_url('/DetailAdmin/belumSelesaiPengaduanUpdate/' . $pengaduan_update['namapemohon']) ?>" class="btn btn-danger" data-popup="tooltip" data-placement="top" title="Tidak Selesai"><i class="bi bi-x-square" aria-hidden="true"></i></a>
             </div>
+
           </div>
 
         </div>

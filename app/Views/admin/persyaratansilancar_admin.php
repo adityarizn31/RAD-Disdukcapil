@@ -15,7 +15,7 @@
     <div class="card-header py-3">
 
       <div class="d-sm-flex align-items-center justify-content-between" style="padding-top: 10px;">
-        <h6 class="m-0 font-weight-bold text-primary"> Persyaratan Si Lancar </h6>
+        <h4 class="m-0 font-weight-bold text-primary"> Persyaratan Si Lancar </h4>
 
         <!-- Method create_berita_admin digunakan untuk Menampilkan Form Insert Data -->
         <a href="/CreateAdmin/create_persyaratansilancar_admin/" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Tambah Persyaratan Si Lancar</a>
@@ -57,7 +57,7 @@
           <?php foreach ($persyaratansilancar as $silancar) : ?>
             <tr>
               <th scope="row"><?= $i++; ?></th>
-              <td><img src="/img/persyaratansilancar/<?= $silancar['fotopersyaratan']; ?>" class="foto_persyaratan" alt="Foto Persyaratan" style="width: 50%; height: auto;"></td>
+              <td><img src="/img/persyaratansilancar/<?= $silancar['fotopersyaratan']; ?>" class="foto_persyaratan" alt="Foto Persyaratan" style="width: 70%; height: auto;"></td>
               <td><?= $silancar['judulpersyaratan']; ?></td>
               <td><?= $silancar['keteranganpersyaratan']; ?></td>
               <!-- <td>Jumlah Data <?= count($persyaratansilancar) ?></td> -->

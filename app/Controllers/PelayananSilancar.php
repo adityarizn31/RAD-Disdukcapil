@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Pendaftaran_kk_Model;
-use App\Models\Pendaftaran_ktp_Model;
+use App\Models\Pendaftaran_kkperceraian_Model;
 use App\Models\Pendaftaran_kia_Model;
 use App\Models\Pendaftaran_suratperpindahan_Model;
 use App\Models\Pendaftaran_suratperpindahanluar_Model;
@@ -22,6 +22,7 @@ use App\Models\Pengaduan_update_Model;
 class PelayananSilancar extends BaseController
 {
   protected $kkModel;
+  protected $kkperceraianModel;
   protected $ktpModel;
   protected $kiaModel;
   protected $suratperpindahanModel;
@@ -41,7 +42,7 @@ class PelayananSilancar extends BaseController
   public function __construct()
   {
     $this->kkModel = new Pendaftaran_kk_Model();
-    $this->ktpModel = new Pendaftaran_ktp_Model();
+    $this->kkperceraianModel = new Pendaftaran_kkperceraian_Model();
     $this->kiaModel = new Pendaftaran_kia_Model();
     $this->suratperpindahanModel = new Pendaftaran_suratperpindahan_Model();
     $this->suratperpindahanluarModel = new Pendaftaran_suratperpindahanluar_Model();
@@ -80,18 +81,7 @@ class PelayananSilancar extends BaseController
       'title' => 'Pendaftaran KK || Disdukcapil Majalengka',
       'validation' => \Config\Services::validation()
     ];
-    $currentTime = date('H:i:s');
-    $data['isDisabled'] = ($this->isPastEleven($currentTime)) ? true : false;
-
     return view('pelayanan_views/pendaftaranKK', $data);
-  }
-
-  private function isPastEleven($time)
-  {
-    $elevenPM = strtotime('15:05:00');
-    $currentTime = strtotime($time);
-
-    return ($currentTime > $elevenPM) ? true : false;
   }
 
   // Validasi Pendaftaran KK
@@ -228,7 +218,96 @@ class PelayananSilancar extends BaseController
 
 
 
+  // Si Lancar 1
+  // Menampilkan Form Pendaftaran KK Perceraian
+  public function pendaftaranKKPerceraian()
+  {
+    helper(['form']);
+    $data = [
+      'title' => 'Pendaftaran KK Perceraian || Disdukcapil Majalengka',
+      'validation' => \Config\Services::validation()
+    ];
+    return view('pelayanan_views/pendaftaranKKPerceraian', $data);
+  }
 
+  public function saveKKPerceraian()
+  {
+    if (!$this->validate([
+
+      // Form Nama Pemohon
+      'namapemohon' => [
+        'rules' => 'required[pendaftaran_kk.namapemohon]',
+        'errors' => [
+          'required' => 'Nama Pemohon Harus Diisi !!'
+        ]
+      ],
+      // Form Email Pemohon
+      'emailpemohon' => [
+        'rules' => 'required[pendaftaran_kk.emailpemohon]|valid_email',
+        'errors' => [
+          'required' => 'Email Pemohon Harus Diisi !!',
+          'valid_email' => 'Mohon cek kembali email anda, gunakan @ agar valid !!'
+        ]
+      ],
+      // Form Nomor Pemohon
+      'nomorpemohon' => [
+        'rules' => 'required[pendaftaran_kk.nomorpemohon]',
+        'errors' => [
+          'required' => 'Nomor Pemohon Harus Diisi !!'
+        ]
+      ],
+      // Form Alamat Pemohon
+      'alamatpemohon' => [
+        'rules' => 'required[pendaftaran_kk.alamatpemohon]',
+        'errors' => [
+          'required' => 'Alamat Pemohon Harus Diisi !!'
+        ]
+      ],
+      // Berkas Kartu Keluarga Lama
+      'kartukeluargalama' => [
+        'rules' => 'uploaded[kartukeluargalama]|max_size[kartukeluargalama,2048]|mime_in[kartukeluargalama,application/pdf]|ext_in[kartukeluargalama,pdf]',
+        'errors' => [
+          'uploaded' => 'Kartu Keluarga Lama Harus Diisi !!',
+          'max_size' => 'File Kartu Keluarga Lama terlalu besar, Kompress terlebih dahulu !!',
+          'mime_in' => 'Format Kartu Keluarga Lama Harus PDF !!',
+          'ext_in' => 'Format Kartu Keluarga Lama Harus PDF !!'
+        ]
+      ],
+      // Berkas Akta Perceraian
+      'aktaperceraian' => [
+        'rules' => 'uploaded[aktaperceraian]|max_size[aktaperceraian,2048]|mime_in[aktaperceraian,application/pdf]|ext_in[aktaperceraian,pdf]',
+        'errors' => [
+          'uploaded' => 'Akta Perceraian Harus Diisi !!',
+          'max_size' => 'File Akta Perceraian terlalu besar, Kompress terlebih dahulu !!',
+          'mime_in' => 'Format Akta Perceraian Harus PDF !!',
+          'ext_in' => 'Format Akta Perceraian Harus PDF !!'
+        ]
+      ],
+    ])) {
+      return redirect()->to(base_url() . '/PelayananSilancar/pendaftaranKKPerceraian/')->withInput();
+    }
+
+    // Berkas Kartu Keluarga Lama
+    $berkasKartuKeluargaLama_KKPerceraian = $this->request->getFile('kartukeluargalama');
+    $namaKartuKeluargaLama_KKPerceraian = $berkasKartuKeluargaLama_KKPerceraian->getName();
+    $berkasKartuKeluargaLama_KKPerceraian->move('pelayanan/kkperceraian', $namaKartuKeluargaLama_KKPerceraian);
+
+    // Berkas Akta Perceraian
+    $berkasAktaPerceraian_KKPerceraian = $this->request->getFile('aktaperceraian');
+    $namaAktaPerceraian_KKPerceraian = $berkasAktaPerceraian_KKPerceraian->getName();
+    $berkasAktaPerceraian_KKPerceraian->move('pelayanan/kkperceraian', $namaAktaPerceraian_KKPerceraian);
+
+    $this->kkperceraianModel->save([
+      'namapemohon' => $this->request->getVar('namapemohon'),
+      'emailpemohon' => $this->request->getVar('emailpemohon'),
+      'nomorpemohon' => $this->request->getVar('nomorpemohon'),
+      'alamatpemohon' => $this->request->getVar('alamatpemohon'),
+      'kartukeluargalama' => $namaKartuKeluargaLama_KKPerceraian,
+      'aktaperceraian' => $namaAktaPerceraian_KKPerceraian
+    ]);
+    session()->setFlashdata('pesan', 'Selamat Pendaftaran KK Perceraian anda berhasil !!');
+    return redirect()->to('/PelayananSilancar/pendaftaranKKPerceraian');
+  }
 
 
 
@@ -578,7 +657,7 @@ class PelayananSilancar extends BaseController
           'mime_in' => 'Format KTP Harus PDF !!',
           'ext_in' => 'Format KTP Harus PDF !!'
         ]
-      ],
+      ]
 
     ])) {
       return redirect()->to(base_url() . '/PelayananSilancar/pendaftaranSuratPerpindahanLuar/')->withInput();
@@ -594,7 +673,7 @@ class PelayananSilancar extends BaseController
     $namaKartuTandaPenduduk_Perpindahan = $berkasKartuTandaPenduduk_Perpindahan->getName();
     $berkasKartuTandaPenduduk_Perpindahan->move('pelayanan/perpindahan_luar', $namaKartuTandaPenduduk_Perpindahan);
 
-    $this->suratperpindahanModel->save([
+    $this->suratperpindahanluarModel->save([
       'namapemohon' => $this->request->getVar('namapemohon'),
       'emailpemohon' => $this->request->getVar('emailpemohon'),
       'nomorpemohon' => $this->request->getVar('nomorpemohon'),
@@ -1020,14 +1099,14 @@ class PelayananSilancar extends BaseController
 
       // Form Nama Pemohon
       'namapemohon' => [
-        'rules' => 'required[pendaftaran_aktakelahiran.namapemohon]',
+        'rules' => 'required[pendaftaran_pelayanandata.namapemohon]',
         'errors' => [
           'required' => 'Nama Pemohon Harus Diisi !!'
         ]
       ],
       // Form Email Pemohon
       'emailpemohon' => [
-        'rules' => 'required[pendaftaran_aktakelahiran.emailpemohon]|valid_email',
+        'rules' => 'required[pendaftaran_pelayanandata.emailpemohon]|valid_email',
         'errors' => [
           'required' => 'Email Pemohon Harus Diisi !!',
           'valid_email' => 'Mohon cek kembali email anda, gunakan @ agar valid !!'
@@ -1035,22 +1114,23 @@ class PelayananSilancar extends BaseController
       ],
       // Form Nomor Pemohon
       'nomorpemohon' => [
-        'rules' => 'required[pendaftaran_aktakelahiran.nomorpemohon]',
+        'rules' => 'required[pendaftaran_pelayanandata.nomorpemohon]',
         'errors' => [
           'required' => 'Nomor Pemohon Harus Diisi !!'
         ]
       ],
       // Form Alamat Pemohon
       'alamatpemohon' => [
-        'rules' => 'required[pendaftaran_aktakelahiran.alamatpemohon]',
+        'rules' => 'required[pendaftaran_pelayanandata.alamatpemohon]',
         'errors' => [
           'required' => 'Alamat Pemohon Harus Diisi !!'
         ]
       ],
       // Berkas Pelayanan 1
       'berkaspelayanan1' => [
-        'rules' => 'max_size[berkaspelayanan1,2048]|mime_in[berkaspelayanan1,application/pdf]|ext_in[berkaspelayanan1,pdf]',
+        'rules' => 'uploaded[berkaspelayanan1]|max_size[berkaspelayanan1,2048]|mime_in[berkaspelayanan1,application/pdf]|ext_in[berkaspelayanan1,pdf]',
         'errors' => [
+          'uploaded' => 'Berkas Pelayanan 1 Harus Diisi !!',
           'max_size' => 'File Berkas Pelayanan 1 terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format Berkas Pelayanan 1 Harus PDF !!',
           'ext_in' => 'Format Berkas Pelayanan 1 Harus PDF !!'
@@ -1058,8 +1138,9 @@ class PelayananSilancar extends BaseController
       ],
       // Berkas Pelayanan 2
       'berkaspelayanan2' => [
-        'rules' => 'max_size[berkaspelayanan2,2048]|mime_in[berkaspelayanan2,application/pdf]|ext_in[berkaspelayanan2,pdf]',
+        'rules' => 'uploaded[berkaspelayanan2]|max_size[berkaspelayanan2,2048]|mime_in[berkaspelayanan2,application/pdf]|ext_in[berkaspelayanan2,pdf]',
         'errors' => [
+          'uploaded' => 'Berkas Pelayanan 2 Harus Diisi !!',
           'max_size' => 'File Berkas Pelayanan 2 terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format Berkas Pelayanan 2 Harus PDF !!',
           'ext_in' => 'Format Berkas Pelayanan 2 Harus PDF !!'
@@ -1067,8 +1148,9 @@ class PelayananSilancar extends BaseController
       ],
       // Berkas Pelayanan 3
       'berkaspelayanan3' => [
-        'rules' => 'max_size[berkaspelayanan3,2048]|mime_in[berkaspelayanan3,application/pdf]|ext_in[berkaspelayanan3,pdf]',
+        'rules' => 'uploaded[berkaspelayanan3]|max_size[berkaspelayanan3,2048]|mime_in[berkaspelayanan3,application/pdf]|ext_in[berkaspelayanan3,pdf]',
         'errors' => [
+          'uploaded' => 'Berkas Pelayanan 3 Harus Diisi !!',
           'max_size' => 'File Berkas Pelayanan 3 terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format Berkas Pelayanan 3 Harus PDF !!',
           'ext_in' => 'Format Berkas Pelayanan 3 Harus PDF !!'
@@ -1076,8 +1158,9 @@ class PelayananSilancar extends BaseController
       ],
       // Berkas Pelayanan 4
       'berkaspelayanan4' => [
-        'rules' => 'max_size[berkaspelayanan4,2048]|mime_in[berkaspelayanan4,application/pdf]|ext_in[berkaspelayanan4,pdf]',
+        'rules' => 'uploaded[berkaspelayanan4]|max_size[berkaspelayanan4,2048]|mime_in[berkaspelayanan4,application/pdf]|ext_in[berkaspelayanan4,pdf]',
         'errors' => [
+          'uploaded' => 'Berkas Pelayanan 4 Harus Diisi !!',
           'max_size' => 'File Berkas Pelayanan 4 terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format Berkas Pelayanan 4 Harus PDF !!',
           'ext_in' => 'Format Berkas Pelayanan 4 Harus PDF !!'
@@ -1094,8 +1177,9 @@ class PelayananSilancar extends BaseController
       ],
       // Berkas Pelayanan 6
       'berkaspelayanan6' => [
-        'rules' => 'max_size[berkaspelayanan6,2048]|mime_in[berkaspelayanan6,application/pdf]|ext_in[berkaspelayanan6,pdf]',
+        'rules' => 'uploaded[berkaspelayanan6]|max_size[berkaspelayanan6,2048]|mime_in[berkaspelayanan6,application/pdf]|ext_in[berkaspelayanan6,pdf]',
         'errors' => [
+          'uploaded' => 'Berkas Pelayanan 6 Harus Diisi !!',
           'max_size' => 'File Berkas Pelayanan 6 terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format Berkas Pelayanan 6 Harus PDF !!',
           'ext_in' => 'Format Berkas Pelayanan 6 Harus PDF !!'
@@ -1103,8 +1187,9 @@ class PelayananSilancar extends BaseController
       ],
       // Berkas Pelayanan 7
       'berkaspelayanan7' => [
-        'rules' => 'max_size[berkaspelayanan7,2048]|mime_in[berkaspelayanan7,application/pdf]|ext_in[berkaspelayanan7,pdf]',
+        'rules' => 'uploaded[berkaspelayanan7]|max_size[berkaspelayanan7,2048]|mime_in[berkaspelayanan7,application/pdf]|ext_in[berkaspelayanan7,pdf]',
         'errors' => [
+          'uploaded' => 'Berkas Pelayanan 7 Harus Diisi !!',
           'max_size' => 'File Berkas Pelayanan 7 terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format Berkas Pelayanan 7 Harus PDF !!',
           'ext_in' => 'Format Berkas Pelayanan 7 Harus PDF !!'
@@ -1112,8 +1197,9 @@ class PelayananSilancar extends BaseController
       ],
       // Berkas Pelayanan 8
       'berkaspelayanan8' => [
-        'rules' => 'max_size[berkaspelayanan8,2048]|mime_in[berkaspelayanan8,application/pdf]|ext_in[berkaspelayanan8,pdf]',
+        'rules' => 'uploaded[berkaspelayanan8]|max_size[berkaspelayanan8,2048]|mime_in[berkaspelayanan8,application/pdf]|ext_in[berkaspelayanan8,pdf]',
         'errors' => [
+          'uploaded' => 'Berkas Pelayanan 8 Harus Diisi !!',
           'max_size' => 'File Berkas Pelayanan 8 terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format Berkas Pelayanan 8 Harus PDF !!',
           'ext_in' => 'Format Berkas Pelayanan 8 Harus PDF !!'
@@ -1121,8 +1207,9 @@ class PelayananSilancar extends BaseController
       ],
       // Berkas Pelayanan 9
       'berkaspelayanan9' => [
-        'rules' => 'max_size[berkaspelayanan9,2048]|mime_in[berkaspelayanan9,application/pdf]|ext_in[berkaspelayanan9,pdf]',
+        'rules' => 'uploaded[berkaspelayanan9]|max_size[berkaspelayanan9,2048]|mime_in[berkaspelayanan9,application/pdf]|ext_in[berkaspelayanan9,pdf]',
         'errors' => [
+          'uploaded' => 'Berkas Pelayanan 9 Harus Diisi !!',
           'max_size' => 'File Berkas Pelayanan 9 terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format Berkas Pelayanan 9 Harus PDF !!',
           'ext_in' => 'Format Berkas Pelayanan 9 Harus PDF !!'
@@ -1130,13 +1217,14 @@ class PelayananSilancar extends BaseController
       ],
       // Berkas Pelayanan 10
       'berkaspelayanan10' => [
-        'rules' => 'max_size[berkaspelayanan10,2048]|mime_in[berkaspelayanan10,application/pdf]|ext_in[berkaspelayanan10,pdf]',
+        'rules' => 'uploaded[berkaspelayanan10]|max_size[berkaspelayanan10,2048]|mime_in[berkaspelayanan10,application/pdf]|ext_in[berkaspelayanan10,pdf]',
         'errors' => [
+          'uploaded' => 'Berkas Pelayanan 10 Harus Diisi !!',
           'max_size' => 'File Berkas Pelayanan 10 terlalu besar, Kompress terlebih dahulu !!',
           'mime_in' => 'Format Berkas Pelayanan 10 Harus PDF !!',
           'ext_in' => 'Format Berkas Pelayanan 10 Harus PDF !!'
         ]
-      ]
+      ],
 
     ])) {
       return redirect()->to(base_url() . '/PelayananSilancar/pendaftaranPelayananData/')->withInput();
@@ -1145,52 +1233,52 @@ class PelayananSilancar extends BaseController
     // Berkas Pelayanan 1
     $berkasPelayanan1 = $this->request->getFile('berkaspelayanan1');
     $namaBerkasPelayanan1 = $berkasPelayanan1->getName();
-    $berkasPelayanan1->move('pelayanan/pelayanan_data', $namaBerkasPelayanan1);
+    $berkasPelayanan1->move('pelayanan/pelayanandata', $namaBerkasPelayanan1);
 
     // Berkas Pelayanan 2
     $berkasPelayanan2 = $this->request->getFile('berkaspelayanan2');
     $namaBerkasPelayanan2 = $berkasPelayanan2->getName();
-    $berkasPelayanan2->move('pelayanan/pelayanan_data', $namaBerkasPelayanan2);
+    $berkasPelayanan2->move('pelayanan/pelayanandata', $namaBerkasPelayanan2);
 
     // Berkas Pelayanan 3
     $berkasPelayanan3 = $this->request->getFile('berkaspelayanan3');
     $namaBerkasPelayanan3 = $berkasPelayanan3->getName();
-    $berkasPelayanan3->move('pelayanan/pelayanan_data', $namaBerkasPelayanan3);
+    $berkasPelayanan3->move('pelayanan/pelayanandata', $namaBerkasPelayanan3);
 
     // Berkas Pelayanan 4
     $berkasPelayanan4 = $this->request->getFile('berkaspelayanan4');
     $namaBerkasPelayanan4 = $berkasPelayanan4->getName();
-    $berkasPelayanan4->move('pelayanan/pelayanan_data', $namaBerkasPelayanan4);
+    $berkasPelayanan4->move('pelayanan/pelayanandata', $namaBerkasPelayanan4);
 
     // Berkas Pelayanan 5
     $berkasPelayanan5 = $this->request->getFile('berkaspelayanan5');
     $namaBerkasPelayanan5 = $berkasPelayanan5->getName();
-    $berkasPelayanan5->move('pelayanan/pelayanan_data', $namaBerkasPelayanan5);
+    $berkasPelayanan5->move('pelayanan/pelayanandata', $namaBerkasPelayanan5);
 
     // Berkas Pelayanan 6
     $berkasPelayanan6 = $this->request->getFile('berkaspelayanan6');
     $namaBerkasPelayanan6 = $berkasPelayanan6->getName();
-    $berkasPelayanan6->move('pelayanan/pelayanan_data', $namaBerkasPelayanan6);
+    $berkasPelayanan6->move('pelayanan/pelayanandata', $namaBerkasPelayanan6);
 
     // Berkas Pelayanan 7
     $berkasPelayanan7 = $this->request->getFile('berkaspelayanan7');
     $namaBerkasPelayanan7 = $berkasPelayanan7->getName();
-    $berkasPelayanan7->move('pelayanan/pelayanan_data', $namaBerkasPelayanan7);
+    $berkasPelayanan7->move('pelayanan/pelayanandata', $namaBerkasPelayanan7);
 
     // Berkas Pelayanan 8
     $berkasPelayanan8 = $this->request->getFile('berkaspelayanan8');
     $namaBerkasPelayanan8 = $berkasPelayanan8->getName();
-    $berkasPelayanan8->move('pelayanan/pelayanan_data', $namaBerkasPelayanan8);
+    $berkasPelayanan8->move('pelayanan/pelayanandata', $namaBerkasPelayanan8);
 
     // Berkas Pelayanan 9
     $berkasPelayanan9 = $this->request->getFile('berkaspelayanan9');
     $namaBerkasPelayanan9 = $berkasPelayanan9->getName();
-    $berkasPelayanan9->move('pelayanan/pelayanan_data', $namaBerkasPelayanan9);
+    $berkasPelayanan9->move('pelayanan/pelayanandata', $namaBerkasPelayanan9);
 
     // Berkas Pelayanan 10
     $berkasPelayanan10 = $this->request->getFile('berkaspelayanan10');
     $namaBerkasPelayanan10 = $berkasPelayanan10->getName();
-    $berkasPelayanan10->move('pelayanan/pelayanan_data', $namaBerkasPelayanan10);
+    $berkasPelayanan10->move('pelayanan/pelayanandata', $namaBerkasPelayanan10);
 
     $this->pelayanandataModel->save([
       'namapemohon' => $this->request->getVar('namapemohon'),
@@ -1382,6 +1470,7 @@ class PelayananSilancar extends BaseController
       'emailpemohon' => $this->request->getVar('emailpemohon'),
       'nomorpemohon' => $this->request->getVar('nomorpemohon'),
       'alamatpemohon' => $this->request->getVar('alamatpemohon'),
+      'judulperbaikan' => $this->request->getVar('judulperbaikan'),
       'penjelasanperbaikan' => $this->request->getVar('penjelasanperbaikan'),
       'berkasperbaikan1' => $namaBerkasPerbaikan1,
       'berkasperbaikan2' => $namaBerkasPerbaikan2,

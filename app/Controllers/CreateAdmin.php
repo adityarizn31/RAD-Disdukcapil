@@ -182,7 +182,7 @@ class CreateAdmin extends BaseController
 
     ])) {
       // $validation = \Config\Services::validation();
-      return redirect()->to(base_url() . '/createAdmin/create_berita_admin/')->withInput();
+      return redirect()->to(base_url() . '/CreateAdmin/create_berita_admin/')->withInput();
     }
 
     // Cara Memanggil Gambar
@@ -203,7 +203,7 @@ class CreateAdmin extends BaseController
     ]);
 
     session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
-    return redirect()->to('/admin/berita_admin');
+    return redirect()->to('/Admin/berita_admin');
   }
 
 
@@ -434,5 +434,74 @@ class CreateAdmin extends BaseController
 
     session()->setFlashdata('pesan', 'Data Persyaratan Si Lancar Berhasil Ditambahkan');
     return redirect()->to('admin/persyaratansilancar_admin');
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // Form Halaman Tambah Foto Pendaftaran Kartu Keluarga
+  public function create_cardpendaftarankk_admin()
+  {
+    $data = [
+      'title' => 'Form Tambah Foto Pendaftaran KK || Admin Disdukcapil',
+      'validation' => \Config\Services::validation()
+    ];
+    return view('createAdmin/create_cardpendaftarankk_admin', $data);
+  }
+
+  // Digunakan untuk Validasi Halaman Pendaftaran KK
+  public function saveCardPendaftaranKK()
+  {
+    if (!$this->validate([
+
+      // Foto Pendaftaran KK
+      'fotopelayanan' => [
+        'rules' => 'max_size[fotopelayanan,2048]|is_image[fotopelayanan]|mime_in[fotopelayanan,image/jpg,image/jpeg,image/png]',
+        'errors' => [
+          'max_size' => 'Ukuran Foto Pendaftaran KK terlalu besar !!',
+          'is_image' => 'File Foto Pendaftaran KK harus berupa Gambar !!',
+          'mime_in' => 'Yang anda pilih bukan Gambar !!'
+        ]
+      ],
+      // Judul Pendaftaran KK
+      'judulpelayanan' => [
+        'rules' => 'required[pelayanan_kk.judulpelayanan]',
+        'errors' => [
+          'required' => 'Judul Pelayanan KK Harus Di isi !!'
+        ]
+      ]
+
+    ])) {
+      return redirect()->to(base_url() . '/CreateAdmin/create_cardpendaftarankk_admin/')->withInput();
+    }
+
+    // Cara Memanggil Gambar
+    $fileFotoPelayananKK = $this->request->getFile('fotopelayanan');
+    if ($fileFotoPelayananKK->getError() == 4) {
+      $namaFotoPelayananKK = '';
+    } else {
+      // Generate nama Foto Pelayanan
+      $namaFotoPelayananKK = $fileFotoPelayananKK->getRandomName();
+      // Memindahkan File Gambar ke Folder img/PelayananKK
+      $fileFotoPelayananKK->move('img/pelayananKK', $namaFotoPelayananKK);
+    }
+
+    $this->pelkkModel->save([
+      'judulpelayanan' => $this->request->getVar('judulpelayanan'),
+      'fotopelayanan' => $namaFotoPelayananKK
+    ]);
+    session()->setFlashdata('pesan', 'Data Pelayanan KK berhasil Di tambahkan !!');
+    return redirect()->to('/Admin/pelayanan');
   }
 }

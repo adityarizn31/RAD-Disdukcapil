@@ -8,7 +8,7 @@ class Pendaftaran_kk_Model extends Model
 {
   protected $table = 'pendaftaran_kk';
   protected $useTimeStamps = true; // Mengaktifkan Created at dan Updated at
-  protected $allowedFields = ['namapemohon', 'emailpemohon', 'nomorpemohon', 'alamatpemohon', 'formulirdesa', 'kartukeluargasuami', 'kartukeluargaistri', 'suratnikah', 'suratpindah'];
+  protected $allowedFields = ['namapemohon', 'emailpemohon', 'nomorpemohon', 'alamatpemohon', 'formulirdesa', 'kartukeluargasuami', 'kartukeluargaistri', 'suratnikah', 'suratpindah', 'status'];
 
   public function getDataKK($nama = false)
   {
@@ -21,15 +21,17 @@ class Pendaftaran_kk_Model extends Model
     return $this->where(['namapemohon' => $nama])->first();
   }
 
+  // Digunakan untuk mencari item
   public function search($keyword)
   {
     return $this->table('pendaftaran_kk')->like('namapemohon', $keyword);
   }
 
+  // Digunakan untuk mengubah Status Pendaftaran
   public function updateStatus($nama, $status)
   {
     return $this->db->table('pendaftaran_kk')
-      ->where('id', $nama)
+      ->where('namapemohon', $nama)
       ->update(['status' => $status]);
   }
 }

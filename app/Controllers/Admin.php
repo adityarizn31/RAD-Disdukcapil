@@ -13,6 +13,7 @@ use App\Models\PersyaratansilancarModel;
 // Halaman Pendaftaran Si Lancar
 
 use App\Models\Pendaftaran_kk_Model;
+use App\Models\Pendaftaran_kkperceraian_Model;
 use App\Models\Pendaftaran_kia_Model;
 use App\Models\Pendaftaran_suratperpindahan_Model;
 use App\Models\Pendaftaran_suratperpindahanluar_Model;
@@ -56,6 +57,7 @@ class Admin extends BaseController
   // Halaman Pendaftaran Si Lancar
 
   protected $kkModel;
+  protected $kkperceraianModel;
   protected $kiaModel;
   protected $suratperpindahanModel;
   protected $suratperpindahanluarModel;
@@ -99,6 +101,7 @@ class Admin extends BaseController
     // Halaman Pendaftaran Si Lancar
 
     $this->kkModel = new Pendaftaran_kk_Model();
+    $this->kkperceraianModel = new Pendaftaran_kkperceraian_Model();
     $this->kiaModel = new Pendaftaran_kia_Model();
     $this->suratperpindahanModel = new Pendaftaran_suratperpindahan_Model();
     $this->suratperpindahanluarModel = new Pendaftaran_suratperpindahanluar_Model();
@@ -142,6 +145,7 @@ class Admin extends BaseController
   public function index()
   {
     $pendaftaran_kk = $this->kkModel->findAll();
+    $pendaftaran_kk_perceraian = $this->kkperceraianModel->findAll();
     $pendaftaran_kia = $this->kiaModel->findAll();
     $pendaftaran_suratperpindahan = $this->suratperpindahanModel->findAll();
     $pendaftaran_suratperpindahanluar = $this->suratperpindahanluarModel->findAll();
@@ -154,6 +158,7 @@ class Admin extends BaseController
     $data = [
       'title' => 'Admin Disdukcapil',
       'pendaftaran_kk' => $pendaftaran_kk,
+      'pendaftaran_kk_perceraian' => $pendaftaran_kk_perceraian,
       'pendaftaran_kia' => $pendaftaran_kia,
       'pendaftaran_suratperpindahan' => $pendaftaran_suratperpindahan,
       'pendaftaran_suratperpindahanluar' => $pendaftaran_suratperpindahanluar,
@@ -263,10 +268,9 @@ class Admin extends BaseController
   public function pelayanan()
   {
     // Menghubungkan Controller Admin dengan Pelayanan
-    $pelayanan_kk = $this->pelkkModel->findAll();
+    $pelayanan_kk = $this->pelkkModel->getDataPelayananKK();
     $data = [
       'title' => 'Pelayanan Si Lancar || Disdukcapil Majalengka',
-      'pelayanan' => $this->pelayananModel->getDataPelayanan(),
       'pelayanan_kk' => $pelayanan_kk
     ];
     return view('admin/pelayanan', $data);
@@ -304,6 +308,37 @@ class Admin extends BaseController
       'currentPage' => $currentPageKK
     ];
     return view('admin/pendaftaran_kk_admin', $data);
+  }
+
+
+
+
+
+
+
+  // Menampilkan data Kartu Keluarga Perceraian pada halaman Admin
+  public function pendaftaran_kkperceraian_admin()
+  {
+    // Digunakan untuk Pagination
+    $currentPageKKPerceraian =  $this->request->getVar('page_pendaftaran_kk_perceraian') ? $this->request->getVar('page_pendaftaran_kk_perceraian') : 1;
+
+    // Digunakan untuk Pencarian Data
+    $keyword = $this->request->getVar('keyword');
+    if ($keyword) {
+      $orangKKPerceraian = $this->kkperceraianModel->search($keyword);
+    } else {
+      $orangKKPerceraian = $this->kkperceraianModel;
+    }
+
+    // Digunakan untuk menampilkan Detail data, Jumlah data per Halaman serta Halamannya
+    $data = [
+      'title' => 'Data Pendaftaran KK Perceraian || Admin Disdukcapil',
+      'pendaftaran_kk_perceraian' => $this->kkperceraianModel->getDataKKPerceraian(),
+      'pendaftaran_kk_perceraian' => $orangKKPerceraian->paginate(10, 'pendaftaran_kk_perceraian'),
+      'pager' => $this->kkperceraianModel->pager,
+      'currentPage' => $currentPageKKPerceraian
+    ];
+    return view('admin/pendaftaran_kkperceraian_admin', $data);
   }
 
 

@@ -12,7 +12,7 @@
   <div class="card mt-3 shadow border-2">
 
     <div class="d-sm-flex align-items-center justify-content-between" style="padding-top: 10px;">
-      <h6 class=" m-2 font-weight-bold text-primary">Pelayanan Persyaratan Disdukcapil Majalengka</h6>
+      <h4 class=" m-2 font-weight-bold text-primary">Pelayanan Persyaratan Disdukcapil Majalengka</h4>
     </div>
 
 
@@ -30,7 +30,7 @@
         </a>
         <div class="d-flex justify-content-center">
           <!-- Edit Button -->
-
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
         </div>
       </div>
 
@@ -45,7 +45,7 @@
         </a>
         <div class="d-flex justify-content-center">
           <!-- Edit Button -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
         </div>
       </div>
 
@@ -59,7 +59,7 @@
         </a>
         <div class="d-flex justify-content-center">
           <!-- Edit Button -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
         </div>
       </div>
 
@@ -73,7 +73,7 @@
         </a>
         <div class="d-flex justify-content-center">
           <!-- Edit Button -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
         </div>
       </div>
 
@@ -87,7 +87,7 @@
         </a>
         <div class="d-flex justify-content-center">
           <!-- Edit Button -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
         </div>
       </div>
 
@@ -101,7 +101,7 @@
         </a>
         <div class="d-flex justify-content-center">
           <!-- Edit Button -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
         </div>
       </div>
 
@@ -115,7 +115,7 @@
         </a>
         <div class="d-flex justify-content-center">
           <!-- Edit Button -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
         </div>
       </div>
 
@@ -129,7 +129,7 @@
         </a>
         <div class="d-flex justify-content-center">
           <!-- Edit Button -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
         </div>
       </div>
 
@@ -143,7 +143,7 @@
         </a>
         <div class="d-flex justify-content-center">
           <!-- Edit Button -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Modal"> Edit</button>
         </div>
       </div>
 
